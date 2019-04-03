@@ -1,0 +1,103 @@
+Sprite player
+R	G	B
+255	255	163	177
+Animation Count
+9
+
+
+Name
+Stand
+Frame Count
+1
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+0			0			17				32				0			0
+
+
+Name
+Run
+Frame Count
+3
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+17			1			20				31				0			0
+37			1			22				31				0			0
+59			1			20				31				0			0
+
+
+Name
+Climb
+Frame Count
+2
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+79			1			16				31				0			0
+95			3			16				29				0			0
+
+
+Name
+Attack
+Frame Count
+3
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+111			1			18				31				0			0
+129			3			40				29				0			0
+169			3			29				29				0			0
+
+
+Name
+Shuriken
+Frame Count
+3
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+198			1			18				31				0			0
+216			3			26				29				0			0
+242			3			26				29				0			0
+
+
+Name
+Sit
+Frame Count
+1
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+268			8			17				24				0			0
+
+
+Name
+SitAttack
+Frame Count
+3
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+285			9			18				23				0			0
+303			9			39				23				0			0
+342			9			29				23				0			0
+
+
+Name
+Roll
+Frame Count
+4
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+371			10			16				22				0			0
+387			16			22				16				0			0
+409			10			16				22				0			0
+425			16			22				16				0			0
+
+
+Name
+RollAttack
+Frame Count
+4
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+447			7			24				25				0			0
+471			8			25				24				0			0
+496			7			24				25				0			0
+520			8			25				24				0			0
+
+
