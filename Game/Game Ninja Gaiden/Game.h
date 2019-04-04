@@ -6,6 +6,8 @@
 #include"FrameAnimation.h"
 #include"Animation.h"
 #include"Sprite.h"
+#include"Camera.h"
+#include"GameDirectX.h"
 class Game
 {
 	/* singleton pattern */
@@ -22,6 +24,11 @@ class Game
 	
 	/* sprite */
 	Sprite sprite;
+
+	int x, y;
+
+	GameTexture bg;
+	//Camera* camera;
 
 public:
 	static Game* getInstance();

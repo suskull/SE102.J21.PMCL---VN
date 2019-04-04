@@ -35,6 +35,16 @@ void GameTexture::Init(const char* filepath, D3DCOLOR transColor)
 		return;
 }
 
+DIRECTION GameTexture::getDirection()
+{
+	return direction;
+}
+
+void GameTexture::setDirection(DIRECTION direction)
+{
+	this->direction = direction;
+}
+
 void GameTexture::Render(int x, int y, int anchorX, int anchorY, RECT *r )
 {
 	GameDirectX::getInstance()->GetSprite()->Draw(m_image,

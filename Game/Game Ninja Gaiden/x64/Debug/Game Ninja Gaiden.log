@@ -1,25 +1,3 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(411,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (SourceGame.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  Animation.cpp
   Game.cpp
-  GameConfiguration.cpp
-  GameDirectX.cpp
-D:\huong_dan\src\3.3.tao_animation_bang_tool.SourceGame\Game Ninja Gaiden\GameDirectX.cpp(39): warning C4244: '=': conversion from 'double' to 'UINT', possible loss of data
-D:\huong_dan\src\3.3.tao_animation_bang_tool.SourceGame\Game Ninja Gaiden\GameDirectX.cpp(40): warning C4244: '=': conversion from 'double' to 'UINT', possible loss of data
-D:\huong_dan\src\3.3.tao_animation_bang_tool.SourceGame\Game Ninja Gaiden\GameDirectX.cpp(144): warning C4267: 'argument': conversion from 'size_t' to 'INT', possible loss of data
-  GameTexture.cpp
-D:\huong_dan\src\3.3.tao_animation_bang_tool.SourceGame\Game Ninja Gaiden\GameTexture.cpp(42): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-D:\huong_dan\src\3.3.tao_animation_bang_tool.SourceGame\Game Ninja Gaiden\GameTexture.cpp(43): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-  GameTime.cpp
-  GameUtils.cpp
-  Sprite.cpp
-  WindowGame.cpp
-D:\huong_dan\src\3.3.tao_animation_bang_tool.SourceGame\Game Ninja Gaiden\WindowGame.cpp(37): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-D:\huong_dan\src\3.3.tao_animation_bang_tool.SourceGame\Game Ninja Gaiden\WindowGame.cpp(56): warning C4101: 'hdc': unreferenced local variable
-D:\huong_dan\src\3.3.tao_animation_bang_tool.SourceGame\Game Ninja Gaiden\WindowGame.cpp(55): warning C4101: 'ps': unreferenced local variable
-D:\huong_dan\src\3.3.tao_animation_bang_tool.SourceGame\Game Ninja Gaiden\WindowGame.cpp(54): warning C4101: 'wmEvent': unreferenced local variable
-D:\huong_dan\src\3.3.tao_animation_bang_tool.SourceGame\Game Ninja Gaiden\WindowGame.cpp(54): warning C4101: 'wmId': unreferenced local variable
-  Main.cpp
-D:\huong_dan\src\3.3.tao_animation_bang_tool.SourceGame\Game Ninja Gaiden\Main.cpp(19): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-D:\huong_dan\src\3.3.tao_animation_bang_tool.SourceGame\Game Ninja Gaiden\Main.cpp(29): warning C4244: 'initializing': conversion from 'double' to 'DWORD', possible loss of data
-  Generating Code...
-  Game Ninja Gaiden.vcxproj -> D:\huong_dan\src\3.3.tao_animation_bang_tool.SourceGame\x64\Debug\Game Ninja Gaiden.exe
+  Game Ninja Gaiden.vcxproj -> C:\Users\TanDai\Desktop\SE102.J21.PMCL---VN\Game\x64\Debug\Game Ninja Gaiden.exe

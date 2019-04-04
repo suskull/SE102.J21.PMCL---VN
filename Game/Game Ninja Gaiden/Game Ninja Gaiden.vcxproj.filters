@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Animation.cpp">
+      <Filter>Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="GameTexture.cpp">
+      <Filter>Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="GameConfiguration.cpp">
+      <Filter>Configuration</Filter>
+    </ClCompile>
+    <ClCompile Include="GameDirectX.cpp">
+      <Filter>GameDirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowGame.cpp">
+      <Filter>WindowGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameTime.cpp">
+      <Filter>GameTime</Filter>
+    </ClCompile>
+    <ClCompile Include="GameUtils.cpp">
+      <Filter>GameUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="Rect.cpp" />
+    <ClCompile Include="KEY.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="PhysicsBox.cpp" />
+    <ClCompile Include="BaseObject.cpp" />
+    <ClCompile Include="MovableObject.cpp" />
+    <ClCompile Include="Player.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Animation.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTexture.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="FrameAnimation.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="GameConfiguration.h">
+      <Filter>Configuration</Filter>
+    </ClInclude>
+    <ClInclude Include="GameDirectX.h">
+      <Filter>GameDirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTime.h">
+      <Filter>GameTime</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowGame.h">
+      <Filter>WindowGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameUtils.h">
+      <Filter>GameUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="List.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Rect.h" />
+    <ClInclude Include="KEY.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="PhysicsBox.h" />
+    <ClInclude Include="BaseObject.h" />
+    <ClInclude Include="MovableObject.h" />
+    <ClInclude Include="Player.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Animation">
+      <UniqueIdentifier>{222ce3f7-f4e6-43bb-8406-9306b4af105e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Configuration">
+      <UniqueIdentifier>{21aafae7-cf91-4fec-b294-838148d0bf1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameDirectX">
+      <UniqueIdentifier>{07cc1e23-e777-4a58-af3d-8497a6384ecc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameTime">
+      <UniqueIdentifier>{bc5e7919-c6dc-474e-8ec8-573755040adf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WindowGame">
+      <UniqueIdentifier>{2cd5f6e3-8bf2-4b12-980a-8ff7280190bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{20f8b079-5dc5-4f79-816e-9a67234466e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameUtils">
+      <UniqueIdentifier>{670430ed-63a2-4900-a883-87c69999781d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

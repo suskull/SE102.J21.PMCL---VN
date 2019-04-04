@@ -3,7 +3,7 @@
 
 #include"GameDirectX.h"
 
-enum TEXTURE_DIRECTION
+enum DIRECTION
 {
 	TEXTURE_DIRECTION_LEFT = -1,
 	TEXTURE_DIRECTION_RIGHT = 1
@@ -20,7 +20,7 @@ public:
 
 	int Width, Height;
 	/* Hướng mặc định của texture */
-	TEXTURE_DIRECTION direction;
+	DIRECTION direction;
 
 	GameTexture(const char* filepath, D3DCOLOR transColor = 0);
 
@@ -37,7 +37,8 @@ public:
 	anchorX : điểm neo x
 	anchorY : điểm neo y
 	*/
-
+	DIRECTION getDirection();
+	void setDirection(DIRECTION direction);
 	void Render(int x, int y, int anchorX, int anchorY, RECT *r = 0);
 	~GameTexture();
 };

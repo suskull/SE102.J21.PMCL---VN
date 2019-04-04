@@ -130,6 +130,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
+    <ClInclude Include="BaseObject.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="FrameAnimation.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameConfiguration.h" />
@@ -137,18 +139,30 @@
     <ClInclude Include="GameTexture.h" />
     <ClInclude Include="GameTime.h" />
     <ClInclude Include="GameUtils.h" />
+    <ClInclude Include="KEY.h" />
     <ClInclude Include="List.h" />
+    <ClInclude Include="MovableObject.h" />
+    <ClInclude Include="PhysicsBox.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Rect.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="WindowGame.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
+    <ClCompile Include="BaseObject.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameConfiguration.cpp" />
     <ClCompile Include="GameDirectX.cpp" />
     <ClCompile Include="GameTexture.cpp" />
     <ClCompile Include="GameTime.cpp" />
     <ClCompile Include="GameUtils.cpp" />
+    <ClCompile Include="KEY.cpp" />
+    <ClCompile Include="MovableObject.cpp" />
+    <ClCompile Include="PhysicsBox.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Rect.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="WindowGame.cpp" />
     <ClCompile Include="Main.cpp" />
