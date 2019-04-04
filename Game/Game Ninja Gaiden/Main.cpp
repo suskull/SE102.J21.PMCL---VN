@@ -40,8 +40,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		DWORD deltaTime = now - startTime;
 		if (deltaTime >= timePerFrame)
 		{
-
-			Game::getInstance()->GameUpdate();
+			float time = deltaTime / 1000.0f;
+			Game::getInstance()->GameUpdate(time);
 
 			startTime = now;
 			if (PeekMessage(&msg, 0, 0, 0, PM_REMOVE))
@@ -49,7 +49,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 				TranslateMessage(&msg);
 				DispatchMessage(&msg);
 			}
-			float time = deltaTime / 1000.0f;
 			GameDirectX::getInstance()->BeginGraphics();//bat dau ve len backbuffer
 
 			Game::getInstance()->GameRender();

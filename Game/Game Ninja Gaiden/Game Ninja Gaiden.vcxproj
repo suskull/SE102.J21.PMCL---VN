@@ -146,6 +146,8 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Rect.h" />
     <ClInclude Include="Sprite.h" />
+    <ClInclude Include="SpriteManager.h" />
+    <ClInclude Include="SwordMan.h" />
     <ClInclude Include="WindowGame.h" />
   </ItemGroup>
   <ItemGroup>
@@ -164,6 +166,8 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Rect.cpp" />
     <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="SpriteManager.cpp" />
+    <ClCompile Include="SwordMan.cpp" />
     <ClCompile Include="WindowGame.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>

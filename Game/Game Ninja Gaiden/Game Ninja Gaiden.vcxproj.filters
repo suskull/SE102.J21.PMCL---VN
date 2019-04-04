@@ -31,13 +31,27 @@
     <ClCompile Include="GameUtils.cpp">
       <Filter>GameUtils</Filter>
     </ClCompile>
-    <ClCompile Include="Rect.cpp" />
-    <ClCompile Include="KEY.cpp" />
     <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="PhysicsBox.cpp" />
-    <ClCompile Include="BaseObject.cpp" />
-    <ClCompile Include="MovableObject.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="KEY.cpp">
+      <Filter>KEY</Filter>
+    </ClCompile>
+    <ClCompile Include="MovableObject.cpp">
+      <Filter>Shape and Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsBox.cpp">
+      <Filter>Shape and Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Rect.cpp">
+      <Filter>Shape and Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseObject.cpp">
+      <Filter>Shape and Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteManager.cpp">
+      <Filter>SpriteManager</Filter>
+    </ClCompile>
+    <ClCompile Include="SwordMan.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -73,13 +87,27 @@
     <ClInclude Include="List.h">
       <Filter>Animation</Filter>
     </ClInclude>
-    <ClInclude Include="Rect.h" />
-    <ClInclude Include="KEY.h" />
     <ClInclude Include="Camera.h" />
-    <ClInclude Include="PhysicsBox.h" />
-    <ClInclude Include="BaseObject.h" />
-    <ClInclude Include="MovableObject.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="KEY.h">
+      <Filter>KEY</Filter>
+    </ClInclude>
+    <ClInclude Include="MovableObject.h">
+      <Filter>Shape and Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsBox.h">
+      <Filter>Shape and Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Rect.h">
+      <Filter>Shape and Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseObject.h">
+      <Filter>Shape and Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteManager.h">
+      <Filter>SpriteManager</Filter>
+    </ClInclude>
+    <ClInclude Include="SwordMan.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Animation">
@@ -102,6 +130,15 @@
     </Filter>
     <Filter Include="GameUtils">
       <UniqueIdentifier>{670430ed-63a2-4900-a883-87c69999781d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KEY">
+      <UniqueIdentifier>{d4319b8f-1964-43b6-bd3b-266a0a2c5cb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shape and Objects">
+      <UniqueIdentifier>{e774adac-4509-4563-ac50-08b8f318719f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SpriteManager">
+      <UniqueIdentifier>{6af77baa-47c5-4f87-93b1-aeadc8dc2fe5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -1,5 +1,5 @@
 #include "Player.h"
-
+#include"SpriteManager.h"
 
 Player* Player::instance = 0;
 Player* Player::getInstance()
@@ -11,6 +11,8 @@ Player* Player::getInstance()
 
 Player::Player()
 {
+	setSprite(SPR(SPRITE_PLAYER));
+	//this->setInterval(100);
 }
 
 

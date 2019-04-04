@@ -3,12 +3,22 @@
 
 void BaseObject::update(float dt)
 {
-	if (sprite == 0)
-		return;
-	if (!isAlive())
-		return;
+	
+	/*setIsLastFrame(false);
 
-	//PhysicsBox::update();
+	if (!pauseAnimation && getSprite() != NULL)
+	{
+		if (animationDelay->atTime())
+		{
+			sprite->update(actionIndex, actionFrameIndex);
+			if (actionFrameIndex == 0)
+			{
+				sprite->update(actionIndex, actionFrameIndex);
+				setIsLastFrame(true);
+			}
+		}
+		
+	}*/
 }
 
 void BaseObject::performUpdate(float dt)
@@ -24,6 +34,7 @@ void BaseObject::performUpdate(float dt)
 
 void BaseObject::render()
 {
+	sprite->render(getX(), getY(), actionIndex, actionFrameIndex);
 	/*if (sprite == 0)
 		return;
 	if (!isAlive())
@@ -159,13 +170,12 @@ bool BaseObject::getRenderActive()
 
 void BaseObject::setInterval(int interval)
 {
-	//this->animationDelay->setTimeDelay(interval);
+	this->animationDelay->init(interval);
 }
 
 int BaseObject::getInterval()
 {
-	//return this->animationDelay->getTimeDelay();
-	return 100;
+	return this->animationDelay->getTickPerFrame();
 }
 
 Rect* BaseObject::getInitBox()

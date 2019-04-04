@@ -34,9 +34,9 @@ void MovableObject::onCollision(PhysicsBox* other, int nx, int ny, float collisi
 void MovableObject::update(float dt)
 {
 	BaseObject::update(dt);
-	this->dt = dt;
-	setIsOnGround(false);
-	updatePhysics(dt);
+	//this->dt = dt;
+	//setIsOnGround(false);
+	//updatePhysics(dt);
 }
 
 bool MovableObject::isOnGround()

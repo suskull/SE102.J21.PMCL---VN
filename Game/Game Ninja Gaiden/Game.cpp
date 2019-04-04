@@ -1,7 +1,6 @@
 #include "Game.h"
 #include"KEY.h"
 #include"Player.h"
-/* singleton pattern */
 Game * Game::instance = 0;
 Game * Game::getInstance()
 {
@@ -10,38 +9,30 @@ Game * Game::getInstance()
 	return instance;
 }
 
-/* Các câu lệnh khởi tạo game */
 void Game::GameInit()
 {
-	/* khởi tạo sprite bằng file */
-	sprite.InitFromFile("resource/tool/player/image.png", "resource/tool/player/player.info.dat");
-	//Player::getInstance()->setSprite(sprite);
-	//Player::getInstance();
+	Player::getInstance()->set(52, 350, 16, 30);
+	swordman = new SwordMan();
+	swordman->set(200, 350, 16, 30);
 	bg.Init("resource/map/Stage3-1.png");
-	//sprite.InitFromFile
 
-	/* cho khung hình hiện tại là 0 */
 	currentIndex = 0;
-	currentAnimation = 1;
+	currentAnimation = 3;
 
 
-	/* khởi tạo thời gian làm chậm cỡ 1s (100 ms)*/
 	timeDelay.init(100);
 
 	x = 20, y = 30;
-	//camera = new Camera(512, 448, 0, DirectX::XMFLOAT3(1.0f, 1.0f, 1.0f));
 }
-/* Các câu lệnh cập nhật game */
-void Game::GameUpdate()
+void Game::GameUpdate(float dt)
 {
 	KEY::getInstance()->update();
-	//camera->Update(Player::getInstance());
-	/* Cập nhật sprite	*/
-	/* Set ràng buộc thời gian */
+
 	if (timeDelay.atTime())
 	{
-		//Player::getInstance()->getSprite()->update(currentAnimation, currentIndex);
-		sprite.update(currentAnimation, currentIndex);
+		//Player::getInstance()->update(dt);
+		Player::getInstance()->getSprite()->update(currentAnimation, currentIndex);
+		swordman->getSprite()->update(0,currentIndex);
 	}
 	if (KEY::getInstance()->isLeftDown)
 	{
@@ -59,17 +50,15 @@ void Game::GameUpdate()
 	{
 		y++;
 	}
+	
 }
-/* Các câu lệnh vẽ của game */
 void Game::GameRender()
 {
 	RECT rect;
 	SetRect(&rect, 0, 0, 300, 400);
 	bg.Render(10, 10, 0, 0, &rect);
-	/* vẽ sprite tại vị trí 10,10 */
-	//Player::getInstance()->getSprite()->render(x, y, currentAnimation, currentIndex);
-	sprite.render(x, y, currentAnimation, currentIndex);
-	//camera->SetTransform(GameDirectX::getInstance()->GetDevice());
+	Player::getInstance()->getSprite()->render(x, y, currentAnimation, currentIndex);
+	swordman->getSprite()->render(100, 100, 0, currentIndex);
 }
 
 Game::Game()

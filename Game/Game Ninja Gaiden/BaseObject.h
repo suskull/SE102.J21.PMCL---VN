@@ -33,7 +33,7 @@ private:
 
 	
 public:
-	void update(float dt);
+	virtual void update(float dt);
 	Sprite* getSprite();
 	void setSprite(Sprite* sprite);
 	// hanh dong hien tai
