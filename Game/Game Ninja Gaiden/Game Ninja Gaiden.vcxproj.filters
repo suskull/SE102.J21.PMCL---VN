@@ -52,6 +52,9 @@
       <Filter>SpriteManager</Filter>
     </ClCompile>
     <ClCompile Include="SwordMan.cpp" />
+    <ClCompile Include="Collision.cpp">
+      <Filter>Collision</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -108,6 +111,9 @@
       <Filter>SpriteManager</Filter>
     </ClInclude>
     <ClInclude Include="SwordMan.h" />
+    <ClInclude Include="Collision.h">
+      <Filter>Collision</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Animation">
@@ -139,6 +145,9 @@
     </Filter>
     <Filter Include="SpriteManager">
       <UniqueIdentifier>{6af77baa-47c5-4f87-93b1-aeadc8dc2fe5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Collision">
+      <UniqueIdentifier>{fca99328-6d83-4582-ac4e-5852257d4b66}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

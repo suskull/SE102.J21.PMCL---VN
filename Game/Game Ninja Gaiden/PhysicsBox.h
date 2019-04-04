@@ -29,9 +29,10 @@ public:
 
 	bool isPhysicsEnable();
 	void setPhysicsEnable(bool physicsEnable);
-
 	void updatePhysics(float dt);
 
+	virtual void onCollision(PhysicsBox* other, float collisionTime, int nx, int ny);
+	void preventMovementWhenCollision(float collisionTime, int nx, int ny);
 	PhysicsBox();
 	~PhysicsBox();
 };

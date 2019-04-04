@@ -3,7 +3,8 @@
 
 void BaseObject::update(float dt)
 {
-	
+	PhysicsBox::moveX(this->getDx());
+	PhysicsBox::moveY(this->getDy());
 	/*setIsLastFrame(false);
 
 	if (!pauseAnimation && getSprite() != NULL)

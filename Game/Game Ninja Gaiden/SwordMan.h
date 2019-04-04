@@ -5,6 +5,8 @@ class SwordMan
 	: public MovableObject
 {
 public:
+	void onCollision(PhysicsBox* other, float collisionTime, int nx, int ny) override;
+
 	SwordMan();
 	~SwordMan();
 };

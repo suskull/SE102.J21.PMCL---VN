@@ -17,6 +17,7 @@ double GameConfiguration::GetConfiguration(const char * key)
 		globalsConfigurationDouble->insert(pair<const char*, double>("backbuffer_height", 224));
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("fps", 70));
+		globalsConfigurationDouble->insert(pair<const char*, double>("player_vx", 160));
 
 
 	}

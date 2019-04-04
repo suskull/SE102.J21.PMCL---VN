@@ -11,9 +11,10 @@ Game * Game::getInstance()
 
 void Game::GameInit()
 {
-	Player::getInstance()->set(52, 350, 16, 30);
+	Player* player = Player::getInstance();
+	player->set(111, 0, 16, 30);
 	swordman = new SwordMan();
-	swordman->set(200, 350, 16, 30);
+	swordman->set(0, 0, 17, 30);
 	bg.Init("resource/map/Stage3-1.png");
 
 	currentIndex = 0;
@@ -27,38 +28,50 @@ void Game::GameInit()
 void Game::GameUpdate(float dt)
 {
 	KEY::getInstance()->update();
-
+	Player* player = Player::getInstance();
 	if (timeDelay.atTime())
 	{
 		//Player::getInstance()->update(dt);
 		Player::getInstance()->getSprite()->update(currentAnimation, currentIndex);
 		swordman->getSprite()->update(0,currentIndex);
 	}
+
+	float vx = GLOBALS_D("player_vx");
 	if (KEY::getInstance()->isLeftDown)
 	{
-		x--;
+		player->setVx(-vx);
 	}
-	if (KEY::getInstance()->isRightDown)
+	else if (KEY::getInstance()->isRightDown)
 	{
-		x++;
+		player->setVx(vx);
 	}
-	if (KEY::getInstance()->isUpDown)
+	else if (KEY::getInstance()->isUpDown)
 	{
-		y--;
+		player->setVy(-vx);
 	}
-	if (KEY::getInstance()->isDownDown)
+	else if (KEY::getInstance()->isDownDown)
 	{
-		y++;
+		player->setVy(vx);
 	}
+	else
+	{
+		player->setVx(0);
+		player->setVy(0);
+	}
+	player->setDx(player->getVx() * dt);
+	player->setDy(player->getVy() * dt);
+	Collision::CheckCollision(player, swordman);
+	player->update(dt);
 	
 }
 void Game::GameRender()
 {
 	RECT rect;
 	SetRect(&rect, 0, 0, 300, 400);
-	bg.Render(10, 10, 0, 0, &rect);
-	Player::getInstance()->getSprite()->render(x, y, currentAnimation, currentIndex);
-	swordman->getSprite()->render(100, 100, 0, currentIndex);
+	bg.Render(0, 0, 0, 0, &rect);
+	Player* player = Player::getInstance();
+	player->getSprite()->render(player->getX(), player->getY(), currentAnimation, currentIndex);
+	swordman->getSprite()->render(swordman->getX(), swordman->getY(), 0, currentIndex);
 }
 
 Game::Game()

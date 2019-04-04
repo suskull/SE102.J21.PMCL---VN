@@ -10,7 +10,7 @@ public:
 	float getDt();
 	void setIsOnGround(bool onGround);
 	void onCollision(PhysicsBox* other, int nx, int ny, float collisionTime);
-	void update(float dt);
+	virtual void update(float dt) override;
 	bool isOnGround();
 	MovableObject();
 	~MovableObject();

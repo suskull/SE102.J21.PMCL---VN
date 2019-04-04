@@ -1,4 +1,4 @@
-#include "PhysicsBox.h"
+﻿#include "PhysicsBox.h"
 
 PhysicsBox::PhysicsBox()
 {
@@ -94,11 +94,29 @@ void PhysicsBox::updatePhysics(float dt)
 {
 	if (isPhysicsEnable())
 	{
-		setVx(getVx() + getAx() * dt);
-		setVy(getVy() + getAy() * dt);
+		//setVx(getVx() + getAx() * dt);
+		//setVy(getVy() + getAy() * dt);
 		setDx(getVx() * dt);
 		setDy(getVy() * dt);
 	}
+}
+
+void PhysicsBox::onCollision(PhysicsBox* other, float collisionTime, int nx, int ny)
+{
+	preventMovementWhenCollision(collisionTime, nx, ny);
+}
+
+void PhysicsBox::preventMovementWhenCollision(float collisionTime, int nx, int ny)
+{
+	if (nx != 0)
+	{
+		setDx(collisionTime * getDx());
+	}
+	if (ny != 0)
+	{
+		setDy(collisionTime * getDy());
+	}
+	
 }
 
 

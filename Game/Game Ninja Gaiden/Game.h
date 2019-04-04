@@ -10,6 +10,7 @@
 #include"GameDirectX.h"
 #include"SpriteManager.h"
 #include"SwordMan.h"
+#include"Collision.h"
 class Game
 {
 	/* singleton pattern */
