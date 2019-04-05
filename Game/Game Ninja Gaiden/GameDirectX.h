@@ -6,12 +6,11 @@
 #include"GameConfiguration.h"
 #include"WindowGame.h"
 
-/* Hướng dẫn Xem hướng dẫn về directx phần này không quan trọng*/
 class GameDirectX
 {
 private:
-	LPDIRECT3DDEVICE9 d3ddv;// Cong cu load hinh ve hinh ve surface
-	LPDIRECT3DSURFACE9 backBuffer;// Bo nho tam
+	LPDIRECT3DDEVICE9 d3ddv;
+	LPDIRECT3DSURFACE9 backBuffer;
 	LPD3DXSPRITE sprite;
 	HWND hWnd;
 	static GameDirectX* instance;

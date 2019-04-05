@@ -13,18 +13,13 @@ GameTime::GameTime(DWORD tickPerFrame)
 
 bool GameTime::atTime()
 {
-	/* Lấy thời gian hiện tại */
 	DWORD now = GetTickCount();
-	/* Tính thời gian từ bây giờ tới lúc bắt đầu */
 	deltaTime = now - startTime;
-	/* Nếu khoảng thời gian đó lớn hơn thời gian cho trước */
 	if(deltaTime>=tickPerFrame)
 	{
 		startTime = GetTickCount();
-		/* Trả ra kết quả đúng */
 		return true;
 	}
-	/* Chưa tới thời gian trả ra kết quả sai */
 	return false;
 }
 

@@ -1,97 +1,8 @@
-#include "BaseObject.h"
+﻿#include "BaseObject.h"
 
-
-void BaseObject::update(float dt)
+void BaseObject::setSprite(Sprite* sprite)
 {
-	PhysicsBox::moveX(this->getDx());
-	PhysicsBox::moveY(this->getDy());
-	/*setIsLastFrame(false);
-
-	if (!pauseAnimation && getSprite() != NULL)
-	{
-		if (animationDelay->atTime())
-		{
-			sprite->update(actionIndex, actionFrameIndex);
-			if (actionFrameIndex == 0)
-			{
-				sprite->update(actionIndex, actionFrameIndex);
-				setIsLastFrame(true);
-			}
-		}
-		
-	}*/
-}
-
-void BaseObject::performUpdate(float dt)
-{
-	if (!isAlive())
-		return;
-
-	updateAnimation();
-
-	//updateLocation();
-	update(dt);
-}
-
-void BaseObject::render()
-{
-	sprite->render(getX(), getY(), actionIndex, actionFrameIndex);
-	/*if (sprite == 0)
-		return;
-	if (!isAlive())
-		return;
-	if (!getRenderActive())
-		return;
-	int xV, yV;
-	Camera::getInstance()->getWorldToViewLocation(getX(), getY(), xV, yV);
-	xV -= (getCurrentFrameWidth() - getWidth()) / 2;
-	yV -= (getCurrentFrameHeight() - getHeight()) / 2;
-
-	if (direction != sprite->img->direction)
-	{
-		D3DXMATRIX flipMatrix;
-		D3DXMatrixIdentity(&flipMatrix);
-		flipMatrix._11 = -1;
-		flipMatrix._41 = 2 * (xV + getCurrentFrameWidth() / 2);
-		DirectXTool::getInstance()->GetSprite()->SetTransform(&flipMatrix);
-	}
-
-	this->sprite->render(xV, yV, actionIndex, actionFrameIndex);
-	if (direction != sprite->img->direction)
-	{
-		D3DXMATRIX identityMatrix;
-		D3DXMatrixIdentity(&identityMatrix);
-		DirectXTool::getInstance()->GetSprite()->SetTransform(&identityMatrix);
-	}*/
-}
-
-void BaseObject::onLastFrameAnimation()
-{
-}
-
-
-int BaseObject::distanceHorToFirstLocation()
-{
-	return abs(this->getMidX() - initBox->getMidX());
-}
-
-
-BaseObject::BaseObject()
-{
-	sprite = 0;
-	actionIndex = 0;
-	actionFrameIndex = 0;
-	animationDelay = new GameTime();
-	//setInterval(getGlobalValue("object_animation_interval"));
-	setAlive(true);
-	setRenderActive(true);
-	setIsLastFrame(false);
-
-}
-
-
-BaseObject::~BaseObject()
-{
+	this->sprite = sprite;
 }
 
 Sprite* BaseObject::getSprite()
@@ -99,156 +10,150 @@ Sprite* BaseObject::getSprite()
 	return this->sprite;
 }
 
-void BaseObject::setSprite(Sprite * sprite)
+bool BaseObject::getPauseAnimation()
 {
-	this->sprite = sprite;
+	return pauseAnimation;
 }
-
-int BaseObject::getAction()
-{
-	return actionIndex;
-}
-
-int BaseObject::getActionFrameIndex()
-{
-	return actionFrameIndex;
-}
-
-int BaseObject::getCurrentFrameWidth()
-{
-	//return getSprite()->getFrameWidth(actionIndex, actionFrameIndex);
-	return 20;
-}
-
-int BaseObject::getCurrentFrameHeight()
-{
-	//return  getSprite()->getFrameHeight(actionIndex, actionFrameIndex);
-	return 20;
-}
-
-void BaseObject::setAction(int actionIndex)
-{
-	if (this->actionIndex != actionIndex)
-	{
-		this->actionIndex = actionIndex;
-		this->actionFrameIndex = 0;
-	}
-}
-
-void BaseObject::setActionFrameIndex(int actionFrameIndex)
-{
-	this->actionFrameIndex = actionFrameIndex;
-}
-
-void BaseObject::updateAnimation()
-{
-	//if (sprite != 0)
-	//{
-	//	// truoc khi update frame
-	//	int previousActionFrameIndex = actionFrameIndex;
-	//	if (animationDelay->atTime())
-	//	{
-	//		this->sprite->update(actionIndex, actionFrameIndex);
-
-	//	}
-	//	setIsLastFrame(false);
-	//	if (actionFrameIndex == 0 && previousActionFrameIndex == sprite->anims[getAction()].frameCount - 1)
-	//	{
-	//		setIsLastFrame(true);
-	//		onLastFrameAnimation();
-	//	}
-	//}
-}
-
-void BaseObject::setRenderActive(bool renderActive)
-{
-	this->renderActive = renderActive;
-}
-bool BaseObject::getRenderActive()
-{
-	return this->renderActive;
-}
-
-void BaseObject::setInterval(int interval)
-{
-	this->animationDelay->init(interval);
-}
-
-int BaseObject::getInterval()
-{
-	return this->animationDelay->getTickPerFrame();
-}
-
-Rect* BaseObject::getInitBox()
-{
-	return initBox;
-}
-
-void BaseObject::setInitBox(Rect * initBox)
-{
-	this->initBox = initBox;
-}
-
-void BaseObject::restoreLocation()
-{
-	set(initBox->getX(), initBox->getY(), initBox->getWidth(), initBox->getHeight());
-	setAlive(true);
-}
-
-
-
-
 
 void BaseObject::setPauseAnimation(bool pauseAnimation)
 {
 	this->pauseAnimation = pauseAnimation;
 }
 
-bool BaseObject::isPauseAnimation()
+bool BaseObject::getIsLastFrameAnimationDone()
 {
-	return pauseAnimation;
+	return isLastFrameAnimationDone;
 }
 
-bool BaseObject::isAlive()
+void BaseObject::setIsLastFrameAnimationDone(bool isLastFrameAnimationDone)
 {
-	return alive;
+	this->isLastFrameAnimationDone = isLastFrameAnimationDone;
 }
 
-void BaseObject::setAlive(bool alive)
+//void BaseObject::onInitFromFile(ifstream& fs, int mapHeight)
+//{
+//	int collisionType, x, y, width, height;
+//	/* đọc collision type x y width height từ file. collision_type thì sẽ học ở bài sau */
+//	fs >> collisionType >> x >> y >> width >> height;
+//	/* do y của đối tượng trong file là tọa độ hướng từ trên xuống
+//	Nhưng y của game chúng ta làm thì gốc tọa độ bên dưới nên ta chuyển nó về cho đúng tọa độ logic */
+//	y = mapHeight - y;
+//	/* khởi tạo x y width height cho đối tượng */
+//	set(x, y, width, height);
+//}
+
+void BaseObject::update(float dt)
 {
-	this->alive = alive;
+	goX();
+	goY();
+
+	///* mặc định đây không phải là frame cuối đã hoàn thành */
+	//setIsLastFrameAnimationDone(false);
+
+	///* nếu đối tượng này có hình và không bị pauseAnimation thì ta cập nhật animation cho nó */
+	//if (!pauseAnimation && getSprite() != NULL)
+	//{
+	//	if (animationGameTime.atTime())
+	//	{
+	//		/* cập nhật animation cho đối tượng */
+	//		sprite->update(animationIndex, frameIndex);
+	//		if (frameIndex == 0)
+	//		{
+	//			/* nếu frame cuối đã chạy thì sau khi cập nhật frameIndex sẽ là 0 */
+	//			setIsLastFrameAnimationDone(true);
+	//		}
+	//	}
+	//}
+
+	onUpdate(dt);
 }
 
-
-bool BaseObject::getIsLastFrame()
+void BaseObject::onUpdate(float dt)
 {
-	return this->isLastFrame;
-}
-void BaseObject::setIsLastFrame(bool isLastFrame)
-{
-	this->isLastFrame = isLastFrame;
+	setPauseAnimation(false);
 }
 
-bool BaseObject::canCollision()
+void BaseObject::render()
 {
-	return isAlive();
+	sprite->render(getX(), getY(), animationIndex, frameIndex);
+	//if (getSprite() == 0)
+	//	return;
+	//float xView, yView;
+	///* tính tọa độ view để vẽ đối tượng lên màn hình */
+	//camera->convertWorldToView(getX(), getY(), xView, yView);
+
+	///* hướng mặt mặc định của bức hình */
+	//TEXTURE_DIRECTION imageDirection = sprite->image->direction;
+
+	///* hướng mặt của nhân vật */
+	//TEXTURE_DIRECTION currentDirection = getDirection();
+
+	///* nếu hướng mặt của nhân vật khác với hướng mặt trong bức hình thì tiến hành lật hình */
+	//if (imageDirection != currentDirection)
+	//{
+	//	int currentFrameWidth = getSprite()->animations[getAnimation()]->frames[getFrameAnimation()]->right -
+	//		getSprite()->animations[getAnimation()]->frames[getFrameAnimation()]->left;
+	//	D3DXMATRIX flipMatrix;
+	//	D3DXMatrixIdentity(&flipMatrix);
+	//	flipMatrix._11 = -1;
+	//	flipMatrix._41 = 2 * (xView + currentFrameWidth / 2);
+	//	GameDirectX::getInstance()->GetSprite()->SetTransform(&flipMatrix);
+	//}
+
+	///* vẽ đối tượng lên màn hình */
+	//sprite->render(xView, yView, animationIndex, frameIndex);
+
+	//if (direction != imageDirection)
+	//{
+	//	/* khôi phục lại ma trận mặc định */
+	//	D3DXMATRIX identityMatrix;
+	//	D3DXMatrixIdentity(&identityMatrix);
+	//	GameDirectX::getInstance()->GetSprite()->SetTransform(&identityMatrix);
+	//}
 }
 
-bool BaseObject::canRemoveFromCamera()
+int BaseObject::getAnimation()
 {
-	return true;
+	return animationIndex;
 }
 
-
-void BaseObject::onInit(fstream & fs, int worldHeight)
+void BaseObject::setAnimation(int animation)
 {
-}
-
-void BaseObject::setSpriteId(int spriteId)
-{
-	this->spriteId = spriteId;
-	if (spriteId >= 0)
+	/* nếu set khác animation thì cho chạy lại từ frame 0 */
+	if (this->animationIndex != animation)
 	{
-		//sprite = SpriteManager::getInstance()->getSprites()[spriteId];
+		setFrameAnimation(0);
 	}
+	this->animationIndex = animation;
+}
+
+int BaseObject::getFrameAnimation()
+{
+	return frameIndex;
+}
+
+void BaseObject::setFrameAnimation(int frameAnimation)
+{
+	this->frameIndex = frameAnimation;
+}
+
+DIRECTION BaseObject::getDirection()
+{
+	return direction;
+}
+
+void BaseObject::setDirection(DIRECTION direction)
+{
+	this->direction = direction;
+}
+
+BaseObject::BaseObject()
+{
+	setSprite(NULL);
+	animationGameTime.init(GLOBALS_D("object_animation_time_default"));
+}
+
+
+BaseObject::~BaseObject()
+{
 }

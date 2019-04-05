@@ -1,11 +1,11 @@
 #pragma once
-#include "MovableObject.h"
+#include "PhysicsObject.h"
 #include"SpriteManager.h"
 class SwordMan
-	: public MovableObject
+	: public PhysicsObject
 {
 public:
-	void onCollision(PhysicsBox* other, float collisionTime, int nx, int ny) override;
+	void onCollision(MovableRect* other, float collisionTime, int nx, int ny) override;
 
 	SwordMan();
 	~SwordMan();

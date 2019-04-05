@@ -142,8 +142,8 @@
     <ClInclude Include="GameUtils.h" />
     <ClInclude Include="KEY.h" />
     <ClInclude Include="List.h" />
-    <ClInclude Include="MovableObject.h" />
-    <ClInclude Include="PhysicsBox.h" />
+    <ClInclude Include="PhysicsObject.h" />
+    <ClInclude Include="MovableRect.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Rect.h" />
     <ClInclude Include="Sprite.h" />
@@ -163,8 +163,8 @@
     <ClCompile Include="GameTime.cpp" />
     <ClCompile Include="GameUtils.cpp" />
     <ClCompile Include="KEY.cpp" />
-    <ClCompile Include="MovableObject.cpp" />
-    <ClCompile Include="PhysicsBox.cpp" />
+    <ClCompile Include="PhysicsObject.cpp" />
+    <ClCompile Include="MovableRect.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Rect.cpp" />
     <ClCompile Include="Sprite.cpp" />

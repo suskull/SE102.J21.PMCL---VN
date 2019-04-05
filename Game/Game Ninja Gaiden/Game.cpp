@@ -14,7 +14,7 @@ void Game::GameInit()
 	Player* player = Player::getInstance();
 	player->set(111, 0, 16, 30);
 	swordman = new SwordMan();
-	swordman->set(0, 0, 17, 30);
+	swordman->set(150, 150, 17, 30);
 	bg.Init("resource/map/Stage3-1.png");
 
 	currentIndex = 0;
@@ -58,8 +58,7 @@ void Game::GameUpdate(float dt)
 		player->setVx(0);
 		player->setVy(0);
 	}
-	player->setDx(player->getVx() * dt);
-	player->setDy(player->getVy() * dt);
+	
 	Collision::CheckCollision(player, swordman);
 	player->update(dt);
 	
@@ -67,7 +66,7 @@ void Game::GameUpdate(float dt)
 void Game::GameRender()
 {
 	RECT rect;
-	SetRect(&rect, 0, 0, 300, 400);
+	SetRect(&rect, 0, 0, GLOBALS_D("window_width"), GLOBALS_D("window_height"));
 	bg.Render(0, 0, 0, 0, &rect);
 	Player* player = Player::getInstance();
 	player->getSprite()->render(player->getX(), player->getY(), currentAnimation, currentIndex);

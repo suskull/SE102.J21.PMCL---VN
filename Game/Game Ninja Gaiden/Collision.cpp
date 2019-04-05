@@ -3,9 +3,9 @@
 #include<string>
 
 using namespace std;
-PhysicsBox* Collision::GetSweptBroadPhaseBox(PhysicsBox* box)
+MovableRect* Collision::GetSweptBroadPhaseBox(MovableRect* box)
 {
-	PhysicsBox* broadphaseBox = new PhysicsBox();
+	MovableRect* broadphaseBox = new MovableRect();
 	broadphaseBox->setX(box->getDx() > 0 ? box->getX() : (box->getX() + box->getDx()));
 	broadphaseBox->setY(box->getDy() > 0 ? (box->getY() + box->getDy()) : box->getY());
 	broadphaseBox->setWidth(box->getDx() > 0 ? (box->getWidth() + box->getDx()) : (box->getWidth() - box->getDx()));
@@ -19,12 +19,12 @@ bool Collision::AABBCheck(Rect * M, Rect * S)
 		(M->getY() - M->getHeight() < S->getY() && M->getY() > S->getY() - S->getHeight()));
 }
 
-float Collision::SweptAABB(PhysicsBox* M, PhysicsBox* S, float& normalx, float& normaly)
+float Collision::SweptAABB(MovableRect* M, MovableRect* S, float& normalx, float& normaly)
 {
+	//Khoảng cách
 	float xInvEntry, yInvEntry;
 	float xInvExit, yInvExit;
 
-	// Tính khoảng cách cần để xảy ra va chạm (InvEntry) và khoảng cách để ra khỏi va chạm (InvExit):
 	if (M->getDx() > 0.0f)
 	{
 		xInvEntry = S->getX() - (M->getX() + M->getWidth());
@@ -47,7 +47,7 @@ float Collision::SweptAABB(PhysicsBox* M, PhysicsBox* S, float& normalx, float& 
 		yInvExit = (S->getY() - S->getHeight()) - M->getY();
 	}
 
-	// Tính thời gian để bắt đầu và chạm và thời gian để kết thúc va chạm theo mỗi phương:
+	//Thời gian 
 	float xEntry, yEntry;
 	float xExit, yExit;
 
@@ -73,12 +73,9 @@ float Collision::SweptAABB(PhysicsBox* M, PhysicsBox* S, float& normalx, float& 
 		yExit = yInvExit / (float)M->getDy();
 	}
 
-	// Thời gian để Box bắt đầu va chạm và thời gian để kết thúc va chạm:
 	float entryTime = MAX(xEntry, yEntry);
 	float exitTime = MIN(xExit, yExit);
 
-	// Trường hợp không xảy ra va chạm:
-	//Logger::getInstance()->getWidth()rite_text_to_log_file(std::to_string(GetVy()));
 	if (entryTime > exitTime || xEntry < 0.0f && yEntry < 0.0f || xEntry > 1.0f || yEntry > 1.0f)
 	{
 		normalx = 0.0f;
@@ -86,17 +83,16 @@ float Collision::SweptAABB(PhysicsBox* M, PhysicsBox* S, float& normalx, float& 
 		return 1.0f;
 	}
 
-	else // Trường hợp xảy ra va chạm:
+	else // Va chạm:
 	{
-		// Xác định hướng của pháp tuyến khi va chạm:
 		if (xEntry > yEntry)
 		{
-			if (M->getDx() < 0.0f) // Chạm vào bề mặt bên phải của block:
+			if (M->getDx() < 0.0f) // Chạm mặt bên phải:
 			{
 				normalx = 1.0f;
 				normaly = 0.0f;
 			}
-			else					// Chạm vào bề mặt bên trái của block:
+			else					// Chạm mặt bên trái:
 			{
 				normalx = -1.0f;
 				normaly = 0.0f;
@@ -104,43 +100,34 @@ float Collision::SweptAABB(PhysicsBox* M, PhysicsBox* S, float& normalx, float& 
 		}
 		else
 		{
-			if (M->getDy() < 0.0f) // Chạm vào bề mặt phía trên của block:
+			if (M->getDy() < 0.0f) // Chạm mặt bên trên:
 			{
 				normalx = 0.0f;
 				normaly = 1.0f;
 			}
-			else					// Chạm vào bề mặt phía dưới của block:
+			else					// Chạm mặt bên dưới:
 			{
 				normalx = 0.0f;
 				normaly = -1.0f;
 			}
 		}
-
-		// Trả về khoảng thời gian cần thiết để bắt đầu xảy ra va chạm:
 		return entryTime;
 	}
 }
-void Collision::CheckCollision(PhysicsBox* M, PhysicsBox* S)
+void Collision::CheckCollision(MovableRect* M, MovableRect* S)
 {
-	/* KIỂM TRA VÀ XỬ LÝ VA CHẠM */
-	/* tìm broadphasebox của M */
-	PhysicsBox* broadPhaseBox = GetSweptBroadPhaseBox(M);
-	/* nếu BroadPhaseBox của M cắt S */
+	MovableRect* broadPhaseBox = GetSweptBroadPhaseBox(M);
+
 	if (AABBCheck(broadPhaseBox, S))
 	{
 		delete broadPhaseBox; //*********************
 		float normalX = 0, normalY = 0;
-		/* thì tính collisionTime */
 		float collisionTime = SweptAABB(M, S, normalX, normalY);
-		/* Nếu collisionTime<1 thì chắc chắn có va chạm */
-		if (collisionTime <= 1)
+		if (collisionTime < 1)
 		{
-			/* onCollision là phương thức ảo để hiện thực xử lý va chạm của mỗi đối tượng */
 			M->onCollision(S, collisionTime, normalX, normalY);
 			S->onCollision(M, collisionTime, normalX, normalY);
 		}
-		/* còn nếu collisionTime==1 thì không có va chạm */
-
 		return;
 	}
 	delete broadPhaseBox;

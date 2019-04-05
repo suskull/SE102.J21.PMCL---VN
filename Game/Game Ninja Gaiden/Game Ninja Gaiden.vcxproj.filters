@@ -36,12 +36,6 @@
     <ClCompile Include="KEY.cpp">
       <Filter>KEY</Filter>
     </ClCompile>
-    <ClCompile Include="MovableObject.cpp">
-      <Filter>Shape and Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="PhysicsBox.cpp">
-      <Filter>Shape and Objects</Filter>
-    </ClCompile>
     <ClCompile Include="Rect.cpp">
       <Filter>Shape and Objects</Filter>
     </ClCompile>
@@ -54,6 +48,12 @@
     <ClCompile Include="SwordMan.cpp" />
     <ClCompile Include="Collision.cpp">
       <Filter>Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsObject.cpp">
+      <Filter>Shape and Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="MovableRect.cpp">
+      <Filter>Shape and Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -95,12 +95,6 @@
     <ClInclude Include="KEY.h">
       <Filter>KEY</Filter>
     </ClInclude>
-    <ClInclude Include="MovableObject.h">
-      <Filter>Shape and Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="PhysicsBox.h">
-      <Filter>Shape and Objects</Filter>
-    </ClInclude>
     <ClInclude Include="Rect.h">
       <Filter>Shape and Objects</Filter>
     </ClInclude>
@@ -113,6 +107,12 @@
     <ClInclude Include="SwordMan.h" />
     <ClInclude Include="Collision.h">
       <Filter>Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsObject.h">
+      <Filter>Shape and Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="MovableRect.h">
+      <Filter>Shape and Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

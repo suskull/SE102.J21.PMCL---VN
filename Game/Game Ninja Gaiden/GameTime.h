@@ -2,28 +2,30 @@
 #include<Windows.h>
 class GameTime
 {
-	/* Thời gian bắt đầu */
 	DWORD startTime;
-	/* Khoảng thời gian delay */
 	DWORD tickPerFrame;
-	/* Khoảng thời gian kể từ starttime tới bây giờ */
 	DWORD deltaTime;
 public:
 
 	DWORD getStartTime();
 	void setStartTime(DWORD startTime);
+
 	DWORD getTickPerFrame();
 	void setTickPerFrame(DWORD tickPerFrame);
-	/* Khởi tạo thời gian delay */
-	void init(DWORD tickPerFrame);
+	
 	DWORD getDeltaTime();
 	void setDeltaTime(DWORD deltaTime);
+
+	void init(DWORD tickPerFrame);
+
+	virtual bool atTime();
+
+	GameTime(DWORD tickPerFrame);
 
 	GameTime(void);
 	~GameTime(void);
 
-	GameTime(DWORD tickPerFrame);
-	/* Tới thời gian hiện tại */
-	virtual bool atTime();
+	
+	
 };
 

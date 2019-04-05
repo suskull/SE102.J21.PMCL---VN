@@ -1,94 +1,49 @@
 #pragma once
-#include"PhysicsBox.h"
+#include "MovableRect.h"
 #include"Sprite.h"
-#include"Camera.h"
-//#include"SpriteManager.h"
 #include"GameTime.h"
+#include"Camera.h"
 
 class BaseObject :
-	public PhysicsBox
+	public MovableRect
 {
-private:
-	// hinh ve va animation
 	Sprite* sprite;
-	// chua action va frame cua animation
-	int actionIndex, actionFrameIndex;
-	// delay animation
-	int interval;
-	// id
-	int spriteId;
-	// delay animation
-	GameTime* animationDelay;
-	
-	// dung animation
+
+	int animationIndex, frameIndex;
+
+	GameTime animationGameTime;
+
 	bool pauseAnimation;
-	// xem doi tuong co ton tai khong
-	// ton tai (co update co render va co xet va cham)
-	bool alive;
-	// dung de restore location
-	Rect* initBox;
-	bool renderActive;
-
-	bool isLastFrame;
-
 	
+	bool isLastFrameAnimationDone;
+
+	DIRECTION direction;
+
 public:
-	virtual void update(float dt);
-	Sprite* getSprite();
 	void setSprite(Sprite* sprite);
-	// hanh dong hien tai
-	int getAction();
-	// frame hien tai
-	int getActionFrameIndex();
-	// get width cua hinh tai action va frame hien tai
-	int getCurrentFrameWidth();
-	int getCurrentFrameHeight();
+	Sprite* getSprite();
 
-	void setAction(int actionIndex);
-	void setActionFrameIndex(int actionFrameIndex);
+	int getAnimation();
+	void setAnimation(int animation);
 
-	void updateAnimation();
+	int getFrameAnimation();
+	void setFrameAnimation(int frameAnimation);
 
-	// active ve
-	void setRenderActive(bool renderActive);
-	bool getRenderActive();
+	bool getPauseAnimation();
+	virtual void setPauseAnimation(bool pauseAnimation);
 
-	// animation interval
-	void setInterval(int interval);
-	int getInterval();
-
-	Rect* getInitBox();
-	void setInitBox(Rect* initBox);
-
-	virtual void restoreLocation();
-
-	void setPauseAnimation(bool pauseAnimation);
-	bool isPauseAnimation();
-
-	bool getIsLastFrame();
-	void setIsLastFrame(bool isLastFrame);
-
-	bool isAlive();
-	virtual void setAlive(bool alive);
-
-	bool canCollision();
-
-	virtual bool canRemoveFromCamera();
+	bool getIsLastFrameAnimationDone();
+	virtual void setIsLastFrameAnimationDone(bool isLastFrameAnimationDone);
 
 	DIRECTION getDirection();
-	void setDirection(int direction);
+	void setDirection(DIRECTION direction);
 
-	virtual void onInit(fstream& fs, int worldHeight);
-	void setSpriteId(int spriteId);
-
-	void performUpdate(float dt);
+	//virtual void onInitFromFile(ifstream& fs, int mapHeight);
 	virtual void render();
-	virtual void onLastFrameAnimation();
 
+	virtual void onUpdate(float dt);
 
-	int distanceHorToFirstLocation();
-
-
+	void update(float dt);
 
 	BaseObject();
 	~BaseObject();

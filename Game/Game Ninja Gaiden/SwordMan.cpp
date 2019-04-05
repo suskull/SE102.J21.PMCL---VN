@@ -2,7 +2,7 @@
 
 
 
-void SwordMan::onCollision(PhysicsBox* other, float collisionTime, int nx, int ny)
+void SwordMan::onCollision(MovableRect* other, float collisionTime, int nx, int ny)
 {
 }
 

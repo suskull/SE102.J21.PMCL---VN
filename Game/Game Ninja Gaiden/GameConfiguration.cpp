@@ -11,15 +11,15 @@ double GameConfiguration::GetConfiguration(const char * key)
 		globalsConfigurationDouble = new map<const char*, double>();
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("window_width", 512));
-		globalsConfigurationDouble->insert(pair<const char*, double>("window_height", 448));
+		globalsConfigurationDouble->insert(pair<const char*, double>("window_height", 416));
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("backbuffer_width", 256));
-		globalsConfigurationDouble->insert(pair<const char*, double>("backbuffer_height", 224));
+		globalsConfigurationDouble->insert(pair<const char*, double>("backbuffer_height", 208));
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("fps", 70));
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_vx", 160));
-
-
+		globalsConfigurationDouble->insert(pair<const char*, double>("object_animation_time_default", 50));
+		
 	}
 	return globalsConfigurationDouble->at(key);
 }
@@ -30,8 +30,8 @@ const char * GameConfiguration::GetConfigurationString(const char * key)
 	{
 		globalsConfigurationString = new map<const char*, const char*>();
 
-		globalsConfigurationString->insert(pair<const char*,const char*>("window_title", "Dat ten game cua ban tai day"));
-		globalsConfigurationString->insert(pair<const char*, const  char*>("window_class", "win_game"));
+		globalsConfigurationString->insert(pair<const char*,const char*>("window_title", "Game Ninja Gaiden"));
+		globalsConfigurationString->insert(pair<const char*, const  char*>("window_class", "Ninja Gaiden"));
 
 		
 	}
