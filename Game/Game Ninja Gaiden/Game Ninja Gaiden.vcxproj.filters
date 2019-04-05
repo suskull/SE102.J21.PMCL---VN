@@ -55,6 +55,9 @@
     <ClCompile Include="MovableRect.cpp">
       <Filter>Shape and Objects</Filter>
     </ClCompile>
+    <ClCompile Include="Tilemap.cpp">
+      <Filter>Tilemap</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -114,6 +117,9 @@
     <ClInclude Include="MovableRect.h">
       <Filter>Shape and Objects</Filter>
     </ClInclude>
+    <ClInclude Include="Tilemap.h">
+      <Filter>Tilemap</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Animation">
@@ -148,6 +154,9 @@
     </Filter>
     <Filter Include="Collision">
       <UniqueIdentifier>{fca99328-6d83-4582-ac4e-5852257d4b66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tilemap">
+      <UniqueIdentifier>{3ba9777a-cd41-4ee3-a9cb-90d5697e5bbb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

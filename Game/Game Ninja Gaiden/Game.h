@@ -12,6 +12,7 @@
 #include"SwordMan.h"
 #include"Collision.h"
 #include"GameConfiguration.h"
+#include"Tilemap.h"
 
 class Game
 {
@@ -27,9 +28,9 @@ class Game
 
 	int x, y;
 
-	GameTexture bg;
-
 	SwordMan* swordman;
+
+	Tilemap* tilemap;
 
 public:
 	static Game* getInstance();

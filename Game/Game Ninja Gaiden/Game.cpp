@@ -15,15 +15,14 @@ void Game::GameInit()
 	player->set(111, 0, 16, 30);
 	swordman = new SwordMan();
 	swordman->set(150, 150, 17, 30);
-	bg.Init("resource/map/Stage3-1.png");
 
 	currentIndex = 0;
 	currentAnimation = 3;
 
-
 	timeDelay.init(100);
 
-	x = 20, y = 30;
+	tilemap = new Tilemap();
+	tilemap->Init("resource/map/stage3-1");
 }
 void Game::GameUpdate(float dt)
 {
@@ -65,9 +64,8 @@ void Game::GameUpdate(float dt)
 }
 void Game::GameRender()
 {
-	RECT rect;
-	SetRect(&rect, 0, 0, GLOBALS_D("window_width"), GLOBALS_D("window_height"));
-	bg.Render(0, 0, 0, 0, &rect);
+	tilemap->render();
+	
 	Player* player = Player::getInstance();
 	player->getSprite()->render(player->getX(), player->getY(), currentAnimation, currentIndex);
 	swordman->getSprite()->render(swordman->getX(), swordman->getY(), 0, currentIndex);
