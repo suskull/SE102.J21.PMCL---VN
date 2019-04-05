@@ -30,17 +30,12 @@ void BaseObject::setIsLastFrameAnimationDone(bool isLastFrameAnimationDone)
 	this->isLastFrameAnimationDone = isLastFrameAnimationDone;
 }
 
-//void BaseObject::onInitFromFile(ifstream& fs, int mapHeight)
-//{
-//	int collisionType, x, y, width, height;
-//	/* đọc collision type x y width height từ file. collision_type thì sẽ học ở bài sau */
-//	fs >> collisionType >> x >> y >> width >> height;
-//	/* do y của đối tượng trong file là tọa độ hướng từ trên xuống
-//	Nhưng y của game chúng ta làm thì gốc tọa độ bên dưới nên ta chuyển nó về cho đúng tọa độ logic */
-//	y = mapHeight - y;
-//	/* khởi tạo x y width height cho đối tượng */
-//	set(x, y, width, height);
-//}
+void BaseObject::onInitFromFile(ifstream& fs)
+{
+	int collisionType, x, y, width, height;
+	fs >> collisionType >> x >> y >> width >> height;
+	set(x, y, width, height);
+}
 
 void BaseObject::update(float dt)
 {
@@ -76,7 +71,7 @@ void BaseObject::render(Camera* camera)
 	float xView, yView;
 	/* tính tọa độ view để vẽ đối tượng lên màn hình */
 	camera->convertWorldToView(getX(), getY(), xView, yView);
-
+	
 	///* hướng mặt mặc định của bức hình */
 	//TEXTURE_DIRECTION imageDirection = sprite->image->direction;
 
@@ -97,7 +92,7 @@ void BaseObject::render(Camera* camera)
 
 	/* vẽ đối tượng lên màn hình */
 	sprite->render(xView, yView, animationIndex, frameIndex);
-
+	
 	//if (direction != imageDirection)
 	//{
 	//	/* khôi phục lại ma trận mặc định */

@@ -32,8 +32,14 @@ class Game
 
 	Tilemap* tilemap;
 
+	List<BaseObject*> allObjects;
+
+	//test
+	BaseObject* bo;
+
 public:
 	static Game* getInstance();
+	void InitObjects(string path);
 
 	void GameInit();
 	void GameUpdate(float dt);

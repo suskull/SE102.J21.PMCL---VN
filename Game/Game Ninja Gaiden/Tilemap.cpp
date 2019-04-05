@@ -22,7 +22,7 @@ void Tilemap::render(Camera* camera)
 	///* tileBottom là vị trí dòng camera cắt bên dưới */
 	tileBottom = camera->getBottom() / tileHeight;
 
-	/*if (tileLeft < 0)
+	if (tileLeft < 0)
 	{
 		tileLeft = 0;
 	}
@@ -40,7 +40,7 @@ void Tilemap::render(Camera* camera)
 	if (tileBottom > tileRows)
 	{
 		tileBottom = tileRows - 1;
-	}*/
+	}
 
 	for (size_t rowIndex = tileTop; rowIndex < tileBottom; rowIndex++)
 	{

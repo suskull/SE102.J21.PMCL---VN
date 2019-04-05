@@ -38,7 +38,7 @@ public:
 	DIRECTION getDirection();
 	void setDirection(DIRECTION direction);
 
-	//virtual void onInitFromFile(ifstream& fs, int mapHeight);
+	virtual void onInitFromFile(ifstream& fs);
 	virtual void render(Camera* camera);
 
 	virtual void onUpdate(float dt);
