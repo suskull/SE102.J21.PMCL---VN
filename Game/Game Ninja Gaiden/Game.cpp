@@ -23,11 +23,18 @@ void Game::GameInit()
 
 	tilemap = new Tilemap();
 	tilemap->Init("resource/map/stage3-1");
+
+	Camera::getInstance()->set(
+		0,
+		0,
+		GLOBALS_D("backbuffer_width"),
+		GLOBALS_D("backbuffer_height"));
 }
 void Game::GameUpdate(float dt)
 {
 	KEY::getInstance()->update();
 	Player* player = Player::getInstance();
+
 	if (timeDelay.atTime())
 	{
 		//Player::getInstance()->update(dt);
@@ -60,15 +67,17 @@ void Game::GameUpdate(float dt)
 	
 	Collision::CheckCollision(player, swordman);
 	player->update(dt);
+	swordman->update(dt);
+	Camera::getInstance()->update();
 	
 }
 void Game::GameRender()
 {
-	tilemap->render();
+	tilemap->render(Camera::getInstance());
 	
 	Player* player = Player::getInstance();
-	player->getSprite()->render(player->getX(), player->getY(), currentAnimation, currentIndex);
-	swordman->getSprite()->render(swordman->getX(), swordman->getY(), 0, currentIndex);
+	player->render(Camera::getInstance());
+	swordman->render(Camera::getInstance());
 }
 
 Game::Game()

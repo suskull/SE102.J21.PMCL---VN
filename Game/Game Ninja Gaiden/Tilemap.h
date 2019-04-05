@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include"GameTexture.h"
-//#include"Camera.h"
+#include"Camera.h"
 
 class Tilemap
 {
@@ -17,9 +17,8 @@ class Tilemap
 	int** matrix;
 public:
 
-	void render();
+	void render(Camera* camera);
 
-	/* lấy chiều cao của world dùng để chuyển đổi tọa độ khi init */
 	int getWorldHeight();
 
 	void Init(const char* tilesheetPath, const char* matrixPath);

@@ -2,60 +2,59 @@
 #include<fstream>
 using namespace std;
 
-void Tilemap::render()
+void Tilemap::render(Camera* camera)
 {
-	///* height của world */
+	/* height của world */
 	//int mapHeight = tileRows * tileHeight;
 
-	///* tính các tile đang cắt camera */
-	//int tileLeft, tileRight, tileTop, tileBottom;
+	/* tính các tile đang cắt camera */
+	int tileLeft, tileRight, tileTop, tileBottom;
 
-	///* tileLeft là vị trí cột camera cắt bên trái */
-	//tileLeft = camera->getleft() / tileWidth;
+	/* tileLeft là vị trí cột camera cắt bên trái */
+	tileLeft = camera->getleft() / tileWidth;
 
-	///* tileRight là vị trí cột camera cắt bên phải */
-	//tileRight = camera->getRight() / tileWidth;
+	/* tileRight là vị trí cột camera cắt bên phải */
+	tileRight = camera->getRight() / tileWidth;
 
-	///* tileTop là vị trí dòng camera cắt bên trên */
-	//tileTop = (mapHeight - camera->getTop()) / tileHeight;
+	/* tileTop là vị trí dòng camera cắt bên trên */
+	tileTop = camera->getTop() / tileHeight;
 
 	///* tileBottom là vị trí dòng camera cắt bên dưới */
-	//tileBottom = (mapHeight - camera->getBottom()) / tileHeight;
+	tileBottom = camera->getBottom() / tileHeight;
 
-	///* điều kiện ràng buộc chống lỗi vượt quá index */
-	//if (tileLeft < 0)
-	//{
-	//	tileLeft = 0;
-	//}
-
-	//if (tileTop < 0)
-	//{
-	//	tileTop = 0;
-	//}
-
-	//if (tileRight >= tileColumns)
-	//{
-	//	tileRight = tileColumns - 1;
-	//}
-
-	//if (tileBottom >= tileRows)
-	//{
-	//	tileBottom = tileRows - 1;
-	//}
-
-	for (size_t rowIndex = 0; rowIndex < tileRows; rowIndex++)
+	/*if (tileLeft < 0)
 	{
-		for (size_t columnIndex = 0; columnIndex < tileColumns; columnIndex++)
+		tileLeft = 0;
+	}
+
+	if (tileTop < 0)
+	{
+		tileTop = 0;
+	}
+
+	if (tileRight > tileColumns)
+	{
+		tileRight = tileColumns - 1;
+	}
+
+	if (tileBottom > tileRows)
+	{
+		tileBottom = tileRows - 1;
+	}*/
+
+	for (size_t rowIndex = tileTop; rowIndex < tileBottom; rowIndex++)
+	{
+		for (size_t columnIndex = tileLeft; columnIndex <= tileRight; columnIndex++)
 		{
 			int xWorldOfTile = columnIndex * tileWidth;
 			int yWorldOfTile = rowIndex * tileHeight;
 
-			///* tính vị trí view của tile */
+			/* tính vị trí view của tile */
 
-			//float xViewOfTile = 0;
-			//float yViewOfTile = 0;
+			float xViewOfTile = 0;
+			float yViewOfTile = 0;
 
-			//camera->convertWorldToView(xWorldOfTile, yWorldOfTile, xViewOfTile, yViewOfTile);
+			camera->convertWorldToView(xWorldOfTile, yWorldOfTile, xViewOfTile, yViewOfTile);
 
 			/* tìm hình chữ nhật là vị trí của tile trong tilesheet */
 			int tileValue = matrix[rowIndex][columnIndex];
@@ -67,13 +66,12 @@ void Tilemap::render()
 
 			RECT rectCrop;
 			SetRect(&rectCrop,
-				xTileInTileSheet, /* left */
-				yTileInTileSheet, /* top */
-				xTileInTileSheet + widthTileInTilesheet, /* right */
-				yTileInTileSheet + heightTileInTilesheet); /* bottom */
+				xTileInTileSheet,
+				yTileInTileSheet, 
+				xTileInTileSheet + widthTileInTilesheet, 
+				yTileInTileSheet + heightTileInTilesheet);
 
-			/* vẽ tile lên màn hình tại vị trí view */
-			tilesheet->Render(xWorldOfTile, yWorldOfTile, 0, 0, &rectCrop);
+			tilesheet->Render(xViewOfTile, yViewOfTile, 0, 0, &rectCrop);
 		}
 	}
 }

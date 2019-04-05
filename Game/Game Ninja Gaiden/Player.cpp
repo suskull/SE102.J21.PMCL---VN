@@ -19,6 +19,7 @@ void Player::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 Player::Player()
 {
 	setSprite(SPR(SPRITE_PLAYER));
+	setAnimation(3);
 }
 
 
