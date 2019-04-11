@@ -9,7 +9,7 @@ Game * Game::getInstance()
 	return instance;
 }
 
-void Game::InitObjects(string Objectpath)
+void Game::InitObjects(string Objectpath, int worldHeight)
 {
 	int objectCount;
 	ifstream fs(Objectpath);
@@ -31,7 +31,7 @@ void Game::InitObjects(string Objectpath)
 			break;
 		}
 		/* đọc thông số đối tượng */
-		obj->onInitFromFile(fs);
+		obj->onInitFromFile(fs, worldHeight);
 		if (id >= 0)
 		{
 			obj->setSprite(SPR(id));
@@ -42,31 +42,31 @@ void Game::InitObjects(string Objectpath)
 
 void Game::GameInit()
 {
-	Player* player = Player::getInstance();
-	player->set(40, 40, 16, 30);
-	swordman = new SwordMan();
-	//swordman->set(0, 16, 16, 32); 
+	tilemap = new Tilemap();
+	tilemap->Init("resource/map/stage3-1");
 
-	//InitObjects("resource/map/stage3-1/objects.dat");
+	Player* player = Player::getInstance();
+	player->set(40, 140, 16, 30);
+	swordman = new SwordMan();
+	swordman->set(100, 100, 16, 32); 
+
+	InitObjects("resource/map/stage3-1/objects.dat", tilemap->getWorldHeight());
 
 	currentIndex = 0;
 	currentAnimation = 3;
 
 	timeDelay.init(100);
 
-	tilemap = new Tilemap();
-	tilemap->Init("resource/map/stage3-1");
+	
 
 	Camera::getInstance()->set(
 		0,
-		0,
+		GLOBALS_D("backbuffer_height"),
 		GLOBALS_D("backbuffer_width"),
 		GLOBALS_D("backbuffer_height"));
 
-	bo = new BaseObject();
-	bo->set(0, 16, 16, 32);
-	//bg = new GameTexture();
-	//bg->Init("resource/tool/player.png");
+	//bo = new BaseObject();
+	//bo->set(0, 64, 16, 16);
 }
 void Game::GameUpdate(float dt)
 {
@@ -80,41 +80,21 @@ void Game::GameUpdate(float dt)
 		swordman->getSprite()->update(0,currentIndex);
 	}
 
-	float vx = GLOBALS_D("player_vx");
-	if (KEY::getInstance()->isLeftDown)
-	{
-		player->setVx(-vx);
-	}
-	else if (KEY::getInstance()->isRightDown)
-	{
-		player->setVx(vx);
-	}
-	else if (KEY::getInstance()->isUpDown)
-	{
-		player->setVy(-vx);
-	}
-	else if (KEY::getInstance()->isDownDown)
-	{
-		player->setVy(vx);
-	}
-	else
-	{
-		player->setVx(0);
-		player->setVy(0);
-	}
 	
-	//for (size_t i = 0; i < allObjects.Count; i++)
-	//{
-	//	//allObjects[i]->update(dt);
-	//	Collision::CheckCollision(Player::getInstance(), allObjects[i]);
-	//}
+	
+	for (size_t i = 0; i < allObjects.Count; i++)
+	{
+		//allObjects[i]->update(dt);
+		Collision::CheckCollision(Player::getInstance(), allObjects[i]);
+		Collision::CheckCollision(swordman, allObjects[i]);
+	}
 
 	Collision::CheckCollision(player, swordman);
 	player->update(dt);
 	swordman->update(dt);
 	Camera::getInstance()->update();
 	
-	Collision::CheckCollision(player, bo);
+	//Collision::CheckCollision(player, bo);
 }
 void Game::GameRender()
 {

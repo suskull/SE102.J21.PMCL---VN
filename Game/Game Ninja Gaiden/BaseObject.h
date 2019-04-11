@@ -3,6 +3,7 @@
 #include"Sprite.h"
 #include"GameTime.h"
 #include"Camera.h"
+#include"Tilemap.h"
 
 class BaseObject :
 	public MovableRect
@@ -38,7 +39,7 @@ public:
 	DIRECTION getDirection();
 	void setDirection(DIRECTION direction);
 
-	virtual void onInitFromFile(ifstream& fs);
+	virtual void onInitFromFile(ifstream& fs, int worldHeight);
 	virtual void render(Camera* camera);
 
 	virtual void onUpdate(float dt);

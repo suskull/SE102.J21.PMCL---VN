@@ -89,7 +89,7 @@ float Rect::getTop()
 
 float Rect::getBottom()
 {
-	return y + height;
+	return y - height;
 }
 
 float Rect::getMidX()
@@ -99,7 +99,7 @@ float Rect::getMidX()
 
 float Rect::getMidY()
 {
-	return y + height / 2;
+	return y - height / 2;
 }
 
 

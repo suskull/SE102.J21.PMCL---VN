@@ -4,6 +4,7 @@
 
 void SwordMan::onCollision(MovableRect* other, float collisionTime, int nx, int ny)
 {
+	preventMovementWhenCollision(collisionTime, nx, ny);
 }
 
 SwordMan::SwordMan()

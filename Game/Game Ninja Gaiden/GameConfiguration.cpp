@@ -18,7 +18,8 @@ double GameConfiguration::GetConfiguration(const char * key)
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("fps", 70));
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_vx", 100));
-		globalsConfigurationDouble->insert(pair<const char*, double>("object_animation_time_default", 50));
+		globalsConfigurationDouble->insert(pair<const char*, double>("player_ay", -100));
+		globalsConfigurationDouble->insert(pair<const char*, double>("object_animation_time_default", 100));
 		
 	}
 	return globalsConfigurationDouble->at(key);

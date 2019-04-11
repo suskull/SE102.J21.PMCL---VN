@@ -19,6 +19,8 @@ void KEY::update()
 	isDownDown = GetAsyncKeyState(VK_DOWN);
 	isLeftDown = GetAsyncKeyState(VK_LEFT);
 	isRightDown = GetAsyncKeyState(VK_RIGHT);
+	isAttackDown = GetAsyncKeyState(getKeyChar('c'));
+	isJumpDown = GetAsyncKeyState(getKeyChar('x'));
 }
 
 KEY::KEY()

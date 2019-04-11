@@ -7,7 +7,9 @@ public:
 		isLeftDown,
 		isRightDown,
 		isUpDown,
-		isDownDown;
+		isDownDown,
+		isAttackDown,
+		isJumpDown;
 
 	static KEY* instance;
 	static KEY* getInstance();

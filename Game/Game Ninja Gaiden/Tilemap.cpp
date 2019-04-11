@@ -2,25 +2,20 @@
 #include<fstream>
 using namespace std;
 
+Tilemap* Tilemap::instance = 0;
 void Tilemap::render(Camera* camera)
 {
-	/* height của world */
-	//int mapHeight = tileRows * tileHeight;
+	int mapHeight = tileRows * tileHeight;
 
-	/* tính các tile đang cắt camera */
 	int tileLeft, tileRight, tileTop, tileBottom;
 
-	/* tileLeft là vị trí cột camera cắt bên trái */
 	tileLeft = camera->getleft() / tileWidth;
 
-	/* tileRight là vị trí cột camera cắt bên phải */
 	tileRight = camera->getRight() / tileWidth;
 
-	/* tileTop là vị trí dòng camera cắt bên trên */
-	tileTop = camera->getTop() / tileHeight;
+	tileTop = (mapHeight - camera->getTop()) / tileHeight;
 
-	///* tileBottom là vị trí dòng camera cắt bên dưới */
-	tileBottom = camera->getBottom() / tileHeight;
+	tileBottom = (mapHeight - camera->getBottom()) / tileHeight;
 
 	if (tileLeft < 0)
 	{
@@ -32,31 +27,29 @@ void Tilemap::render(Camera* camera)
 		tileTop = 0;
 	}
 
-	if (tileRight > tileColumns)
+	if (tileRight >= tileColumns)
 	{
 		tileRight = tileColumns - 1;
 	}
 
-	if (tileBottom > tileRows)
+	if (tileBottom >= tileRows)
 	{
 		tileBottom = tileRows - 1;
 	}
 
-	for (size_t rowIndex = tileTop; rowIndex < tileBottom; rowIndex++)
+	for (size_t rowIndex = tileTop; rowIndex <= tileBottom; rowIndex++)
 	{
 		for (size_t columnIndex = tileLeft; columnIndex <= tileRight; columnIndex++)
 		{
 			int xWorldOfTile = columnIndex * tileWidth;
-			int yWorldOfTile = rowIndex * tileHeight;
+			int yWorldOfTile = mapHeight - rowIndex * tileHeight;
 
-			/* tính vị trí view của tile */
 
 			float xViewOfTile = 0;
 			float yViewOfTile = 0;
 
 			camera->convertWorldToView(xWorldOfTile, yWorldOfTile, xViewOfTile, yViewOfTile);
 
-			/* tìm hình chữ nhật là vị trí của tile trong tilesheet */
 			int tileValue = matrix[rowIndex][columnIndex];
 
 			int xTileInTileSheet = tileWidth * (tileValue % tilesheetColumns);
@@ -66,8 +59,8 @@ void Tilemap::render(Camera* camera)
 
 			RECT rectCrop;
 			SetRect(&rectCrop,
-				xTileInTileSheet,
-				yTileInTileSheet, 
+				xTileInTileSheet, 
+				yTileInTileSheet,
 				xTileInTileSheet + widthTileInTilesheet, 
 				yTileInTileSheet + heightTileInTilesheet);
 
@@ -112,6 +105,12 @@ void Tilemap::Init(const char* folderPath)
 	matrixPathString.append("/matrix.dat");
 
 	Init(tilesheetString.c_str(), matrixPathString.c_str());
+}
+Tilemap* Tilemap::getInstance()
+{
+	if (instance == 0)
+		instance = new Tilemap();
+	return instance;
 }
 Tilemap::Tilemap()
 {

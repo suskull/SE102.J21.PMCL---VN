@@ -30,11 +30,11 @@ void BaseObject::setIsLastFrameAnimationDone(bool isLastFrameAnimationDone)
 	this->isLastFrameAnimationDone = isLastFrameAnimationDone;
 }
 
-void BaseObject::onInitFromFile(ifstream& fs)
+void BaseObject::onInitFromFile(ifstream& fs, int worldHeight)
 {
 	int collisionType, x, y, width, height;
 	fs >> collisionType >> x >> y >> width >> height;
-	set(x, y, width, height);
+	set(x, worldHeight - y, width,  height);
 }
 
 void BaseObject::update(float dt)
@@ -69,17 +69,13 @@ void BaseObject::render(Camera* camera)
 	if (getSprite() == 0)
 		return;
 	float xView, yView;
-	/* tính tọa độ view để vẽ đối tượng lên màn hình */
 	camera->convertWorldToView(getX(), getY(), xView, yView);
-	
-	///* hướng mặt mặc định của bức hình */
-	//TEXTURE_DIRECTION imageDirection = sprite->image->direction;
 
-	///* hướng mặt của nhân vật */
-	//TEXTURE_DIRECTION currentDirection = getDirection();
+	DIRECTION imageDirection = sprite->image->direction;
 
-	/* nếu hướng mặt của nhân vật khác với hướng mặt trong bức hình thì tiến hành lật hình */
-	/*if (imageDirection != currentDirection)
+	DIRECTION currentDirection = getDirection();
+
+	if (imageDirection != currentDirection)
 	{
 		int currentFrameWidth = getSprite()->animations[getAnimation()]->frames[getFrameAnimation()]->right -
 			getSprite()->animations[getAnimation()]->frames[getFrameAnimation()]->left;
@@ -88,18 +84,18 @@ void BaseObject::render(Camera* camera)
 		flipMatrix._11 = -1;
 		flipMatrix._41 = 2 * (xView + currentFrameWidth / 2);
 		GameDirectX::getInstance()->GetSprite()->SetTransform(&flipMatrix);
-	}*/
+	}
 
-	/* vẽ đối tượng lên màn hình */
 	sprite->render(xView, yView, animationIndex, frameIndex);
+
+	if (direction != imageDirection)
+	{
+		D3DXMATRIX identityMatrix;
+		D3DXMatrixIdentity(&identityMatrix);
+		GameDirectX::getInstance()->GetSprite()->SetTransform(&identityMatrix);
+	}
+
 	
-	//if (direction != imageDirection)
-	//{
-	//	/* khôi phục lại ma trận mặc định */
-	//	D3DXMATRIX identityMatrix;
-	//	D3DXMatrixIdentity(&identityMatrix);
-	//	GameDirectX::getInstance()->GetSprite()->SetTransform(&identityMatrix);
-	//}
 }
 
 int BaseObject::getAnimation()
@@ -109,12 +105,12 @@ int BaseObject::getAnimation()
 
 void BaseObject::setAnimation(int animation)
 {
-	///* nếu set khác animation thì cho chạy lại từ frame 0 */
-	//if (this->animationIndex != animation)
-	//{
-	//	setFrameAnimation(0);
-	//}
-	this->animationIndex = animation;
+	if (this->animationIndex != animation && getIsLastFrameAnimationDone())
+	{
+		setFrameAnimation(0);
+		this->animationIndex = animation;
+	}
+	
 }
 
 int BaseObject::getFrameAnimation()

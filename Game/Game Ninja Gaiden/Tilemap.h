@@ -15,6 +15,8 @@ class Tilemap
 	GameTexture* tilesheet;
 
 	int** matrix;
+
+	static Tilemap* instance;
 public:
 
 	void render(Camera* camera);
@@ -23,6 +25,8 @@ public:
 
 	void Init(const char* tilesheetPath, const char* matrixPath);
 	void Init(const char* folderPath);
+
+	static Tilemap* getInstance();
 
 	Tilemap();
 	~Tilemap();

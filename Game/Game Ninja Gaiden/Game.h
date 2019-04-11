@@ -39,7 +39,7 @@ class Game
 
 public:
 	static Game* getInstance();
-	void InitObjects(string path);
+	void InitObjects(string path, int worldHeight);
 
 	void GameInit();
 	void GameUpdate(float dt);

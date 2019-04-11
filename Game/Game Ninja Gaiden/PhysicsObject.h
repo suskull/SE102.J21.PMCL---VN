@@ -1,5 +1,6 @@
 #pragma once
 #include "BaseObject.h"
+#include"GameConfiguration.h"
 
 class PhysicsObject :
 	public BaseObject
