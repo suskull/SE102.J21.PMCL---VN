@@ -9,7 +9,8 @@ public:
 		isUpDown,
 		isDownDown,
 		isAttackDown,
-		isJumpDown;
+		isJumpDown,
+		isShurikenDown;
 
 	static KEY* instance;
 	static KEY* getInstance();

@@ -58,6 +58,9 @@
     <ClCompile Include="Tilemap.cpp">
       <Filter>Tilemap</Filter>
     </ClCompile>
+    <ClCompile Include="CollisionType.h">
+      <Filter>Collision</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">

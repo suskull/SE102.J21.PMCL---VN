@@ -16,6 +16,16 @@ void MovableRect::preventMovementWhenCollision(float collisionTime, int nx, int 
 	}
 }
 
+COLLISION_TYPE MovableRect::getCollisionType()
+{
+	return collisionType;
+}
+
+ void MovableRect::setCollisionType(COLLISION_TYPE collisionType)
+{
+	this->collisionType = collisionType;
+}
+
 MovableRect::MovableRect()
 {
 	dx = 0;

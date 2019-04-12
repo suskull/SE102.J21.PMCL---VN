@@ -10,6 +10,7 @@ void SwordMan::onCollision(MovableRect* other, float collisionTime, int nx, int 
 SwordMan::SwordMan()
 {
 	setSprite(SPR(SPRITE_SWORDMAN));
+	setCollisionType(COLLISION_TYPE_ENEMY);
 }
 
 
