@@ -31,7 +31,6 @@
     <ClCompile Include="GameUtils.cpp">
       <Filter>GameUtils</Filter>
     </ClCompile>
-    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="KEY.cpp">
       <Filter>KEY</Filter>
@@ -60,6 +59,15 @@
     </ClCompile>
     <ClCompile Include="CollisionType.h">
       <Filter>Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="AdditionalObject.cpp">
+      <Filter>Subweapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Shuriken.cpp">
+      <Filter>Subweapon</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -96,7 +104,6 @@
     <ClInclude Include="List.h">
       <Filter>Animation</Filter>
     </ClInclude>
-    <ClInclude Include="Camera.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="KEY.h">
       <Filter>KEY</Filter>
@@ -122,6 +129,15 @@
     </ClInclude>
     <ClInclude Include="Tilemap.h">
       <Filter>Tilemap</Filter>
+    </ClInclude>
+    <ClInclude Include="AdditionalObject.h">
+      <Filter>Subweapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Shuriken.h">
+      <Filter>Subweapon</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +176,12 @@
     </Filter>
     <Filter Include="Tilemap">
       <UniqueIdentifier>{3ba9777a-cd41-4ee3-a9cb-90d5697e5bbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Subweapon">
+      <UniqueIdentifier>{c0306116-936b-460b-87c0-49a18c2761a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Camera">
+      <UniqueIdentifier>{95e3eebb-7afa-4451-9f12-5d9795ebb775}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

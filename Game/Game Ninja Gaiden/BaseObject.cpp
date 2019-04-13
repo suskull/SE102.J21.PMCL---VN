@@ -105,7 +105,7 @@ int BaseObject::getAnimation()
 
 void BaseObject::setAnimation(int animation)
 {
-	if (this->animationIndex != animation && getIsLastFrameAnimationDone())
+	if (this->animationIndex != animation)
 	{
 		setFrameAnimation(0);
 		this->animationIndex = animation;

@@ -1,6 +1,7 @@
 #pragma once
 #include "PhysicsObject.h"
 #include"KEY.h"
+#include"Shuriken.h"
 
 enum PLAYER_ACTION {
 	PLAYER_ACTION_STAND,
@@ -35,7 +36,7 @@ public:
 	static Player* getInstance();
 
 	void onCollision(MovableRect* other, float collisionTime, int nx, int ny) override;
-	void onUpdate(float dt) override;
+	void update(float dt) override;
 
 	void setPlayerState(PLAYER_STATE playerState);
 	Player();

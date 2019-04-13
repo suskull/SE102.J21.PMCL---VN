@@ -28,6 +28,7 @@ public:
 	void onCollision(MovableRect* other, float collisionTime, int nx, int ny) override;
 
 	void onUpdate(float dt) override;
+	//void update(float dt) override {}
 
 	PhysicsObject();
 	~PhysicsObject();

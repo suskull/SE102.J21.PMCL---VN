@@ -129,6 +129,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AdditionalObject.h" />
     <ClInclude Include="Animation.h" />
     <ClInclude Include="BaseObject.h" />
     <ClInclude Include="Camera.h" />
@@ -146,6 +147,7 @@
     <ClInclude Include="MovableRect.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Rect.h" />
+    <ClInclude Include="Shuriken.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="SpriteManager.h" />
     <ClInclude Include="SwordMan.h" />
@@ -153,6 +155,7 @@
     <ClInclude Include="WindowGame.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AdditionalObject.cpp" />
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="BaseObject.cpp" />
     <ClCompile Include="Camera.cpp" />
@@ -169,6 +172,7 @@
     <ClCompile Include="MovableRect.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Rect.cpp" />
+    <ClCompile Include="Shuriken.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteManager.cpp" />
     <ClCompile Include="SwordMan.cpp" />

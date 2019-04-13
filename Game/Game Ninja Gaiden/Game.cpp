@@ -94,7 +94,7 @@ void Game::GameUpdate(float dt)
 	swordman->update(dt);
 	Camera::getInstance()->update();
 	
-	//Collision::CheckCollision(player, bo);
+	AdditionalObject::listObjectUpdate(dt);
 }
 void Game::GameRender()
 {
@@ -108,8 +108,9 @@ void Game::GameRender()
 	{
 		allObjects[i]->render(Camera::getInstance());
 	}
-	RECT rect;
-	SetRect(&rect, 0, 0, 200, 200);
+
+	AdditionalObject::listObjectRender(Camera::getInstance());
+
 }
 
 Game::Game()

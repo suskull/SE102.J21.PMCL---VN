@@ -19,7 +19,7 @@ void Player::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 	preventMovementWhenCollision(collisionTime, nx, ny);
 }
 
-void Player::onUpdate(float dt)
+void Player::update(float dt)
 {
 	Player* player = Player::getInstance();
 	float vx = GLOBALS_D("player_vx");
@@ -45,7 +45,15 @@ void Player::onUpdate(float dt)
 		else if (key->isAttackDown)
 			setPlayerState(PLAYER_STATE_ATTACK);
 		else if (key->isShurikenDown)
-			setPlayerState(PLAYER_STATE_SHURIKEN);
+		{
+			Shuriken* shuriken = new Shuriken();
+			shuriken->setX(this->getX() + 8);
+			this->setVx(0);
+			shuriken->setY(this->getY() + 8);
+			shuriken->setVx(150);
+			//setPlayerState(PLAYER_STATE_SHURIKEN);
+		}
+			
 		else if (key->isDownDown)
 			setPlayerState(PLAYER_STATE_SIT);
 		else if (key->isJumpDown) {
@@ -77,12 +85,12 @@ void Player::onUpdate(float dt)
 			setPlayerState(PLAYER_STATE_STAND);
 		break;
 
-	case PLAYER_STATE_SHURIKEN:
+	case PLAYER_STATE_SHURIKEN: {
 		setAnimation(PLAYER_ACTION_SHURIKEN);
 		if (getIsLastFrameAnimationDone())
 			setPlayerState(PLAYER_STATE_STAND);
 		break;
-
+	}
 	case PLAYER_STATE_SIT:
 		setAnimation(PLAYER_ACTION_SIT);
 		if (getIsLastFrameAnimationDone())
@@ -105,7 +113,7 @@ void Player::onUpdate(float dt)
 		break;
 	}
 
-	PhysicsObject::onUpdate(dt);
+	PhysicsObject::update(dt);
 }
 
 

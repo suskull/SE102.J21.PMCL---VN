@@ -13,6 +13,7 @@
 #include"Collision.h"
 #include"GameConfiguration.h"
 #include"Tilemap.h"
+#include"AdditionalObject.h"
 
 class Game
 {

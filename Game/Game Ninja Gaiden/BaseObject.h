@@ -44,7 +44,7 @@ public:
 
 	virtual void onUpdate(float dt);
 
-	void update(float dt);
+	virtual void update(float dt);
 
 	BaseObject();
 	~BaseObject();

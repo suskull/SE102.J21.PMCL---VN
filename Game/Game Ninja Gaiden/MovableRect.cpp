@@ -26,10 +26,21 @@ COLLISION_TYPE MovableRect::getCollisionType()
 	this->collisionType = collisionType;
 }
 
+ void MovableRect::setAlive(bool alive)
+ {
+	 this->alive = alive;
+ }
+
+ bool MovableRect::getAlive()
+ {
+	 return alive;
+ }
+
 MovableRect::MovableRect()
 {
 	dx = 0;
 	dy = 0;
+	alive = true;
 }
 
 void MovableRect::setDx(float dx)
