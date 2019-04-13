@@ -3,6 +3,7 @@
 #include"KEY.h"
 #include"Shuriken.h"
 #include"Sword.h"
+#include"WindmillShuriken.h"
 
 enum PLAYER_ACTION {
 	PLAYER_ACTION_STAND,

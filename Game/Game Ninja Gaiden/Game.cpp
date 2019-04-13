@@ -94,6 +94,11 @@ void Game::GameUpdate(float dt)
 	swordman->update(dt);
 	Camera::getInstance()->update();
 	
+	for (size_t i = 0; i < AdditionalObject::getListObject()->Count; i++)
+	{
+		Collision::CheckCollision(player, AdditionalObject::getListObject()->at(i));
+	}
+
 	AdditionalObject::listObjectUpdate(dt);
 	if (Sword::getInstance()->getAlive())
 		Sword::getInstance()->update(dt);

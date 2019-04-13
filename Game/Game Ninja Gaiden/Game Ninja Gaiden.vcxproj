@@ -153,6 +153,7 @@
     <ClInclude Include="Sword.h" />
     <ClInclude Include="SwordMan.h" />
     <ClInclude Include="Tilemap.h" />
+    <ClInclude Include="WindmillShuriken.h" />
     <ClInclude Include="WindowGame.h" />
   </ItemGroup>
   <ItemGroup>
@@ -179,6 +180,7 @@
     <ClCompile Include="Sword.cpp" />
     <ClCompile Include="SwordMan.cpp" />
     <ClCompile Include="Tilemap.cpp" />
+    <ClCompile Include="WindmillShuriken.cpp" />
     <ClCompile Include="WindowGame.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>

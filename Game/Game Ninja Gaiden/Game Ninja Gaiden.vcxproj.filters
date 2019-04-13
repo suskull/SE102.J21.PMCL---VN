@@ -72,6 +72,9 @@
     <ClCompile Include="Sword.cpp">
       <Filter>Subweapon</Filter>
     </ClCompile>
+    <ClCompile Include="WindmillShuriken.cpp">
+      <Filter>Subweapon</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -143,6 +146,9 @@
       <Filter>Subweapon</Filter>
     </ClInclude>
     <ClInclude Include="Sword.h">
+      <Filter>Subweapon</Filter>
+    </ClInclude>
+    <ClInclude Include="WindmillShuriken.h">
       <Filter>Subweapon</Filter>
     </ClInclude>
   </ItemGroup>
