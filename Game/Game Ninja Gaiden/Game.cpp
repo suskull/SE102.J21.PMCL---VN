@@ -95,6 +95,9 @@ void Game::GameUpdate(float dt)
 	Camera::getInstance()->update();
 	
 	AdditionalObject::listObjectUpdate(dt);
+	if (Sword::getInstance()->getAlive())
+		Sword::getInstance()->update(dt);
+	
 }
 void Game::GameRender()
 {
@@ -110,7 +113,9 @@ void Game::GameRender()
 	}
 
 	AdditionalObject::listObjectRender(Camera::getInstance());
-
+	if(Sword::getInstance()->getAlive())
+		Sword::getInstance()->render(Camera::getInstance());
+	
 }
 
 Game::Game()

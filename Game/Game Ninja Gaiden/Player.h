@@ -2,6 +2,7 @@
 #include "PhysicsObject.h"
 #include"KEY.h"
 #include"Shuriken.h"
+#include"Sword.h"
 
 enum PLAYER_ACTION {
 	PLAYER_ACTION_STAND,
@@ -32,6 +33,7 @@ class Player:
 {
 	static Player* instance;
 	PLAYER_STATE playerState;
+	bool isAttacked;
 public:
 	static Player* getInstance();
 

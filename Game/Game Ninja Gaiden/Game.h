@@ -14,6 +14,7 @@
 #include"GameConfiguration.h"
 #include"Tilemap.h"
 #include"AdditionalObject.h"
+#include"Sword.h"
 
 class Game
 {

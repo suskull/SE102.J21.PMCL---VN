@@ -1,12 +1,12 @@
-Sprite player
+Sprite 2
 R	G	B
 255	255	163	177
 Animation Count
-9
+10
 
 
 Name
-Stand
+Animation
 Frame Count
 1
 
@@ -42,8 +42,8 @@ Frame Count
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
 111			1			18				31				0			0
-129			3			40				29				0			0
-169			3			29				29				0			0
+129			3			26				29				0			0
+155			3			22				29				0			0
 
 
 Name
@@ -52,9 +52,9 @@ Frame Count
 3
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-198			1			18				31				0			0
-216			3			26				29				0			0
-242			3			26				29				0			0
+177			1			18				31				0			0
+195			3			26				29				0			0
+221			3			26				29				0			0
 
 
 Name
@@ -63,7 +63,7 @@ Frame Count
 1
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-268			8			17				24				0			0
+247			8			17				24				0			0
 
 
 Name
@@ -72,9 +72,9 @@ Frame Count
 3
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-285			9			18				23				0			0
-303			9			39				23				0			0
-342			9			29				23				0			0
+264			9			18				23				0			0
+282			9			25				23				0			0
+307			9			22				23				0			0
 
 
 Name
@@ -83,10 +83,10 @@ Frame Count
 4
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-371			10			16				22				0			0
-387			16			22				16				0			0
-409			10			16				22				0			0
-425			16			22				16				0			0
+329			10			16				22				0			0
+345			16			22				16				2			0
+367			10			16				22				0			0
+383			16			22				16				2			0
 
 
 Name
@@ -95,9 +95,18 @@ Frame Count
 4
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-447			7			24				25				0			0
-471			8			25				24				0			0
-496			7			24				25				0			0
-520			8			25				24				0			0
+405			7			24				25				0			0
+429			8			25				24				0			0
+454			7			24				25				0			0
+478			8			25				24				0			0
+
+
+Name
+Cling
+Frame Count
+1
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+79			1			16				31				0			0
 
 

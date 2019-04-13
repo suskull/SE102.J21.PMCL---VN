@@ -28,7 +28,11 @@ void Player::update(float dt)
 
 	switch (playerState)
 	{
+	//xong
 	case PLAYER_STATE_STAND:
+		setY(getY() - (getHeight() - getHeightCurrentFrame()));
+		setHeight(getHeightCurrentFrame());
+		isAttacked = false;
 		if (key->isLeftDown) {
 			setDirection(DIRECTION_LEFT);
 			player->setVx(-vx);
@@ -46,12 +50,9 @@ void Player::update(float dt)
 			setPlayerState(PLAYER_STATE_ATTACK);
 		else if (key->isShurikenDown)
 		{
-			Shuriken* shuriken = new Shuriken();
-			shuriken->setX(this->getX() + 8);
-			this->setVx(0);
-			shuriken->setY(this->getY() + 8);
-			shuriken->setVx(150);
-			//setPlayerState(PLAYER_STATE_SHURIKEN);
+			
+			
+			setPlayerState(PLAYER_STATE_SHURIKEN);
 		}
 			
 		else if (key->isDownDown)
@@ -68,31 +69,55 @@ void Player::update(float dt)
 		}
 			break;
 
+	//xong
 	case PLAYER_STATE_RUN:
 		setAnimation(PLAYER_ACTION_RUN);
 		
 		if (!key->isLeftDown && !key->isRightDown)
 			setPlayerState(PLAYER_STATE_STAND);
 		break;
-
+	//xong
 	case PLAYER_STATE_CLIMB:
 		setAnimation(PLAYER_ACTION_CLIMB);
 		break;
 
-	case PLAYER_STATE_ATTACK:	
-		setAnimation(PLAYER_ACTION_ATTACK);
+	case PLAYER_STATE_ATTACK: {
+		Sword* sword = Sword::getInstance();
+		if (!isAttacked)
+		{
+			sword->setAlive(true);
+			setAnimation(PLAYER_ACTION_ATTACK);
+			isAttacked = true;
+		}
 		if (getIsLastFrameAnimationDone())
+		{
+			sword->setAlive(false);
 			setPlayerState(PLAYER_STATE_STAND);
+		}
 		break;
-
+	}
+		
 	case PLAYER_STATE_SHURIKEN: {
 		setAnimation(PLAYER_ACTION_SHURIKEN);
+		if (getFrameAnimation() == 1 && !isAttacked)
+		{
+			Shuriken* shuriken = new Shuriken();
+			shuriken->setX(this->getX() + 12 * getDirection());
+			this->setVx(0);
+			shuriken->setY(this->getY() - 5);
+			shuriken->setVx(150 * getDirection());
+			isAttacked = true;
+		}
 		if (getIsLastFrameAnimationDone())
 			setPlayerState(PLAYER_STATE_STAND);
 		break;
 	}
+
+	//xong
 	case PLAYER_STATE_SIT:
 		setAnimation(PLAYER_ACTION_SIT);
+		setY(getY() - (getHeight() - getHeightCurrentFrame()));
+		setHeight(getHeightCurrentFrame());
 		if (getIsLastFrameAnimationDone())
 			setPlayerState(PLAYER_STATE_STAND);
 		break;
@@ -100,10 +125,14 @@ void Player::update(float dt)
 	case PLAYER_STATE_SITATTACK:
 		setAnimation(PLAYER_ACTION_SITATTACK);
 		break;
-
+	//xong
 	case PLAYER_STATE_ROLL:
 		
 		setAnimation(PLAYER_ACTION_ROLL);
+		if (key->isLeftDown)
+			setVx(-vx/2);
+		if (key->isRightDown)
+			setVx(vx/2);
 		if (getIsOnGround())
 			setPlayerState(PLAYER_STATE_STAND);
 		break;

@@ -59,6 +59,18 @@ void BaseObject::update(float dt)
 	onUpdate(dt);
 }
 
+float BaseObject::getWidthCurrentFrame()
+{
+	return this->getSprite()->animations[animationIndex]->frames[frameIndex]->right -
+		this->getSprite()->animations[animationIndex]->frames[frameIndex]->left;
+}
+
+float BaseObject::getHeightCurrentFrame()
+{
+	return this->getSprite()->animations[animationIndex]->frames[frameIndex]->bottom -
+		this->getSprite()->animations[animationIndex]->frames[frameIndex]->top;
+}
+
 void BaseObject::onUpdate(float dt)
 {
 	setPauseAnimation(false);

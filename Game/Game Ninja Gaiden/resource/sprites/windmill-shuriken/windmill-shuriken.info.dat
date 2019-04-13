@@ -1,4 +1,4 @@
-Sprite 3
+Sprite shuriken
 R	G	B
 255	255	163	177
 Animation Count
@@ -8,10 +8,9 @@ Animation Count
 Name
 Animation
 Frame Count
-2
+1
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-0			0			8				7				0			0
-9			0			9				7				0			0
+0			0			16				16				0			0
 
 

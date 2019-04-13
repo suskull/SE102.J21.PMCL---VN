@@ -69,6 +69,9 @@
     <ClCompile Include="Shuriken.cpp">
       <Filter>Subweapon</Filter>
     </ClCompile>
+    <ClCompile Include="Sword.cpp">
+      <Filter>Subweapon</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -137,6 +140,9 @@
       <Filter>Camera</Filter>
     </ClInclude>
     <ClInclude Include="Shuriken.h">
+      <Filter>Subweapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Sword.h">
       <Filter>Subweapon</Filter>
     </ClInclude>
   </ItemGroup>

@@ -46,6 +46,9 @@ public:
 
 	virtual void update(float dt);
 
+	float getWidthCurrentFrame();
+	float getHeightCurrentFrame();
+
 	BaseObject();
 	~BaseObject();
 };

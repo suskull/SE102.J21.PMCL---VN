@@ -20,7 +20,7 @@ public:
 	virtual void setVy(float vy);
 
 	bool getPhysicsEnable();
-	virtual void setPhysicsEnable(bool physicsEnable);
+	void setPhysicsEnable(bool physicsEnable);
 
 	bool getIsOnGround();
 	void setIsOnGround(bool isOnGround);

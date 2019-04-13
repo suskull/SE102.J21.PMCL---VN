@@ -150,6 +150,7 @@
     <ClInclude Include="Shuriken.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="SpriteManager.h" />
+    <ClInclude Include="Sword.h" />
     <ClInclude Include="SwordMan.h" />
     <ClInclude Include="Tilemap.h" />
     <ClInclude Include="WindowGame.h" />
@@ -175,6 +176,7 @@
     <ClCompile Include="Shuriken.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteManager.cpp" />
+    <ClCompile Include="Sword.cpp" />
     <ClCompile Include="SwordMan.cpp" />
     <ClCompile Include="Tilemap.cpp" />
     <ClCompile Include="WindowGame.cpp" />
