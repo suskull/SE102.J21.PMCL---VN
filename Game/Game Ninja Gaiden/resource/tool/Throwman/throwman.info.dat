@@ -1,0 +1,18 @@
+Sprite throwman
+R	G	B
+255	255	163	177
+Animation Count
+1
+
+
+Name
+Animation
+Frame Count
+3
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+0			11			24				32				0			0
+24			11			24				32				0			0
+48			0			16				43				0			0
+
+

@@ -71,14 +71,21 @@ void Player::update(float dt)
 
 	//xong
 	case PLAYER_STATE_RUN:
+	{
 		setAnimation(PLAYER_ACTION_RUN);
 		setY(getY() - (getHeight() - getHeightCurrentFrame()));
 		setHeight(getHeightCurrentFrame());
 		if (!key->isLeftDown && !key->isRightDown)
 			setPlayerState(PLAYER_STATE_STAND);
-		if (key->isAttackDown)
+		else if (key->isAttackDown)
 			setPlayerState(PLAYER_STATE_ATTACK);
+		else if (key->isJumpDown)
+		{
+			setVy(vroll);
+			setPlayerState(PLAYER_STATE_ROLL);
+		}
 		break;
+	}
 
 	case PLAYER_STATE_CLIMB:
 		setAnimation(PLAYER_ACTION_CLIMB);
@@ -159,19 +166,22 @@ void Player::update(float dt)
 
 	//xong
 	case PLAYER_STATE_ROLL:
+	{
+		setAnimation(PLAYER_ACTION_ROLL);
 		setY(getY() - (getHeight() - getHeightCurrentFrame()));
 		setHeight(getHeightCurrentFrame());
-		setAnimation(PLAYER_ACTION_ROLL);
 		if (key->isLeftDown)
-			setVx(-vx/2);
+			setVx(-vx * 2 / 3);
 		if (key->isRightDown)
-			setVx(vx/2);
+			setVx(vx * 2 / 3);
 		if (getIsOnGround())
 			setPlayerState(PLAYER_STATE_STAND);
 
 		if (key->isAttackDown && getDx() < 0.5)
 			setPlayerState(PLAYER_STATE_ATTACK);
 		break;
+	}
+		
 	//chưa dùng tới
 	case PLAYER_STATE_ROLLATTACK:
 		setAnimation(PLAYER_ACTION_ROLLATTACK);

@@ -44,7 +44,6 @@
     <ClCompile Include="SpriteManager.cpp">
       <Filter>SpriteManager</Filter>
     </ClCompile>
-    <ClCompile Include="SwordMan.cpp" />
     <ClCompile Include="Collision.cpp">
       <Filter>Collision</Filter>
     </ClCompile>
@@ -74,6 +73,27 @@
     </ClCompile>
     <ClCompile Include="WindmillShuriken.cpp">
       <Filter>Subweapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Bird.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Panther.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Soldier.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="SwordMan.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Throwman.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionTypeCanCollide.h">
+      <Filter>Collision</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -123,7 +143,6 @@
     <ClInclude Include="SpriteManager.h">
       <Filter>SpriteManager</Filter>
     </ClInclude>
-    <ClInclude Include="SwordMan.h" />
     <ClInclude Include="Collision.h">
       <Filter>Collision</Filter>
     </ClInclude>
@@ -150,6 +169,24 @@
     </ClInclude>
     <ClInclude Include="WindmillShuriken.h">
       <Filter>Subweapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Bird.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Panther.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Soldier.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="SwordMan.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Throwman.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Enemy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -194,6 +231,9 @@
     </Filter>
     <Filter Include="Camera">
       <UniqueIdentifier>{95e3eebb-7afa-4451-9f12-5d9795ebb775}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemy">
+      <UniqueIdentifier>{99fa1d3c-b048-4bc9-b9a4-cd996041ae12}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

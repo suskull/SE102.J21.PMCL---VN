@@ -15,6 +15,8 @@
 #include"Tilemap.h"
 #include"AdditionalObject.h"
 #include"Sword.h"
+#include"CollisionType.h"
+#include"CollisionTypeCanCollide.h"
 
 class Game
 {
@@ -30,18 +32,17 @@ class Game
 
 	int x, y;
 
-	SwordMan* swordman;
 
 	Tilemap* tilemap;
 
 	List<BaseObject*> allObjects;
 
-	//test
-	BaseObject* bo;
+	List<CollisionTypeCanCollide*> listCollisionTypeCanCollide;
 
 public:
 	static Game* getInstance();
 	void InitObjects(string path, int worldHeight);
+	void InitCollisionTypeCanCollide(string path);
 
 	void GameInit();
 	void GameUpdate(float dt);

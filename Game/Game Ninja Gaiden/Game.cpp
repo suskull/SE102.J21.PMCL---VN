@@ -1,6 +1,7 @@
 ﻿#include "Game.h"
 #include"KEY.h"
 #include"Player.h"
+#include"Panther.h"
 Game * Game::instance = 0;
 Game * Game::getInstance()
 {
@@ -26,6 +27,10 @@ void Game::InitObjects(string Objectpath, int worldHeight)
 			obj = new SwordMan();
 			break;
 
+		case SPRITE_PANTHER:
+			obj = new Panther();
+			break;
+
 		default:
 			obj = new BaseObject();
 			break;
@@ -40,6 +45,23 @@ void Game::InitObjects(string Objectpath, int worldHeight)
 	}
 }
 
+void Game::InitCollisionTypeCanCollide(string path)
+{
+	int count;
+	ifstream fs(path);
+	fs >> count;
+	
+	for (size_t i = 0; i < count; i++)
+	{
+		int collisionType1, collisionType2;
+		fs >> collisionType1 >> collisionType2;
+		CollisionTypeCanCollide* collisionTypeCanCollide = new CollisionTypeCanCollide();
+		collisionTypeCanCollide->COLLISION_TYPE_1 = (COLLISION_TYPE)collisionType1;
+		collisionTypeCanCollide->COLLISION_TYPE_2 = (COLLISION_TYPE)collisionType2;
+		listCollisionTypeCanCollide._Add(collisionTypeCanCollide);
+	}
+}
+
 void Game::GameInit()
 {
 	tilemap = new Tilemap();
@@ -47,10 +69,9 @@ void Game::GameInit()
 
 	Player* player = Player::getInstance();
 	player->set(40, 140, 16, 30);
-	swordman = new SwordMan();
-	swordman->set(100, 100, 16, 32); 
 
 	InitObjects("resource/map/stage3-1/objects.dat", tilemap->getWorldHeight());
+	InitCollisionTypeCanCollide("resource/map/stage3-1/collision_type_collides.dat");
 
 	currentIndex = 0;
 	currentAnimation = 3;
@@ -65,39 +86,57 @@ void Game::GameInit()
 		GLOBALS_D("backbuffer_width"),
 		GLOBALS_D("backbuffer_height"));
 
-	//bo = new BaseObject();
-	//bo->set(0, 64, 16, 16);
+	
 }
 void Game::GameUpdate(float dt)
 {
 	KEY::getInstance()->update();
 	Player* player = Player::getInstance();
 
-	if (timeDelay.atTime())
-	{
-		//Player::getInstance()->update(dt);
-		Player::getInstance()->getSprite()->update(currentAnimation, currentIndex);
-		swordman->getSprite()->update(0,currentIndex);
-	}
+	//if (timeDelay.atTime())
+	//{
+	//	//Player::getInstance()->update(dt);
+	//	Player::getInstance()->getSprite()->update(currentAnimation, currentIndex);
+	//}
 
 	
 	
 	for (size_t i = 0; i < allObjects.Count; i++)
 	{
-		//allObjects[i]->update(dt);
+		allObjects[i]->update(dt);
 		Collision::CheckCollision(Player::getInstance(), allObjects[i]);
-		Collision::CheckCollision(swordman, allObjects[i]);
+
 	}
 
-	Collision::CheckCollision(player, swordman);
 	player->update(dt);
-	swordman->update(dt);
 	Camera::getInstance()->update();
 	
 	for (size_t i = 0; i < AdditionalObject::getListObject()->Count; i++)
 	{
 		Collision::CheckCollision(player, AdditionalObject::getListObject()->at(i));
 	}
+
+	///* xét va chạm cho các loại đối tượng với nhau */
+	//for (size_t i = 0; i < listCollisionTypeCanCollide.size(); i++)
+	//{
+	//	COLLISION_TYPE col1 = listCollisionTypeCanCollide.at(i)->COLLISION_TYPE_1;
+	//	COLLISION_TYPE col2 = listCollisionTypeCanCollide.at(i)->COLLISION_TYPE_2;
+
+	//	/* danh sách đối tượng thuộc collision type 1 */
+	//	List<BaseObject*>* collection1 = objectCategories.at(col1);
+	//	/* danh sách đối tượng thuộc collision type 2 */
+	//	List<BaseObject*>* collection2 = objectCategories.at(col2);
+
+	//	for (size_t i1 = 0; i1 < collection1->size(); i1++)
+	//	{
+	//		for (size_t i2 = 0; i2 < collection2->size(); i2++)
+	//		{
+	//			/* cho xét va chạm của đối tượng dựa vào 1 cặp collisionType trong CollisionTypeCollide */
+	//			Collision::CheckCollision(collection1->at(i1), collection2->at(i2));
+	//		}
+	//	}
+
+	//}
 
 	AdditionalObject::listObjectUpdate(dt);
 	if (Sword::getInstance()->getAlive())
@@ -110,7 +149,6 @@ void Game::GameRender()
 	
 	Player* player = Player::getInstance();
 	player->render(Camera::getInstance());
-	swordman->render(Camera::getInstance());
 
 	for (size_t i = 0; i < allObjects.Count; i++)
 	{

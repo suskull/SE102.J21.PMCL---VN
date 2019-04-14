@@ -1,0 +1,20 @@
+Sprite soldier
+R	G	B
+255	255	163	177
+Animation Count
+1
+
+
+Name
+Animation
+Frame Count
+5
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+0			0			15				32				0			0
+15			0			16				32				0			0
+31			0			24				32				0			0
+55			0			20				32				0			0
+75			21			2				11				0			0
+
+
