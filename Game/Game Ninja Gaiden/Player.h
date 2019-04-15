@@ -34,7 +34,7 @@ enum PLAYER_STATE {
 	PLAYER_STATE_ROLLATTACK,
 };
 
-class Player: 
+class Player :
 	public PhysicsObject
 {
 	static Player* instance;

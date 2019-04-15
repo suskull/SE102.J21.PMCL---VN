@@ -39,6 +39,7 @@ class Game
 
 	List<CollisionTypeCanCollide*> listCollisionTypeCanCollide;
 
+	List<List<BaseObject*>*> objectCategories;
 public:
 	static Game* getInstance();
 	void InitObjects(string path, int worldHeight);

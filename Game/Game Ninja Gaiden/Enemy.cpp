@@ -14,11 +14,12 @@ void Enemy::onIntersect(MovableRect* other)
 Enemy::Enemy()
 {
 	setCollisionType(COLLISION_TYPE_ENEMY);
-	setPhysicsEnable(true);
 	setAx(0);
 	setAy(GLOBALS_D("gravity_ay"));
 	setVx(0);
 	setVy(0);
+	setPhysicsEnable(true);
+
 }
 
 
