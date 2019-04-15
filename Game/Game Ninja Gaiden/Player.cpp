@@ -55,6 +55,13 @@ void Player::update(float dt)
 
 			setPlayerState(PLAYER_STATE_SHURIKEN);
 		}
+		else if (key->isMiniShurikenDown)
+		{
+
+
+			setPlayerState(PLAYER_STATE_MINI_SHURIKEN);
+		}
+		
 		else if (key->isFlameDown1)
 		{
 			setPlayerState(PLAYER_STATE_FLAME1);
@@ -136,6 +143,23 @@ void Player::update(float dt)
 
 			WindmillShuriken * ws = new WindmillShuriken();
 			ws->setX(this->getX() + getWidthCurrentFrame()* getDirection());
+			this->setVx(0);
+			ws->setY(this->getY() - 5);
+			ws->setVx(150 * getDirection());
+			isAttacked = true;
+		}
+		if (getIsLastFrameAnimationDone())
+			setPlayerState(PLAYER_STATE_STAND);
+		break;
+	}
+
+	case PLAYER_STATE_MINI_SHURIKEN: {
+		setAnimation(PLAYER_ACTION_SHURIKEN);
+		if (getFrameAnimation() == 1 && !isAttacked)
+		{
+
+			Shuriken* ws = new Shuriken();
+			ws->setX(this->getX() + getWidthCurrentFrame() * getDirection());
 			this->setVx(0);
 			ws->setY(this->getY() - 5);
 			ws->setVx(150 * getDirection());

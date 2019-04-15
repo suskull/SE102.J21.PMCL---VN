@@ -12,8 +12,9 @@ public:
 		isJumpDown,
 		isShurikenDown,
 		isFlameDown1,
-	isFlameDown2,
-	isFlameDown3;
+		isFlameDown2,
+		isFlameDown3,
+		isMiniShurikenDown;
 	static KEY* instance;
 	static KEY* getInstance();
 

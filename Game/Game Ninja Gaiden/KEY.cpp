@@ -24,6 +24,7 @@ void KEY::update()
 	isFlameDown1 = GetAsyncKeyState(getKeyChar('f'));
 	isFlameDown2 = GetAsyncKeyState(getKeyChar('g'));
 	isFlameDown3 = GetAsyncKeyState(getKeyChar('h'));
+	isMiniShurikenDown = GetAsyncKeyState(getKeyChar('v'));
 	isShurikenDown = GetAsyncKeyState(VK_SPACE);
 }
 

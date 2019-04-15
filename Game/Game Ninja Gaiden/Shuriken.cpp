@@ -1,5 +1,5 @@
 #include "Shuriken.h"
-
+#include"Player.h"
 #include"SpriteManager.h"
 Shuriken* Shuriken::instance = 0;
 Shuriken* Shuriken::getInstance()
@@ -12,6 +12,13 @@ Shuriken* Shuriken::getInstance()
 }
 void Shuriken::update(float dt)
 {
+	auto* player = Player::getInstance();
+
+	if ((double)(getX() - (double)player->getX()) > (GLOBALS_D("backbuffer_width") / 2))
+		setAlive(false);
+
+	if (((double)player->getX() - (double)getX()) > (GLOBALS_D("backbuffer_width") / 2))
+		setAlive(false);
 	BaseObject::update(dt);
 }
 
