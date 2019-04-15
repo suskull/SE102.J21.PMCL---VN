@@ -130,17 +130,17 @@ void Player::update(float dt)
 		setAnimation(PLAYER_ACTION_SHURIKEN);
 		if (getFrameAnimation() == 1 && !isAttacked)
 		{
-			/*Shuriken* shuriken = new Shuriken();
+			Shuriken* shuriken = new Shuriken();
 			shuriken->setX(this->getX() + 12 * getDirection());
 			this->setVx(0);
 			shuriken->setY(this->getY() - 5);
-			shuriken->setVx(150 * getDirection());*/
+			shuriken->setVx(150 * getDirection());
 
-			WindmillShuriken * ws = new WindmillShuriken();
+			/*WindmillShuriken * ws = new WindmillShuriken();
 			ws->setX(this->getX() + getWidthCurrentFrame()* getDirection());
 			this->setVx(0);
 			ws->setY(this->getY() - 5);
-			ws->setVx(150 * getDirection());
+			ws->setVx(150 * getDirection());*/
 			isAttacked = true;
 		}
 		if (getIsLastFrameAnimationDone())

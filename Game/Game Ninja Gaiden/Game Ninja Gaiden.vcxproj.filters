@@ -98,6 +98,12 @@
     <ClCompile Include="Flame.cpp">
       <Filter>Subweapon</Filter>
     </ClCompile>
+    <ClCompile Include="Bat.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Butterfly.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -193,6 +199,12 @@
     </ClInclude>
     <ClInclude Include="Flame.h">
       <Filter>Subweapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Bat.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Butterfly.h">
+      <Filter>Enemy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

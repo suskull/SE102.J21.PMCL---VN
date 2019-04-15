@@ -30,6 +30,9 @@ SpriteManager::SpriteManager()
 	sprites[SPRITE_THROWMAN]->InitFromFile("resource/tool/Throwman/image.png", "resource/tool/Throwman/throwman.info.dat");
 	sprites[SPRITE_BIRD]->InitFromFile("resource/tool/Bird/image.png", "resource/tool/Bird/bird.info.dat");
 	sprites[SPRITE_SOLDIER]->InitFromFile("resource/tool/Soldier/image.png", "resource/tool/Soldier/soldier.info.dat");
+	sprites[SPRITE_BUTTERFLY]->InitFromFile("resource/tool/Butterfly/butterfly.png", "resource/tool/Butterfly/butterfly.info.dat");
+	sprites[SPRITE_BAT]->InitFromFile("resource/tool/Bat/bat.png", "resource/tool/Bat/bat.info.dat");
+	
 }
 SpriteManager::~SpriteManager()
 {

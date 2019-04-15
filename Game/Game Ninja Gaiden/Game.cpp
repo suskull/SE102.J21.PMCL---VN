@@ -5,6 +5,8 @@
 #include"Throwman.h"
 #include"Bird.h"
 #include"Soldier.h"
+#include"Butterfly.h"
+#include"Bat.h"
 Game * Game::instance = 0;
 Game * Game::getInstance()
 {
@@ -51,6 +53,13 @@ void Game::InitObjects(string Objectpath, int worldHeight)
 			obj = new Soldier();
 			break;
 
+		case SPRITE_BUTTERFLY:
+			obj = new Butterfly();
+			break;
+
+		case SPRITE_BAT:
+			obj = new Bat();
+			break;
 		default:
 			obj = new BaseObject();
 			break;
