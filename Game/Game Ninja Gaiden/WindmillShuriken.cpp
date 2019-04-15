@@ -20,6 +20,7 @@ void WindmillShuriken::update(float dt)
 	
 	if ((double)(getX() - (double)player->getX()) > (GLOBALS_D("backbuffer_width") / 4))
 		setVx(-150);
+
 	if (((double)player->getX() - (double)getX()) > (GLOBALS_D("backbuffer_width") / 4))
 		setVx(150);
 	setVy((double)(player->getMidY() - getMidY()));

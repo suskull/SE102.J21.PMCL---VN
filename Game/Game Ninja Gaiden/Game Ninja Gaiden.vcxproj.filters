@@ -95,6 +95,9 @@
     <ClCompile Include="CollisionTypeCanCollide.h">
       <Filter>Collision</Filter>
     </ClCompile>
+    <ClCompile Include="Flame.cpp">
+      <Filter>Subweapon</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -187,6 +190,9 @@
     </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Flame.h">
+      <Filter>Subweapon</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

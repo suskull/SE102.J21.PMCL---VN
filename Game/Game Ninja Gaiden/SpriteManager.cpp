@@ -25,6 +25,7 @@ SpriteManager::SpriteManager()
 	sprites[SPRITE_INFO_SHURIKEN]->InitFromFile("resource/sprites/shuriken/shuriken.png", "resource/sprites/shuriken/shuriken.info.dat");
 	sprites[SPRITE_SWORD]->InitFromFile("resource/sprites/sword/sword.png", "resource/sprites/sword/sword.info.dat");
 	sprites[SPRITE_WINDMILLSHURIKEN]->InitFromFile("resource/sprites/windmillshuriken/windmillshuriken.png", "resource/sprites/windmillshuriken/windmillshuriken.info.dat");
+	sprites[SPRITE_FLAME]->InitFromFile("resource/sprites/flame/flame.png", "resource/sprites/flame/flame.info.dat");
 	sprites[SPRITE_PANTHER]->InitFromFile("resource/tool/Panther/panther.png", "resource/tool/Panther/panther.info.dat");
 	sprites[SPRITE_THROWMAN]->InitFromFile("resource/tool/Throwman/image.png", "resource/tool/Throwman/throwman.info.dat");
 	sprites[SPRITE_BIRD]->InitFromFile("resource/tool/Bird/image.png", "resource/tool/Bird/bird.info.dat");
