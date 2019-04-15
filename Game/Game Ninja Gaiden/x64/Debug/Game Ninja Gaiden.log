@@ -1,0 +1,88 @@
+﻿  AdditionalObject.cpp
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\AdditionalObject.cpp(18): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\AdditionalObject.cpp(26): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\AdditionalObject.cpp(34): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  Animation.cpp
+  BaseObject.cpp
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\BaseObject.cpp(37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\BaseObject.cpp(64): warning C4244: 'return': conversion from 'LONG' to 'float', possible loss of data
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\BaseObject.cpp(70): warning C4244: 'return': conversion from 'LONG' to 'float', possible loss of data
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\BaseObject.cpp(101): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\BaseObject.cpp(151): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+  Bird.cpp
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\Bird.cpp(14): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Camera.cpp
+  Collision.cpp
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\Collision.cpp(135): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\Collision.cpp(136): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  CollisionType.h
+  CollisionTypeCanCollide.h
+  Enemy.cpp
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\Enemy.cpp(19): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Flame.cpp
+  Game.cpp
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\Game.cpp(87): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\Game.cpp(86): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\Game.cpp(85): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\Game.cpp(106): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\Game.cpp(107): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\Game.cpp(116): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\Game.cpp(155): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  GameConfiguration.cpp
+  GameDirectX.cpp
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\GameDirectX.cpp(39): warning C4244: '=': conversion from 'double' to 'UINT', possible loss of data
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\GameDirectX.cpp(40): warning C4244: '=': conversion from 'double' to 'UINT', possible loss of data
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\GameDirectX.cpp(144): warning C4267: 'argument': conversion from 'size_t' to 'INT', possible loss of data
+  GameTexture.cpp
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\GameTexture.cpp(52): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\GameTexture.cpp(53): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+  GameTime.cpp
+  GameUtils.cpp
+  KEY.cpp
+  Panther.cpp
+  PhysicsObject.cpp
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\PhysicsObject.cpp(6): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  MovableRect.cpp
+  Generating Code...
+  Compiling...
+  Player.cpp
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\Player.cpp(26): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\Player.cpp(27): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\Player.cpp(148): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\Player.cpp(165): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\Player.cpp(183): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\Player.cpp(200): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\Player.cpp(207): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\Player.cpp(224): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\Player.cpp(231): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\Player.cpp(238): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Rect.cpp
+  Shuriken.cpp
+  Soldier.cpp
+  Sprite.cpp
+  SpriteManager.cpp
+  Sword.cpp
+  SwordMan.cpp
+  Throwman.cpp
+  Tilemap.cpp
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\Tilemap.cpp(12): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\Tilemap.cpp(14): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\Tilemap.cpp(16): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\Tilemap.cpp(18): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\Tilemap.cpp(44): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\Tilemap.cpp(45): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\Tilemap.cpp(51): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\Tilemap.cpp(67): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  WindmillShuriken.cpp
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\WindmillShuriken.cpp(26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  WindowGame.cpp
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\WindowGame.cpp(36): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\WindowGame.cpp(53): warning C4101: 'hdc': unreferenced local variable
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\WindowGame.cpp(52): warning C4101: 'ps': unreferenced local variable
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\WindowGame.cpp(51): warning C4101: 'wmEvent': unreferenced local variable
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\WindowGame.cpp(51): warning C4101: 'wmId': unreferenced local variable
+  Main.cpp
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\Main.cpp(19): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\Game\SE102.J21.PMCL---VN\Game\Game Ninja Gaiden\Main.cpp(29): warning C4244: 'initializing': conversion from 'double' to 'DWORD', possible loss of data
+  Generating Code...
+  Game Ninja Gaiden.vcxproj -> D:\Game\SE102.J21.PMCL---VN\Game\x64\Debug\Game Ninja Gaiden.exe
