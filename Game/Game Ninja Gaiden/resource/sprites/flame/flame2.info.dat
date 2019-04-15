@@ -1,6 +1,6 @@
-Sprite bird
+Sprite flame
 R	G	B
-255	255	163	177
+255	0	0	0
 Animation Count
 1
 
@@ -8,10 +8,9 @@ Animation Count
 Name
 Animation
 Frame Count
-2
+1
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-0			9			16				16				1			9
-16			0			17				25				0			16
+0			0			22				36				0			0
 
 

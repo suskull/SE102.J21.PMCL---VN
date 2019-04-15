@@ -2,6 +2,9 @@
 #include"KEY.h"
 #include"Player.h"
 #include"Panther.h"
+#include"Throwman.h"
+#include"Bird.h"
+#include"Soldier.h"
 Game * Game::instance = 0;
 Game * Game::getInstance()
 {
@@ -13,6 +16,11 @@ Game * Game::getInstance()
 void Game::InitObjects(string Objectpath, int worldHeight)
 {
 	int objectCount;
+	for (size_t i = 0; i < COLLISION_TYPE_COUNT; i++)
+	{
+		objectCategories._Add(new List<BaseObject*>());
+	}
+
 	ifstream fs(Objectpath);
 	fs >> objectCount;
 	for (size_t i = 0; i < objectCount; i++)
@@ -31,6 +39,18 @@ void Game::InitObjects(string Objectpath, int worldHeight)
 			obj = new Panther();
 			break;
 
+		case SPRITE_THROWMAN:
+			obj = new Throwman();
+			break;
+
+		case SPRITE_BIRD:
+			obj = new Bird();
+			break;
+
+		case SPRITE_SOLDIER:
+			obj = new Soldier();
+			break;
+
 		default:
 			obj = new BaseObject();
 			break;
@@ -42,6 +62,8 @@ void Game::InitObjects(string Objectpath, int worldHeight)
 			obj->setSprite(SPR(id));
 		}
 		allObjects._Add(obj);
+
+		objectCategories.at(obj->getCollisionType())->_Add(obj);
 	}
 }
 
@@ -73,12 +95,8 @@ void Game::GameInit()
 	InitObjects("resource/map/stage3-1/objects.dat", tilemap->getWorldHeight());
 	InitCollisionTypeCanCollide("resource/map/stage3-1/collision_type_collides.dat");
 
-	currentIndex = 0;
-	currentAnimation = 3;
 
 	timeDelay.init(100);
-
-	
 
 	Camera::getInstance()->set(
 		0,
@@ -93,14 +111,7 @@ void Game::GameUpdate(float dt)
 	KEY::getInstance()->update();
 	Player* player = Player::getInstance();
 
-	//if (timeDelay.atTime())
-	//{
-	//	//Player::getInstance()->update(dt);
-	//	Player::getInstance()->getSprite()->update(currentAnimation, currentIndex);
-	//}
 
-	
-	
 	for (size_t i = 0; i < allObjects.Count; i++)
 	{
 		allObjects[i]->update(dt);
@@ -116,27 +127,27 @@ void Game::GameUpdate(float dt)
 		Collision::CheckCollision(player, AdditionalObject::getListObject()->at(i));
 	}
 
-	///* xét va chạm cho các loại đối tượng với nhau */
-	//for (size_t i = 0; i < listCollisionTypeCanCollide.size(); i++)
-	//{
-	//	COLLISION_TYPE col1 = listCollisionTypeCanCollide.at(i)->COLLISION_TYPE_1;
-	//	COLLISION_TYPE col2 = listCollisionTypeCanCollide.at(i)->COLLISION_TYPE_2;
+	/* xét va chạm cho các loại đối tượng với nhau */
+	for (size_t i = 0; i < listCollisionTypeCanCollide.size(); i++)
+	{
+		COLLISION_TYPE col1 = listCollisionTypeCanCollide.at(i)->COLLISION_TYPE_1;
+		COLLISION_TYPE col2 = listCollisionTypeCanCollide.at(i)->COLLISION_TYPE_2;
 
-	//	/* danh sách đối tượng thuộc collision type 1 */
-	//	List<BaseObject*>* collection1 = objectCategories.at(col1);
-	//	/* danh sách đối tượng thuộc collision type 2 */
-	//	List<BaseObject*>* collection2 = objectCategories.at(col2);
+		/* danh sách đối tượng thuộc collision type 1 */
+		List<BaseObject*>* collection1 = objectCategories.at(col1);
+		/* danh sách đối tượng thuộc collision type 2 */
+		List<BaseObject*>* collection2 = objectCategories.at(col2);
 
-	//	for (size_t i1 = 0; i1 < collection1->size(); i1++)
-	//	{
-	//		for (size_t i2 = 0; i2 < collection2->size(); i2++)
-	//		{
-	//			/* cho xét va chạm của đối tượng dựa vào 1 cặp collisionType trong CollisionTypeCollide */
-	//			Collision::CheckCollision(collection1->at(i1), collection2->at(i2));
-	//		}
-	//	}
+		for (size_t i1 = 0; i1 < collection1->size(); i1++)
+		{
+			for (size_t i2 = 0; i2 < collection2->size(); i2++)
+			{
+				/* cho xét va chạm của đối tượng dựa vào 1 cặp collisionType trong CollisionTypeCollide */
+				Collision::CheckCollision(collection1->at(i1), collection2->at(i2));
+			}
+		}
 
-	//}
+	}
 
 	AdditionalObject::listObjectUpdate(dt);
 	if (Sword::getInstance()->getAlive())

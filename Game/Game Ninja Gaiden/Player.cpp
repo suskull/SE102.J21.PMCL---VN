@@ -61,12 +61,27 @@ void Player::update(float dt)
 			setVy(vroll);
 			setPlayerState(PLAYER_STATE_ROLL);
 		}
+
+		else if (key->isFlameDown1)
+		{
+			setPlayerState(PLAYER_STATE_FLAME1);
+		}
+		else if (key->isFlameDown2)
+		{
+			setPlayerState(PLAYER_STATE_FLAME2);
+		}
+		else if (key->isFlameDown3)
+		{
+			setPlayerState(PLAYER_STATE_FLAME3);
+		}
+
 		else
 		{
 			//không nhấn nút gì thì nó đứng yên.
 			setVx(0);
 			setAnimation(PLAYER_ACTION_STAND);
 		}
+
 			break;
 
 	//xong
@@ -188,6 +203,79 @@ void Player::update(float dt)
 		if (getIsOnGround())
 			setPlayerState(PLAYER_STATE_STAND);
 		break;
+
+	case PLAYER_STATE_FLAME1: {
+		setAnimation(PLAYER_ACTION_SHURIKEN);
+		if (getFrameAnimation() == 1 && !isAttacked)
+		{
+			Flame* fl = new Flame();
+			fl->setX(this->getX() + getWidthCurrentFrame() * getDirection());
+			this->setVx(0);
+			fl->setY(this->getY() + 25);
+			fl->setVx(70 * getDirection());
+			fl->setVy(70);
+
+			isAttacked = true;
+		}
+		if (getIsLastFrameAnimationDone())
+			setPlayerState(PLAYER_STATE_STAND);
+		break;
+	}
+	case PLAYER_STATE_FLAME2: {
+		setAnimation(PLAYER_ACTION_SHURIKEN);
+		if (getFrameAnimation() == 1 && !isAttacked)
+		{
+			Flame* fl = new Flame();
+			fl->setX(this->getX() + getWidthCurrentFrame() * getDirection());
+			this->setVx(0);
+			fl->setY(this->getY() + 25);
+			fl->setVx(70 * getDirection());
+			fl->setVy(70);
+
+			Flame * fl2 = new Flame();
+			fl2->setX(this->getX() + getWidthCurrentFrame() * getDirection());
+			this->setVx(0);
+			fl2->setY(this->getY() + 60);
+			fl2->setVx(70 * getDirection());
+			fl2->setVy(70);
+
+			isAttacked = true;
+		}
+		if (getIsLastFrameAnimationDone())
+			setPlayerState(PLAYER_STATE_STAND);
+		break;
+	}
+	case PLAYER_STATE_FLAME3: {
+		setAnimation(PLAYER_ACTION_SHURIKEN);
+		if (getFrameAnimation() == 1 && !isAttacked)
+		{
+			Flame* fl = new Flame();
+			fl->setX(this->getX() + getWidthCurrentFrame() * getDirection());
+			this->setVx(0);
+			fl->setY(this->getY() + 25);
+			fl->setVx(70 * getDirection());
+			fl->setVy(70);
+
+			Flame * fl2 = new Flame();
+			fl2->setX(this->getX() + getWidthCurrentFrame() * getDirection());
+			this->setVx(0);
+			fl2->setY(this->getY() + 60);
+			fl2->setVx(70 * getDirection());
+			fl2->setVy(70);
+
+			Flame * fl3 = new Flame();
+			fl3->setX(this->getX() + getWidthCurrentFrame() * getDirection());
+			this->setVx(0);
+			fl3->setY(this->getY() + 95);
+			fl3->setVx(70 * getDirection());
+			fl3->setVy(70);
+
+			isAttacked = true;
+		}
+		if (getIsLastFrameAnimationDone())
+			setPlayerState(PLAYER_STATE_STAND);
+		break;
+	}
 	}
 
 	PhysicsObject::update(dt);

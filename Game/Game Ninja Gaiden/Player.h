@@ -4,6 +4,7 @@
 #include"Shuriken.h"
 #include"Sword.h"
 #include"WindmillShuriken.h"
+#include"Flame.h"
 
 enum PLAYER_ACTION {
 	PLAYER_ACTION_STAND,
@@ -27,6 +28,9 @@ enum PLAYER_STATE {
 	PLAYER_STATE_SITATTACK,
 	PLAYER_STATE_ROLL,
 	PLAYER_STATE_ROLLATTACK,
+	PLAYER_STATE_FLAME1,
+	PLAYER_STATE_FLAME2,
+	PLAYER_STATE_FLAME3,
 };
 
 class Player: 
