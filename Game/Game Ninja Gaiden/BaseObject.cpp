@@ -149,6 +149,7 @@ BaseObject::BaseObject()
 {
 	setSprite(NULL);
 	animationGameTime.init(GLOBALS_D("object_animation_time_default"));
+	setDirection(DIRECTION_LEFT);
 }
 
 
