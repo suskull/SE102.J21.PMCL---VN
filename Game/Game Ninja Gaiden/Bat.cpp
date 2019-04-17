@@ -4,6 +4,8 @@
 
 Bat::Bat()
 {
+	setAy(0);
+	setDirection(DIRECTION_RIGHT);
 }
 
 

@@ -1,7 +1,7 @@
 #pragma once
-#include"Enemy.h"
+#include"PhysicsObject.h"
 class Butterfly
-	: public Enemy
+	: public PhysicsObject
 {
 public:
 	Butterfly();

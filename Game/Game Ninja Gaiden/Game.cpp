@@ -30,6 +30,7 @@ void Game::InitObjects(string Objectpath, int worldHeight)
 		BaseObject* obj;
 		int id;
 		fs >> id;
+		
 		switch (id)
 		{
 
