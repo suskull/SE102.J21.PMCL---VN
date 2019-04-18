@@ -28,25 +28,23 @@ void Bird::update(float dt)
 		// bắt đầu bay
 		if (player->getX() - getX() > 40)
 		{
-			setVx((player->getMidX() - getMidX()) * 4);
-			setVy((player->getMidY() - getMidY()) * 4);
-			setAx((player->getMidX() - getMidX()) * 4);
-			setAy((player->getMidY() - getMidY()) * 4);
+			setVx((player->getMidX() - getMidX()) * 2);
+			setVy((50 - getMidY()) * 2);
 			setDirection(DIRECTION_RIGHT);
 			setBirdState(BIRD_STATE_ATTACK1);
 		}
 		break;
 	case BIRD_STATE_ATTACK1:
-		if (getMidY() > player->getMidY() && getMidX() > player->getMidX())
+		if (getMidX() > player->getMidX())
 		{
 			setAy(-50);
-			setAx(-30);
+			setAx(-150);
 			setBirdState(BIRD_STATE_SLOW_DOWN_RIGHT);
 		}
 		break;
 	case BIRD_STATE_SLOW_DOWN_RIGHT:
 		followPlayer();
-		if (getMidY() - player->getMidY() >= 0)
+		if (getMidY() >= 55)
 		{
 			setVy(-50);
 			setVx(50);
@@ -54,38 +52,33 @@ void Bird::update(float dt)
 		}
 		break;
 	case BIRD_STATE_FLY_DOWN_RIGHT:
-		if (getY() + 5 < (player->getY() - player->getHeight())) {
-			setVx(-(getMidX() - player->getX()) * 4);
-			setVy((player->getY() -getY()) * 4);
-			setAx(-(getX() - player->getX()) * 4);
-			setAy((player->getY() - getY()) * 4);
+		if (getY() < 20) {
+			setVx(-(getMidX() - player->getMidX()) * 2);
+			setVy((50 - getMidY()) * 2);
 			setBirdState(BIRD_STATE_ATTACK2);
 		}
 		break;
 	case BIRD_STATE_ATTACK2:
-		if (getMidY() < player->getMidY() && getMidX() < player->getMidX())
+		if (getMidX() < player->getMidX())
 		{
 			setAy(-50);
-			setAx(30);
+			setAx(150);
 			setBirdState(BIRD_STATE_SLOW_DOWN_LEFT);
 		}
 		break;
 	case BIRD_STATE_SLOW_DOWN_LEFT:
 		followPlayer();
-		
-		if (getY() - player->getY() >= 0)
+		if (getMidY() >= 55)
 		{
 			setVy(-50);
-			setVx(-15);
+			setVx(-50);
 			setBirdState(BIRD_STATE_FLY_DOWN_LEFT);
 		}
 		break;
 	case BIRD_STATE_FLY_DOWN_LEFT:
-		if (getY() < (player->getY() - player->getHeight())) {
-			setVx((player->getMidX() - getMidX()) * 4);
-			setVy((player->getMidY() - getMidY()) * 4);
-			setAx((player->getMidX() - getMidX()) * 4);
-			setAy((player->getMidY() - getMidY()) * 4);
+		if (getY() < 20 ) {
+			setVx((player->getMidX() - getMidX()) * 2);
+			setVy((50 - getMidY()) * 2);
 			setBirdState(BIRD_STATE_ATTACK1);
 		}
 		break;
