@@ -35,6 +35,7 @@ void BaseObject::onInitFromFile(ifstream& fs, int worldHeight)
 	int collisionType, x, y, width, height;
 	fs >> collisionType >> x >> y >> width >> height;
 	set(x, worldHeight - y, width,  height);
+	setCollisionType((COLLISION_TYPE)collisionType);
 }
 
 void BaseObject::update(float dt)
@@ -78,7 +79,7 @@ void BaseObject::onUpdate(float dt)
 
 void BaseObject::render(Camera* camera)
 {
-	if (getSprite() == 0)
+	if (getSprite() == 0 || !getIsRender())
 		return;
 	float xView, yView;
 	camera->convertWorldToView(getX(), getY(), xView, yView);
@@ -147,6 +148,7 @@ void BaseObject::setDirection(DIRECTION direction)
 
 BaseObject::BaseObject()
 {
+	
 	setSprite(NULL);
 	animationGameTime.init(GLOBALS_D("object_animation_time_default"));
 	setDirection(DIRECTION_LEFT);

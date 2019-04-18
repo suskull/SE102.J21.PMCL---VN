@@ -17,7 +17,7 @@ double GameConfiguration::GetConfiguration(const char * key)
 		globalsConfigurationDouble->insert(pair<const char*, double>("backbuffer_height", 208));
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("fps", 70));
-		globalsConfigurationDouble->insert(pair<const char*, double>("player_vx", 300));
+		globalsConfigurationDouble->insert(pair<const char*, double>("player_vx", 100));
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_roll", 170));
 		globalsConfigurationDouble->insert(pair<const char*, double>("gravity_ay", -300));
 		globalsConfigurationDouble->insert(pair<const char*, double>("object_animation_time_default", 100));

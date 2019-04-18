@@ -88,12 +88,10 @@ void PhysicsObject::setIsOnGround(bool isOnGround)
 
 void PhysicsObject::onCollision(MovableRect * other, float collisionTime, int nx, int ny)
 {
-	///* va chạm sàn là va chạm có phản xạ theo hướng từ dưới lên. mà chiều từ dưới lên là chiều dương nên ny=1 */
-	//if (ny == 1)
-	//{
-	//	/* isOnGround = true tức vật có đứng trên sàn */
-	//	setIsOnGround(true);
-	//}
+	if (ny == 1)
+	{
+		setIsOnGround(true);
+	}
 	BaseObject::onCollision(other, collisionTime, nx, ny);
 }
 

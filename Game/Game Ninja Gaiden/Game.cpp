@@ -7,6 +7,14 @@
 #include"Soldier.h"
 #include"Butterfly.h"
 #include"Bat.h"
+#include"ItemSpiritualStrenghtBlue.h"
+#include"ItemBonusBlue.h"
+#include"ItemClock.h"
+#include"ItemFireWheel.h"
+#include"ItemShuriken.h"
+#include"ItemSpiritualStrengtRed.h"
+#include"ItemRestorePhysicalStrenght.h"
+#include"ItemBonusRed.h"
 Game * Game::instance = 0;
 Game * Game::getInstance()
 {
@@ -61,6 +69,40 @@ void Game::InitObjects(string Objectpath, int worldHeight)
 		case SPRITE_BAT:
 			obj = new Bat();
 			break;
+		
+		case SPRITE_ITEM_SPIRITUAL_STRENGHT_BLUE:
+			obj = new ItemSpiritualStrenghtBlue();
+			break;
+
+		case SPRITE_ITEM_BONUS_BLUE:
+			obj = new ItemBonusBlue();
+			break;
+
+		case SPRITE_ITEM_CLOCK:
+			obj = new ItemClock();
+			break;
+
+		case SPRITE_ITEM_FIRE_WHEEL:
+			obj = new ItemFireWheel();
+			break;
+
+		case SPRITE_ITEM_SHURIKEN:
+			obj = new ItemShuriken();
+			break;
+
+		case SPRITE_ITEM_SPIRITUAL_STRENGHT_RED:
+			obj = new ItemSpiritualStrengtRed();
+			break;
+
+		case SPRITE_ITEM_RESTORE_PHYSICAL_STRENGHT:
+			obj = new ItemRestorePhysicalStrenght();
+			break;
+
+		case SPRITE_ITEM_BONUS_RED:
+			obj = new ItemBonusRed();
+			break;
+
+
 		default:
 			obj = new BaseObject();
 			break;
@@ -126,7 +168,7 @@ void Game::GameUpdate(float dt)
 	{
 		allObjects[i]->update(dt);
 		Collision::CheckCollision(Player::getInstance(), allObjects[i]);
-
+		Collision::CheckCollision(Sword::getInstance(), allObjects[i]);
 	}
 
 	player->update(dt);
@@ -137,22 +179,18 @@ void Game::GameUpdate(float dt)
 		Collision::CheckCollision(player, AdditionalObject::getListObject()->at(i));
 	}
 
-	/* xét va chạm cho các loại đối tượng với nhau */
 	for (size_t i = 0; i < listCollisionTypeCanCollide.size(); i++)
 	{
 		COLLISION_TYPE col1 = listCollisionTypeCanCollide.at(i)->COLLISION_TYPE_1;
 		COLLISION_TYPE col2 = listCollisionTypeCanCollide.at(i)->COLLISION_TYPE_2;
 
-		/* danh sách đối tượng thuộc collision type 1 */
 		List<BaseObject*>* collection1 = objectCategories.at(col1);
-		/* danh sách đối tượng thuộc collision type 2 */
 		List<BaseObject*>* collection2 = objectCategories.at(col2);
 
 		for (size_t i1 = 0; i1 < collection1->size(); i1++)
 		{
 			for (size_t i2 = 0; i2 < collection2->size(); i2++)
 			{
-				/* cho xét va chạm của đối tượng dựa vào 1 cặp collisionType trong CollisionTypeCollide */
 				Collision::CheckCollision(collection1->at(i1), collection2->at(i2));
 			}
 		}

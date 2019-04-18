@@ -36,11 +36,22 @@ COLLISION_TYPE MovableRect::getCollisionType()
 	 return alive;
  }
 
+ void MovableRect::setIsRender(bool isRender)
+ {
+	 this->isRender = isRender;
+ }
+
+ bool MovableRect::getIsRender()
+ {
+	 return isRender;
+ }
+
 MovableRect::MovableRect()
 {
 	dx = 0;
 	dy = 0;
 	alive = true;
+	isRender = true;
 }
 
 void MovableRect::setDx(float dx)

@@ -1,6 +1,6 @@
-Sprite 4
+Sprite Item-BonusBlue
 R	G	B
-255	255	163	177
+255	0	128	128
 Animation Count
 1
 
@@ -8,11 +8,9 @@ Animation Count
 Name
 Animation
 Frame Count
-3
+1
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-0			0			0				0				0			0
-0			0			14				7				0			0
-14			5			7				2				0			0
+0			0			16				14				0			0
 
 

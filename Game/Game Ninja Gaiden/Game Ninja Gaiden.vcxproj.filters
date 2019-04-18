@@ -104,6 +104,33 @@
     <ClCompile Include="Butterfly.cpp">
       <Filter>Enemy</Filter>
     </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemSpiritualStrenghtBlue.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemBonusBlue.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemBonusRed.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemClock.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemFireWheel.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemRestorePhysicalStrenght.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemShuriken.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemSpiritualStrengtRed.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -206,6 +233,33 @@
     <ClInclude Include="Butterfly.h">
       <Filter>Enemy</Filter>
     </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemSpiritualStrenghtBlue.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemBonusBlue.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemBonusRed.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemClock.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemFireWheel.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemRestorePhysicalStrenght.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemShuriken.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemSpiritualStrengtRed.h">
+      <Filter>Item</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Animation">
@@ -252,6 +306,9 @@
     </Filter>
     <Filter Include="Camera">
       <UniqueIdentifier>{95e3eebb-7afa-4451-9f12-5d9795ebb775}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Item">
+      <UniqueIdentifier>{dac7c68b-cf25-4b52-a62c-8558c6291d7c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

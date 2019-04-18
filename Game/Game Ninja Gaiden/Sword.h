@@ -10,5 +10,7 @@ public:
 	~Sword();
 	void update(float dt);
 	void render(Camera* camera) override;
+	void onCollision(MovableRect* other, float collisionTime, int nx, int ny) override;
+
 };
 
