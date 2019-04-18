@@ -247,11 +247,11 @@
     <Filter Include="Subweapon">
       <UniqueIdentifier>{c0306116-936b-460b-87c0-49a18c2761a6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Camera">
-      <UniqueIdentifier>{95e3eebb-7afa-4451-9f12-5d9795ebb775}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Enemy">
       <UniqueIdentifier>{99fa1d3c-b048-4bc9-b9a4-cd996041ae12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Camera">
+      <UniqueIdentifier>{95e3eebb-7afa-4451-9f12-5d9795ebb775}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

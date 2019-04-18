@@ -24,57 +24,74 @@ void Bird::update(float dt)
 			setAy(10);
 			setVy(-20);
 		}
+
+		// bắt đầu bay
 		if (player->getX() - getX() > 40)
 		{
-			setDx(0);
-			setDy(0);
-			setVx(0);
-			setVy(0);
+			setVx((player->getMidX() - getMidX()) * 4);
+			setVy((player->getMidY() - getMidY()) * 4);
+			setAx((player->getMidX() - getMidX()) * 4);
+			setAy((player->getMidY() - getMidY()) * 4);
 			setDirection(DIRECTION_RIGHT);
 			setBirdState(BIRD_STATE_ATTACK1);
 		}
 		break;
 	case BIRD_STATE_ATTACK1:
-		if (getX() <= player->getX() - player->getHeight())
+		if (getMidY() > player->getMidY() && getMidX() > player->getMidX())
 		{
-			// bắt đầu bay
-			setVx(160);
-			setVy(60);
-			setAx(40);
-			setAy(10);
+			setAy(-50);
+			setAx(-30);
+			setBirdState(BIRD_STATE_SLOW_DOWN_RIGHT);
 		}
-		else
+		break;
+	case BIRD_STATE_SLOW_DOWN_RIGHT:
+		followPlayer();
+		if (getMidY() - player->getMidY() >= 0)
 		{
-			//khi X chim > X player
-			
-			if (getY() - player->getY() < 3)
-			{
-				setAx(-200);
-				setAy(-20);
-			}
-			else
-			{
-				setVy(-10);
-				setAy(0);
-				setVx(5);
-			}
-			if (getX() > player->getX() + 60)
-			{
-				setDx(0);
-				setDy(0);
-			}
+			setVy(-50);
+			setVx(50);
+			setBirdState(BIRD_STATE_FLY_DOWN_RIGHT);
 		}
-
-		/*if (getX() - player->getX() > 40) {
-			setDx(0);
-			setDy(0);
-			setDirection(DIRECTION_RIGHT);
+		break;
+	case BIRD_STATE_FLY_DOWN_RIGHT:
+		if (getY() + 5 < (player->getY() - player->getHeight())) {
+			setVx(-(getMidX() - player->getX()) * 4);
+			setVy((player->getY() -getY()) * 4);
+			setAx(-(getX() - player->getX()) * 4);
+			setAy((player->getY() - getY()) * 4);
 			setBirdState(BIRD_STATE_ATTACK2);
-		}*/
+		}
 		break;
 	case BIRD_STATE_ATTACK2:
+		if (getMidY() < player->getMidY() && getMidX() < player->getMidX())
+		{
+			setAy(-50);
+			setAx(30);
+			setBirdState(BIRD_STATE_SLOW_DOWN_LEFT);
+		}
+		break;
+	case BIRD_STATE_SLOW_DOWN_LEFT:
+		followPlayer();
+		
+		if (getY() - player->getY() >= 0)
+		{
+			setVy(-50);
+			setVx(-15);
+			setBirdState(BIRD_STATE_FLY_DOWN_LEFT);
+		}
+		break;
+	case BIRD_STATE_FLY_DOWN_LEFT:
+		if (getY() < (player->getY() - player->getHeight())) {
+			setVx((player->getMidX() - getMidX()) * 4);
+			setVy((player->getMidY() - getMidY()) * 4);
+			setAx((player->getMidX() - getMidX()) * 4);
+			setAy((player->getMidY() - getMidY()) * 4);
+			setBirdState(BIRD_STATE_ATTACK1);
+		}
 		break;
 	}
+
+	
 	Enemy::update(dt);
 }
 
@@ -82,6 +99,15 @@ void Bird::onCollision(MovableRect* other, float collisionTime, int nx, int ny)
 {
 
 	//Enemy::onCollision(other, collisionTime, nx, ny);
+}
+
+void Bird::followPlayer()
+{
+	auto player = Player::getInstance();
+	if (getMidX() > player->getMidX())
+		setDirection(DIRECTION_LEFT);
+	else
+		setDirection(DIRECTION_RIGHT);
 }
 
 Bird::Bird()

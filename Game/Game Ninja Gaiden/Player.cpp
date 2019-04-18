@@ -19,7 +19,7 @@ void Player::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 	}
 	if (other->getCollisionType() == COLLISION_TYPE_ENEMY)
 	{
-		preventMovementWhenCollision(collisionTime, nx, ny);
+		//preventMovementWhenCollision(collisionTime, nx, ny);
 	}
 	
 	
