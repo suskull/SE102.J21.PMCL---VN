@@ -2,14 +2,32 @@ Sprite a12
 R	G	B
 255	255	163	177
 Animation Count
-1
+3
 
 
 Name
-Animation
+WAIT
+Frame Count
+1
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+24			11			24				32				0			0
+
+
+Name
+RUN
 Frame Count
 2
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
 0			11			24				32				0			0
 24			11			24				32				0			0
+
+
+Name
+ATTACK
+Frame Count
+1
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+48          0            16             43              0           11

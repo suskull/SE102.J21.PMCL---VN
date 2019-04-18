@@ -98,6 +98,18 @@
     <ClCompile Include="Flame.cpp">
       <Filter>Subweapon</Filter>
     </ClCompile>
+    <ClCompile Include="Bat.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Butterfly.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Knife.cpp">
+      <Filter>Subweapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Subweapon</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -194,6 +206,18 @@
     <ClInclude Include="Flame.h">
       <Filter>Subweapon</Filter>
     </ClInclude>
+    <ClInclude Include="Bat.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Butterfly.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Knife.h">
+      <Filter>Subweapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Subweapon</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Animation">
@@ -235,11 +259,11 @@
     <Filter Include="Subweapon">
       <UniqueIdentifier>{c0306116-936b-460b-87c0-49a18c2761a6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Camera">
-      <UniqueIdentifier>{95e3eebb-7afa-4451-9f12-5d9795ebb775}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Enemy">
       <UniqueIdentifier>{99fa1d3c-b048-4bc9-b9a4-cd996041ae12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Camera">
+      <UniqueIdentifier>{95e3eebb-7afa-4451-9f12-5d9795ebb775}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

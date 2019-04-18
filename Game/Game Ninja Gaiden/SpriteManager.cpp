@@ -21,7 +21,7 @@ SpriteManager::SpriteManager()
 
 
 	sprites[SPRITE_PLAYER]->InitFromFile("resource/tool/player/image.png", "resource/tool/player/player.info.dat");
-	sprites[SPRITE_SWORDMAN]->InitFromFile("resource/tool/SwordMan/image.png", "resource/tool/SwordMan/SwordMan.info.dat");
+	sprites[SPRITE_SWORDMAN]->InitFromFile("resource/tool/SwordMan/image.png", "resource/tool/SwordMan/SwordMan.info.dat"); 
 	sprites[SPRITE_INFO_SHURIKEN]->InitFromFile("resource/sprites/shuriken/shuriken.png", "resource/sprites/shuriken/shuriken.info.dat");
 	sprites[SPRITE_SWORD]->InitFromFile("resource/sprites/sword/sword.png", "resource/sprites/sword/sword.info.dat");
 	sprites[SPRITE_WINDMILLSHURIKEN]->InitFromFile("resource/sprites/windmillshuriken/windmillshuriken.png", "resource/sprites/windmillshuriken/windmillshuriken.info.dat");
@@ -30,6 +30,10 @@ SpriteManager::SpriteManager()
 	sprites[SPRITE_THROWMAN]->InitFromFile("resource/tool/Throwman/image.png", "resource/tool/Throwman/throwman.info.dat");
 	sprites[SPRITE_BIRD]->InitFromFile("resource/tool/Bird/image.png", "resource/tool/Bird/bird.info.dat");
 	sprites[SPRITE_SOLDIER]->InitFromFile("resource/tool/Soldier/image.png", "resource/tool/Soldier/soldier.info.dat");
+	sprites[SPRITE_BUTTERFLY]->InitFromFile("resource/tool/Butterfly/butterfly.png", "resource/tool/Butterfly/butterfly.info.dat");
+	sprites[SPRITE_BAT]->InitFromFile("resource/tool/Bat/bat.png", "resource/tool/Bat/bat.info.dat");
+	sprites[SPRITE_KNIFE]->InitFromFile("resource/sprites/knife/image.png", "resource/sprites/knife/knife.info.dat");
+	sprites[SPRITE_BULLET]->InitFromFile("resource/sprites/bullet/image.png", "resource/sprites/bullet/bullet.info.dat");
 }
 SpriteManager::~SpriteManager()
 {

@@ -1,4 +1,4 @@
-Sprite bird
+Sprite knife
 R	G	B
 255	255	163	177
 Animation Count
@@ -8,10 +8,11 @@ Animation Count
 Name
 Animation
 Frame Count
-2
+3
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-0			9			16				16				1			0
-16			0			17				25				0			16
+0			0			8				15				0			0
+8			0			8				15				0			0
+0			0			8				15				0			0
 
 

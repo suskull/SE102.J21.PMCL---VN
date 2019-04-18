@@ -1,6 +1,54 @@
 #include "Throwman.h"
 
+#include"Knife.h"
 
+
+void Throwman::update(float dt)
+{
+	auto player = Player::getInstance();
+
+	switch (throwmanState) {
+	case THROWMAN_STATE_WAIT:
+
+		setAnimation(THROWMAN_ACTION_WAIT);
+
+		if (getX() - player->getX() < 50)
+		
+		{
+			setAnimation(THROWMAN_ACTION_ATTACK);
+			setThrowmanState(THROWMAN_STATE_ATTACK);
+		}
+		break;
+	case THROWMAN_STATE_ATTACK:
+
+			Knife* kn = new Knife();
+			kn->setX(getX()+ (getDirection()*5));
+			kn->setY(getY()+20);
+			kn->setDirection(getDirection());
+			//kn->setVx(getDirection()*50);
+			
+			kn->setAx(getDirection()*15);
+			kn->setAy(-100);
+			kn->setVy(70);
+		
+
+		if (getX() - player->getX() > 50)
+			setThrowmanState(THROWMAN_STATE_WAIT);
+		
+		break;
+	}
+
+	/*if (getVx() > 0)
+		setDirection(DIRECTION_RIGHT);
+	else
+		setDirection(DIRECTION_LEFT);*/
+	Enemy::update(dt);
+}
+
+void Throwman::setThrowmanState(THROWMAN_STATE throwmanState)
+{
+	this->throwmanState = throwmanState;
+}
 
 void Throwman::onCollision(MovableRect* other, float collisionTime, int nx, int ny)
 {
@@ -10,6 +58,9 @@ void Throwman::onCollision(MovableRect* other, float collisionTime, int nx, int 
 
 Throwman::Throwman()
 {
+	setAy(0);
+	setAnimation(THROWMAN_ACTION_RUN);
+	setThrowmanState(THROWMAN_STATE_WAIT);
 }
 
 
