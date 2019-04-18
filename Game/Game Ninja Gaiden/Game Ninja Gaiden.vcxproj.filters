@@ -131,6 +131,12 @@
     <ClCompile Include="ItemSpiritualStrengtRed.cpp">
       <Filter>Item</Filter>
     </ClCompile>
+    <ClCompile Include="Knife.cpp">
+      <Filter>Subweapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Subweapon</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -259,6 +265,12 @@
     </ClInclude>
     <ClInclude Include="ItemSpiritualStrengtRed.h">
       <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Knife.h">
+      <Filter>Subweapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Subweapon</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

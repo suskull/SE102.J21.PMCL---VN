@@ -134,6 +134,7 @@
     <ClInclude Include="BaseObject.h" />
     <ClInclude Include="Bat.h" />
     <ClInclude Include="Bird.h" />
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="Butterfly.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Collision.h" />
@@ -156,6 +157,7 @@
     <ClInclude Include="ItemSpiritualStrenghtBlue.h" />
     <ClInclude Include="ItemSpiritualStrengtRed.h" />
     <ClInclude Include="KEY.h" />
+    <ClInclude Include="Knife.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="Panther.h" />
     <ClInclude Include="PhysicsObject.h" />
@@ -179,6 +181,7 @@
     <ClCompile Include="BaseObject.cpp" />
     <ClCompile Include="Bat.cpp" />
     <ClCompile Include="Bird.cpp" />
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Butterfly.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Collision.cpp" />
@@ -202,6 +205,7 @@
     <ClCompile Include="ItemSpiritualStrenghtBlue.cpp" />
     <ClCompile Include="ItemSpiritualStrengtRed.cpp" />
     <ClCompile Include="KEY.cpp" />
+    <ClCompile Include="Knife.cpp" />
     <ClCompile Include="Panther.cpp" />
     <ClCompile Include="PhysicsObject.cpp" />
     <ClCompile Include="MovableRect.cpp" />

@@ -2,11 +2,20 @@ Sprite 5
 R	G	B
 255	255	163	177
 Animation Count
-2
+3
 
 
 Name
-Animation
+WAIT
+Frame Count
+1
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+15			0			16				32				1			0
+
+
+Name
+RUN
 Frame Count
 2
 
@@ -16,12 +25,10 @@ FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
 
 
 Name
-Animation
+ATTACK
 Frame Count
 2
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
 31			0			24				32				0			0
 55			0			20				32				0			0
-
-
