@@ -60,19 +60,19 @@
       <Filter>Collision</Filter>
     </ClCompile>
     <ClCompile Include="AdditionalObject.cpp">
-      <Filter>Subweapon</Filter>
+      <Filter>Weapon and Subweapon</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>Camera</Filter>
     </ClCompile>
     <ClCompile Include="Shuriken.cpp">
-      <Filter>Subweapon</Filter>
+      <Filter>Weapon and Subweapon</Filter>
     </ClCompile>
     <ClCompile Include="Sword.cpp">
-      <Filter>Subweapon</Filter>
+      <Filter>Weapon and Subweapon</Filter>
     </ClCompile>
     <ClCompile Include="WindmillShuriken.cpp">
-      <Filter>Subweapon</Filter>
+      <Filter>Weapon and Subweapon</Filter>
     </ClCompile>
     <ClCompile Include="Bird.cpp">
       <Filter>Enemy</Filter>
@@ -96,7 +96,7 @@
       <Filter>Collision</Filter>
     </ClCompile>
     <ClCompile Include="Flame.cpp">
-      <Filter>Subweapon</Filter>
+      <Filter>Weapon and Subweapon</Filter>
     </ClCompile>
     <ClCompile Include="Bat.cpp">
       <Filter>Enemy</Filter>
@@ -132,10 +132,16 @@
       <Filter>Item</Filter>
     </ClCompile>
     <ClCompile Include="Knife.cpp">
-      <Filter>Subweapon</Filter>
+      <Filter>Weapon and Subweapon</Filter>
     </ClCompile>
     <ClCompile Include="Bullet.cpp">
-      <Filter>Subweapon</Filter>
+      <Filter>Weapon and Subweapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Weapon.cpp">
+      <Filter>Weapon and Subweapon</Filter>
+    </ClCompile>
+    <ClCompile Include="ExplosionEffect.cpp">
+      <Filter>Effect</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -198,19 +204,19 @@
       <Filter>Tilemap</Filter>
     </ClInclude>
     <ClInclude Include="AdditionalObject.h">
-      <Filter>Subweapon</Filter>
+      <Filter>Weapon and Subweapon</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Camera</Filter>
     </ClInclude>
     <ClInclude Include="Shuriken.h">
-      <Filter>Subweapon</Filter>
+      <Filter>Weapon and Subweapon</Filter>
     </ClInclude>
     <ClInclude Include="Sword.h">
-      <Filter>Subweapon</Filter>
+      <Filter>Weapon and Subweapon</Filter>
     </ClInclude>
     <ClInclude Include="WindmillShuriken.h">
-      <Filter>Subweapon</Filter>
+      <Filter>Weapon and Subweapon</Filter>
     </ClInclude>
     <ClInclude Include="Bird.h">
       <Filter>Enemy</Filter>
@@ -231,7 +237,7 @@
       <Filter>Enemy</Filter>
     </ClInclude>
     <ClInclude Include="Flame.h">
-      <Filter>Subweapon</Filter>
+      <Filter>Weapon and Subweapon</Filter>
     </ClInclude>
     <ClInclude Include="Bat.h">
       <Filter>Enemy</Filter>
@@ -267,10 +273,16 @@
       <Filter>Item</Filter>
     </ClInclude>
     <ClInclude Include="Knife.h">
-      <Filter>Subweapon</Filter>
+      <Filter>Weapon and Subweapon</Filter>
     </ClInclude>
     <ClInclude Include="Bullet.h">
-      <Filter>Subweapon</Filter>
+      <Filter>Weapon and Subweapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapon.h">
+      <Filter>Weapon and Subweapon</Filter>
+    </ClInclude>
+    <ClInclude Include="ExplosionEffect.h">
+      <Filter>Effect</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -310,9 +322,6 @@
     <Filter Include="Tilemap">
       <UniqueIdentifier>{3ba9777a-cd41-4ee3-a9cb-90d5697e5bbb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Subweapon">
-      <UniqueIdentifier>{c0306116-936b-460b-87c0-49a18c2761a6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Enemy">
       <UniqueIdentifier>{99fa1d3c-b048-4bc9-b9a4-cd996041ae12}</UniqueIdentifier>
     </Filter>
@@ -321,6 +330,12 @@
     </Filter>
     <Filter Include="Item">
       <UniqueIdentifier>{dac7c68b-cf25-4b52-a62c-8558c6291d7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Weapon and Subweapon">
+      <UniqueIdentifier>{c0306116-936b-460b-87c0-49a18c2761a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Effect">
+      <UniqueIdentifier>{b35de2ef-45e0-4172-ab28-97fd4f12ab60}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

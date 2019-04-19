@@ -4,7 +4,8 @@
 
 void SwordMan::update(float dt)
 {
-
+	if (!getAlive())
+		return;
 	auto player = Player::getInstance();
 
 	switch (swordmanState) {

@@ -1,5 +1,5 @@
 #include "Enemy.h"
-
+#include"ExplosionEffect.h"
 
 
 void Enemy::onCollision(MovableRect* other, float collisionTime, int nx, int ny)
@@ -15,14 +15,19 @@ void Enemy::onCollision(MovableRect* other, float collisionTime, int nx, int ny)
 	{
 		setVx(-getVx());
 	}
-		
+	
 
 
 }
 
 void Enemy::onIntersect(MovableRect* other)
 {
+	if (!getAlive())
+		return;
+	if (other->getCollisionType() == COLLISION_TYPE_WEAPON)
+		setAlive(false);
 }
+
 
 Enemy::Enemy()
 {

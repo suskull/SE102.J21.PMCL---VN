@@ -57,6 +57,11 @@ void BaseObject::update(float dt)
 		}
 	}
 
+	if (!getAlive())
+	{
+		setIsRender(false);
+	}
+
 	onUpdate(dt);
 }
 
@@ -79,7 +84,7 @@ void BaseObject::onUpdate(float dt)
 
 void BaseObject::render(Camera* camera)
 {
-	if (getSprite() == 0 || !getIsRender())
+	if (getSprite() == 0 || !getIsRender() ||!getAlive())
 		return;
 	float xView, yView;
 	camera->convertWorldToView(getX(), getY(), xView, yView);

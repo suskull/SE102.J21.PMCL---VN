@@ -139,6 +139,7 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="ExplosionEffect.h" />
     <ClInclude Include="Flame.h" />
     <ClInclude Include="FrameAnimation.h" />
     <ClInclude Include="Game.h" />
@@ -172,6 +173,7 @@
     <ClInclude Include="SwordMan.h" />
     <ClInclude Include="Throwman.h" />
     <ClInclude Include="Tilemap.h" />
+    <ClInclude Include="Weapon.h" />
     <ClInclude Include="WindmillShuriken.h" />
     <ClInclude Include="WindowGame.h" />
   </ItemGroup>
@@ -188,6 +190,7 @@
     <ClCompile Include="CollisionType.h" />
     <ClCompile Include="CollisionTypeCanCollide.h" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="ExplosionEffect.cpp" />
     <ClCompile Include="Flame.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameConfiguration.cpp" />
@@ -219,6 +222,7 @@
     <ClCompile Include="SwordMan.cpp" />
     <ClCompile Include="Throwman.cpp" />
     <ClCompile Include="Tilemap.cpp" />
+    <ClCompile Include="Weapon.cpp" />
     <ClCompile Include="WindmillShuriken.cpp" />
     <ClCompile Include="WindowGame.cpp" />
     <ClCompile Include="Main.cpp" />

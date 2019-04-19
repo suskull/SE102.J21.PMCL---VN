@@ -1,0 +1,16 @@
+Sprite flame
+R	G	B
+255	255	163	177
+Animation Count
+1
+
+
+Name
+Animation
+Frame Count
+2
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+0			0			18				31				0			0
+18			0			22				34			    0			0
+41			0			30				38			0			0

@@ -44,6 +44,9 @@ SpriteManager::SpriteManager()
 
 	sprites[SPRITE_KNIFE]->InitFromFile("resource/sprites/knife/image.png", "resource/sprites/knife/knife.info.dat");
 	sprites[SPRITE_BULLET]->InitFromFile("resource/sprites/bullet/image.png", "resource/sprites/bullet/bullet.info.dat");
+
+	sprites[SPRITE_INFO_EXPLOSION_EFFECT]->InitFromFile("resource/sprites/ExplosionEffect/ExplosionEffect.png", "resource/sprites/ExplosionEffect/ExplosionEffect.info.dat");
+	
 }
 SpriteManager::~SpriteManager()
 {

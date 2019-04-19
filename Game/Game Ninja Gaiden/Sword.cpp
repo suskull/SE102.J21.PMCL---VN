@@ -70,3 +70,12 @@ void Sword::render(Camera* camera)
 void Sword::onCollision(MovableRect* other, float collisionTime, int nx, int ny)
 {
 }
+
+void Sword::onIntersect(MovableRect* other)
+{
+	if (other->getCollisionType() == COLLISION_TYPE_ENEMY && other->getAlive())
+	{
+		auto explosionEffect = new ExplosionEffect();
+		explosionEffect->setLocation(other->getMidX(), other->getY());
+	}
+}
