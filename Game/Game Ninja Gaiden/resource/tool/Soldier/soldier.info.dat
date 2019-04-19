@@ -1,4 +1,4 @@
-Sprite 5
+Sprite SE102
 R	G	B
 255	255	163	177
 Animation Count
@@ -6,29 +6,31 @@ Animation Count
 
 
 Name
-WAIT
+Animation
 Frame Count
 1
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-15			0			16				32				1			0
+0			0			16				32				0			0
 
 
 Name
-RUN
+Animation
 Frame Count
 2
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-0			0			15				32				0			0
-15			0			16				32				1			0
+16			0			15				32				0			0
+0			0			16				32				1			0
 
 
 Name
-ATTACK
+Animation
 Frame Count
 2
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
 31			0			24				32				0			0
 55			0			20				32				0			0
+
+

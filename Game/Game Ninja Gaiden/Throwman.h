@@ -19,6 +19,8 @@ class Throwman
 	: public Enemy
 {
 	THROWMAN_STATE throwmanState;
+	bool isAttacking;
+	int count;
 public:
 	void update(float dt) override;
 	void setThrowmanState(THROWMAN_STATE throwmanState);

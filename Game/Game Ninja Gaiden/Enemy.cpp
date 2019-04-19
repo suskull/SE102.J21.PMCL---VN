@@ -5,6 +5,12 @@
 void Enemy::onCollision(MovableRect* other, float collisionTime, int nx, int ny)
 {
 	preventMovementWhenCollision(collisionTime, nx, ny);
+	if (other->getCollisionType() == COLLISION_TYPE_GROUND)
+	{
+		setIsOnGround(true);
+		setVy(0);
+	}
+		
 }
 
 void Enemy::onIntersect(MovableRect* other)
