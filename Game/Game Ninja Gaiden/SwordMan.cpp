@@ -51,11 +51,8 @@ void SwordMan::update(float dt)
 
 void SwordMan::onCollision(MovableRect * other, float collisionTime, int nx, int ny)
 {
-
-	if (other->getCollisionType() == COLLISION_TYPE_GROUND && nx == 1) {
-		setVx(-getVx());
-		Enemy::onCollision(other, collisionTime, nx, ny);
-	}
+	
+	Enemy::onCollision(other, collisionTime, nx, ny);
 }
 
 void SwordMan::setSwordmanState(SWORDMAN_STATE swordmanState)
@@ -65,7 +62,6 @@ void SwordMan::setSwordmanState(SWORDMAN_STATE swordmanState)
 
 SwordMan::SwordMan()
 {
-	setAy(0);
 	setSwordmanState(SWORDMAN_STATE_WAIT);
 }
 

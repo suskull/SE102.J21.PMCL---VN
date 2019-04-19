@@ -13,6 +13,7 @@ void Bullet::onIntersect(MovableRect* other)
 
 Bullet::Bullet()
 {
+	setCollisionType(COLLISION_TYPE_ENEMY);
 	setSprite(SPR(SPRITE_BULLET));
 	setAy(0);
 }

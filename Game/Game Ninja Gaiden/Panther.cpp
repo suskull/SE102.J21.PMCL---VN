@@ -28,10 +28,7 @@ void Panther::update(float dt)
 
 void Panther::onCollision(MovableRect* other, float collisionTime, int nx, int ny)
 {
-	if (other->getCollisionType() == COLLISION_TYPE_GROUND && nx == 1) {
-		setVx(-getVx());
-		Enemy::onCollision(other, collisionTime, nx, ny);
-	}
+	Enemy::onCollision(other, collisionTime, nx, ny);
 }
 
 void Panther::setPantherState(PANTHER_STATE pantherState)
@@ -41,7 +38,6 @@ void Panther::setPantherState(PANTHER_STATE pantherState)
 
 Panther::Panther()
 {
-	setAy(0);
 	setPantherState(PATHER_STATE_WAIT);
 }
 
