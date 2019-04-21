@@ -14,14 +14,13 @@ Camera* Camera::getInstance()
 
 void Camera::convertWorldToView(float xWorld, float yWorld, float& xView, float& yView)
 {
-	/* ma trận biến đổi world to view */
+	/*World to View */
 	D3DXMATRIX matrixWorldToView;
 	D3DXMatrixIdentity(&matrixWorldToView);
 	matrixWorldToView._22 = -1;
 	matrixWorldToView._41 = -this->getX();
 	matrixWorldToView._42 = this->getY();
 
-	/* nhân ma trận đó với xWorld yWorld ta được xView yView */
 	D3DXVECTOR3 pos3(xWorld, yWorld, 1);
 	D3DXVECTOR4 MatrixResult;
 	D3DXVec3Transform(&MatrixResult, &pos3, &matrixWorldToView);

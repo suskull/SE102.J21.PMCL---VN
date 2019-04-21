@@ -22,7 +22,7 @@ void Item::onIntersect(MovableRect* other)
 	}
 	if (other->getCollisionType() == COLLISION_TYPE_PLAYER && getIsRender())
 	{
-		setIsRender(false);
+		setAlive(false);
 	}
 }
 
