@@ -105,7 +105,6 @@ bool Soldier::getIsAttacking()
 
 Soldier::Soldier()
 {
-	//setAy(0);
 	setAnimation(SOLDIER_ACTION_WAIT);
 	setSoldierState(SOLDIER_STATE_WAIT);
 }

@@ -76,7 +76,7 @@ void Sword::onIntersect(MovableRect* other)
 	if (other->getCollisionType() == COLLISION_TYPE_ENEMY && other->getAlive() || other->getCollisionType() == COLLISION_TYPE_BUTTERFLY && other->getAlive())
 	{
 		auto explosionEffect = new ExplosionEffect();
-		explosionEffect->setLocation(other->getMidX(), other->getY());
+		explosionEffect->setLocation(other->getMidX(), other->getMidY());
 	}
 
 }

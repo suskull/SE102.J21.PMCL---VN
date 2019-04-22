@@ -5,6 +5,7 @@ class ExplosionEffect
 {
 public:
 	void update(float dt) override;
+	void render(Camera* camera) override;
 	ExplosionEffect();
 	~ExplosionEffect();
 };

@@ -17,28 +17,6 @@ void SwordMan::update(float dt)
 		}
 		break;
 	case SWORDMAN_STATE_RUN:
-		if (getDirection() == DIRECTION_LEFT)
-		{
-			auto frameIndex = getFrameAnimation();
-			switch (frameIndex)
-			{
-			case 0:
-				setX(getX() + getWidth() - getWidthCurrentFrame());
-				setWidth(getWidthCurrentFrame());
-				setFrameAnimation(0);
-				break;
-			case 1:
-				setX(getX() + getWidth() - getWidthCurrentFrame());
-				setWidth(getWidthCurrentFrame());
-				setFrameAnimation(1);
-				break;
-			case 2:
-				setX(getX() + getWidth() - getWidthCurrentFrame());
-				setWidth(getWidthCurrentFrame());
-				setFrameAnimation(2);
-				break;
-			}
-		}
 		break;
 	}
 
