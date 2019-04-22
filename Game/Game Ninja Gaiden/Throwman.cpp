@@ -15,12 +15,18 @@ void Throwman::update(float dt)
 		if (getX() - player->getX() < 50)
 		{
 			count = 0;
+			setVx(-10);
+			isGoingForward = true;
 			setThrowmanState(THROWMAN_STATE_RUN);
 		}
 		break;
 	case THROWMAN_STATE_RUN:
-		isAttacking = false;
 		setAnimation(THROWMAN_ACTION_RUN);
+		isAttacking = false;
+		if (isGoingForward)
+			setVx(-10);
+		else setVx(10);
+		
 		if (getIsLastFrameAnimationDone())
 			count++;
 		if (count > 2)
@@ -64,8 +70,20 @@ void Throwman::setThrowmanState(THROWMAN_STATE throwmanState)
 
 void Throwman::onCollision(MovableRect * other, float collisionTime, int nx, int ny)
 {
-
-	Enemy::onCollision(other, collisionTime, nx, ny);
+	if (other->getCollisionType() == COLLISION_TYPE_GROUND)
+	{
+		setIsOnGround(true);
+		setVy(0);
+		preventMovementWhenCollision(collisionTime, nx, ny);
+	}
+	if (other->getCollisionType() == COLLISION_TYPE_BARRIER_FOR_ENEMY)
+	{
+		if (nx == 1)
+			isGoingForward = false;
+		if (nx == -1)
+			isGoingForward = true;
+	}
+	//Enemy::onCollision(other, collisionTime, nx, ny);
 }
 
 Throwman::Throwman()

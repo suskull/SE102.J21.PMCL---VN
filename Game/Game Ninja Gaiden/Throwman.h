@@ -20,6 +20,7 @@ class Throwman
 {
 	THROWMAN_STATE throwmanState;
 	bool isAttacking;
+	bool isGoingForward;
 	int count;
 public:
 	void update(float dt) override;

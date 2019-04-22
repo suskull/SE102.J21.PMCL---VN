@@ -167,8 +167,10 @@ void Game::GameUpdate(float dt)
 	for (size_t i = 0; i < allObjects.Count; i++)
 	{
 		allObjects[i]->update(dt);
-		Collision::CheckCollision(Player::getInstance(), allObjects[i]);
-		Collision::CheckCollision(Sword::getInstance(), allObjects[i]);
+		if (player->getAlive())
+			Collision::CheckCollision(Player::getInstance(), allObjects[i]);
+		if( Sword::getInstance()->getAlive())
+			Collision::CheckCollision(Sword::getInstance(), allObjects[i]);
 	}
 
 	player->update(dt);

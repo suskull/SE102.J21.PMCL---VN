@@ -78,4 +78,5 @@ void Sword::onIntersect(MovableRect* other)
 		auto explosionEffect = new ExplosionEffect();
 		explosionEffect->setLocation(other->getMidX(), other->getY());
 	}
+
 }
