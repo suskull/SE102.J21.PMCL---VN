@@ -19,6 +19,9 @@ void Player::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 	}
 	if (other->getCollisionType() == COLLISION_TYPE_ENEMY)
 	{
+		setVx(nx * 50);
+		setVy(150);
+		setPlayerState(PLAYER_STATE_INJURED);
 		//preventMovementWhenCollision(collisionTime, nx, ny);
 	}
 	
@@ -36,6 +39,16 @@ void Player::update(float dt)
 	{
 	//xong
 	case PLAYER_STATE_STAND:
+		//trường hợp vừa bị injured xong.
+		if (unstoppable)
+		{
+			setAnimation(PLAYER_ACTION_STAND_UNSTOPPABLE);
+			if(getIsLastFrameAnimationDone())
+				unstoppable = false;
+		}
+		else
+			setAnimation(PLAYER_ACTION_STAND);
+		
 		setY(getY() - (getHeight() - getHeightCurrentFrame()));
 		setHeight(getHeightCurrentFrame());
 		isAttacked = false;
@@ -85,7 +98,6 @@ void Player::update(float dt)
 		{
 			//không nhấn nút gì thì nó đứng yên.
 			setVx(0);
-			setAnimation(PLAYER_ACTION_STAND);
 		}
 
 			break;
@@ -282,6 +294,11 @@ void Player::update(float dt)
 			setPlayerState(PLAYER_STATE_STAND);
 		break;
 	}
+	case PLAYER_STATE_INJURED:
+		unstoppable = true;
+		setAnimation(PLAYER_ACTION_INJURED);
+		if (getIsOnGround())
+			setPlayerState(PLAYER_STATE_STAND);
 	}
 
 	PhysicsObject::update(dt);

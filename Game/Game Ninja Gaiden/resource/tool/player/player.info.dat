@@ -2,7 +2,7 @@ Sprite 2
 R	G	B
 255	255	163	177
 Animation Count
-10
+11
 
 
 Name
@@ -102,11 +102,25 @@ FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
 
 
 Name
-Cling
+Injured
 Frame Count
-1
+3
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-79			1			16				31				0			0
+329			10			16				22				0			0
+0			0			0				0				0			0			
+329			10			16				22				0			0
 
 
+Name
+StandUnstoppable
+Frame Count
+6
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+0			0			0				0				0			0			
+0			0			17				32				0			0
+0			0			0				0				0			0
+0			0			17				32				0			0
+0			0			0				0				0			0			
+0			0			17				32				0			0		

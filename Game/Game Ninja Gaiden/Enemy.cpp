@@ -1,6 +1,6 @@
 #include "Enemy.h"
 #include"ExplosionEffect.h"
-
+#include"Player.h"
 
 void Enemy::onCollision(MovableRect* other, float collisionTime, int nx, int ny)
 {
@@ -15,7 +15,13 @@ void Enemy::onCollision(MovableRect* other, float collisionTime, int nx, int ny)
 	{
 		setVx(-getVx());
 	}
-	
+	if (other->getCollisionType() == COLLISION_TYPE_PLAYER)
+	{
+		auto player = Player::getInstance();
+		player->setVx(-nx * 50);
+		player->setVy(150);
+		player->setPlayerState(PLAYER_STATE_INJURED);
+	}
 
 
 }

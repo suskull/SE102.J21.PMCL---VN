@@ -16,6 +16,8 @@ enum PLAYER_ACTION {
 	PLAYER_ACTION_SITATTACK,
 	PLAYER_ACTION_ROLL,
 	PLAYER_ACTION_ROLLATTACK,
+	PLAYER_ACTION_INJURED,
+	PLAYER_ACTION_STAND_UNSTOPPABLE,
 };
 
 enum PLAYER_STATE {
@@ -31,6 +33,7 @@ enum PLAYER_STATE {
 	PLAYER_STATE_FLAME1,
 	PLAYER_STATE_FLAME2,
 	PLAYER_STATE_FLAME3,
+	PLAYER_STATE_INJURED
 };
 
 class Player: 
@@ -39,6 +42,7 @@ class Player:
 	static Player* instance;
 	PLAYER_STATE playerState;
 	bool isAttacked;
+	bool unstoppable;
 public:
 	static Player* getInstance();
 
