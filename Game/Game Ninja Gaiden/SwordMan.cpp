@@ -12,7 +12,7 @@ void SwordMan::update(float dt)
 	case SWORDMAN_STATE_WAIT:
 		if (getX() - player->getX() < (GLOBALS_D("backbuffer_width") / 2))
 		{
-			setVx(-100);
+			setVx(-50);
 			setSwordmanState(SWORDMAN_STATE_RUN);
 		}
 		break;

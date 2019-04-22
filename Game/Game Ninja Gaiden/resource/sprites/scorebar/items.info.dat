@@ -1,0 +1,59 @@
+Sprite 1
+R	G	B
+255	0	0	0
+Animation Count
+14
+
+
+Name
+Number
+Frame Count
+10
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+0			9			7				7				0			0
+7			9			6				7				0			0
+13			9			7				7				0			0
+20			9			7				7				0			0
+27			9			7				7				0			0
+34			9			7				7				0			0
+41			9			7				7				0			0
+48			9			7				7				0			0
+55			9			7				7				0			0
+62			9			7				7				0			0
+
+
+Name
+LostHealth
+Frame Count
+1
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+69			0			15				16				0			0
+
+
+Name
+Shuriken
+Frame Count
+1
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+72			0			16				16				0			0
+
+
+Name
+FireWheel
+Frame Count
+1
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+88			0			16				16				0			0
+
+
+Name
+WindmillShuriken
+Frame Count
+1
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+104			0			16				16				0			0

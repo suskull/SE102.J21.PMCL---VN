@@ -46,7 +46,7 @@ SpriteManager::SpriteManager()
 	sprites[SPRITE_BULLET]->InitFromFile("resource/sprites/bullet/image.png", "resource/sprites/bullet/bullet.info.dat");
 
 	sprites[SPRITE_INFO_EXPLOSION_EFFECT]->InitFromFile("resource/sprites/ExplosionEffect/ExplosionEffect.png", "resource/sprites/ExplosionEffect/ExplosionEffect.info.dat");
-	
+	sprites[SPRITE_ITEMS_IN_SCORE_BAR]->InitFromFile("resource/sprites/scorebar/items.png", "resource/sprites/scorebar/items.info.dat");
 }
 SpriteManager::~SpriteManager()
 {

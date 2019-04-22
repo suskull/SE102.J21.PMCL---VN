@@ -165,6 +165,7 @@
     <ClInclude Include="MovableRect.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Rect.h" />
+    <ClInclude Include="ScoreBar.h" />
     <ClInclude Include="Shuriken.h" />
     <ClInclude Include="Soldier.h" />
     <ClInclude Include="Sprite.h" />
@@ -214,6 +215,7 @@
     <ClCompile Include="MovableRect.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Rect.cpp" />
+    <ClCompile Include="ScoreBar.cpp" />
     <ClCompile Include="Shuriken.cpp" />
     <ClCompile Include="Soldier.cpp" />
     <ClCompile Include="Sprite.cpp" />

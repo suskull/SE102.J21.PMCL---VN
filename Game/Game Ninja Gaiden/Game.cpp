@@ -15,6 +15,7 @@
 #include"ItemSpiritualStrengtRed.h"
 #include"ItemRestorePhysicalStrenght.h"
 #include"ItemBonusRed.h"
+#include"ScoreBar.h"
 Game * Game::instance = 0;
 Game * Game::getInstance()
 {
@@ -202,7 +203,7 @@ void Game::GameUpdate(float dt)
 	AdditionalObject::listObjectUpdate(dt);
 	if (Sword::getInstance()->getAlive())
 		Sword::getInstance()->update(dt);
-	
+	ScoreBar::getInstance()->update();
 }
 void Game::GameRender()
 {
@@ -219,7 +220,7 @@ void Game::GameRender()
 	AdditionalObject::listObjectRender(Camera::getInstance());
 	if(Sword::getInstance()->getAlive())
 		Sword::getInstance()->render(Camera::getInstance());
-	
+	ScoreBar::getInstance()->render();
 }
 
 Game::Game()

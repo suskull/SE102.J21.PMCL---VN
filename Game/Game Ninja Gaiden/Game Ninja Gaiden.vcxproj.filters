@@ -143,6 +143,7 @@
     <ClCompile Include="ExplosionEffect.cpp">
       <Filter>Effect</Filter>
     </ClCompile>
+    <ClCompile Include="ScoreBar.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -284,6 +285,7 @@
     <ClInclude Include="ExplosionEffect.h">
       <Filter>Effect</Filter>
     </ClInclude>
+    <ClInclude Include="ScoreBar.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Animation">

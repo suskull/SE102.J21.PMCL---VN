@@ -1,0 +1,16 @@
+Score
+72      17      6
+Time
+72      25      3
+PlayerLife
+41     33      2
+Don'tknow
+226     8       2
+subWeapon
+49      8       6
+Stage
+192     17      1
+SubWeapon
+136     22
+BossHealth
+56      25      16
