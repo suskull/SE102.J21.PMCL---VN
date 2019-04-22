@@ -46,6 +46,7 @@ public:
 	void update(float dt) override;
 
 	void setPlayerState(PLAYER_STATE playerState);
+	void render(Camera* camera) override;
 	Player();
 	~Player();
 };

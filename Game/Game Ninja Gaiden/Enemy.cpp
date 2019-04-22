@@ -28,6 +28,16 @@ void Enemy::onIntersect(MovableRect* other)
 		setAlive(false);
 }
 
+void Enemy::render(Camera* camera)
+{
+	if (getDirection() == DIRECTION_LEFT)
+	{
+		setX(getX() - (getWidthCurrentFrame() - getWidth()));
+		setWidth(getWidthCurrentFrame());
+	}
+	PhysicsObject::render(camera);
+}
+
 
 Enemy::Enemy()
 {

@@ -293,6 +293,15 @@ void Player::setPlayerState(PLAYER_STATE playerState)
 	this->playerState = playerState;
 }
 
+void Player::render(Camera* camera)
+{
+	setY(getY() + (getHeightCurrentFrame() - getHeight()));
+	setHeight(getHeightCurrentFrame());
+	setX(getX() - (getWidthCurrentFrame() - getWidth())/2);
+	setWidth(getWidthCurrentFrame());
+	PhysicsObject::render(camera);
+}
+
 Player::Player()
 {
 	setSprite(SPR(SPRITE_PLAYER));
