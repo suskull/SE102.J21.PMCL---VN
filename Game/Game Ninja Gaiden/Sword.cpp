@@ -2,20 +2,10 @@
 #include "SpriteManager.h"
 #include"Player.h"
 
-Sword* Sword::instance = 0;
-Sword* Sword::getInstance()
-{
-	if (instance == 0)
-	{
-		instance = new Sword();
-	};
-	return instance;
-}
 
 Sword::Sword()
 {
 	setSprite(SPR(SPRITE_SWORD));
-	(0);
 	setPhysicsEnable(false);
 	setAlive(false);
 	setCollisionType(COLLISION_TYPE_WEAPON);
@@ -67,16 +57,3 @@ void Sword::render(Camera* camera)
 	PhysicsObject::render(camera);
 }
 
-void Sword::onCollision(MovableRect* other, float collisionTime, int nx, int ny)
-{
-}
-
-void Sword::onIntersect(MovableRect* other)
-{
-	if (other->getCollisionType() == COLLISION_TYPE_ENEMY && other->getAlive() || other->getCollisionType() == COLLISION_TYPE_BUTTERFLY && other->getAlive())
-	{
-		auto explosionEffect = new ExplosionEffect();
-		explosionEffect->setLocation(other->getMidX(), other->getMidY());
-	}
-
-}

@@ -1,12 +1,11 @@
 
 
 #include"SpriteManager.h"
-#include"SubWeapon.h"
+#include"Weapon.h"
 class Bullet :
-	public SubWeapon
+	public Weapon
 {
 public:
-	void update(float dt) override;
 	void onIntersect(MovableRect* other) override;
 	Bullet();
 	~Bullet();

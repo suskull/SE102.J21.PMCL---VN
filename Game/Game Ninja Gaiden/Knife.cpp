@@ -15,7 +15,7 @@ Knife::Knife()
 {
 	setSprite(SPR(SPRITE_KNIFE));
 	setAy(0);
-	setCollisionType(COLLISION_TYPE_SUBWEAPON_ENEMY);
+	setCollisionType(COLLISION_TYPE_WEAPON_ENEMY);
 }
 
 

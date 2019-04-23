@@ -145,7 +145,7 @@ void Player::update(float dt)
 		setY(getY() - (getHeight() - getHeightCurrentFrame()));
 		setHeight(getHeightCurrentFrame());
 
-		Sword* sword = Sword::getInstance();
+		Sword* sword = new Sword();
 		if (!isAttacked)
 		{
 			sword->setAlive(true);
@@ -216,7 +216,7 @@ void Player::update(float dt)
 	//xong
 	case PLAYER_STATE_SITATTACK:
 	{
-		Sword* sword = Sword::getInstance();
+		Sword* sword = new Sword();
 		if (!isAttacked)
 		{
 			sword->setAlive(true);

@@ -2,8 +2,9 @@
 
 #include"SpriteManager.h"
 #include"AdditionalObject.h"
+#include"Weapon.h"
 class Knife :
-	public AdditionalObject
+	public Weapon
 {
 public:
 	void update(float dt) override;

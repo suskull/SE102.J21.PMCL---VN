@@ -1,13 +1,12 @@
 #pragma once
-#include"SubWeapon.h"
+#include"Weapon.h"
 
 class Shuriken :
-	public SubWeapon
+	public Weapon
 {
 	static Shuriken* instance;
 public:
 	static Shuriken* getInstance();
-	void update(float dt) override;
 	Shuriken();
 	~Shuriken();
 };

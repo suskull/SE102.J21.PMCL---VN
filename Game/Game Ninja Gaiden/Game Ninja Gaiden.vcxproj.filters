@@ -141,7 +141,7 @@
       <Filter>Effect</Filter>
     </ClCompile>
     <ClCompile Include="ScoreBar.cpp" />
-    <ClCompile Include="SubWeapon.cpp">
+    <ClCompile Include="Weapon.cpp">
       <Filter>Weapon and Subweapon</Filter>
     </ClCompile>
   </ItemGroup>
@@ -283,7 +283,7 @@
       <Filter>Effect</Filter>
     </ClInclude>
     <ClInclude Include="ScoreBar.h" />
-    <ClInclude Include="SubWeapon.h">
+    <ClInclude Include="Weapon.h">
       <Filter>Weapon and Subweapon</Filter>
     </ClInclude>
   </ItemGroup>

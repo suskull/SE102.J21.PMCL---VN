@@ -2,10 +2,7 @@
 
 
 
-void Bullet::update(float dt)
-{
-	BaseObject::update(dt);
-}
+
 
 void Bullet::onIntersect(MovableRect* other)
 {
@@ -18,7 +15,7 @@ void Bullet::onIntersect(MovableRect* other)
 
 Bullet::Bullet()
 {
-	setCollisionType(COLLISION_TYPE_SUBWEAPON_ENEMY);
+	setCollisionType(COLLISION_TYPE_WEAPON_ENEMY);
 	setSprite(SPR(SPRITE_BULLET));
 	setAy(0);
 }

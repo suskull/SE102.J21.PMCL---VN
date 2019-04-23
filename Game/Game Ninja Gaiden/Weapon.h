@@ -1,11 +1,12 @@
 #pragma once
 #include "AdditionalObject.h"
-class SubWeapon :
+class Weapon :
 	public AdditionalObject
 {
 public:
+	void update(float dt) override;
 	void onIntersect(MovableRect* other) override;
-	SubWeapon();
-	~SubWeapon();
+	Weapon();
+	~Weapon();
 };
 

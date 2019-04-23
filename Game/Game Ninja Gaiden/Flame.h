@@ -3,7 +3,7 @@
 #include"SpriteManager.h"
 #include"Player.h"
 class Flame :
-	public AdditionalObject
+	public Weapon
 {
 public:
 	Flame();

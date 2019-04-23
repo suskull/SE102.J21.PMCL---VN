@@ -6,6 +6,7 @@ Flame::Flame()
 {
 	setSprite(SPR(SPRITE_FLAME));
 	setAy(0);
+	setCollisionType(COLLISION_TYPE_WEAPON);
 }
 
 
