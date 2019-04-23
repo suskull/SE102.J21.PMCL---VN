@@ -10,7 +10,7 @@ public:
 		isDownDown,
 		isAttackDown,
 		isJumpDown,
-		isShurikenDown,
+		isSubWeaponDown,
 		isFlameDown1,
 		isFlameDown2,
 		isFlameDown3;

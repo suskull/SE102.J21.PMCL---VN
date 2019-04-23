@@ -115,7 +115,7 @@ FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
 Name
 StandUnstoppable
 Frame Count
-6
+7
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
 0			0			0				0				0			0			
@@ -124,3 +124,4 @@ FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
 0			0			17				32				0			0
 0			0			0				0				0			0			
 0			0			17				32				0			0		
+0			0			0				0				0			0			

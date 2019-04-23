@@ -85,7 +85,8 @@ void ScoreBar::setTime(int time)
 
 void ScoreBar::decreaseTime(int time)
 {
-	this->time -= time;
+	if(this->time > 0)
+		this->time -= time;
 }
 
 int ScoreBar::getPlayerHealth()

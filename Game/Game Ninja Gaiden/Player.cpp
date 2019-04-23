@@ -17,16 +17,27 @@ void Player::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 		setIsOnGround(true);
 		preventMovementWhenCollision(collisionTime, nx, ny);
 	}
-	if (other->getCollisionType() == COLLISION_TYPE_ENEMY)
+	if (other->getCollisionType() == COLLISION_TYPE_ENEMY && !unstoppable)
 	{
-		setVx(nx * 50);
+		setVx(-nx * 50);
 		setVy(150);
+		setIsOnGround(false);
 		setPlayerState(PLAYER_STATE_INJURED);
-		//preventMovementWhenCollision(collisionTime, nx, ny);
 	}
 	
-	
 }
+
+void Player::onIntersect(MovableRect* other)
+{
+	if (other->getCollisionType() == COLLISION_TYPE_ENEMY && !unstoppable)
+	{
+		setVx(-getDirection() * 50);
+		setVy(150);
+		setIsOnGround(false);
+		setPlayerState(PLAYER_STATE_INJURED);
+	}
+}
+
 
 void Player::update(float dt)
 {
@@ -67,11 +78,16 @@ void Player::update(float dt)
 			setPlayerState(PLAYER_STATE_CLIMB);
 		else if (key->isAttackDown)
 			setPlayerState(PLAYER_STATE_ATTACK);
-		else if (key->isShurikenDown)
+		else if (key->isSubWeaponDown)
 		{
-			
-			
-			setPlayerState(PLAYER_STATE_SHURIKEN);
+			if(getCurrentSubWeapon() == SUBWEAPON_NULL)
+				setPlayerState(PLAYER_STATE_SUBWEAPON_NULL);
+			if (getCurrentSubWeapon() == SUBWEAPON_SHURIKEN)
+				setPlayerState(PLAYER_STATE_SHURIKEN);
+			if (getCurrentSubWeapon() == SUBWEAPON_FIREWHEEL)
+				setPlayerState(PLAYER_STATE_FLAME1);
+			if (getCurrentSubWeapon() == SUBWEAPON_WINDMILLSHURIKEN)
+				setPlayerState(PLAYER_STATE_WINDMILLSHURIKEN);
 		}
 			
 		else if (key->isDownDown)
@@ -143,19 +159,38 @@ void Player::update(float dt)
 		}
 		break;
 	}
+	case PLAYER_STATE_SUBWEAPON_NULL:
+	{
+		setAnimation(PLAYER_ACTION_SHURIKEN);
+		if (getIsLastFrameAnimationDone())
+			setPlayerState(PLAYER_STATE_STAND);
+		break;
+	}
+		
 	//xong	
 	case PLAYER_STATE_SHURIKEN: {
 		setAnimation(PLAYER_ACTION_SHURIKEN);
 		if (getFrameAnimation() == 1 && !isAttacked)
 		{
-			/*Shuriken* shuriken = new Shuriken();
+			Shuriken* shuriken = new Shuriken();
 			shuriken->setX(this->getX() + 12 * getDirection());
 			this->setVx(0);
 			shuriken->setY(this->getY() - 5);
-			shuriken->setVx(150 * getDirection());*/
-
-			WindmillShuriken * ws = new WindmillShuriken();
-			ws->setX(this->getX() + getWidthCurrentFrame()* getDirection());
+			shuriken->setVx(150 * getDirection());
+			isAttacked = true;
+		}
+		if (getIsLastFrameAnimationDone())
+			setPlayerState(PLAYER_STATE_STAND);
+		break;
+	}
+	
+	case PLAYER_STATE_WINDMILLSHURIKEN:
+	{
+		setAnimation(PLAYER_ACTION_SHURIKEN);
+		if (getFrameAnimation() == 1 && !isAttacked)
+		{
+			WindmillShuriken* ws = new WindmillShuriken();
+			ws->setX(this->getX() + getWidthCurrentFrame() * getDirection());
 			this->setVx(0);
 			ws->setY(this->getY() - 5);
 			ws->setVx(150 * getDirection());
@@ -165,7 +200,6 @@ void Player::update(float dt)
 			setPlayerState(PLAYER_STATE_STAND);
 		break;
 	}
-
 	//xong
 	case PLAYER_STATE_SIT:
 		isAttacked = false;
@@ -319,12 +353,34 @@ void Player::render(Camera* camera)
 	PhysicsObject::render(camera);
 }
 
+bool Player::getUnstoppable()
+{
+	return unstoppable;
+}
+
+void Player::setUnstoppable(bool unstoppable)
+{
+	this->unstoppable = unstoppable;
+}
+
+int Player::getCurrentSubWeapon()
+{
+	return currentSubWeapon;
+}
+
+void Player::setCurrentSubWeapon(int currentSubWeapon)
+{
+	this->currentSubWeapon = currentSubWeapon;
+}
+
 Player::Player()
 {
 	setSprite(SPR(SPRITE_PLAYER));
 	setDirection(DIRECTION_RIGHT);
 	setPlayerState(PLAYER_STATE_STAND);
 	setCollisionType(COLLISION_TYPE_PLAYER);
+	//setCurrentSubWeapon(SUBWEAPON_NULL);
+	setCurrentSubWeapon(SUBWEAPON_SHURIKEN);
 }
 
 

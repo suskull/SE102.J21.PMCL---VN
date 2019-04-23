@@ -168,8 +168,12 @@ void Game::GameUpdate(float dt)
 	for (size_t i = 0; i < allObjects.Count; i++)
 	{
 		allObjects[i]->update(dt);
-		if (player->getAlive())
+		if (player->getAlive() && allObjects[i]->getAlive())
+		{
 			Collision::CheckCollision(Player::getInstance(), allObjects[i]);
+			Collision::CheckCollision(allObjects[i], Player::getInstance());
+		}
+			
 		if( Sword::getInstance()->getAlive())
 			Collision::CheckCollision(Sword::getInstance(), allObjects[i]);
 	}
@@ -180,7 +184,31 @@ void Game::GameUpdate(float dt)
 	for (size_t i = 0; i < AdditionalObject::getListObject()->Count; i++)
 	{
 		Collision::CheckCollision(player, AdditionalObject::getListObject()->at(i));
+
+		//xét va chạm giữa Subweapon và Enemy
+		if (AdditionalObject::getListObject()->at(i)->getCollisionType() == COLLISION_TYPE_WEAPON)
+		{
+			//xét va chạm giữa Subweapon và Enemy trong map
+			List<BaseObject*>* collection_Enemies = objectCategories.at(COLLISION_TYPE_ENEMY);
+			for (size_t j = 0; j < collection_Enemies->size(); j++)
+			{
+				Collision::CheckCollision(AdditionalObject::getListObject()->at(i), collection_Enemies->at(j));
+			}
+
+			//Xét va chạm giữa Subweapon và WeaponEnemy
+			for (size_t t = 0; t < AdditionalObject::getListObject()->Count; t++)
+			{
+				if (AdditionalObject::getListObject()->at(t)->getCollisionType() == COLLISION_TYPE_SUBWEAPON_ENEMY)
+				{
+					Collision::CheckCollision(AdditionalObject::getListObject()->at(i), AdditionalObject::getListObject()->at(t));
+				}
+			}
+		}
 	}
+
+	
+	
+
 
 	for (size_t i = 0; i < listCollisionTypeCanCollide.size(); i++)
 	{

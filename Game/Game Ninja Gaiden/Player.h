@@ -25,7 +25,9 @@ enum PLAYER_STATE {
 	PLAYER_STATE_RUN,
 	PLAYER_STATE_CLIMB,
 	PLAYER_STATE_ATTACK,
+	PLAYER_STATE_SUBWEAPON_NULL,
 	PLAYER_STATE_SHURIKEN,
+	PLAYER_STATE_WINDMILLSHURIKEN,
 	PLAYER_STATE_SIT,
 	PLAYER_STATE_SITATTACK,
 	PLAYER_STATE_ROLL,
@@ -36,6 +38,13 @@ enum PLAYER_STATE {
 	PLAYER_STATE_INJURED
 };
 
+enum PLAYER_SUBWEAPON {
+	SUBWEAPON_NULL,
+	SUBWEAPON_SHURIKEN,
+	SUBWEAPON_FIREWHEEL,
+	SUBWEAPON_WINDMILLSHURIKEN
+};
+
 class Player: 
 	public PhysicsObject
 {
@@ -43,14 +52,22 @@ class Player:
 	PLAYER_STATE playerState;
 	bool isAttacked;
 	bool unstoppable;
+	int currentSubWeapon;
 public:
 	static Player* getInstance();
 
 	void onCollision(MovableRect* other, float collisionTime, int nx, int ny) override;
+	void onIntersect(MovableRect* other) override;
 	void update(float dt) override;
 
 	void setPlayerState(PLAYER_STATE playerState);
 	void render(Camera* camera) override;
+
+	bool getUnstoppable();
+	void setUnstoppable(bool unstoppable);
+
+	int getCurrentSubWeapon();
+	void setCurrentSubWeapon(int currentSubWeapon);
 	Player();
 	~Player();
 };

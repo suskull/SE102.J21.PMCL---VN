@@ -1,9 +1,9 @@
 
 
 #include"SpriteManager.h"
-#include"AdditionalObject.h"
+#include"SubWeapon.h"
 class Bullet :
-	public AdditionalObject
+	public SubWeapon
 {
 public:
 	void update(float dt) override;

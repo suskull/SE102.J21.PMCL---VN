@@ -137,13 +137,13 @@
     <ClCompile Include="Bullet.cpp">
       <Filter>Weapon and Subweapon</Filter>
     </ClCompile>
-    <ClCompile Include="Weapon.cpp">
-      <Filter>Weapon and Subweapon</Filter>
-    </ClCompile>
     <ClCompile Include="ExplosionEffect.cpp">
       <Filter>Effect</Filter>
     </ClCompile>
     <ClCompile Include="ScoreBar.cpp" />
+    <ClCompile Include="SubWeapon.cpp">
+      <Filter>Weapon and Subweapon</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -279,13 +279,13 @@
     <ClInclude Include="Bullet.h">
       <Filter>Weapon and Subweapon</Filter>
     </ClInclude>
-    <ClInclude Include="Weapon.h">
-      <Filter>Weapon and Subweapon</Filter>
-    </ClInclude>
     <ClInclude Include="ExplosionEffect.h">
       <Filter>Effect</Filter>
     </ClInclude>
     <ClInclude Include="ScoreBar.h" />
+    <ClInclude Include="SubWeapon.h">
+      <Filter>Weapon and Subweapon</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Animation">

@@ -1,4 +1,4 @@
-#include "Enemy.h"
+﻿#include "Enemy.h"
 #include"ExplosionEffect.h"
 #include"Player.h"
 
@@ -15,13 +15,7 @@ void Enemy::onCollision(MovableRect* other, float collisionTime, int nx, int ny)
 	{
 		setVx(-getVx());
 	}
-	if (other->getCollisionType() == COLLISION_TYPE_PLAYER)
-	{
-		auto player = Player::getInstance();
-		player->setVx(-nx * 50);
-		player->setVy(150);
-		player->setPlayerState(PLAYER_STATE_INJURED);
-	}
+	
 
 
 }
@@ -32,6 +26,24 @@ void Enemy::onIntersect(MovableRect* other)
 		return;
 	if (other->getCollisionType() == COLLISION_TYPE_WEAPON)
 		setAlive(false);
+
+	//lấy từ onCollision
+	if (other->getCollisionType() == COLLISION_TYPE_BARRIER_FOR_ENEMY)
+	{
+		//setAlive(false);
+		/*setVx(-getVx());
+		if (getDirection() == DIRECTION_LEFT)
+		{
+			setX(getX() - abs(getWidthCurrentFrame() - getWidth()));
+			setWidth(getWidthCurrentFrame());
+		}
+		else
+			setX(getX() + 7);*/
+		//
+		
+		//else
+		//	setX(getX() - (getWidthCurrentFrame() - getWidth()));
+	}
 }
 
 void Enemy::render(Camera* camera)

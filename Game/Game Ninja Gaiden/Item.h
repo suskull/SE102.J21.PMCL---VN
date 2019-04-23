@@ -1,5 +1,6 @@
 #pragma once
 #include "PhysicsObject.h"
+#include"Player.h"
 class Item :
 	public PhysicsObject
 {

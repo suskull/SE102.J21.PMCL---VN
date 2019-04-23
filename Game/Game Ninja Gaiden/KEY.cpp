@@ -21,7 +21,7 @@ void KEY::update()
 	isRightDown = GetAsyncKeyState(VK_RIGHT);
 	isAttackDown = GetAsyncKeyState(getKeyChar('c'));
 	isJumpDown = GetAsyncKeyState(getKeyChar('x'));
-	isShurikenDown = GetAsyncKeyState(VK_SPACE);
+	isSubWeaponDown = GetAsyncKeyState(VK_SPACE);
 	isFlameDown1 = GetAsyncKeyState(getKeyChar('f'));
 	isFlameDown2 = GetAsyncKeyState(getKeyChar('g'));
 	isFlameDown3 = GetAsyncKeyState(getKeyChar('h'));
