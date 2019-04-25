@@ -66,7 +66,7 @@ void Sword::onIntersect(MovableRect* other)
 {
 	if (other->getCollisionType() == COLLISION_TYPE_ENEMY && other->getAlive())
 	{
-		other->setAlive(false);
+		//other->setAlive(false);
 
 		auto explosionEffect = new ExplosionEffect();
 		explosionEffect->setLocation(other->getMidX(), other->getMidY());

@@ -36,8 +36,9 @@ void SwordMan::onCollision(MovableRect * other, float collisionTime, int nx, int
 
 void SwordMan::onIntersect(MovableRect* other)
 {
-	if (other->getCollisionType() == COLLISION_TYPE_WEAPON)
+	if (other->getCollisionType() == COLLISION_TYPE_WEAPON && getAlive())
 		ScoreBar::getInstance()->increaseScore(100);
+	Enemy::onIntersect(other);
 }
 
 void SwordMan::setSwordmanState(SWORDMAN_STATE swordmanState)

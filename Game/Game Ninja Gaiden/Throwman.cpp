@@ -86,6 +86,13 @@ void Throwman::onCollision(MovableRect * other, float collisionTime, int nx, int
 	//Enemy::onCollision(other, collisionTime, nx, ny);
 }
 
+void Throwman::onIntersect(MovableRect* other)
+{
+	if (other->getCollisionType() == COLLISION_TYPE_WEAPON && getAlive())
+		ScoreBar::getInstance()->increaseScore(100);
+	Enemy::onIntersect(other);
+}
+
 Throwman::Throwman()
 {
 	//setAy(0);

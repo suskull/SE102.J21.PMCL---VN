@@ -65,7 +65,7 @@ Enemy::Enemy()
 	setVx(0);
 	setVy(0);
 	setPhysicsEnable(true);
-
+	setAlive(true);
 }
 
 
