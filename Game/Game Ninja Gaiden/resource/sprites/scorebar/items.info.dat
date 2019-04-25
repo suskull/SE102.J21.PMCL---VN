@@ -1,6 +1,6 @@
 Sprite 1
 R	G	B
-255	0	0	0
+255	163	163	163	
 Animation Count
 14
 
@@ -29,7 +29,7 @@ Frame Count
 1
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-69			0			15				16				0			0
+69			0			4				8				0			0
 
 
 Name
@@ -38,7 +38,7 @@ Frame Count
 1
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-72			0			16				16				0			0
+73			0			16				16				0			0
 
 
 Name
@@ -47,7 +47,7 @@ Frame Count
 1
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-88			0			16				16				0			0
+89			0			16				16				0			0
 
 
 Name
@@ -56,4 +56,4 @@ Frame Count
 1
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-104			0			16				16				0			0
+105			0			16				16				0			0

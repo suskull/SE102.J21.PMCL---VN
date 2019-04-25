@@ -49,7 +49,8 @@ ScoreBar::ScoreBar()
 	setPlayerLife(2);
 	
 	setCurrentStageNumber(1);
-	//setHealth(playerHealthLocation.MaxLength);
+	setPlayerHealth(playerHealthLocation.MaxLength);
+	//setPlayerHealth(3);
 }
 
 
@@ -70,7 +71,7 @@ void ScoreBar::render()
 		itemsInScoreBar->render(subWeaponLocation.X, subWeaponLocation.Y, player->getCurrentSubWeapon() + 1, 0);
 	}
 	renderNumber(currentStageNumber, stageLocation.X, stageLocation.Y, stageLocation.MaxLength);
-	//renderHealth(health, playerHealthLocation.X, playerHealthLocation.Y, playerHealthLocation.MaxLength);
+	renderHealth(playerHealth, playerHealthLocation.X, playerHealthLocation.Y, playerHealthLocation.MaxLength);
 }
 
 void ScoreBar::update()

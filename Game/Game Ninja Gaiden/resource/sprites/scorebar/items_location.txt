@@ -10,7 +10,7 @@ subWeapon
 104     24      8
 Stage
 192     17      1
-SubWeapon
-136     22
+PlayerHealth
+177     25	16
 BossHealth
 56      25      16

@@ -33,7 +33,7 @@ void Sword::update(float dt)
 		break;
 	}
 
-	if (getIsLastFrameAnimationDone())
+	if (getIsLastFrameAnimationDone() || player->getPlayerState() == PLAYER_STATE_INJURED)
 	{
 		setAlive(false);
 	}

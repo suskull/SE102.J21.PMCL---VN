@@ -61,6 +61,7 @@ public:
 	void update(float dt) override;
 
 	void setPlayerState(PLAYER_STATE playerState);
+	PLAYER_STATE getPlayerState();
 	void render(Camera* camera) override;
 
 	bool getUnstoppable();
@@ -68,6 +69,8 @@ public:
 
 	int getCurrentSubWeapon();
 	void setCurrentSubWeapon(int currentSubWeapon);
+
+	
 	Player();
 	~Player();
 };

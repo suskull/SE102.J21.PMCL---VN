@@ -344,6 +344,11 @@ void Player::setPlayerState(PLAYER_STATE playerState)
 	this->playerState = playerState;
 }
 
+PLAYER_STATE Player::getPlayerState()
+{
+	return playerState;
+}
+
 void Player::render(Camera* camera)
 {
 	setY(getY() + (getHeightCurrentFrame() - getHeight()));
@@ -372,6 +377,7 @@ void Player::setCurrentSubWeapon(int currentSubWeapon)
 {
 	this->currentSubWeapon = currentSubWeapon;
 }
+
 
 Player::Player()
 {
