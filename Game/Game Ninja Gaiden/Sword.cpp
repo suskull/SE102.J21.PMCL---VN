@@ -32,12 +32,19 @@ void Sword::update(float dt)
 		setFrameAnimation(2);
 		break;
 	}
-	BaseObject::update(dt);
+
+	if (getIsLastFrameAnimationDone())
+	{
+		setAlive(false);
+	}
+	Weapon::update(dt);
 }
 
 void Sword::render(Camera* camera)
 {
 	auto player = Player::getInstance();
+	setDirection(player->getDirection());
+
 	setHeight(getHeightCurrentFrame());
 	setWidth(getWidthCurrentFrame());
 	
@@ -52,8 +59,28 @@ void Sword::render(Camera* camera)
 		setY(player->getY() - 3);
 	}
 		
-	
-	setDirection(player->getDirection());
-	PhysicsObject::render(camera);
+	BaseObject::render(camera);
+}
+
+void Sword::onIntersect(MovableRect* other)
+{
+	if (other->getCollisionType() == COLLISION_TYPE_ENEMY && other->getAlive())
+	{
+		other->setAlive(false);
+
+		auto explosionEffect = new ExplosionEffect();
+		explosionEffect->setLocation(other->getMidX(), other->getMidY());
+	}
+	if (other->getCollisionType() == COLLISION_TYPE_WEAPON_ENEMY)
+	{
+		other->setAlive(false);
+		auto explosionEffect = new ExplosionEffect();
+		explosionEffect->setLocation(other->getMidX(), other->getMidY());
+	}
+	if (other->getCollisionType() == COLLISION_TYPE_BUTTERFLY && other->getAlive())
+	{
+		auto explosionEffect = new ExplosionEffect();
+		explosionEffect->setLocation(other->getMidX(), other->getMidY());
+	}
 }
 

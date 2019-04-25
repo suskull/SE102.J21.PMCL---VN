@@ -50,6 +50,10 @@ void Player::update(float dt)
 	{
 	//xong
 	case PLAYER_STATE_STAND:
+		setY(getY() - (getHeight() - getHeightCurrentFrame()));
+		setHeight(getHeightCurrentFrame());
+		isAttacked = false;
+
 		//trường hợp vừa bị injured xong.
 		if (unstoppable)
 		{
@@ -60,9 +64,6 @@ void Player::update(float dt)
 		else
 			setAnimation(PLAYER_ACTION_STAND);
 		
-		setY(getY() - (getHeight() - getHeightCurrentFrame()));
-		setHeight(getHeightCurrentFrame());
-		isAttacked = false;
 		if (key->isLeftDown) {
 			setDirection(DIRECTION_LEFT);
 			player->setVx(-vx);
@@ -145,16 +146,15 @@ void Player::update(float dt)
 		setY(getY() - (getHeight() - getHeightCurrentFrame()));
 		setHeight(getHeightCurrentFrame());
 
-		Sword* sword = new Sword();
 		if (!isAttacked)
 		{
+			Sword* sword = new Sword();
 			sword->setAlive(true);
 			setAnimation(PLAYER_ACTION_ATTACK);
 			isAttacked = true;
 		}
 		if (getIsLastFrameAnimationDone())
 		{
-			sword->setAlive(false);
 			setPlayerState(PLAYER_STATE_STAND);
 		}
 		break;
@@ -216,16 +216,16 @@ void Player::update(float dt)
 	//xong
 	case PLAYER_STATE_SITATTACK:
 	{
-		Sword* sword = new Sword();
+		
 		if (!isAttacked)
 		{
+			Sword* sword = new Sword();
 			sword->setAlive(true);
 			setAnimation(PLAYER_ACTION_SITATTACK);
 			isAttacked = true;
 		}
 		if (getIsLastFrameAnimationDone())
 		{
-			sword->setAlive(false);
 			setPlayerState(PLAYER_STATE_SIT);
 		}
 		break;

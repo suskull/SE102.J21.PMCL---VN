@@ -184,7 +184,7 @@ void Game::GameUpdate(float dt)
 	{
 		Collision::CheckCollision(player, AdditionalObject::getListObject()->at(i));
 
-		//xét va chạm giữa Weapon và Enemy
+		//xét va chạm giữa Weapon và ...
 		if (AdditionalObject::getListObject()->at(i)->getCollisionType() == COLLISION_TYPE_WEAPON)
 		{
 			//xét va chạm giữa Weapon và Enemy trong map
@@ -192,6 +192,20 @@ void Game::GameUpdate(float dt)
 			for (size_t j = 0; j < collection_Enemies->size(); j++)
 			{
 				Collision::CheckCollision(AdditionalObject::getListObject()->at(i), collection_Enemies->at(j));
+			}
+
+			//xét va chạm giữa Weapon và BirdsHaveItem
+			List<BaseObject*>* collection_BirdsHaveItem = objectCategories.at(COLLISION_TYPE_BUTTERFLY);
+			for (size_t k = 0; k < collection_BirdsHaveItem->size(); k++)
+			{
+				Collision::CheckCollision(AdditionalObject::getListObject()->at(i), collection_BirdsHaveItem->at(k));
+			}
+
+			//xét va chạm giữa Weapon và Items
+			List<BaseObject*>* collection_Items = objectCategories.at(COLLISION_TYPE_ITEM);
+			for (size_t p = 0; p < collection_Items->size(); p++)
+			{
+				Collision::CheckCollision(AdditionalObject::getListObject()->at(i), collection_Items->at(p));
 			}
 
 			//Xét va chạm giữa Weapon và WeaponEnemy

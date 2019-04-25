@@ -8,9 +8,9 @@ class Sword
 public:
 	Sword();
 	~Sword();
-	void update(float dt);
+	void update(float dt) override;
 	void render(Camera* camera) override;
-
+	void onIntersect(MovableRect* other) override;
 		
 };
 

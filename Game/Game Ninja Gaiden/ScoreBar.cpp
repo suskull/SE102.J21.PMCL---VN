@@ -1,4 +1,5 @@
 #include "ScoreBar.h"
+#include"Player.h"
 
 #define NUMBER_WIDTH 8
 #define HEALTH_WIDTH 4
@@ -63,6 +64,11 @@ void ScoreBar::render()
 	renderNumber(time, timeLocation.X, timeLocation.Y, timeLocation.MaxLength);
 	renderNumber(playerLife, playerLifeLocation.X, playerLifeLocation.Y, playerLifeLocation.MaxLength);
 	
+	auto player = Player::getInstance();
+	if (player->getCurrentSubWeapon() != SUBWEAPON_NULL)
+	{
+		itemsInScoreBar->render(subWeaponLocation.X, subWeaponLocation.Y, player->getCurrentSubWeapon() + 1, 0);
+	}
 	renderNumber(currentStageNumber, stageLocation.X, stageLocation.Y, stageLocation.MaxLength);
 	//renderHealth(health, playerHealthLocation.X, playerHealthLocation.Y, playerHealthLocation.MaxLength);
 }

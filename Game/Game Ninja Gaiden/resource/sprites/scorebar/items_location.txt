@@ -7,7 +7,7 @@ PlayerLife
 Don'tknow
 226     8       2
 subWeapon
-49      8       6
+104     24      8
 Stage
 192     17      1
 SubWeapon
