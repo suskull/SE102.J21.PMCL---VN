@@ -94,6 +94,12 @@ void Bird::onCollision(MovableRect* other, float collisionTime, int nx, int ny)
 	//Enemy::onCollision(other, collisionTime, nx, ny);
 }
 
+void Bird::onIntersect(MovableRect* other)
+{
+	if (other->getCollisionType() == COLLISION_TYPE_WEAPON)
+		ScoreBar::getInstance()->increaseScore(300);
+}
+
 void Bird::followPlayer()
 {
 	auto player = Player::getInstance();

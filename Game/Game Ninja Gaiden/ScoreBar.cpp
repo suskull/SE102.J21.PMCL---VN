@@ -30,7 +30,7 @@ ScoreBar::ScoreBar()
 	ifs >> playerLifeLocation.X >> playerLifeLocation.Y >> playerLifeLocation.MaxLength;
 
 	ignoreLineIfstream(ifs, 2);
-
+	ifs >> spiritualStrenghLocation.X >> spiritualStrenghLocation.Y >> spiritualStrenghLocation.MaxLength;
 
 	ignoreLineIfstream(ifs, 2);
 	ifs >> subWeaponLocation.X >> subWeaponLocation.Y;
@@ -44,13 +44,13 @@ ScoreBar::ScoreBar()
 	ignoreLineIfstream(ifs, 2);
 	ifs >> bossHealthLocation.X >> bossHealthLocation.Y >> bossHealthLocation.MaxLength;
 
-	setScore(123456);
+	setScore(0);
 	setTime(151);
 	setPlayerLife(2);
 	
 	setCurrentStageNumber(1);
 	setPlayerHealth(playerHealthLocation.MaxLength);
-	//setPlayerHealth(3);
+	setSpiritualStrengh(0);
 }
 
 
@@ -64,6 +64,7 @@ void ScoreBar::render()
 	renderNumber(score, scoreLocation.X, scoreLocation.Y, scoreLocation.MaxLength);
 	renderNumber(time, timeLocation.X, timeLocation.Y, timeLocation.MaxLength);
 	renderNumber(playerLife, playerLifeLocation.X, playerLifeLocation.Y, playerLifeLocation.MaxLength);
+	renderNumber(spiritualStrength, spiritualStrenghLocation.X, spiritualStrenghLocation.Y, spiritualStrenghLocation.MaxLength);
 	
 	auto player = Player::getInstance();
 	if (player->getCurrentSubWeapon() != SUBWEAPON_NULL)
@@ -104,6 +105,12 @@ int ScoreBar::getPlayerHealth()
 void ScoreBar::setPlayerHealth(int health)
 {
 	this->playerHealth = health;
+}
+
+void ScoreBar::decreaseHealth(int health)
+{
+	if (this->playerHealth > 0)
+		this->playerHealth -= health;
 }
 
 //void ScoreBar::increaseHealth(int health)
@@ -160,6 +167,32 @@ void ScoreBar::setPlayerLife(int playerLife)
 void ScoreBar::increasePlayerLife(int playerLife)
 {
 	setPlayerLife(this->playerLife + playerLife);
+}
+
+void ScoreBar::setSpiritualStrengh(int number)
+{
+	this->spiritualStrength = number;
+}
+
+int ScoreBar::getSpiritualStrengh()
+{
+	return spiritualStrength;
+}
+
+void ScoreBar::increaseSpiritualStrengh(int number)
+{
+	this->spiritualStrength += number;
+}
+
+bool ScoreBar::decreaseSpiritualStrengh(int number)
+{
+	if (this->spiritualStrength - number >= 0)
+	{
+		this->spiritualStrength -= number;
+		return true;
+	}
+	return false;
+	
 }
 
 

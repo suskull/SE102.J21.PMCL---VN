@@ -73,6 +73,12 @@ void Soldier::onCollision(MovableRect * other, float collisionTime, int nx, int 
 	Enemy::onCollision(other, collisionTime, nx, ny);
 }
 
+void Soldier::onIntersect(MovableRect* other)
+{
+	if (other->getCollisionType() == COLLISION_TYPE_WEAPON)
+		ScoreBar::getInstance()->increaseScore(100);
+}
+
 void Soldier::runFollowPlayer()
 {
 	auto player = Player::getInstance();

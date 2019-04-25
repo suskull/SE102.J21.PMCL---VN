@@ -6,5 +6,6 @@ class ItemSpiritualStrenghtBlue :
 public:
 	ItemSpiritualStrenghtBlue();
 	~ItemSpiritualStrenghtBlue();
+	void onIntersect(MovableRect* other) override;
 };
 

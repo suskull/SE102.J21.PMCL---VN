@@ -171,7 +171,8 @@ void Game::GameUpdate(float dt)
 		if (player->getAlive() && allObjects[i]->getAlive())
 		{
 			Collision::CheckCollision(Player::getInstance(), allObjects[i]);
-			Collision::CheckCollision(allObjects[i], Player::getInstance());
+			if(allObjects[i]->getCollisionType() == COLLISION_TYPE_ENEMY)
+				Collision::CheckCollision(allObjects[i], Player::getInstance());
 		}
 			
 		

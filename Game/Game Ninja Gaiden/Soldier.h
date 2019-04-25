@@ -26,11 +26,14 @@ class Soldier
 public:
 	void update(float dt) override;
 	void onCollision(MovableRect* other, float collisionTime, int nx, int ny) override;
+	void onIntersect(MovableRect* other) override;
 
 	void runFollowPlayer();
 	void setSoldierState(SOLDIER_STATE soldierState);
 	void setIsAttacking(bool isAttacking);
 	bool getIsAttacking();
+
+
 	Soldier();
 	~Soldier();
 };

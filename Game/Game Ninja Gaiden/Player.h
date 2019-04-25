@@ -5,6 +5,7 @@
 #include"Sword.h"
 #include"WindmillShuriken.h"
 #include"Flame.h"
+#include"ScoreBar.h"
 
 enum PLAYER_ACTION {
 	PLAYER_ACTION_STAND,

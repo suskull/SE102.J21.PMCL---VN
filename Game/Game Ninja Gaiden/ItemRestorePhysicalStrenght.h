@@ -6,5 +6,6 @@ class ItemRestorePhysicalStrenght :
 public:
 	ItemRestorePhysicalStrenght();
 	~ItemRestorePhysicalStrenght();
+	void onIntersect(MovableRect* other) override;
 };
 

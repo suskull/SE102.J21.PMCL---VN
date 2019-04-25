@@ -31,6 +31,12 @@ void Panther::onCollision(MovableRect* other, float collisionTime, int nx, int n
 	Enemy::onCollision(other, collisionTime, nx, ny);
 }
 
+void Panther::onIntersect(MovableRect* other)
+{
+	if (other->getCollisionType() == COLLISION_TYPE_WEAPON)
+		ScoreBar::getInstance()->increaseScore(100);
+}
+
 void Panther::setPantherState(PANTHER_STATE pantherState)
 {
 	this->pantherState = pantherState;

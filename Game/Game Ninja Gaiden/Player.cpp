@@ -23,6 +23,8 @@ void Player::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 		setVy(150);
 		setIsOnGround(false);
 		setPlayerState(PLAYER_STATE_INJURED);
+		ScoreBar::getInstance()->decreaseHealth(1);
+		
 	}
 	
 }
@@ -172,12 +174,15 @@ void Player::update(float dt)
 		setAnimation(PLAYER_ACTION_SHURIKEN);
 		if (getFrameAnimation() == 1 && !isAttacked)
 		{
-			Shuriken* shuriken = new Shuriken();
-			shuriken->setX(this->getX() + 12 * getDirection());
-			this->setVx(0);
-			shuriken->setY(this->getY() - 5);
-			shuriken->setVx(150 * getDirection());
-			isAttacked = true;
+			if (ScoreBar::getInstance()->decreaseSpiritualStrengh(3))
+			{
+				Shuriken* shuriken = new Shuriken();
+				shuriken->setX(this->getX() + 12 * getDirection());
+				this->setVx(0);
+				shuriken->setY(this->getY() - 5);
+				shuriken->setVx(150 * getDirection());
+				isAttacked = true;
+			}
 		}
 		if (getIsLastFrameAnimationDone())
 			setPlayerState(PLAYER_STATE_STAND);
@@ -333,6 +338,7 @@ void Player::update(float dt)
 		setAnimation(PLAYER_ACTION_INJURED);
 		if (getIsOnGround())
 			setPlayerState(PLAYER_STATE_STAND);
+		
 	}
 
 	PhysicsObject::update(dt);

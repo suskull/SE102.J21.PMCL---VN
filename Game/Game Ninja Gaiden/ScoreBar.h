@@ -21,6 +21,7 @@ class ScoreBar
 	SCORE_LOCATION scoreLocation; //
 	SCORE_LOCATION timeLocation; //
 	SCORE_LOCATION playerLifeLocation; //
+	SCORE_LOCATION spiritualStrenghLocation;
 
 	SCORE_LOCATION subWeaponLocation;
 	SCORE_LOCATION stageLocation; //
@@ -32,6 +33,8 @@ class ScoreBar
 	int score;
 	int time;
 	int playerLife;
+	int spiritualStrength;
+
 	int currentStageNumber;
 	int playerHealth;
 	int bossHealth;
@@ -56,6 +59,11 @@ public:
 	void setPlayerLife(int playerLife);
 	void increasePlayerLife(int playerLife);
 
+	void setSpiritualStrengh(int number);
+	int getSpiritualStrengh();
+	void increaseSpiritualStrengh(int number);
+	bool decreaseSpiritualStrengh(int number);
+
 	void setCurrentStageNumber(int currentStageNumber);
 	int getCurrentStageNumber();
 	void increaseCurrentStageNumber(int number);
@@ -63,7 +71,7 @@ public:
 
 	int getPlayerHealth();
 	void setPlayerHealth(int health);
-	//void increaseHealth(int health);
+	void decreaseHealth(int health);
 	void restorePlayerHealth();
 
 	int getBossHealth();

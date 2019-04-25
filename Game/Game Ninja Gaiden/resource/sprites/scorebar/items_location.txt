@@ -4,8 +4,8 @@ Time
 72      25      3
 PlayerLife
 41     33      2
-Don'tknow
-226     8       2
+SpiritualStrengh
+81     33       2
 subWeapon
 104     24      8
 Stage

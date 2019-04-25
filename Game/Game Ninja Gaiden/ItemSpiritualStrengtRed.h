@@ -6,5 +6,6 @@ class ItemSpiritualStrengtRed :
 public:
 	ItemSpiritualStrengtRed();
 	~ItemSpiritualStrengtRed();
+	void onIntersect(MovableRect* other) override;
 };
 
