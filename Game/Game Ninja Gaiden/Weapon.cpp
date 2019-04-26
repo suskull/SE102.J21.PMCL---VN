@@ -11,9 +11,10 @@ void Weapon::update(float dt)
 
 void Weapon::onIntersect(MovableRect* other)
 {
+	if (!getAlive())
+		return;
 	if (other->getCollisionType() == COLLISION_TYPE_ENEMY && other->getAlive())
 	{
-		//other->setAlive(false);
 		setAlive(false);
 
 		auto explosionEffect = new ExplosionEffect();

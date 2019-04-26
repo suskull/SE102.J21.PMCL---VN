@@ -110,6 +110,13 @@ void Bird::followPlayer()
 		setDirection(DIRECTION_RIGHT);
 }
 
+void Bird::render(Camera* camera)
+{
+	setY(getY() + (getHeightCurrentFrame() - getHeight()) * 3 / 2);
+	setHeight(getHeightCurrentFrame());
+	BaseObject::render(camera);
+}
+
 Bird::Bird()
 {
 	setAy(0);
