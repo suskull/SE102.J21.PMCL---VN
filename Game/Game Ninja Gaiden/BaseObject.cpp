@@ -60,6 +60,10 @@ void BaseObject::update(float dt)
 		}
 	}
 
+	//tọa độ Y dưới màn hình thì coi như k còn sống.
+	if (getY() < 0)
+		setAlive(false);
+
 	if (!getAlive())
 	{
 		setIsRender(false);

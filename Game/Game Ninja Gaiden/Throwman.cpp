@@ -29,7 +29,7 @@ void Throwman::update(float dt)
 		
 		if (getIsLastFrameAnimationDone())
 			count++;
-		if (count > 2)
+		if (count > 5)
 		{
 			count = 0;
 			setThrowmanState(THROWMAN_STATE_ATTACK);
@@ -44,8 +44,8 @@ void Throwman::update(float dt)
 			kn->setX(getX() + (getDirection() * 5));
 			kn->setY(getY() + 20);
 			kn->setDirection(getDirection());
-			kn->setAx(getDirection() * 15);
-			kn->setAy(-100);
+			kn->setVx(getDirection() * (rand()% 60 + 15));
+			kn->setAy(-300);
 			kn->setVy(70);
 			isAttacking = true;
 			count++;

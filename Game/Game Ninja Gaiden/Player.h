@@ -36,7 +36,8 @@ enum PLAYER_STATE {
 	PLAYER_STATE_FLAME1,
 	PLAYER_STATE_FLAME2,
 	PLAYER_STATE_FLAME3,
-	PLAYER_STATE_INJURED
+	PLAYER_STATE_INJURED,
+	PLAYER_STATE_DIE
 };
 
 enum PLAYER_SUBWEAPON {
@@ -74,6 +75,7 @@ public:
 
 	void setMakeEnemyPause(bool makeEnemyPause);
 	bool getMakeEnemyPause();
+
 	Player();
 	~Player();
 };

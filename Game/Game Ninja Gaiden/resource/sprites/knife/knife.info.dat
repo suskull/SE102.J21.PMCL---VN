@@ -8,11 +8,9 @@ Animation Count
 Name
 Animation
 Frame Count
-3
+2
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
 0			0			8				15				0			0
 8			0			8				15				0			0
-0			0			8				15				0			0
-
 

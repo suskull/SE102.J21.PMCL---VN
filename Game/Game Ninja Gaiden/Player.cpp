@@ -31,7 +31,7 @@ void Player::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 
 void Player::onIntersect(MovableRect* other)
 {
-	if (other->getCollisionType() == COLLISION_TYPE_ENEMY && !unstoppable)
+	if (other->getCollisionType() == COLLISION_TYPE_ENEMY && !unstoppable || other->getCollisionType() == COLLISION_TYPE_WEAPON_ENEMY && !unstoppable)
 	{
 		setVx(-getDirection() * 50);
 		setVy(150);
@@ -47,6 +47,11 @@ void Player::update(float dt)
 	float vx = GLOBALS_D("player_vx");
 	float vroll = GLOBALS_D("player_roll");
 	auto key = KEY::getInstance();
+
+	if (!getAlive())
+	{
+		setPlayerState(PLAYER_STATE_DIE);
+	}
 
 	switch (playerState)
 	{
@@ -249,7 +254,7 @@ void Player::update(float dt)
 		if (getIsOnGround())
 			setPlayerState(PLAYER_STATE_STAND);
 
-		if (key->isAttackDown && getDx() < 0.5)
+		if (key->isAttackDown)
 			setPlayerState(PLAYER_STATE_ATTACK);
 		break;
 	}
@@ -338,8 +343,14 @@ void Player::update(float dt)
 		setAnimation(PLAYER_ACTION_INJURED);
 		if (getIsOnGround())
 			setPlayerState(PLAYER_STATE_STAND);
-		
+		break;
+	case PLAYER_STATE_DIE:
+		setDx(0);
+		setDy(0);
+		break;
 	}
+
+	
 
 	PhysicsObject::update(dt);
 
@@ -395,6 +406,8 @@ bool Player::getMakeEnemyPause()
 {
 	return makeEnemyPause;
 }
+
+
 
 Player::Player()
 {
