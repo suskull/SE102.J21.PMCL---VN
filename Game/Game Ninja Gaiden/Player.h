@@ -54,6 +54,7 @@ class Player:
 	bool isAttacked;
 	bool unstoppable;
 	int currentSubWeapon;
+	bool makeEnemyPause;
 public:
 	static Player* getInstance();
 
@@ -71,7 +72,8 @@ public:
 	int getCurrentSubWeapon();
 	void setCurrentSubWeapon(int currentSubWeapon);
 
-	
+	void setMakeEnemyPause(bool makeEnemyPause);
+	bool getMakeEnemyPause();
 	Player();
 	~Player();
 };

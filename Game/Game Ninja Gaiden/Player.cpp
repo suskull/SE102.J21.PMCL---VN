@@ -342,6 +342,7 @@ void Player::update(float dt)
 	}
 
 	PhysicsObject::update(dt);
+
 }
 
 
@@ -384,6 +385,16 @@ void Player::setCurrentSubWeapon(int currentSubWeapon)
 	this->currentSubWeapon = currentSubWeapon;
 }
 
+
+void Player::setMakeEnemyPause(bool makeEnemyPause)
+{
+	this->makeEnemyPause = makeEnemyPause;
+}
+
+bool Player::getMakeEnemyPause()
+{
+	return makeEnemyPause;
+}
 
 Player::Player()
 {

@@ -29,6 +29,7 @@ class ScoreBar
 	SCORE_LOCATION bossHealthLocation;
 
 	GameTime gameTime;
+	int pauseTime;
 
 	int score;
 	int time;
@@ -54,6 +55,9 @@ public:
 
 	void setTime(int time);
 	void decreaseTime(int time);
+	int getTime();
+
+	void setPauseTime(int pauseTime);
 
 	int getPlayerLife();
 	void setPlayerLife(int playerLife);

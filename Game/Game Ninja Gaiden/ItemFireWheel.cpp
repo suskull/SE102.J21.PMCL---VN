@@ -2,11 +2,13 @@
 
 
 
-void ItemFireWheel::onCollision(MovableRect* other, float collsionTime, int nx, int ny)
+
+
+void ItemFireWheel::onIntersect(MovableRect* other)
 {
 	if (other->getCollisionType() == COLLISION_TYPE_PLAYER)
 		Player::getInstance()->setCurrentSubWeapon(SUBWEAPON_FIREWHEEL);
-	Item::onCollision(other, collsionTime, nx, ny);
+	Item::onIntersect(other);
 }
 
 ItemFireWheel::ItemFireWheel()

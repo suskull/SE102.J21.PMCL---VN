@@ -171,7 +171,10 @@ void Game::GameUpdate(float dt)
 		if (player->getAlive() && allObjects[i]->getAlive())
 		{
 			Collision::CheckCollision(Player::getInstance(), allObjects[i]);
-			if(allObjects[i]->getCollisionType() == COLLISION_TYPE_ENEMY)
+			if (allObjects[i]->getCollisionType() == COLLISION_TYPE_ENEMY)
+				if (player->getMakeEnemyPause())
+					allObjects[i]->setIsPause(true);
+				else allObjects[i]->setIsPause(false);
 				Collision::CheckCollision(allObjects[i], Player::getInstance());
 		}
 			

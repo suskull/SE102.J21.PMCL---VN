@@ -4,6 +4,7 @@ class ItemBonusRed :
 	public Item
 {
 public:
+	void onIntersect(MovableRect* other) override;
 	ItemBonusRed();
 	~ItemBonusRed();
 };

@@ -4,7 +4,7 @@ class ItemShuriken :
 	public Item
 {
 public:
-	void onCollision(MovableRect* other, float collsionTime, int nx, int ny) override;
+	void onIntersect(MovableRect* other) override;
 	ItemShuriken();
 	~ItemShuriken();
 };

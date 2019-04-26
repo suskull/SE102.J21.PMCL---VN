@@ -10,14 +10,14 @@ Sprite* BaseObject::getSprite()
 	return this->sprite;
 }
 
-bool BaseObject::getPauseAnimation()
+bool BaseObject::getIsPause()
 {
-	return pauseAnimation;
+	return isPause;
 }
 
-void BaseObject::setPauseAnimation(bool pauseAnimation)
+void BaseObject::setIsPause(bool isPause)
 {
-	this->pauseAnimation = pauseAnimation;
+	this->isPause = isPause;
 }
 
 bool BaseObject::getIsLastFrameAnimationDone()
@@ -40,12 +40,15 @@ void BaseObject::onInitFromFile(ifstream& fs, int worldHeight)
 
 void BaseObject::update(float dt)
 {
-	goX();
-	goY();
+	if (!getIsPause())
+	{
+		goX();
+		goY();
+	}
 
 	setIsLastFrameAnimationDone(false);
 
-	if (!pauseAnimation && getSprite() != NULL)
+	if (!isPause && getSprite() != NULL)
 	{
 		if (animationGameTime.atTime())
 		{
@@ -79,7 +82,7 @@ float BaseObject::getHeightCurrentFrame()
 
 void BaseObject::onUpdate(float dt)
 {
-	setPauseAnimation(false);
+	setIsPause(false);
 }
 
 void BaseObject::render(Camera* camera)

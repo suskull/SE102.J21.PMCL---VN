@@ -1,4 +1,4 @@
-#include "ScoreBar.h"
+﻿#include "ScoreBar.h"
 #include"Player.h"
 
 #define NUMBER_WIDTH 8
@@ -51,6 +51,7 @@ ScoreBar::ScoreBar()
 	setCurrentStageNumber(1);
 	setPlayerHealth(playerHealthLocation.MaxLength);
 	setSpiritualStrengh(0);
+	setPauseTime(5);
 }
 
 
@@ -95,6 +96,29 @@ void ScoreBar::decreaseTime(int time)
 {
 	if(this->time > 0)
 		this->time -= time;
+
+	// thời gian pause Enemy.
+	auto player = Player::getInstance();
+	if (player->getMakeEnemyPause())
+	{
+		pauseTime--;
+		//hết thời gian pause thì cho chuyển động bt.
+		if (pauseTime == 0)
+		{
+			player->setMakeEnemyPause(false);
+		}
+	}
+		
+}
+
+int ScoreBar::getTime()
+{
+	return time;
+}
+
+void ScoreBar::setPauseTime(int pauseTime)
+{
+	this->pauseTime = pauseTime;
 }
 
 int ScoreBar::getPlayerHealth()
