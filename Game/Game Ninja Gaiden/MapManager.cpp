@@ -24,13 +24,14 @@ void MapManager::setCurrentMap(int mapIndex)
 {
 	this->currentMap = listMap.at(mapIndex);
 	
-
 	if(mapIndex != 0)
 		isChangeMap = true;
 }
 
 void MapManager::InitMap()
 {
+	resetValue();
+
 	currentTileMap = new Tilemap();
 	string idPath = "resource/map/" + currentMap->ID;
 	currentTileMap->Init(idPath.c_str());
@@ -277,6 +278,14 @@ void MapManager::render()
 	ScoreBar::getInstance()->render();
 }
 
+void MapManager::resetValue()
+{
+	currentTileMap = NULL;
+	allObjects.Clear();
+	listCollisionTypeCanCollide.Clear();
+	objectCategories.Clear();
+}
+
 MapManager::MapManager()
 {
 	int numberOfMap = 0;
@@ -293,7 +302,7 @@ MapManager::MapManager()
 
 		listMap._Add(map);
 	}
-	setCurrentMap(0);
+	setCurrentMap(1);
 }
 
 

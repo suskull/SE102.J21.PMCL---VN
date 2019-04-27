@@ -1,6 +1,7 @@
 ﻿#include "Camera.h"
 #include<d3dx9.h>
 #include"Player.h"
+#include"MapManager.h"
 
 Camera* Camera::instance = 0;
 Camera* Camera::getInstance()
@@ -42,6 +43,33 @@ void Camera::update()
 	{
 		setDx(player->getDx());
 	}
+
+	//ràng buộc player k vẽ ra ngoài bên trái và phải map
+	if (player->getX() < 0)
+	{
+		player->setX(0);
+	}
+
+	int widthCurrentMap = MapManager::getInstance()->getCurrentMap()->width;
+
+	if (player->getX() > widthCurrentMap - player->getWidth())
+		player->setX(widthCurrentMap - player->getWidth());
+	
+	//ràng buộc camera k vẽ ngoài bên trái và phải map
+	if (getX() < -getDx() && getDx() < 0)
+	{
+		setX(0);
+		setDx(0);
+	}
+
+	if (getRight() > widthCurrentMap - getDx() && getDx() > 0)
+	{
+		setX(widthCurrentMap - getWidth());
+		setDx(0);
+	}
+		
+		
+
 	goX();
 	goY();
 }

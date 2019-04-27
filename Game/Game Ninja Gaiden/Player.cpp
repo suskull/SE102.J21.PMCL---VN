@@ -18,6 +18,22 @@ void Player::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 		setIsOnGround(true);
 		preventMovementWhenCollision(collisionTime, nx, ny);
 	}
+
+	//if (other->getCollisionType() == COLLISION_TYPE_GROUND && nx == -1)
+	//{
+	//	setVy(0);
+	//	preventMovementWhenCollision(collisionTime, nx, ny);
+	//	setX(getX() + nx);
+	//}
+
+	//if (other->getCollisionType() == COLLISION_TYPE_GROUND && nx == 1)
+	//{
+	//	setVy(0);
+	//	preventMovementWhenCollision(collisionTime, nx, ny);
+	//	//setX(getX() + nx);
+
+	//}
+
 	if (other->getCollisionType() == COLLISION_TYPE_ENEMY && !unstoppable)
 	{
 		setVx(-nx * 50);

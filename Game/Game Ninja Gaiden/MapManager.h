@@ -49,6 +49,7 @@ public:
 	void InitCollisionTypeCanCollide(string path);
 	void update(float dt);
 	void render();
+	void resetValue();
 	MapManager();
 	~MapManager();
 };
