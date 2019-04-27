@@ -1,5 +1,6 @@
 ﻿#include "Player.h"
 #include"SpriteManager.h"
+#include"MapManager.h"
 
 Player* Player::instance = 0;
 Player* Player::getInstance()
@@ -26,6 +27,8 @@ void Player::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 		ScoreBar::getInstance()->decreaseHealth(1);
 		
 	}
+	if (other->getCollisionType() == COLLISION_TYPE_GATE)
+		MapManager::getInstance()->setCurrentMap(1);
 	
 }
 
@@ -415,8 +418,8 @@ Player::Player()
 	setDirection(DIRECTION_RIGHT);
 	setPlayerState(PLAYER_STATE_STAND);
 	setCollisionType(COLLISION_TYPE_PLAYER);
-	//setCurrentSubWeapon(SUBWEAPON_NULL);
-	setCurrentSubWeapon(SUBWEAPON_SHURIKEN);
+	setCurrentSubWeapon(SUBWEAPON_NULL);
+	//setCurrentSubWeapon(SUBWEAPON_SHURIKEN);
 }
 
 

@@ -1,0 +1,12 @@
+NumberOfMaps
+2
+
+stage3-1
+Width       Height	PlayerX     PlayerY
+768         175		50          100
+
+stage3-2
+Width       Height	PlayerX     PlayerY
+768         175		10          105
+
+

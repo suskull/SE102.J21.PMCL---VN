@@ -32,18 +32,8 @@ class Game
 
 	int x, y;
 
-
-	Tilemap* tilemap;
-
-	List<BaseObject*> allObjects;
-
-	List<CollisionTypeCanCollide*> listCollisionTypeCanCollide;
-
-	List<List<BaseObject*>*> objectCategories;
 public:
 	static Game* getInstance();
-	void InitObjects(string path, int worldHeight);
-	void InitCollisionTypeCanCollide(string path);
 
 	void GameInit();
 	void GameUpdate(float dt);

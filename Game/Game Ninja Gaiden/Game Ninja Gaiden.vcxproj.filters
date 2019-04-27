@@ -144,6 +144,9 @@
     <ClCompile Include="Weapon.cpp">
       <Filter>Weapon and Subweapon</Filter>
     </ClCompile>
+    <ClCompile Include="MapManager.cpp">
+      <Filter>MapManager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -286,6 +289,9 @@
     <ClInclude Include="Weapon.h">
       <Filter>Weapon and Subweapon</Filter>
     </ClInclude>
+    <ClInclude Include="MapManager.h">
+      <Filter>MapManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Animation">
@@ -338,6 +344,9 @@
     </Filter>
     <Filter Include="Effect">
       <UniqueIdentifier>{b35de2ef-45e0-4172-ab28-97fd4f12ab60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MapManager">
+      <UniqueIdentifier>{c160256d-d6eb-4325-a1df-c17d933b4fe5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

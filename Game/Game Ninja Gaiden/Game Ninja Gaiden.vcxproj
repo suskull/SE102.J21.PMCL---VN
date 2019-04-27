@@ -160,6 +160,7 @@
     <ClInclude Include="KEY.h" />
     <ClInclude Include="Knife.h" />
     <ClInclude Include="List.h" />
+    <ClInclude Include="MapManager.h" />
     <ClInclude Include="Panther.h" />
     <ClInclude Include="PhysicsObject.h" />
     <ClInclude Include="MovableRect.h" />
@@ -210,6 +211,7 @@
     <ClCompile Include="ItemSpiritualStrengtRed.cpp" />
     <ClCompile Include="KEY.cpp" />
     <ClCompile Include="Knife.cpp" />
+    <ClCompile Include="MapManager.cpp" />
     <ClCompile Include="Panther.cpp" />
     <ClCompile Include="PhysicsObject.cpp" />
     <ClCompile Include="MovableRect.cpp" />
