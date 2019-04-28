@@ -25,13 +25,19 @@ Map* MapManager::getCurrentMap()
 	return currentMap;
 }
 
-void MapManager::setCurrentMap(int mapIndex)
+void MapManager::setCurrentMap(int currentMapIndex)
 {
-	this->currentMap = listMap.at(mapIndex);
-	ScoreBar::getInstance()->setCurrentStageNumber(mapIndex + 1);
+	this->currentMapIndex = currentMapIndex;
+	this->currentMap = listMap.at(currentMapIndex);
+	ScoreBar::getInstance()->setCurrentStageNumber(currentMapIndex + 1);
 
-	if(mapIndex != 0)
+	if(currentMapIndex != 0)
 		isChangeMap = true;
+}
+
+int MapManager::getCurrentMapIndex()
+{
+	return currentMapIndex;
 }
 
 void MapManager::InitMap()
@@ -327,7 +333,7 @@ MapManager::MapManager()
 
 		listMap._Add(map);
 	}
-	setCurrentMap(2);
+	setCurrentMap(0);
 }
 
 

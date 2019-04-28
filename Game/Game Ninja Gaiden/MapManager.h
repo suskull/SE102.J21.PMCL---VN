@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "List.h"
 #include"Panther.h"
 #include"Throwman.h"
@@ -30,7 +30,8 @@ class MapManager
 	List<Map*> listMap;
 	bool isChangeMap;
 	Map* currentMap;
-	
+	int currentMapIndex; // thêm để tự động chuyển map kế tiếp khi Play chạm Gate.
+
 	Tilemap* currentTileMap;
 
 	List<BaseObject*> allObjects;
@@ -43,6 +44,8 @@ public:
 	
 	Map* getCurrentMap();
 	void setCurrentMap(int currentMapIndex);
+
+	int getCurrentMapIndex();
 
 	void InitMap();
 	void InitObjects(string Objectpath, int worldHeight);

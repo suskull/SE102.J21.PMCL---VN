@@ -44,7 +44,11 @@ void Player::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 		
 	}
 	if (other->getCollisionType() == COLLISION_TYPE_GATE)
-		MapManager::getInstance()->setCurrentMap(1);
+	{
+		auto mapManager = MapManager::getInstance();
+		mapManager->setCurrentMap(mapManager->getCurrentMapIndex() + 1);
+	}
+	
 	
 }
 
