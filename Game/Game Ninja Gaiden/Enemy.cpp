@@ -13,11 +13,14 @@ void Enemy::onCollision(MovableRect* other, float collisionTime, int nx, int ny)
 	}
 	if (other->getCollisionType() == COLLISION_TYPE_BARRIER_FOR_ENEMY)
 	{
-		setVx(-getVx());
+		if (getDx() < 0)
+		{
+			setVx(abs(getVx()));
+		}
+		if (getDx() > 0)
+			setVx(-abs(getVx()));
 	}
 	
-
-
 }
 
 void Enemy::onIntersect(MovableRect* other)
