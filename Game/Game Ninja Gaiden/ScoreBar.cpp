@@ -44,14 +44,8 @@ ScoreBar::ScoreBar()
 	ignoreLineIfstream(ifs, 2);
 	ifs >> bossHealthLocation.X >> bossHealthLocation.Y >> bossHealthLocation.MaxLength;
 
-	setScore(0);
-	setTime(151);
-	setPlayerLife(2);
-	
-	setCurrentStageNumber(1);
-	setPlayerHealth(playerHealthLocation.MaxLength);
-	setSpiritualStrengh(0);
-	setPauseTime(5);
+	//set giá trị cho các thành phần có trong bảng điểm
+	resetScoreGame();
 }
 
 
@@ -267,4 +261,16 @@ void ScoreBar::increaseBossHealth(int health)
 
 void ScoreBar::restoreBossHealth()
 {
+}
+
+void ScoreBar::resetScoreGame()
+{
+	setScore(0);
+	setTime(151);
+	setPlayerLife(2);
+
+	setCurrentStageNumber(1);
+	setPlayerHealth(playerHealthLocation.MaxLength);
+	setSpiritualStrengh(0);
+	setPauseTime(5);
 }

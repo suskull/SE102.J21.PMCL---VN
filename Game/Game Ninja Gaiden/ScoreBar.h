@@ -82,4 +82,6 @@ public:
 	void setBossHealth(int health);
 	void increaseBossHealth(int health);
 	void restoreBossHealth();
+
+	void resetScoreGame();
 };

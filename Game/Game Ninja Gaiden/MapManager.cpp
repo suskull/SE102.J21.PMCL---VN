@@ -31,8 +31,7 @@ void MapManager::setCurrentMap(int currentMapIndex)
 	this->currentMap = listMap.at(currentMapIndex);
 	ScoreBar::getInstance()->setCurrentStageNumber(currentMapIndex + 1);
 
-	if(currentMapIndex != 0)
-		isChangeMap = true;
+	isChangeMap = true;
 }
 
 int MapManager::getCurrentMapIndex()
@@ -334,6 +333,9 @@ MapManager::MapManager()
 		listMap._Add(map);
 	}
 	setCurrentMap(0);
+
+	//do mới khởi tạo
+	isChangeMap = false;
 }
 
 

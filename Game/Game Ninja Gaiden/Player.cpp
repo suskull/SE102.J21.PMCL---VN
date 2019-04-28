@@ -78,7 +78,7 @@ void Player::update(float dt)
 
 	switch (playerState)
 	{
-	//xong
+		//xong
 	case PLAYER_STATE_STAND:
 		setY(getY() - (getHeight() - getHeightCurrentFrame()));
 		setHeight(getHeightCurrentFrame());
@@ -88,12 +88,12 @@ void Player::update(float dt)
 		if (unstoppable)
 		{
 			setAnimation(PLAYER_ACTION_STAND_UNSTOPPABLE);
-			if(getIsLastFrameAnimationDone())
+			if (getIsLastFrameAnimationDone())
 				unstoppable = false;
 		}
 		else
 			setAnimation(PLAYER_ACTION_STAND);
-		
+
 		if (key->isLeftDown) {
 			setDirection(DIRECTION_LEFT);
 			player->setVx(-vx);
@@ -111,7 +111,7 @@ void Player::update(float dt)
 			setPlayerState(PLAYER_STATE_ATTACK);
 		else if (key->isSubWeaponDown)
 		{
-			if(getCurrentSubWeapon() == SUBWEAPON_NULL)
+			if (getCurrentSubWeapon() == SUBWEAPON_NULL)
 				setPlayerState(PLAYER_STATE_SUBWEAPON_NULL);
 			if (getCurrentSubWeapon() == SUBWEAPON_SHURIKEN)
 				setPlayerState(PLAYER_STATE_SHURIKEN);
@@ -120,7 +120,7 @@ void Player::update(float dt)
 			if (getCurrentSubWeapon() == SUBWEAPON_WINDMILLSHURIKEN)
 				setPlayerState(PLAYER_STATE_WINDMILLSHURIKEN);
 		}
-			
+
 		else if (key->isDownDown)
 			setPlayerState(PLAYER_STATE_SIT);
 		else if (key->isJumpDown && getIsOnGround()) {
@@ -147,9 +147,9 @@ void Player::update(float dt)
 			setVx(0);
 		}
 
-			break;
+		break;
 
-	//xong
+		//xong
 	case PLAYER_STATE_RUN:
 	{
 		setAnimation(PLAYER_ACTION_RUN);
@@ -170,7 +170,7 @@ void Player::update(float dt)
 	case PLAYER_STATE_CLIMB:
 		setAnimation(PLAYER_ACTION_CLIMB);
 		break;
-	//gần xong
+		//gần xong
 	case PLAYER_STATE_ATTACK: {
 		setVx(0);
 		setY(getY() - (getHeight() - getHeightCurrentFrame()));
@@ -196,7 +196,7 @@ void Player::update(float dt)
 			setPlayerState(PLAYER_STATE_STAND);
 		break;
 	}
-		
+
 	//xong	
 	case PLAYER_STATE_SHURIKEN: {
 		setAnimation(PLAYER_ACTION_SHURIKEN);
@@ -216,7 +216,7 @@ void Player::update(float dt)
 			setPlayerState(PLAYER_STATE_STAND);
 		break;
 	}
-	
+
 	case PLAYER_STATE_WINDMILLSHURIKEN:
 	{
 		setAnimation(PLAYER_ACTION_SHURIKEN);
@@ -246,10 +246,10 @@ void Player::update(float dt)
 		if (key->isAttackDown)
 			setPlayerState(PLAYER_STATE_SITATTACK);
 		break;
-	//xong
+		//xong
 	case PLAYER_STATE_SITATTACK:
 	{
-		
+
 		if (!isAttacked)
 		{
 			Sword* sword = new Sword();
@@ -281,7 +281,7 @@ void Player::update(float dt)
 			setPlayerState(PLAYER_STATE_ATTACK);
 		break;
 	}
-		
+
 	//chưa dùng tới
 	case PLAYER_STATE_ROLLATTACK:
 		setAnimation(PLAYER_ACTION_ROLLATTACK);
@@ -368,9 +368,36 @@ void Player::update(float dt)
 			setPlayerState(PLAYER_STATE_STAND);
 		break;
 	case PLAYER_STATE_DIE:
+	{
 		setDx(0);
 		setDy(0);
+		auto scoreBar = ScoreBar::getInstance();
+		auto mapManager = MapManager::getInstance();
+
+
+		
+
+		if (scoreBar->getPlayerLife() > 0)
+		{
+			// còn mạng thì quay về map HIỆN TẠI
+			scoreBar->setPlayerLife(scoreBar->getPlayerLife() - 1);
+			mapManager->setCurrentMap(mapManager->getCurrentMapIndex());
+
+		}
+		else
+			// hết mạng thì quay vào map ĐẦU TIÊN
+		{
+			scoreBar->resetScoreGame();
+			mapManager->setCurrentMap(0);
+		}
+
+		//khởi tạo lại cho Player.
+		setAlive(true);
+		setIsRender(true);
+		setPlayerState(PLAYER_STATE_STAND);
 		break;
+	}
+
 	}
 
 	
