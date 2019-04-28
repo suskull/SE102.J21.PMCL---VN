@@ -45,6 +45,8 @@ SpriteManager::SpriteManager()
 	sprites[SPRITE_RUNNING_MAN]->InitFromFile("resource/tool/RunningMan/RunningMan.png", "resource/tool/RunningMan/RunningMan.info.dat");
 	sprites[SPRITE_SITTING_MAN]->InitFromFile("resource/tool/SittingMan/SittingMan.png", "resource/tool/SittingMan/SittingMan.info.dat");
 	sprites[SPRITE_ITEM_WINDMILL_SHURIKEN]->InitFromFile("resource/sprites/Item-WindmillShuriken/Item-WindmillShuriken.png", "resource/sprites/Item-WindmillShuriken/Item-WindmillShuriken.info.dat");
+	sprites[SPRITE_BOSS]->InitFromFile("resource/tool/Boss/Boss.png", "resource/tool/Boss/Boss.info.dat");
+
 
 	sprites[SPRITE_KNIFE]->InitFromFile("resource/sprites/knife/image.png", "resource/sprites/knife/knife.info.dat");
 	sprites[SPRITE_BULLET]->InitFromFile("resource/sprites/bullet/image.png", "resource/sprites/bullet/bullet.info.dat");

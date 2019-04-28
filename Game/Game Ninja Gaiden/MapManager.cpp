@@ -9,7 +9,8 @@
 #include"RedBird.h"
 #include"RunningMan.h"
 #include"SittingMan.h"
-
+#include"ItemWindmillShuriken.h"
+#include"Boss.h"
 
 MapManager* MapManager::instance = 0;
 MapManager* MapManager::getInstance()
@@ -27,7 +28,8 @@ Map* MapManager::getCurrentMap()
 void MapManager::setCurrentMap(int mapIndex)
 {
 	this->currentMap = listMap.at(mapIndex);
-	
+	ScoreBar::getInstance()->setCurrentStageNumber(mapIndex + 1);
+
 	if(mapIndex != 0)
 		isChangeMap = true;
 }
@@ -138,6 +140,14 @@ void MapManager::InitObjects(string objectPath, int worldHeight)
 
 		case SPRITE_SITTING_MAN:
 			obj = new SittingMan();
+			break;
+
+		case SPRITE_ITEM_WINDMILL_SHURIKEN:
+			obj = new ItemWindmillShuriken();
+			break;
+
+		case SPRITE_BOSS:
+			obj = new Boss();
 			break;
 
 		default:
@@ -317,7 +327,7 @@ MapManager::MapManager()
 
 		listMap._Add(map);
 	}
-	setCurrentMap(1);
+	setCurrentMap(2);
 }
 
 

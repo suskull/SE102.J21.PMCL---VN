@@ -1,12 +1,14 @@
 NumberOfMaps
-2
+3
 
 stage3-1
 Width       Height	PlayerX     PlayerY
-2047         208	50          100
+2047        208		50          100
 
 stage3-2
 Width       Height	PlayerX     PlayerY
-3071         208	50          105
+3071        208		50          105
 
-
+stage3-3
+Width       Height	PlayerX     PlayerY
+255	    176		50          105
