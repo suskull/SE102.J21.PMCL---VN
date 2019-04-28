@@ -41,6 +41,10 @@ SpriteManager::SpriteManager()
 	sprites[SPRITE_ITEM_SPIRITUAL_STRENGHT_RED]->InitFromFile("resource/sprites/Item-SpiritualStrengthRed/Item-SpiritualStrengthRed.png", "resource/sprites/Item-SpiritualStrengthRed/Item-SpiritualStrengthRed.info.dat");
 	sprites[SPRITE_ITEM_RESTORE_PHYSICAL_STRENGHT]->InitFromFile("resource/sprites/Item-RestorePhysicalStrength/Item-RestorePhysicalStrength.png", "resource/sprites/Item-RestorePhysicalStrength/Item-RestorePhysicalStrength.info.dat");
 	sprites[SPRITE_ITEM_BONUS_RED]->InitFromFile("resource/sprites/Item-BonusRed/Item-BonusRed.png", "resource/sprites/Item-BonusRed/Item-BonusRed.info.dat");
+	sprites[SPRITE_RED_BIRD]->InitFromFile("resource/tool/RedBird/RedBird.png", "resource/tool/RedBird/RedBird.info.dat");
+	sprites[SPRITE_RUNNING_MAN]->InitFromFile("resource/tool/RunningMan/RunningMan.png", "resource/tool/RunningMan/RunningMan.info.dat");
+	sprites[SPRITE_SITTING_MAN]->InitFromFile("resource/tool/SittingMan/SittingMan.png", "resource/tool/SittingMan/SittingMan.info.dat");
+	sprites[SPRITE_ITEM_WINDMILL_SHURIKEN]->InitFromFile("resource/sprites/Item-WindmillShuriken/Item-WindmillShuriken.png", "resource/sprites/Item-WindmillShuriken/Item-WindmillShuriken.info.dat");
 
 	sprites[SPRITE_KNIFE]->InitFromFile("resource/sprites/knife/image.png", "resource/sprites/knife/knife.info.dat");
 	sprites[SPRITE_BULLET]->InitFromFile("resource/sprites/bullet/image.png", "resource/sprites/bullet/bullet.info.dat");

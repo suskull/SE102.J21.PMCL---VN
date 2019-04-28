@@ -147,6 +147,10 @@
     <ClCompile Include="MapManager.cpp">
       <Filter>MapManager</Filter>
     </ClCompile>
+    <ClCompile Include="RedBird.cpp" />
+    <ClCompile Include="RunningMan.cpp" />
+    <ClCompile Include="SittingMan.cpp" />
+    <ClCompile Include="ItemWindmillShuriken.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -292,6 +296,10 @@
     <ClInclude Include="MapManager.h">
       <Filter>MapManager</Filter>
     </ClInclude>
+    <ClInclude Include="RedBird.h" />
+    <ClInclude Include="RunningMan.h" />
+    <ClInclude Include="SittingMan.h" />
+    <ClInclude Include="ItemWindmillShuriken.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Animation">

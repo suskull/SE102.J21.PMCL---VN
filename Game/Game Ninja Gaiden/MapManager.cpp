@@ -6,6 +6,10 @@
 #include"CollisionTypeCanCollide.h"
 #include"Collision.h"
 #include<string>
+#include"RedBird.h"
+#include"RunningMan.h"
+#include"SittingMan.h"
+
 
 MapManager* MapManager::instance = 0;
 MapManager* MapManager::getInstance()
@@ -124,6 +128,17 @@ void MapManager::InitObjects(string objectPath, int worldHeight)
 			obj = new ItemBonusRed();
 			break;
 
+		case SPRITE_RED_BIRD:
+			obj = new RedBird();
+			break;
+
+		case SPRITE_RUNNING_MAN:
+			obj = new RunningMan();
+			break;
+
+		case SPRITE_SITTING_MAN:
+			obj = new SittingMan();
+			break;
 
 		default:
 			obj = new BaseObject();

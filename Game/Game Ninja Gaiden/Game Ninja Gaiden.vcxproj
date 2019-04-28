@@ -157,6 +157,7 @@
     <ClInclude Include="ItemShuriken.h" />
     <ClInclude Include="ItemSpiritualStrenghtBlue.h" />
     <ClInclude Include="ItemSpiritualStrengtRed.h" />
+    <ClInclude Include="ItemWindmillShuriken.h" />
     <ClInclude Include="KEY.h" />
     <ClInclude Include="Knife.h" />
     <ClInclude Include="List.h" />
@@ -166,8 +167,11 @@
     <ClInclude Include="MovableRect.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Rect.h" />
+    <ClInclude Include="RedBird.h" />
+    <ClInclude Include="RunningMan.h" />
     <ClInclude Include="ScoreBar.h" />
     <ClInclude Include="Shuriken.h" />
+    <ClInclude Include="SittingMan.h" />
     <ClInclude Include="Soldier.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="SpriteManager.h" />
@@ -209,6 +213,7 @@
     <ClCompile Include="ItemShuriken.cpp" />
     <ClCompile Include="ItemSpiritualStrenghtBlue.cpp" />
     <ClCompile Include="ItemSpiritualStrengtRed.cpp" />
+    <ClCompile Include="ItemWindmillShuriken.cpp" />
     <ClCompile Include="KEY.cpp" />
     <ClCompile Include="Knife.cpp" />
     <ClCompile Include="MapManager.cpp" />
@@ -217,8 +222,11 @@
     <ClCompile Include="MovableRect.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Rect.cpp" />
+    <ClCompile Include="RedBird.cpp" />
+    <ClCompile Include="RunningMan.cpp" />
     <ClCompile Include="ScoreBar.cpp" />
     <ClCompile Include="Shuriken.cpp" />
+    <ClCompile Include="SittingMan.cpp" />
     <ClCompile Include="Soldier.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteManager.cpp" />
