@@ -332,7 +332,7 @@ MapManager::MapManager()
 
 		listMap._Add(map);
 	}
-	setCurrentMap(0);
+	setCurrentMap(2);
 
 	//do mới khởi tạo
 	isChangeMap = false;

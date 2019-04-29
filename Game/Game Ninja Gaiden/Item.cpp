@@ -28,7 +28,7 @@ void Item::onIntersect(MovableRect* other)
 
 void Item::onCollision(MovableRect* other, float collisionTime, int nx, int ny)
 {
-	//if (other->getCollisionType() == COLLISION_TYPE_GROUND)
+	if (other->getCollisionType() == COLLISION_TYPE_GROUND)
 		preventMovementWhenCollision(collisionTime, nx, ny);
 }
 
