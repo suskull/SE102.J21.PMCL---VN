@@ -10,13 +10,11 @@ Shuriken* Shuriken::getInstance()
 	}
 	return instance;
 }
-void Shuriken::update(float dt)
-{
-	BaseObject::update(dt);
-}
+
 
 Shuriken::Shuriken()
 {
+	setCollisionType(COLLISION_TYPE_WEAPON);
 	setSprite(SPR(SPRITE_INFO_SHURIKEN));
 	setAy(0);
 }

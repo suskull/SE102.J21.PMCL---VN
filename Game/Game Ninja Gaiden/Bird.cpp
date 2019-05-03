@@ -94,6 +94,13 @@ void Bird::onCollision(MovableRect* other, float collisionTime, int nx, int ny)
 	//Enemy::onCollision(other, collisionTime, nx, ny);
 }
 
+void Bird::onIntersect(MovableRect* other)
+{
+	if (other->getCollisionType() == COLLISION_TYPE_WEAPON && getAlive())
+		ScoreBar::getInstance()->increaseScore(300);
+	Enemy::onIntersect(other);
+}
+
 void Bird::followPlayer()
 {
 	auto player = Player::getInstance();
@@ -101,6 +108,13 @@ void Bird::followPlayer()
 		setDirection(DIRECTION_LEFT);
 	else
 		setDirection(DIRECTION_RIGHT);
+}
+
+void Bird::render(Camera* camera)
+{
+	setY(getY() + (getHeightCurrentFrame() - getHeight()) * 3 / 2);
+	setHeight(getHeightCurrentFrame());
+	BaseObject::render(camera);
 }
 
 Bird::Bird()

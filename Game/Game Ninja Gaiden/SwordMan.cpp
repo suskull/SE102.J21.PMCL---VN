@@ -4,14 +4,15 @@
 
 void SwordMan::update(float dt)
 {
-
+	if (!getAlive())
+		return;
 	auto player = Player::getInstance();
 
 	switch (swordmanState) {
 	case SWORDMAN_STATE_WAIT:
 		if (getX() - player->getX() < (GLOBALS_D("backbuffer_width") / 2))
 		{
-			setVx(-100);
+			setVx(-50);
 			setSwordmanState(SWORDMAN_STATE_RUN);
 		}
 		break;
@@ -23,16 +24,21 @@ void SwordMan::update(float dt)
 		setDirection(DIRECTION_RIGHT);
 	else
 		setDirection(DIRECTION_LEFT);
+
 	Enemy::update(dt);
 }
 
-void SwordMan::onCollision(MovableRect* other, float collisionTime, int nx, int ny)
+void SwordMan::onCollision(MovableRect * other, float collisionTime, int nx, int ny)
 {
+	
+	Enemy::onCollision(other, collisionTime, nx, ny);
+}
 
-	if (other->getCollisionType() == COLLISION_TYPE_GROUND && nx == 1) {
-		setVx(-getVx());
-		Enemy::onCollision(other, collisionTime, nx, ny);
-	}
+void SwordMan::onIntersect(MovableRect* other)
+{
+	if (other->getCollisionType() == COLLISION_TYPE_WEAPON && getAlive())
+		ScoreBar::getInstance()->increaseScore(100);
+	Enemy::onIntersect(other);
 }
 
 void SwordMan::setSwordmanState(SWORDMAN_STATE swordmanState)
@@ -42,12 +48,11 @@ void SwordMan::setSwordmanState(SWORDMAN_STATE swordmanState)
 
 SwordMan::SwordMan()
 {
-	setAy(0);
 	setSwordmanState(SWORDMAN_STATE_WAIT);
 }
 
 
 SwordMan::~SwordMan()
 {
-	
+
 }

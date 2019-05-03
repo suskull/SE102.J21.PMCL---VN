@@ -1,0 +1,16 @@
+Score
+72      17      6
+Time
+72      25      3
+PlayerLife
+41     33      2
+SpiritualStrengh
+81     33       2
+subWeapon
+104     24      8
+Stage
+192     17      1
+PlayerHealth
+177     25	16
+BossHealth
+56      25      16

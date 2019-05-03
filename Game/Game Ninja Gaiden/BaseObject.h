@@ -14,7 +14,7 @@ class BaseObject :
 
 	GameTime animationGameTime;
 
-	bool pauseAnimation;
+	bool isPause;
 	
 	bool isLastFrameAnimationDone;
 
@@ -30,8 +30,8 @@ public:
 	int getFrameAnimation();
 	void setFrameAnimation(int frameAnimation);
 
-	bool getPauseAnimation();
-	virtual void setPauseAnimation(bool pauseAnimation);
+	bool getIsPause();
+	virtual void setIsPause(bool isPause);
 
 	bool getIsLastFrameAnimationDone();
 	virtual void setIsLastFrameAnimationDone(bool isLastFrameAnimationDone);

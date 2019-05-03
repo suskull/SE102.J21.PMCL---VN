@@ -6,6 +6,7 @@ Flame::Flame()
 {
 	setSprite(SPR(SPRITE_FLAME));
 	setAy(0);
+	setCollisionType(COLLISION_TYPE_WEAPON);
 }
 
 
@@ -21,6 +22,6 @@ void Flame::update(float dt)
 	BaseObject::update(dt);
 }
 
-void Flame::onIntersect(MovableRect * other)
-{
-}
+//void Flame::onIntersect(MovableRect * other)
+//{
+//}

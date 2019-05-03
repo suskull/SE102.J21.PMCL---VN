@@ -10,14 +10,14 @@ Sprite* BaseObject::getSprite()
 	return this->sprite;
 }
 
-bool BaseObject::getPauseAnimation()
+bool BaseObject::getIsPause()
 {
-	return pauseAnimation;
+	return isPause;
 }
 
-void BaseObject::setPauseAnimation(bool pauseAnimation)
+void BaseObject::setIsPause(bool isPause)
 {
-	this->pauseAnimation = pauseAnimation;
+	this->isPause = isPause;
 }
 
 bool BaseObject::getIsLastFrameAnimationDone()
@@ -35,16 +35,20 @@ void BaseObject::onInitFromFile(ifstream& fs, int worldHeight)
 	int collisionType, x, y, width, height;
 	fs >> collisionType >> x >> y >> width >> height;
 	set(x, worldHeight - y, width,  height);
+	setCollisionType((COLLISION_TYPE)collisionType);
 }
 
 void BaseObject::update(float dt)
 {
-	goX();
-	goY();
+	if (!getIsPause())
+	{
+		goX();
+		goY();
+	}
 
 	setIsLastFrameAnimationDone(false);
 
-	if (!pauseAnimation && getSprite() != NULL)
+	if (!isPause && getSprite() != NULL)
 	{
 		if (animationGameTime.atTime())
 		{
@@ -54,6 +58,15 @@ void BaseObject::update(float dt)
 				setIsLastFrameAnimationDone(true);
 			}
 		}
+	}
+
+	//tọa độ Y dưới màn hình thì coi như k còn sống.
+	if (getY() < 0)
+		setAlive(false);
+
+	if (!getAlive())
+	{
+		setIsRender(false);
 	}
 
 	onUpdate(dt);
@@ -73,12 +86,12 @@ float BaseObject::getHeightCurrentFrame()
 
 void BaseObject::onUpdate(float dt)
 {
-	setPauseAnimation(false);
+	setIsPause(false);
 }
 
 void BaseObject::render(Camera* camera)
 {
-	if (getSprite() == 0)
+	if (getSprite() == 0 || !getIsRender() ||!getAlive())
 		return;
 	float xView, yView;
 	camera->convertWorldToView(getX(), getY(), xView, yView);
@@ -147,6 +160,7 @@ void BaseObject::setDirection(DIRECTION direction)
 
 BaseObject::BaseObject()
 {
+	
 	setSprite(NULL);
 	animationGameTime.init(GLOBALS_D("object_animation_time_default"));
 	setDirection(DIRECTION_LEFT);

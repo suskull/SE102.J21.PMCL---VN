@@ -7,6 +7,7 @@ class MovableRect :
 	float dx, dy;
 	COLLISION_TYPE collisionType;
 	bool alive;
+	bool isRender;
 public:
 	virtual void setDx(float dx);
 	virtual void setDy(float dy);
@@ -26,6 +27,9 @@ public:
 
 	void setAlive(bool alive);
 	bool getAlive();
+
+	void setIsRender(bool isRender);
+	bool getIsRender();
 
 	MovableRect();
 	~MovableRect();

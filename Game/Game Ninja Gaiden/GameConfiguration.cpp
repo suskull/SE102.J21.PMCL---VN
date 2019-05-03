@@ -11,15 +11,15 @@ double GameConfiguration::GetConfiguration(const char * key)
 		globalsConfigurationDouble = new map<const char*, double>();
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("window_width", 512));
-		globalsConfigurationDouble->insert(pair<const char*, double>("window_height", 416));
+		globalsConfigurationDouble->insert(pair<const char*, double>("window_height", 440));
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("backbuffer_width", 256));
-		globalsConfigurationDouble->insert(pair<const char*, double>("backbuffer_height", 208));
+		globalsConfigurationDouble->insert(pair<const char*, double>("backbuffer_height", 220));
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("fps", 70));
-		globalsConfigurationDouble->insert(pair<const char*, double>("player_vx", 300));
-		globalsConfigurationDouble->insert(pair<const char*, double>("player_roll", 170));
-		globalsConfigurationDouble->insert(pair<const char*, double>("gravity_ay", -300));
+		globalsConfigurationDouble->insert(pair<const char*, double>("player_vx", 400));
+		globalsConfigurationDouble->insert(pair<const char*, double>("player_roll", 250));
+		globalsConfigurationDouble->insert(pair<const char*, double>("gravity_ay", -500));
 		globalsConfigurationDouble->insert(pair<const char*, double>("object_animation_time_default", 100));
 		
 	}

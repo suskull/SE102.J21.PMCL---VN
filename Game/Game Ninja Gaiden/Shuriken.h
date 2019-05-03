@@ -1,14 +1,12 @@
 #pragma once
-#include"AdditionalObject.h"
+#include"Weapon.h"
 
 class Shuriken :
-	public AdditionalObject
+	public Weapon
 {
 	static Shuriken* instance;
 public:
 	static Shuriken* getInstance();
-	void update(float dt) override;
-	//void onIntersect(MovableRect* other) override;
 	Shuriken();
 	~Shuriken();
 };

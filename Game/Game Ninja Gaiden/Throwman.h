@@ -19,10 +19,14 @@ class Throwman
 	: public Enemy
 {
 	THROWMAN_STATE throwmanState;
+	bool isAttacking;
+	bool isGoingForward;
+	int count;
 public:
 	void update(float dt) override;
 	void setThrowmanState(THROWMAN_STATE throwmanState);
 	void onCollision(MovableRect* other, float collisionTime, int nx, int ny) override;
+	void onIntersect(MovableRect* other) override;
 	Throwman();
 	~Throwman();
 };

@@ -3,12 +3,12 @@
 #include"SpriteManager.h"
 #include"Player.h"
 class Flame :
-	public AdditionalObject
+	public Weapon
 {
 public:
 	Flame();
 	~Flame();
 	void update(float dt) override;
-	void onIntersect(MovableRect* other) override;
+	//void onIntersect(MovableRect* other) override;
 };
 
