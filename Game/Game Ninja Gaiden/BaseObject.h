@@ -20,6 +20,9 @@ class BaseObject :
 
 	DIRECTION direction;
 
+	//dùng cho grid.
+	Rect rectSaveLocationAndShape;
+
 public:
 	void setSprite(Sprite* sprite);
 	Sprite* getSprite();
@@ -48,6 +51,8 @@ public:
 
 	float getWidthCurrentFrame();
 	float getHeightCurrentFrame();
+
+	virtual void ResetLocation();
 
 	BaseObject();
 	~BaseObject();

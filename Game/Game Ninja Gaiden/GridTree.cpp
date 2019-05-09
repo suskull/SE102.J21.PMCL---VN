@@ -47,17 +47,24 @@ void GridTree::initGridTree(string pathGridTree, int worldHeight)
 	}
 }
 
-void GridTree::update()
+void GridTree::update(List<BaseObject*> allObjects, List<BaseObject*> &objectsInCamera)
 {
 	//xét bouding rect của từng node với camera
 	for (size_t i = 0; i < listNodes.size(); i++)
 	{
+		//Nếu intersect thì thêm tất cả object trong node vào list ObjectInCamera
 		bool IsIntersect = Collision::AABBCheck(&listNodes[i].rect, Camera::getInstance());
 		if (IsIntersect)
 		{
-			int a = 0;
+			addListObjects(listNodes[i], allObjects, objectsInCamera);
+			listNodes[i].isIntesected = true;
 		}
-		
+		else if (listNodes[i].isIntesected) 
+		{
+			resetLocationAndStateOfObjects(listNodes[i], allObjects);
+			removeListObjects(listNodes[i], allObjects, objectsInCamera);
+		}
+			
 	}
 }
 
@@ -66,4 +73,36 @@ void GridTree::update()
 
 GridTree::~GridTree()
 {
+}
+
+void GridTree::addListObjects(GridNode gridNode, List<BaseObject*> allObjects, List<BaseObject*>& objectsInCamera)
+{
+	for (size_t j = 0; j < gridNode.listObjects.size(); j++)
+	{
+		auto idObject = gridNode.listObjects[j];
+
+		objectsInCamera._Add(allObjects.at(idObject));
+	}
+}
+
+void GridTree::removeListObjects(GridNode gridNode, List<BaseObject*> allObjects, List<BaseObject*>& objectsInCamera)
+{
+	for (size_t j = 0; j < gridNode.listObjects.size(); j++)
+	{
+		auto idObject = gridNode.listObjects[j];
+
+		objectsInCamera._Remove(allObjects.at(idObject));
+	}
+}
+
+void GridTree::resetLocationAndStateOfObjects(GridNode gridNode, List<BaseObject*> allObjects)
+{
+	for (size_t j = 0; j < gridNode.listObjects.size(); j++)
+	{
+		auto idObject = gridNode.listObjects[j];
+		allObjects.at(idObject)->ResetLocation();
+		allObjects.at(idObject)->setAlive(true);
+		if(allObjects.at(idObject)->getCollisionType() == COLLISION_TYPE_ENEMY)
+			allObjects.at(idObject)->setIsRender(true);
+	}
 }

@@ -206,23 +206,23 @@ void MapManager::update(float dt)
 	}
 	
 	//thêm
-	GridTree::getInstance()->update();
+	GridTree::getInstance()->update(allObjects, objectsInCamera);
 
 	KEY::getInstance()->update();
 	Player* player = Player::getInstance();
 
 
-	for (size_t i = 0; i < allObjects.Count; i++)
+	for (size_t i = 0; i < objectsInCamera.Count; i++)
 	{
-		allObjects[i]->update(dt);
-		if (player->getAlive() && allObjects[i]->getAlive())
+		objectsInCamera[i]->update(dt);
+		if (player->getAlive() && objectsInCamera[i]->getAlive())
 		{
-			Collision::CheckCollision(Player::getInstance(), allObjects[i]);
-			if (allObjects[i]->getCollisionType() == COLLISION_TYPE_ENEMY)
+			Collision::CheckCollision(Player::getInstance(), objectsInCamera[i]);
+			if (objectsInCamera[i]->getCollisionType() == COLLISION_TYPE_ENEMY)
 				if (player->getMakeEnemyPause())
-					allObjects[i]->setIsPause(true);
-				else allObjects[i]->setIsPause(false);
-			Collision::CheckCollision(allObjects[i], Player::getInstance());
+					objectsInCamera[i]->setIsPause(true);
+				else objectsInCamera[i]->setIsPause(false);
+			Collision::CheckCollision(objectsInCamera[i], Player::getInstance());
 		}
 
 
@@ -304,9 +304,9 @@ void MapManager::render()
 	Player* player = Player::getInstance();
 	player->render(Camera::getInstance());
 
-	for (size_t i = 0; i < allObjects.Count; i++)
+	for (size_t i = 0; i < objectsInCamera.Count; i++)
 	{
-		allObjects[i]->render(Camera::getInstance());
+		objectsInCamera[i]->render(Camera::getInstance());
 	}
 
 	AdditionalObject::listObjectRender(Camera::getInstance());

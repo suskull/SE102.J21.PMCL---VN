@@ -58,6 +58,7 @@ void SittingMan::update(float dt)
 
 SittingMan::SittingMan()
 {
+	setSittingManState(SITTINGMAN_STATE_WAIT);
 }
 
 

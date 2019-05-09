@@ -13,6 +13,7 @@ public:
 	int numberofObjects;
 	vector<int> listObjects;
 	Rect rect;
+	bool isIntesected;
 public:
 	GridNode();
 	~GridNode();
