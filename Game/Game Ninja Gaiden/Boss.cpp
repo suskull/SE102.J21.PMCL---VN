@@ -21,13 +21,18 @@ void Boss::update(float dt)
 		if (count > 5)
 		{
 			count == 0;
-			setVy(150);
 			setVx(-150);
+			setVy(sqrt(1-getVx()*getVx()));
 			setBossState(BOSS_STATE_JUMP);
 		}
 		break;
 	case BOSS_STATE_JUMP:
 		setAnimation(BOSS_ACTION_JUMP);
+		if (getIsOnGround())
+		{
+			setBossState(BOSS_STATE_STAND);
+		}
+
 		break;
 	}
 	Enemy::update(dt);
@@ -36,6 +41,7 @@ void Boss::update(float dt)
 Boss::Boss()
 {
 	setSprite(SPR(SPRITE_BOSS));
+	setAy(0);
 }
 
 

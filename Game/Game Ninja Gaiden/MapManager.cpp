@@ -11,6 +11,7 @@
 #include"SittingMan.h"
 #include"ItemWindmillShuriken.h"
 #include"Boss.h"
+#include"GridTree.h"
 
 MapManager* MapManager::instance = 0;
 MapManager* MapManager::getInstance()
@@ -54,6 +55,9 @@ void MapManager::InitMap()
 
 	string collisionPath = "resource/map/" + currentMap->ID + "/collision_type_collides.dat";
 	InitCollisionTypeCanCollide(collisionPath.c_str());
+
+	string gridTreePath = "resource/map/" + currentMap->ID + "/gridtree.dat";
+	GridTree::getInstance()->initGridTree(gridTreePath, currentTileMap->getWorldHeight());
 }
 
 void MapManager::InitObjects(string objectPath, int worldHeight)
@@ -200,7 +204,9 @@ void MapManager::update(float dt)
 			GLOBALS_D("backbuffer_height"));
 		isChangeMap = false;
 	}
-		
+	
+	//thêm
+	GridTree::getInstance()->update();
 
 	KEY::getInstance()->update();
 	Player* player = Player::getInstance();
@@ -332,7 +338,7 @@ MapManager::MapManager()
 
 		listMap._Add(map);
 	}
-	setCurrentMap(2);
+	setCurrentMap(1);
 
 	//do mới khởi tạo
 	isChangeMap = false;
