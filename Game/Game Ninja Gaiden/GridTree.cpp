@@ -63,6 +63,7 @@ void GridTree::update(List<BaseObject*> allObjects, List<BaseObject*> &objectsIn
 		{
 			resetLocationAndStateOfObjects(listNodes[i], allObjects);
 			removeListObjects(listNodes[i], allObjects, objectsInCamera);
+			listNodes[i].isIntesected = false;
 		}
 			
 	}
