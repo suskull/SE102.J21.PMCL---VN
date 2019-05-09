@@ -194,16 +194,7 @@ void MapManager::InitCollisionTypeCanCollide(string path)
 
 void MapManager::update(float dt)
 {
-	if (isChangeMap)
-	{
-		InitMap();
-		Camera::getInstance()->set(
-			0,
-			GLOBALS_D("backbuffer_height"),
-			GLOBALS_D("backbuffer_width"),
-			GLOBALS_D("backbuffer_height"));
-		isChangeMap = false;
-	}
+	
 	
 	//thêm
 	GridTree::getInstance()->update(allObjects, objectsInCamera);
@@ -226,6 +217,17 @@ void MapManager::update(float dt)
 		}
 
 
+	}
+
+	if (isChangeMap)
+	{
+		InitMap();
+		Camera::getInstance()->set(
+			0,
+			GLOBALS_D("backbuffer_height"),
+			GLOBALS_D("backbuffer_width"),
+			GLOBALS_D("backbuffer_height"));
+		isChangeMap = false;
 	}
 
 	player->update(dt);
@@ -320,6 +322,8 @@ void MapManager::resetValue()
 	allObjects.Clear();
 	listCollisionTypeCanCollide.Clear();
 	objectCategories.Clear();
+	objectsInCamera.Clear();
+	GridTree::getInstance()->resetListNodes();
 }
 
 MapManager::MapManager()
@@ -338,7 +342,7 @@ MapManager::MapManager()
 
 		listMap._Add(map);
 	}
-	setCurrentMap(1);
+	setCurrentMap(0);
 
 	//do mới khởi tạo
 	isChangeMap = false;

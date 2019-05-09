@@ -19,5 +19,6 @@ public:
 	void addListObjects(GridNode gridNode, List<BaseObject*> allObjects, List<BaseObject*>& objectsInCamera);
 	void removeListObjects(GridNode gridNode, List<BaseObject*> allObjects, List<BaseObject*>& objectsInCamera);
 	void resetLocationAndStateOfObjects(GridNode gridNode, List<BaseObject*> allObjects);
+	void resetListNodes();
 };
 

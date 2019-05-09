@@ -107,3 +107,8 @@ void GridTree::resetLocationAndStateOfObjects(GridNode gridNode, List<BaseObject
 			allObjects.at(idObject)->setIsRender(true);
 	}
 }
+
+void GridTree::resetListNodes()
+{
+	listNodes.clear();
+}
