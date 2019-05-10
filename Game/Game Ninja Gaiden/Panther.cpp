@@ -9,11 +9,8 @@ void Panther::update(float dt)
 
 	switch (pantherState) {
 	case PATHER_STATE_WAIT:
-		if (getX() - player->getX() < (GLOBALS_D("backbuffer_width") / 2))
-		{
 			setVx(-100);
 			setPantherState(PATHER_STATE_RUN);
-		}
 		break;
 	case PATHER_STATE_RUN:
 		break;

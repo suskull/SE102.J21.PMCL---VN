@@ -21,9 +21,9 @@ void Player::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 
 	//if (other->getCollisionType() == COLLISION_TYPE_GROUND && nx == -1)
 	//{
-	//	setVy(0);
+	//	//setVy(0);
 	//	preventMovementWhenCollision(collisionTime, nx, ny);
-	//	setX(getX() + nx);
+	//	setDx(0);
 	//}
 
 	//if (other->getCollisionType() == COLLISION_TYPE_GROUND && nx == 1)
@@ -40,7 +40,7 @@ void Player::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 		setVy(150);
 		setIsOnGround(false);
 		setPlayerState(PLAYER_STATE_INJURED);
-		ScoreBar::getInstance()->decreaseHealth(2);
+		ScoreBar::getInstance()->decreaseHealth(1);
 		
 	}
 	if (other->getCollisionType() == COLLISION_TYPE_GATE)
@@ -380,7 +380,7 @@ void Player::update(float dt)
 		if (scoreBar->getPlayerLife() > 0)
 		{
 			// còn mạng thì quay về map HIỆN TẠI
-			scoreBar->setPlayerLife(scoreBar->getPlayerLife() -1);
+			scoreBar->setPlayerLife(scoreBar->getPlayerLife() - 1);
 			mapManager->setCurrentMap(mapManager->getCurrentMapIndex());
 
 		}

@@ -39,7 +39,7 @@ class ScoreBar
 	int currentStageNumber;
 	int playerHealth;
 	int bossHealth;
-	
+
 public:
 	static ScoreBar* getInstance();
 	ScoreBar();
@@ -80,7 +80,7 @@ public:
 
 	int getBossHealth();
 	void setBossHealth(int health);
-	void increaseBossHealth(int health);
+	void decreaseBossHealth(int health);
 	void restoreBossHealth();
 
 	void resetScoreGame();

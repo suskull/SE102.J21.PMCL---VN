@@ -1,5 +1,6 @@
 #pragma once
 #include "Enemy.h"
+#include"Weapon.h"
 
 enum BOSS_STATE
 {
@@ -23,6 +24,7 @@ public:
 	void setBossState(BOSS_STATE bossState);
 	virtual void setDirectionFollowPlayer();
 	void onCollision(MovableRect* other, float collisionTime, int nx, int ny) override;
+	void onIntersect(MovableRect* other) override;
 	void update(float dt) override;
 	Boss();
 	~Boss();

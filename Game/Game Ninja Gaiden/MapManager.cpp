@@ -11,6 +11,7 @@
 #include"SittingMan.h"
 #include"ItemWindmillShuriken.h"
 #include"Boss.h"
+#include"GridTree.h"
 
 MapManager* MapManager::instance = 0;
 MapManager* MapManager::getInstance()
@@ -54,6 +55,9 @@ void MapManager::InitMap()
 
 	string collisionPath = "resource/map/" + currentMap->ID + "/collision_type_collides.dat";
 	InitCollisionTypeCanCollide(collisionPath.c_str());
+
+	string gridTreePath = "resource/map/" + currentMap->ID + "/gridtree.dat";
+	GridTree::getInstance()->initGridTree(gridTreePath, currentTileMap->getWorldHeight());
 }
 
 void MapManager::InitObjects(string objectPath, int worldHeight)
@@ -190,6 +194,31 @@ void MapManager::InitCollisionTypeCanCollide(string path)
 
 void MapManager::update(float dt)
 {
+	
+	
+	//thêm
+	GridTree::getInstance()->update(allObjects, objectsInCamera);
+
+	KEY::getInstance()->update();
+	Player* player = Player::getInstance();
+
+
+	for (size_t i = 0; i < objectsInCamera.Count; i++)
+	{
+		objectsInCamera[i]->update(dt);
+		if (player->getAlive() && objectsInCamera[i]->getAlive())
+		{
+			Collision::CheckCollision(Player::getInstance(), objectsInCamera[i]);
+			if (objectsInCamera[i]->getCollisionType() == COLLISION_TYPE_ENEMY)
+				if (player->getMakeEnemyPause())
+					objectsInCamera[i]->setIsPause(true);
+				else objectsInCamera[i]->setIsPause(false);
+			Collision::CheckCollision(objectsInCamera[i], Player::getInstance());
+		}
+
+
+	}
+
 	if (isChangeMap)
 	{
 		InitMap();
@@ -199,27 +228,6 @@ void MapManager::update(float dt)
 			GLOBALS_D("backbuffer_width"),
 			GLOBALS_D("backbuffer_height"));
 		isChangeMap = false;
-	}
-		
-
-	KEY::getInstance()->update();
-	Player* player = Player::getInstance();
-
-
-	for (size_t i = 0; i < allObjects.Count; i++)
-	{
-		allObjects[i]->update(dt);
-		if (player->getAlive() && allObjects[i]->getAlive())
-		{
-			Collision::CheckCollision(Player::getInstance(), allObjects[i]);
-			if (allObjects[i]->getCollisionType() == COLLISION_TYPE_ENEMY)
-				if (player->getMakeEnemyPause())
-					allObjects[i]->setIsPause(true);
-				else allObjects[i]->setIsPause(false);
-			Collision::CheckCollision(allObjects[i], Player::getInstance());
-		}
-
-
 	}
 
 	player->update(dt);
@@ -238,6 +246,12 @@ void MapManager::update(float dt)
 			{
 				Collision::CheckCollision(AdditionalObject::getListObject()->at(i), collection_Enemies->at(j));
 			}
+			/*xét va chạm giữa Weapon và Boss trong map
+			List<BaseObject*>* collection_Boss = objectCategories.at(COLLISION_TYPE_BOSS);
+			for (size_t j = 0; j < collection_Enemies->size(); j++)
+			{
+				Collision::CheckCollision(AdditionalObject::getListObject()->at(i), collection_Enemies->at(j));
+			}*/
 
 			//xét va chạm giữa Weapon và BirdsHaveItem
 			List<BaseObject*>* collection_BirdsHaveItem = objectCategories.at(COLLISION_TYPE_BUTTERFLY);
@@ -298,9 +312,9 @@ void MapManager::render()
 	Player* player = Player::getInstance();
 	player->render(Camera::getInstance());
 
-	for (size_t i = 0; i < allObjects.Count; i++)
+	for (size_t i = 0; i < objectsInCamera.Count; i++)
 	{
-		allObjects[i]->render(Camera::getInstance());
+		objectsInCamera[i]->render(Camera::getInstance());
 	}
 
 	AdditionalObject::listObjectRender(Camera::getInstance());
@@ -314,6 +328,8 @@ void MapManager::resetValue()
 	allObjects.Clear();
 	listCollisionTypeCanCollide.Clear();
 	objectCategories.Clear();
+	objectsInCamera.Clear();
+	GridTree::getInstance()->resetListNodes();
 }
 
 MapManager::MapManager()

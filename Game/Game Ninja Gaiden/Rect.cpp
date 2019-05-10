@@ -72,6 +72,14 @@ void Rect::set(float x, float y, float width, float height)
 	setHeight(height);
 }
 
+void Rect::set(Rect rect)
+{
+	this->x = rect.x;
+	this->y = rect.y;
+	this->width = rect.width;
+	this->height = rect.height;
+}
+
 float Rect::getleft()
 {
 	return x;

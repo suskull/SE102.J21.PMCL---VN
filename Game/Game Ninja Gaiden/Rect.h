@@ -18,6 +18,7 @@ public:
 	void setSize(float width, float height);
 
 	void set(float x, float y, float width, float height);
+	void set(Rect rect);
 	float getleft();
 
 	float getRight();

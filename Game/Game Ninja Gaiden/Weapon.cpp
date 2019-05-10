@@ -1,5 +1,6 @@
 #include "Weapon.h"
 #include"ExplosionEffect.h"
+#include"ScoreBar.h"
 
 
 void Weapon::update(float dt)
@@ -20,6 +21,17 @@ void Weapon::onIntersect(MovableRect* other)
 		auto explosionEffect = new ExplosionEffect();
 		explosionEffect->setLocation(other->getMidX(), other->getMidY());
 	}
+
+	//if (other->getCollisionType() == COLLISION_TYPE_BOSS && other->getAlive())
+	//{
+	//	ScoreBar::getInstance()->decreaseBossHealth(1);
+	//	//setAlive(false);
+
+	//	/*auto explosionEffect = new ExplosionEffect();
+	//	explosionEffect->setLocation(other->getMidX(), other->getMidY());*/
+	//}
+
+
 	if (other->getCollisionType() == COLLISION_TYPE_WEAPON_ENEMY)
 	{
 		other->setAlive(false);

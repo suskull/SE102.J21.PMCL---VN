@@ -149,6 +149,8 @@
     <ClInclude Include="GameTexture.h" />
     <ClInclude Include="GameTime.h" />
     <ClInclude Include="GameUtils.h" />
+    <ClInclude Include="GridNode.h" />
+    <ClInclude Include="GridTree.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemBonusBlue.h" />
     <ClInclude Include="ItemBonusRed.h" />
@@ -208,6 +210,8 @@
     <ClCompile Include="GameTexture.cpp" />
     <ClCompile Include="GameTime.cpp" />
     <ClCompile Include="GameUtils.cpp" />
+    <ClCompile Include="GridNode.cpp" />
+    <ClCompile Include="GridTree.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemBonusBlue.cpp" />
     <ClCompile Include="ItemBonusRed.cpp" />

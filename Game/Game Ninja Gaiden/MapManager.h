@@ -36,6 +36,8 @@ class MapManager
 
 	List<BaseObject*> allObjects;
 
+	List<BaseObject*> objectsInCamera;
+
 	List<CollisionTypeCanCollide*> listCollisionTypeCanCollide;
 
 	List<List<BaseObject*>*> objectCategories;

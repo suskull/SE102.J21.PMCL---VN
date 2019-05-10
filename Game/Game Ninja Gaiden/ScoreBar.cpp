@@ -4,7 +4,7 @@
 #define NUMBER_WIDTH 8
 #define HEALTH_WIDTH 4
 
-ScoreBar* ScoreBar::instance = 0;
+ScoreBar * ScoreBar::instance = 0;
 ScoreBar* ScoreBar::getInstance()
 {
 	if (instance == 0)
@@ -60,7 +60,7 @@ void ScoreBar::render()
 	renderNumber(time, timeLocation.X, timeLocation.Y, timeLocation.MaxLength);
 	renderNumber(playerLife, playerLifeLocation.X, playerLifeLocation.Y, playerLifeLocation.MaxLength);
 	renderNumber(spiritualStrength, spiritualStrenghLocation.X, spiritualStrenghLocation.Y, spiritualStrenghLocation.MaxLength);
-	
+
 	auto player = Player::getInstance();
 	if (player->getCurrentSubWeapon() != SUBWEAPON_NULL)
 	{
@@ -68,6 +68,7 @@ void ScoreBar::render()
 	}
 	renderNumber(currentStageNumber, stageLocation.X, stageLocation.Y, stageLocation.MaxLength);
 	renderHealth(playerHealth, playerHealthLocation.X, playerHealthLocation.Y, playerHealthLocation.MaxLength);
+	renderHealth(bossHealth, 177, 33, bossHealthLocation.MaxLength);
 }
 
 void ScoreBar::update()
@@ -88,7 +89,7 @@ void ScoreBar::setTime(int time)
 
 void ScoreBar::decreaseTime(int time)
 {
-	if(this->time > 0)
+	if (this->time > 0)
 		this->time -= time;
 
 	// thời gian pause Enemy.
@@ -102,7 +103,7 @@ void ScoreBar::decreaseTime(int time)
 			player->setMakeEnemyPause(false);
 		}
 	}
-		
+
 }
 
 int ScoreBar::getTime()
@@ -130,16 +131,40 @@ void ScoreBar::decreaseHealth(int health)
 	if (this->playerHealth > 0)
 		this->playerHealth -= health;
 }
+void ScoreBar::restorePlayerHealth()
+{
+	this->playerHealth = playerHealthLocation.MaxLength;
+}
 
 //void ScoreBar::increaseHealth(int health)
 //{
 //	setHealth(this->health + health);
 //}
 
-void ScoreBar::restorePlayerHealth()
+
+int ScoreBar::getBossHealth()
 {
-	this->playerHealth = playerHealthLocation.MaxLength;
+	return bossHealth;
 }
+
+void ScoreBar::setBossHealth(int health)
+{
+	this->bossHealth = health;
+}
+
+void ScoreBar::decreaseBossHealth(int health)
+{
+	if (this->bossHealth > 0)
+		this->bossHealth -= health;
+}
+
+void ScoreBar::restoreBossHealth()
+{
+	this->bossHealth = playerHealthLocation.MaxLength;
+}
+
+
+
 
 void ScoreBar::renderNumber(int num, int x, int y, int maxLength)
 {
@@ -171,6 +196,7 @@ void ScoreBar::renderHealth(int currentHealth, int x, int y, int maxHealth)
 		sub -= 1;
 	}
 }
+
 
 int ScoreBar::getPlayerLife()
 {
@@ -210,7 +236,7 @@ bool ScoreBar::decreaseSpiritualStrengh(int number)
 		return true;
 	}
 	return false;
-	
+
 }
 
 
@@ -246,22 +272,7 @@ void ScoreBar::increaseScore(int score)
 }
 
 
-int ScoreBar::getBossHealth()
-{
-	return 0;
-}
 
-void ScoreBar::setBossHealth(int health)
-{
-}
-
-void ScoreBar::increaseBossHealth(int health)
-{
-}
-
-void ScoreBar::restoreBossHealth()
-{
-}
 
 void ScoreBar::resetScoreGame()
 {
@@ -271,6 +282,7 @@ void ScoreBar::resetScoreGame()
 
 	setCurrentStageNumber(1);
 	setPlayerHealth(playerHealthLocation.MaxLength);
+	setBossHealth(bossHealthLocation.MaxLength);
 	setSpiritualStrengh(0);
 	setPauseTime(5);
 }

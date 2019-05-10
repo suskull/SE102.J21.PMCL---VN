@@ -35,11 +35,16 @@ void BaseObject::onInitFromFile(ifstream& fs, int worldHeight)
 	int collisionType, x, y, width, height;
 	fs >> collisionType >> x >> y >> width >> height;
 	set(x, worldHeight - y, width,  height);
+	//thêm
+	rectSaveLocationAndShape.set(x, worldHeight - y, width, height);
 	setCollisionType((COLLISION_TYPE)collisionType);
 }
 
 void BaseObject::update(float dt)
 {
+	//tọa độ Y dưới màn hình thì coi như k còn sống.
+	if (getY() < 0)
+		setAlive(false);
 	if (!getIsPause())
 	{
 		goX();
@@ -59,11 +64,7 @@ void BaseObject::update(float dt)
 			}
 		}
 	}
-
-	//tọa độ Y dưới màn hình thì coi như k còn sống.
-	if (getY() < 0)
-		setAlive(false);
-
+	
 	if (!getAlive())
 	{
 		setIsRender(false);
@@ -82,6 +83,11 @@ float BaseObject::getHeightCurrentFrame()
 {
 	return this->getSprite()->animations[animationIndex]->frames[frameIndex]->bottom -
 		this->getSprite()->animations[animationIndex]->frames[frameIndex]->top;
+}
+
+void BaseObject::ResetLocation()
+{
+	set(rectSaveLocationAndShape);
 }
 
 void BaseObject::onUpdate(float dt)
