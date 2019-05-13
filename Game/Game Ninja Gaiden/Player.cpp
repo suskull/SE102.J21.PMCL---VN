@@ -41,6 +41,8 @@ void Player::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 		setVy(150);
 		setIsOnGround(false);
 		setPlayerState(PLAYER_STATE_INJURED);
+		Sound::getInstance()->loadSound("resource/sound/injured.wav", "injured");
+		Sound::getInstance()->play("injured", false, 1);
 		ScoreBar::getInstance()->decreaseHealth(1);
 		
 	}
@@ -71,6 +73,7 @@ void Player::onIntersect(MovableRect* other)
 		setVy(150);
 		setIsOnGround(false);
 		setPlayerState(PLAYER_STATE_INJURED);
+		
 	}
 }
 
@@ -129,11 +132,26 @@ void Player::update(float dt)
 			if (getCurrentSubWeapon() == SUBWEAPON_NULL)
 				setPlayerState(PLAYER_STATE_SUBWEAPON_NULL);
 			if (getCurrentSubWeapon() == SUBWEAPON_SHURIKEN)
+			{
 				setPlayerState(PLAYER_STATE_SHURIKEN);
+				Sound::getInstance()->loadSound("resource/sound/shuriken.wav", "shuriken");
+				Sound::getInstance()->play("shuriken", false, 1);
+			}
+				
 			if (getCurrentSubWeapon() == SUBWEAPON_FIREWHEEL)
+			{
 				setPlayerState(PLAYER_STATE_FLAME1);
+				
+				
+			}
+			
 			if (getCurrentSubWeapon() == SUBWEAPON_WINDMILLSHURIKEN)
+			{
 				setPlayerState(PLAYER_STATE_WINDMILLSHURIKEN);
+				Sound::getInstance()->loadSound("resource/sound/shuriken1.wav", "shuriken1");
+				Sound::getInstance()->play("shuriken1", false, 1);
+			}
+				
 		}
 
 		else if (key->isDownDown)
@@ -141,19 +159,29 @@ void Player::update(float dt)
 		else if (key->isJumpDown && getIsOnGround()) {
 			setVy(vroll);
 			setPlayerState(PLAYER_STATE_ROLL);
+			Sound::getInstance()->loadSound("resource/sound/jump.wav", "jump");
+			Sound::getInstance()->play("jump", false, 1);
 		}
 
 		else if (key->isFlameDown1)
 		{
 			setPlayerState(PLAYER_STATE_FLAME1);
+			Sound::getInstance()->loadSound("resource/sound/flame.wav", "flame");
+			Sound::getInstance()->play("flame", false, 1);
 		}
 		else if (key->isFlameDown2)
 		{
 			setPlayerState(PLAYER_STATE_FLAME2);
+			Sound::getInstance()->loadSound("resource/sound/flame.wav", "flame");
+			Sound::getInstance()->play("flame", false, 1);
 		}
 		else if (key->isFlameDown3)
 		{
+
+			
 			setPlayerState(PLAYER_STATE_FLAME3);
+			Sound::getInstance()->loadSound("resource/sound/flame.wav", "flame");
+			Sound::getInstance()->play("flame", false, 1);
 		}
 
 		else
@@ -197,8 +225,8 @@ void Player::update(float dt)
 			sword->setAlive(true);
 			setAnimation(PLAYER_ACTION_ATTACK);
 			isAttacked = true;
-			Sound::getInstance()->loadSound("resoucre/sound/17.wav", "17");
-			Sound::getInstance()->play("17", true, 0);
+			Sound::getInstance()->loadSound("resource/sound/attack.wav", "attack");
+			Sound::getInstance()->play("attack", false, 1);
 			
 		}
 		if (getIsLastFrameAnimationDone())
@@ -218,6 +246,7 @@ void Player::update(float dt)
 	//xong	
 	case PLAYER_STATE_SHURIKEN: {
 		setAnimation(PLAYER_ACTION_SHURIKEN);
+
 		if (getFrameAnimation() == 1 && !isAttacked)
 		{
 			if (ScoreBar::getInstance()->decreaseSpiritualStrengh(3))
@@ -268,12 +297,14 @@ void Player::update(float dt)
 	case PLAYER_STATE_SITATTACK:
 	{
 		
-
+	
 		if (!isAttacked)
 		{
 			Sword* sword = new Sword();
 			sword->setAlive(true);
 			setAnimation(PLAYER_ACTION_SITATTACK);
+			Sound::getInstance()->loadSound("resource/sound/attack.wav", "attack");
+			Sound::getInstance()->play("attack", false, 1);
 			isAttacked = true;
 			
 		}
@@ -287,9 +318,12 @@ void Player::update(float dt)
 	//xong
 	case PLAYER_STATE_ROLL:
 	{
+		
 		setAnimation(PLAYER_ACTION_ROLL);
+	
 		setY(getY() - (getHeight() - getHeightCurrentFrame()));
 		setHeight(getHeightCurrentFrame());
+		
 		if (key->isLeftDown)
 			setVx(-vx * 2 / 3);
 		if (key->isRightDown)

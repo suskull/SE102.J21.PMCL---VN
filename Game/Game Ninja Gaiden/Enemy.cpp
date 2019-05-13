@@ -32,8 +32,8 @@ void Enemy::onIntersect(MovableRect* other)
 
 	{
 		setAlive(false);
-	/*	Sound::getInstance()->loadSound("resoucre/sound/16.wav", "16");
-		Sound::getInstance()->play("16", true, 0);*/
+		Sound::getInstance()->loadSound("resource/sound/de.wav", "de");
+		Sound::getInstance()->play("de", false, 1);
 	}
 
 

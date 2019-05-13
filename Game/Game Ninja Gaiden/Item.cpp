@@ -1,4 +1,5 @@
 #include "Item.h"
+#include "Sound.h"
 
 
 
@@ -22,6 +23,8 @@ void Item::onIntersect(MovableRect* other)
 	}
 	if (other->getCollisionType() == COLLISION_TYPE_PLAYER && getIsRender())
 	{
+		Sound::getInstance()->loadSound("resource/sound/item.wav", "item");
+		Sound::getInstance()->play("item", false, 1);
 		setAlive(false);
 	}
 }

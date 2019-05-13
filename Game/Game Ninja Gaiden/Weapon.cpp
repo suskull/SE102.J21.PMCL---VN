@@ -2,6 +2,7 @@
 #include"ExplosionEffect.h"
 #include"ScoreBar.h"
 #include"Bullet.h"
+#include "Sound.h"
 
 
 void Weapon::update(float dt)
@@ -17,10 +18,12 @@ void Weapon::onIntersect(MovableRect* other)
 		return;
 	if (other->getCollisionType() == COLLISION_TYPE_ENEMY && other->getAlive())
 	{
+		
 		setAlive(false);
 
 		auto explosionEffect = new ExplosionEffect();
 		explosionEffect->setLocation(other->getMidX(), other->getMidY());
+		
 	}
 
 	if (other->getCollisionType() == COLLISION_TYPE_BOSS )
@@ -43,6 +46,8 @@ void Weapon::onIntersect(MovableRect* other)
 
 		auto explosionEffect = new ExplosionEffect();
 		explosionEffect->setLocation(other->getMidX(), other->getMidY());
+		Sound::getInstance()->loadSound("resource/sound/destroyEnemies.wav", "de");
+		Sound::getInstance()->play("de", false, 1);
 	}
 	if (other->getCollisionType() == COLLISION_TYPE_BUTTERFLY && other->getAlive())
 	{

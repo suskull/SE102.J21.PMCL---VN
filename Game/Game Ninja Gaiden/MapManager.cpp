@@ -12,6 +12,7 @@
 #include"ItemWindmillShuriken.h"
 #include"Boss.h"
 #include"GridTree.h"
+#include "Sound.h"
 
 MapManager* MapManager::instance = 0;
 MapManager* MapManager::getInstance()
@@ -302,7 +303,7 @@ void MapManager::update(float dt)
 
 	AdditionalObject::listObjectUpdate(dt);
 
-	ScoreBar::getInstance()->update();
+
 }
 
 void MapManager::render()
@@ -348,7 +349,8 @@ MapManager::MapManager()
 
 		listMap._Add(map);
 	}
-	setCurrentMap(2);
+	setCurrentMap(1);
+
 
 	//do mới khởi tạo
 	isChangeMap = false;
