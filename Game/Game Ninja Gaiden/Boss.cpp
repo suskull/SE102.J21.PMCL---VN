@@ -89,7 +89,7 @@ void Boss::update(float dt)
 Boss::Boss()
 {
 	setSprite(SPR(SPRITE_BOSS));
-	//setCollisionType(COLLISION_TYPE_BOSS);
+	setCollisionType(COLLISION_TYPE_BOSS);
 }
 
 

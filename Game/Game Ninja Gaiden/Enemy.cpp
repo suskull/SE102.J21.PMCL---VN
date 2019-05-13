@@ -1,6 +1,7 @@
 ﻿#include "Enemy.h"
 #include"ExplosionEffect.h"
 #include"Player.h"
+#include "Sound.h"
 
 void Enemy::onCollision(MovableRect* other, float collisionTime, int nx, int ny)
 {
@@ -28,7 +29,13 @@ void Enemy::onIntersect(MovableRect* other)
 	if (!getAlive())
 		return;
 	if (other->getCollisionType() == COLLISION_TYPE_WEAPON)
+
+	{
 		setAlive(false);
+	/*	Sound::getInstance()->loadSound("resoucre/sound/16.wav", "16");
+		Sound::getInstance()->play("16", true, 0);*/
+	}
+
 
 	//lấy từ onCollision
 	if (other->getCollisionType() == COLLISION_TYPE_BARRIER_FOR_ENEMY)

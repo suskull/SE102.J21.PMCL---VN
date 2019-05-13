@@ -246,12 +246,12 @@ void MapManager::update(float dt)
 			{
 				Collision::CheckCollision(AdditionalObject::getListObject()->at(i), collection_Enemies->at(j));
 			}
-			/*xét va chạm giữa Weapon và Boss trong map
+			//xét va chạm giữa Weapon và Boss trong map
 			List<BaseObject*>* collection_Boss = objectCategories.at(COLLISION_TYPE_BOSS);
 			for (size_t j = 0; j < collection_Enemies->size(); j++)
 			{
 				Collision::CheckCollision(AdditionalObject::getListObject()->at(i), collection_Enemies->at(j));
-			}*/
+			}
 
 			//xét va chạm giữa Weapon và BirdsHaveItem
 			List<BaseObject*>* collection_BirdsHaveItem = objectCategories.at(COLLISION_TYPE_BUTTERFLY);

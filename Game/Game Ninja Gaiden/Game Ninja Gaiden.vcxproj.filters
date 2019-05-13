@@ -168,6 +168,10 @@
     </ClCompile>
     <ClCompile Include="GridTree.cpp" />
     <ClCompile Include="GridNode.cpp" />
+    <ClCompile Include="Sound.cpp">
+      <Filter>Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLog.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -334,6 +338,10 @@
     </ClInclude>
     <ClInclude Include="GridTree.h" />
     <ClInclude Include="GridNode.h" />
+    <ClInclude Include="Sound.h">
+      <Filter>Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLog.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Animation">
@@ -389,6 +397,9 @@
     </Filter>
     <Filter Include="MapManager">
       <UniqueIdentifier>{c160256d-d6eb-4325-a1df-c17d933b4fe5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sound">
+      <UniqueIdentifier>{5aeb6524-0718-49a9-a233-0064213ef2e4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

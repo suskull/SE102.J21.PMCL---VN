@@ -1,6 +1,7 @@
 ﻿#include "Player.h"
 #include"SpriteManager.h"
 #include"MapManager.h"
+#include"Sound.h"
 
 Player* Player::instance = 0;
 Player* Player::getInstance()
@@ -42,6 +43,16 @@ void Player::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 		setPlayerState(PLAYER_STATE_INJURED);
 		ScoreBar::getInstance()->decreaseHealth(1);
 		
+	}
+
+	if (other->getCollisionType() == COLLISION_TYPE_BOSS && !unstoppable)
+	{
+		setVx(-nx * 50);
+		setVy(150);
+		setIsOnGround(false);
+		setPlayerState(PLAYER_STATE_INJURED);
+		ScoreBar::getInstance()->decreaseHealth(1);
+
 	}
 	if (other->getCollisionType() == COLLISION_TYPE_GATE)
 	{
@@ -108,7 +119,11 @@ void Player::update(float dt)
 		else if (key->isUpDown)
 			setPlayerState(PLAYER_STATE_CLIMB);
 		else if (key->isAttackDown)
+		{
+		
 			setPlayerState(PLAYER_STATE_ATTACK);
+		}
+			
 		else if (key->isSubWeaponDown)
 		{
 			if (getCurrentSubWeapon() == SUBWEAPON_NULL)
@@ -182,6 +197,9 @@ void Player::update(float dt)
 			sword->setAlive(true);
 			setAnimation(PLAYER_ACTION_ATTACK);
 			isAttacked = true;
+			Sound::getInstance()->loadSound("resoucre/sound/17.wav", "17");
+			Sound::getInstance()->play("17", true, 0);
+			
 		}
 		if (getIsLastFrameAnimationDone())
 		{
@@ -249,6 +267,7 @@ void Player::update(float dt)
 		//xong
 	case PLAYER_STATE_SITATTACK:
 	{
+		
 
 		if (!isAttacked)
 		{
@@ -256,6 +275,7 @@ void Player::update(float dt)
 			sword->setAlive(true);
 			setAnimation(PLAYER_ACTION_SITATTACK);
 			isAttacked = true;
+			
 		}
 		if (getIsLastFrameAnimationDone())
 		{
