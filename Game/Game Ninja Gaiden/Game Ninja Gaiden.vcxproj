@@ -166,6 +166,7 @@
     <ClInclude Include="ItemWindmillShuriken.h" />
     <ClInclude Include="KEY.h" />
     <ClInclude Include="Knife.h" />
+    <ClInclude Include="Ladder.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="MapManager.h" />
     <ClInclude Include="Panther.h" />
@@ -231,6 +232,7 @@
     <ClCompile Include="ItemWindmillShuriken.cpp" />
     <ClCompile Include="KEY.cpp" />
     <ClCompile Include="Knife.cpp" />
+    <ClCompile Include="Ladder.cpp" />
     <ClCompile Include="MapManager.cpp" />
     <ClCompile Include="Panther.cpp" />
     <ClCompile Include="PhysicsObject.cpp" />

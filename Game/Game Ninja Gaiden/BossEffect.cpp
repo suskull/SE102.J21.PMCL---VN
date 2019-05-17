@@ -5,14 +5,22 @@
 //
 void BossEffect::update(float dt)
 {
-	int count = 0;
-	count++;
-	
-	if (count == 5)
+	setY(getY() + (getHeightCurrentFrame() - getHeight()) / 2);
+	setHeight(getHeightCurrentFrame());
+	setX(getX() - (getWidthCurrentFrame() - getWidth()) / 2);
+	setWidth(getWidthCurrentFrame());
+
+	if (getIsLastFrameAnimationDone())
 	{
 		setAlive(false);
 	}
 	BaseObject::update(dt);
+}
+
+void BossEffect::render(Camera* camera)
+{
+
+	BaseObject::render(camera);
 }
 
 

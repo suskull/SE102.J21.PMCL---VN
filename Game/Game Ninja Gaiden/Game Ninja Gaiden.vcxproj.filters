@@ -178,6 +178,7 @@
     <ClCompile Include="BossEffect.cpp">
       <Filter>Effect</Filter>
     </ClCompile>
+    <ClCompile Include="Ladder.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -354,6 +355,7 @@
     <ClInclude Include="BossEffect.h">
       <Filter>Effect</Filter>
     </ClInclude>
+    <ClInclude Include="Ladder.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Animation">
