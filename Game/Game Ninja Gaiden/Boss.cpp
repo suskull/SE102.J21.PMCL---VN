@@ -1,6 +1,8 @@
 #include "Boss.h"
 #include"SpriteManager.h"
 #include "Player.h"
+#include"BossWeapon.h"
+#include"BossEffect.h"
 
 
 void Boss::setBossState(BOSS_STATE bossState)
@@ -44,15 +46,18 @@ void Boss::onIntersect(MovableRect* other)
 	}
 
 
-	if (ScoreBar::getInstance()->getBossHealth() == 0)
-	{
-		setAlive(false);
-
-	}
+	
 }
 
 void Boss::update(float dt)
 {
+
+	if (ScoreBar::getInstance()->getBossHealth() == 0)
+	{
+		setBossState(BOSS_STATE_DEAD);
+
+	}
+
 	auto player = Player::getInstance();
 
 	switch (bossState)
@@ -80,16 +85,63 @@ void Boss::update(float dt)
 		{
 			setBossState(BOSS_STATE_WAIT);
 			setAnimation(BOSS_ACTION_STAND);
+			
+			if (getIsRender()) 
+			{
+				BossWeapon* bl = new BossWeapon();
+				bl->setX(getX() + (getDirection() * 30));
+				bl->setY(getY() - 30);
+				bl->setDirection(getDirection());
+				bl->setVx(getDirection() * 80);
+			}
+					
+				//count++;
+			
 		}
 		break;
+
+	
+	case BOSS_STATE_DEAD:
+		setPhysicsEnable(false);
+	
+
+	/*	count = 0;
+		count++;*/
+		
+		BossEffect* be = new BossEffect();
+		be->setX(getX()+15);
+		be->setY(getY() - 15);
+		
+		BossEffect* be1 = new BossEffect();
+		be1->setX(getX() - 20);
+		be1->setY(getY()-15);
+		BossEffect* be2 = new BossEffect();
+		be2->setX(getX() - 20);
+		be2->setY(getY() - 45);
+		BossEffect * be3 = new BossEffect();
+		be3->setX(getX()+15);
+		be3->setY(getY() - 45);
+
+	/*	if (count == 5)
+		{
+			setAlive(false);
+		}*/
+		break;
+
+
 	}
+
+	
+
 	Enemy::update(dt);
+
+	
 }
 
 Boss::Boss()
 {
 	setSprite(SPR(SPRITE_BOSS));
-	setCollisionType(COLLISION_TYPE_BOSS);
+	//setCollisionType(COLLISION_TYPE_BOSS);
 }
 
 

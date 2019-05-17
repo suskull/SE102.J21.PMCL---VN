@@ -55,7 +55,10 @@ SpriteManager::SpriteManager()
 	sprites[SPRITE_ITEMS_IN_SCORE_BAR]->InitFromFile("resource/sprites/scorebar/items.png", "resource/sprites/scorebar/items.info.dat");
 	sprites[SPRITE_WEAPON_SITTINGMAN]->InitFromFile("resource/sprites/WeaponSittingMan/WeaponSittingMan.png", "resource/sprites/WeaponSittingMan/WeaponSittingMan.info.dat");
 	sprites[SPRITE_SHOT_EFFECT]->InitFromFile("resource/sprites/ShotEffect/ShotEffect.png", "resource/sprites/ShotEffect/ShotEffect.info.dat");
+	sprites[SPRITE_BOSS_WEAPON]->InitFromFile("resource/sprites/boss-weapon/image.png", "resource/sprites/boss-weapon/boss-weapon.info.dat");
+	sprites[SPRITE_BOSS_EFFECT]->InitFromFile("resource/sprites/BossEffect/image.png", "resource/sprites/BossEffect/boss_effect.info.dat");
 }
+
 SpriteManager::~SpriteManager()
 {
 }

@@ -59,6 +59,27 @@ void MapManager::InitMap()
 
 	string gridTreePath = "resource/map/" + currentMap->ID + "/gridtree.dat";
 	GridTree::getInstance()->initGridTree(gridTreePath, currentTileMap->getWorldHeight());
+	
+	//update sound
+	switch (getCurrentMapIndex())
+	{
+	case 0:
+		Sound::getInstance()->stop("map2");
+		Sound::getInstance()->stop("map3");
+		Sound::getInstance()->loadSound("resource/sound/map1.wav", "map1");
+		Sound::getInstance()->play("map1", true, 0);
+		break;
+	case 1:
+		Sound::getInstance()->stop("map1");
+		Sound::getInstance()->loadSound("resource/sound/map2.wav", "map2");
+		Sound::getInstance()->play("map2", true, 0);
+		break;
+	case 2:
+		Sound::getInstance()->stop("map2");
+		Sound::getInstance()->loadSound("resource/sound/map3.wav", "map3");
+		Sound::getInstance()->play("map3", true, 0);
+		break;
+	}
 }
 
 void MapManager::InitObjects(string objectPath, int worldHeight)
@@ -349,8 +370,7 @@ MapManager::MapManager()
 
 		listMap._Add(map);
 	}
-	setCurrentMap(1);
-
+	setCurrentMap(2);
 
 	//do mới khởi tạo
 	isChangeMap = false;

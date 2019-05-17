@@ -18,6 +18,7 @@ void Player::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 		setVy(0);
 		setIsOnGround(true);
 		preventMovementWhenCollision(collisionTime, nx, ny);
+		//setVx(0);
 	}
 
 	//if (other->getCollisionType() == COLLISION_TYPE_GROUND && nx == -1)
@@ -39,8 +40,8 @@ void Player::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 	{
 		setVx(-nx * 50);
 		setVy(150);
-		setIsOnGround(false);
 		setPlayerState(PLAYER_STATE_INJURED);
+		setIsOnGround(true);
 		Sound::getInstance()->loadSound("resource/sound/injured.wav", "injured");
 		Sound::getInstance()->play("injured", false, 1);
 		ScoreBar::getInstance()->decreaseHealth(1);
@@ -73,7 +74,7 @@ void Player::onIntersect(MovableRect* other)
 		setVy(150);
 		setIsOnGround(false);
 		setPlayerState(PLAYER_STATE_INJURED);
-		
+		ScoreBar::getInstance()->decreaseHealth(1);
 	}
 }
 
@@ -418,7 +419,7 @@ void Player::update(float dt)
 	case PLAYER_STATE_INJURED:
 		unstoppable = true;
 		setAnimation(PLAYER_ACTION_INJURED);
-		if (getIsOnGround())
+		//if (getIsOnGround())
 			setPlayerState(PLAYER_STATE_STAND);
 		break;
 	case PLAYER_STATE_DIE:

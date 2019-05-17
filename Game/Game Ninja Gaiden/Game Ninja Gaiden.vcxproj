@@ -135,6 +135,8 @@
     <ClInclude Include="Bat.h" />
     <ClInclude Include="Bird.h" />
     <ClInclude Include="Boss.h" />
+    <ClInclude Include="BossEffect.h" />
+    <ClInclude Include="BossWeapon.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Butterfly.h" />
     <ClInclude Include="Camera.h" />
@@ -197,6 +199,8 @@
     <ClCompile Include="Bat.cpp" />
     <ClCompile Include="Bird.cpp" />
     <ClCompile Include="Boss.cpp" />
+    <ClCompile Include="BossEffect.cpp" />
+    <ClCompile Include="BossWeapon.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Butterfly.cpp" />
     <ClCompile Include="Camera.cpp" />

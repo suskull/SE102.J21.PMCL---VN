@@ -172,6 +172,12 @@
       <Filter>Sound</Filter>
     </ClCompile>
     <ClCompile Include="GameLog.cpp" />
+    <ClCompile Include="BossWeapon.cpp">
+      <Filter>Weapon and Subweapon</Filter>
+    </ClCompile>
+    <ClCompile Include="BossEffect.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -342,6 +348,12 @@
       <Filter>Sound</Filter>
     </ClInclude>
     <ClInclude Include="GameLog.h" />
+    <ClInclude Include="BossWeapon.h">
+      <Filter>Weapon and Subweapon</Filter>
+    </ClInclude>
+    <ClInclude Include="BossEffect.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Animation">
