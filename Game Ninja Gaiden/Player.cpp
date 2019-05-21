@@ -100,6 +100,18 @@ void Player::update(float dt)
 		setPlayerState(PLAYER_STATE_DIE);
 	}
 
+	if (ScoreBar::getInstance()->getPlayerHealth() == 0)
+	{
+		setPlayerState(PLAYER_STATE_DIE);
+		/*Camera::getInstance()->set(
+			0,
+			GLOBALS_D("backbuffer_height"),
+			GLOBALS_D("backbuffer_width"),
+			GLOBALS_D("backbuffer_height"));*/
+	}
+		
+
+
 	switch (playerState)
 	{
 		//xong
@@ -443,12 +455,12 @@ void Player::update(float dt)
 		setAlive(true);
 		setIsRender(true);
 		setPlayerState(PLAYER_STATE_STAND);
-	
+		ScoreBar::getInstance()->setPlayerHealth(16);
 
 		if (scoreBar->getPlayerLife() > 0)
 		{
 			// còn mạng thì quay về map HIỆN TẠI
-			scoreBar->decreasePlayerLife(1);
+			scoreBar->decreasePlayerLife();
 			mapManager->setCurrentMap(mapManager->getCurrentMapIndex());
 
 			setX(MapManager::getInstance()->getCurrentMap()->playerX);

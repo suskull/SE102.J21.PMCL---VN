@@ -213,7 +213,7 @@ void ScoreBar::setPlayerLife(int playerLife)
 //	setPlayerLife(this->playerLife + playerLife);
 //}
 
-void ScoreBar::decreasePlayerLife(int playerLife)
+void ScoreBar::decreasePlayerLife()
 {
 	this->playerLife -= 1;
 }

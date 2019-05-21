@@ -62,7 +62,7 @@ public:
 	int getPlayerLife();
 	void setPlayerLife(int playerLife);
 	//void increasePlayerLife(int playerLife);
-	void decreasePlayerLife(int playerLife);
+	void decreasePlayerLife();
 
 	void setSpiritualStrengh(int number);
 	int getSpiritualStrengh();
