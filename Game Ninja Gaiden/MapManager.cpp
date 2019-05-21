@@ -11,7 +11,7 @@
 #include"SittingMan.h"
 #include"ItemWindmillShuriken.h"
 #include"Boss.h"
-#include"GridTree.h"
+#include"Grid.h"
 #include "Sound.h"
 
 MapManager* MapManager::instance = 0;
@@ -57,8 +57,8 @@ void MapManager::InitMap()
 	string collisionPath = "resource/map/" + currentMap->ID + "/collision_type_collides.dat";
 	InitCollisionTypeCanCollide(collisionPath.c_str());
 
-	string gridTreePath = "resource/map/" + currentMap->ID + "/gridtree.dat";
-	GridTree::getInstance()->initGridTree(gridTreePath, currentTileMap->getWorldHeight());
+	string GridPath = "resource/map/" + currentMap->ID + "/grid.dat";
+	Grid::getInstance()->initGrid(GridPath, currentTileMap->getWorldHeight());
 	
 	//update sound
 	switch (getCurrentMapIndex())
@@ -219,7 +219,7 @@ void MapManager::update(float dt)
 	
 	
 	//thêm
-	GridTree::getInstance()->update(allObjects, objectsInCamera);
+	Grid::getInstance()->update(allObjects, objectsInCamera);
 
 	KEY::getInstance()->update();
 	Player* player = Player::getInstance();
@@ -351,7 +351,7 @@ void MapManager::resetValue()
 	listCollisionTypeCanCollide.Clear();
 	objectCategories.Clear();
 	objectsInCamera.Clear();
-	GridTree::getInstance()->resetListNodes();
+	Grid::getInstance()->resetListNodes();
 }
 
 MapManager::MapManager()

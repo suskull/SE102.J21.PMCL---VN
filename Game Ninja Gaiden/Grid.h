@@ -6,16 +6,16 @@ using namespace std;
 #include"GridNode.h"
 #include"Camera.h"
 
-class GridTree
+class Grid
 {
-	static GridTree* instance;
+	static Grid* instance;
 	vector<GridNode> listNodes;
 public:
-	static GridTree* getInstance();
-	GridTree();
-	void initGridTree(string path, int worldHeight);
+	static Grid* getInstance();
+	Grid();
+	void initGrid(string path, int worldHeight);
 	void update(List<BaseObject*> allObjects, List<BaseObject*> &objectsInCamera);
-	~GridTree();
+	~Grid();
 	void addListObjects(GridNode gridNode, List<BaseObject*> allObjects, List<BaseObject*>& objectsInCamera);
 	void removeListObjects(GridNode gridNode, List<BaseObject*> allObjects, List<BaseObject*>& objectsInCamera);
 	void resetLocationAndStateOfObjects(GridNode gridNode, List<BaseObject*> allObjects);

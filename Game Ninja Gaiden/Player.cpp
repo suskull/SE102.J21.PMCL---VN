@@ -20,14 +20,7 @@ void Player::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 		preventMovementWhenCollision(collisionTime, nx, ny);
 		//setVx(0);
 	}
-	if (other->getCollisionType() == COLLISION_TYPE_LADDER)
-	{
-		setVx(0);
-		setPlayerState(PLAYER_STATE_CLIMB);
-		//setIsOnGround(true);
-		preventMovementWhenCollision(collisionTime, nx, ny);
-		
-	}
+	
 
 	if (other->getCollisionType() == COLLISION_TYPE_GROUND && nx == -1)
 	{
@@ -70,7 +63,12 @@ void Player::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 		auto mapManager = MapManager::getInstance();
 		mapManager->setCurrentMap(mapManager->getCurrentMapIndex() + 1);
 	}
-	
+
+	if (other->getCollisionType() == COLLISION_TYPE_LADDER)
+	{
+		preventMovementWhenCollision(collisionTime, nx, ny);
+		setPlayerState(PLAYER_STATE_CLIMB);
+	}
 	
 }
 
@@ -141,8 +139,8 @@ void Player::update(float dt)
 			player->setVx(vx);
 			setPlayerState(PLAYER_STATE_RUN);
 		}
-		else if (key->isUpDown)
-			setPlayerState(PLAYER_STATE_CLIMB);
+		/*else if (key->isUpDown)
+			setPlayerState(PLAYER_STATE_CLIMB);*/
 		else if (key->isAttackDown)
 		{
 		
@@ -233,7 +231,33 @@ void Player::update(float dt)
 	}
 
 	case PLAYER_STATE_CLIMB:
-		setAnimation(PLAYER_ACTION_CLIMB);
+		setPhysicsEnable(false);
+		if (key->isUpDown)
+		{
+			setY(getY() + 2);
+			setAnimation(PLAYER_ACTION_CLIMB);
+		}
+		else if (key->isDownDown)
+		{
+			setY(getY() - 2);
+			setAnimation(PLAYER_ACTION_CLIMB);
+		}
+		else if (key->isJumpDown)
+		{
+			setVy(50);
+			setVx(-20);
+			setPhysicsEnable(true);
+			setPlayerState(PLAYER_STATE_ROLL);
+		}
+		else
+		{
+			setDx(0);
+			setDy(0);
+			setVx(0);
+			setVy(0);
+			setAnimation(PLAYER_ACTION_STOP_CLIMB);
+		}
+			
 		break;
 		//gần xong
 	case PLAYER_STATE_ATTACK: {
