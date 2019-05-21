@@ -29,12 +29,12 @@ void Player::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 		
 	}
 
-	//if (other->getCollisionType() == COLLISION_TYPE_GROUND && nx == -1)
-	//{
-	//	//setVy(0);
-	//	preventMovementWhenCollision(collisionTime, nx, ny);
-	//	setDx(0);
-	//}
+	if (other->getCollisionType() == COLLISION_TYPE_GROUND && nx == -1)
+	{
+		//setVy(0);
+		preventMovementWhenCollision(collisionTime, nx, ny);
+		setVx(0);
+	}
 
 	//if (other->getCollisionType() == COLLISION_TYPE_GROUND && nx == 1)
 	//{
