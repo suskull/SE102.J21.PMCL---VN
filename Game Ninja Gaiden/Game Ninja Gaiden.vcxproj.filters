@@ -1,0 +1,419 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Animation.cpp">
+      <Filter>Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="GameTexture.cpp">
+      <Filter>Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="GameConfiguration.cpp">
+      <Filter>Configuration</Filter>
+    </ClCompile>
+    <ClCompile Include="GameDirectX.cpp">
+      <Filter>GameDirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowGame.cpp">
+      <Filter>WindowGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameTime.cpp">
+      <Filter>GameTime</Filter>
+    </ClCompile>
+    <ClCompile Include="GameUtils.cpp">
+      <Filter>GameUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="KEY.cpp">
+      <Filter>KEY</Filter>
+    </ClCompile>
+    <ClCompile Include="Rect.cpp">
+      <Filter>Shape and Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseObject.cpp">
+      <Filter>Shape and Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteManager.cpp">
+      <Filter>SpriteManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsObject.cpp">
+      <Filter>Shape and Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="MovableRect.cpp">
+      <Filter>Shape and Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Tilemap.cpp">
+      <Filter>Tilemap</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionType.h">
+      <Filter>Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="AdditionalObject.cpp">
+      <Filter>Weapon and Subweapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Shuriken.cpp">
+      <Filter>Weapon and Subweapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Sword.cpp">
+      <Filter>Weapon and Subweapon</Filter>
+    </ClCompile>
+    <ClCompile Include="WindmillShuriken.cpp">
+      <Filter>Weapon and Subweapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Bird.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Panther.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Soldier.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="SwordMan.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Throwman.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionTypeCanCollide.h">
+      <Filter>Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Flame.cpp">
+      <Filter>Weapon and Subweapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Bat.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Butterfly.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemSpiritualStrenghtBlue.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemBonusBlue.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemBonusRed.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemClock.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemFireWheel.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemRestorePhysicalStrenght.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemShuriken.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemSpiritualStrengtRed.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Knife.cpp">
+      <Filter>Weapon and Subweapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Weapon and Subweapon</Filter>
+    </ClCompile>
+    <ClCompile Include="ExplosionEffect.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="ScoreBar.cpp" />
+    <ClCompile Include="Weapon.cpp">
+      <Filter>Weapon and Subweapon</Filter>
+    </ClCompile>
+    <ClCompile Include="MapManager.cpp">
+      <Filter>MapManager</Filter>
+    </ClCompile>
+    <ClCompile Include="RedBird.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss.cpp" />
+    <ClCompile Include="SittingMan.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemWindmillShuriken.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ShotEffect.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="WeaponSittingMan.cpp">
+      <Filter>Weapon and Subweapon</Filter>
+    </ClCompile>
+    <ClCompile Include="RunningMan.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="GridTree.cpp" />
+    <ClCompile Include="GridNode.cpp" />
+    <ClCompile Include="Sound.cpp">
+      <Filter>Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLog.cpp" />
+    <ClCompile Include="BossWeapon.cpp">
+      <Filter>Weapon and Subweapon</Filter>
+    </ClCompile>
+    <ClCompile Include="BossEffect.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="Ladder.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Animation.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTexture.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="FrameAnimation.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="GameConfiguration.h">
+      <Filter>Configuration</Filter>
+    </ClInclude>
+    <ClInclude Include="GameDirectX.h">
+      <Filter>GameDirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTime.h">
+      <Filter>GameTime</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowGame.h">
+      <Filter>WindowGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameUtils.h">
+      <Filter>GameUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="List.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="KEY.h">
+      <Filter>KEY</Filter>
+    </ClInclude>
+    <ClInclude Include="Rect.h">
+      <Filter>Shape and Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseObject.h">
+      <Filter>Shape and Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteManager.h">
+      <Filter>SpriteManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsObject.h">
+      <Filter>Shape and Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="MovableRect.h">
+      <Filter>Shape and Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Tilemap.h">
+      <Filter>Tilemap</Filter>
+    </ClInclude>
+    <ClInclude Include="AdditionalObject.h">
+      <Filter>Weapon and Subweapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Shuriken.h">
+      <Filter>Weapon and Subweapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Sword.h">
+      <Filter>Weapon and Subweapon</Filter>
+    </ClInclude>
+    <ClInclude Include="WindmillShuriken.h">
+      <Filter>Weapon and Subweapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Bird.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Panther.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Soldier.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="SwordMan.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Throwman.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Flame.h">
+      <Filter>Weapon and Subweapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Bat.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Butterfly.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemSpiritualStrenghtBlue.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemBonusBlue.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemBonusRed.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemClock.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemFireWheel.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemRestorePhysicalStrenght.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemShuriken.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemSpiritualStrengtRed.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Knife.h">
+      <Filter>Weapon and Subweapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Weapon and Subweapon</Filter>
+    </ClInclude>
+    <ClInclude Include="ExplosionEffect.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="ScoreBar.h" />
+    <ClInclude Include="Weapon.h">
+      <Filter>Weapon and Subweapon</Filter>
+    </ClInclude>
+    <ClInclude Include="MapManager.h">
+      <Filter>MapManager</Filter>
+    </ClInclude>
+    <ClInclude Include="RedBird.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss.h" />
+    <ClInclude Include="SittingMan.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemWindmillShuriken.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="ShotEffect.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="WeaponSittingMan.h">
+      <Filter>Weapon and Subweapon</Filter>
+    </ClInclude>
+    <ClInclude Include="RunningMan.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="GridTree.h" />
+    <ClInclude Include="GridNode.h" />
+    <ClInclude Include="Sound.h">
+      <Filter>Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLog.h" />
+    <ClInclude Include="BossWeapon.h">
+      <Filter>Weapon and Subweapon</Filter>
+    </ClInclude>
+    <ClInclude Include="BossEffect.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="Ladder.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Animation">
+      <UniqueIdentifier>{222ce3f7-f4e6-43bb-8406-9306b4af105e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Configuration">
+      <UniqueIdentifier>{21aafae7-cf91-4fec-b294-838148d0bf1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameDirectX">
+      <UniqueIdentifier>{07cc1e23-e777-4a58-af3d-8497a6384ecc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameTime">
+      <UniqueIdentifier>{bc5e7919-c6dc-474e-8ec8-573755040adf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WindowGame">
+      <UniqueIdentifier>{2cd5f6e3-8bf2-4b12-980a-8ff7280190bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{20f8b079-5dc5-4f79-816e-9a67234466e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameUtils">
+      <UniqueIdentifier>{670430ed-63a2-4900-a883-87c69999781d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KEY">
+      <UniqueIdentifier>{d4319b8f-1964-43b6-bd3b-266a0a2c5cb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shape and Objects">
+      <UniqueIdentifier>{e774adac-4509-4563-ac50-08b8f318719f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SpriteManager">
+      <UniqueIdentifier>{6af77baa-47c5-4f87-93b1-aeadc8dc2fe5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Collision">
+      <UniqueIdentifier>{fca99328-6d83-4582-ac4e-5852257d4b66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tilemap">
+      <UniqueIdentifier>{3ba9777a-cd41-4ee3-a9cb-90d5697e5bbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemy">
+      <UniqueIdentifier>{99fa1d3c-b048-4bc9-b9a4-cd996041ae12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Camera">
+      <UniqueIdentifier>{95e3eebb-7afa-4451-9f12-5d9795ebb775}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Item">
+      <UniqueIdentifier>{dac7c68b-cf25-4b52-a62c-8558c6291d7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Weapon and Subweapon">
+      <UniqueIdentifier>{c0306116-936b-460b-87c0-49a18c2761a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Effect">
+      <UniqueIdentifier>{b35de2ef-45e0-4172-ab28-97fd4f12ab60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MapManager">
+      <UniqueIdentifier>{c160256d-d6eb-4325-a1df-c17d933b4fe5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sound">
+      <UniqueIdentifier>{5aeb6524-0718-49a9-a233-0064213ef2e4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
