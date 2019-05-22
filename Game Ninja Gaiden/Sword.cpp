@@ -83,13 +83,5 @@ void Sword::onIntersect(MovableRect* other)
 		explosionEffect->setLocation(other->getMidX(), other->getMidY());
 	}
 
-	//if (other->getCollisionType() == COLLISION_TYPE_BOSS)
-	//{
-	//	ScoreBar::getInstance()->decreaseBossHealth(1);
-
-	//	/*auto bullet = new Bullet();
-	//	bullet->setX(getX());
-	//	bullet->setY(getY());*/
-	//}
 }
 
