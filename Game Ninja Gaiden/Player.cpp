@@ -21,12 +21,12 @@ void Player::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 	}
 	
 
-	if (other->getCollisionType() == COLLISION_TYPE_GROUND && nx == -1)
-	{
-		//setVy(0);
-		preventMovementWhenCollision(collisionTime, nx, ny);
-		setVx(0);
-	}
+	//if (other->getCollisionType() == COLLISION_TYPE_GROUND && nx == -1)
+	//{
+	//	//setVy(0);
+	//	preventMovementWhenCollision(collisionTime, nx, ny);
+	//	setVx(0);
+	//}
 
 	//if (other->getCollisionType() == COLLISION_TYPE_GROUND && nx == 1)
 	//{
@@ -68,17 +68,6 @@ void Player::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 		preventMovementWhenCollision(collisionTime, nx, ny);
 		setPlayerState(PLAYER_STATE_CLIMB);
 	}
-
-	/*if (other->getCollisionType() == COLLISION_TYPE_BARRIER_FOR_ENEMY)
-	{
-		if (playerState == PLAYER_STATE_CLIMB)
-		{
-			setAnimation(PLAYER_ACTION_STOP_CLIMB);
-			preventMovementWhenCollision(collisionTime, nx, ny);
-		}
-		
-	}*/
-		
 	
 }
 
@@ -87,11 +76,13 @@ void Player::onIntersect(MovableRect* other)
 	if (other->getCollisionType() == COLLISION_TYPE_ENEMY && !unstoppable || other->getCollisionType() == COLLISION_TYPE_WEAPON_ENEMY && !unstoppable)
 	{
 		setVx(-getDirection() * 50);
+		setAy(GLOBALS_D("gravity_ay"));
 		setVy(150);
-		
 		setPlayerState(PLAYER_STATE_INJURED);
 		setIsOnGround(false);
-		ScoreBar::getInstance()->decreaseHealth(1);
+		Sound::getInstance()->loadSound("resource/sound/injured.wav", "injured");
+		Sound::getInstance()->play("injured", false, 1);
+		ScoreBar::getInstance()->decreaseHealth(2);
 	}
 }
 
@@ -111,11 +102,6 @@ void Player::update(float dt)
 	if (ScoreBar::getInstance()->getPlayerHealth() == 0)
 	{
 		setPlayerState(PLAYER_STATE_DIE);
-		/*Camera::getInstance()->set(
-			0,
-			GLOBALS_D("backbuffer_height"),
-			GLOBALS_D("backbuffer_width"),
-			GLOBALS_D("backbuffer_height"));*/
 	}
 		
 

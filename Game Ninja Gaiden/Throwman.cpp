@@ -11,14 +11,10 @@ void Throwman::update(float dt)
 
 	switch (throwmanState) {
 	case THROWMAN_STATE_WAIT:
-		setAnimation(THROWMAN_ACTION_WAIT);
-		if (getX() - player->getX() < 50)
-		{
-			count = 0;
-			setVx(-10);
-			isGoingForward = true;
-			setThrowmanState(THROWMAN_STATE_RUN);
-		}
+		count = 0;
+		setVx(-10);
+		isGoingForward = true;
+		setThrowmanState(THROWMAN_STATE_RUN);
 		break;
 	case THROWMAN_STATE_RUN:
 		setAnimation(THROWMAN_ACTION_RUN);

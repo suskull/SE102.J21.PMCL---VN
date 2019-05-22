@@ -223,6 +223,7 @@ void MapManager::update(float dt)
 
 	KEY::getInstance()->update();
 	Player* player = Player::getInstance();
+	
 
 
 	for (size_t i = 0; i < objectsInCamera.Count; i++)
@@ -323,7 +324,7 @@ void MapManager::update(float dt)
 	}
 
 	AdditionalObject::listObjectUpdate(dt);
-
+	ScoreBar::getInstance()->update();
 
 }
 
@@ -352,6 +353,7 @@ void MapManager::resetValue()
 	objectCategories.Clear();
 	objectsInCamera.Clear();
 	Grid::getInstance()->resetListNodes();
+	AdditionalObject::getListObject()->Clear();
 }
 
 MapManager::MapManager()
