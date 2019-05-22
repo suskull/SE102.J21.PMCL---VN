@@ -1,24 +1,24 @@
-﻿#include "GridTree.h"
+﻿#include "Grid.h"
 #include <fstream>
 #include "GridNode.h"
 #include "Collision.h"
 using namespace std;
 
-GridTree* GridTree::instance = 0;
-GridTree* GridTree::getInstance()
+Grid* Grid::instance = 0;
+Grid* Grid::getInstance()
 {
 	if (instance == 0)
-		instance = new GridTree();
+		instance = new Grid();
 	return instance;
 }
-GridTree::GridTree()
+Grid::Grid()
 {
 }
 
-void GridTree::initGridTree(string pathGridTree, int worldHeight)
+void Grid::initGrid(string pathGrid, int worldHeight)
 {
 	int countGridNode;
-	fstream fs(pathGridTree);
+	fstream fs(pathGrid);
 	fs >> countGridNode;
 	for (size_t i = 0; i < countGridNode; i++)
 	{
@@ -47,7 +47,7 @@ void GridTree::initGridTree(string pathGridTree, int worldHeight)
 	}
 }
 
-void GridTree::update(List<BaseObject*> allObjects, List<BaseObject*> &objectsInCamera)
+void Grid::update(List<BaseObject*> allObjects, List<BaseObject*> &objectsInCamera)
 {
 	//xét bouding rect của từng node với camera
 	for (size_t i = 0; i < listNodes.size(); i++)
@@ -72,11 +72,11 @@ void GridTree::update(List<BaseObject*> allObjects, List<BaseObject*> &objectsIn
 
 
 
-GridTree::~GridTree()
+Grid::~Grid()
 {
 }
 
-void GridTree::addListObjects(GridNode gridNode, List<BaseObject*> allObjects, List<BaseObject*>& objectsInCamera)
+void Grid::addListObjects(GridNode gridNode, List<BaseObject*> allObjects, List<BaseObject*>& objectsInCamera)
 {
 	for (size_t j = 0; j < gridNode.listObjects.size(); j++)
 	{
@@ -86,7 +86,7 @@ void GridTree::addListObjects(GridNode gridNode, List<BaseObject*> allObjects, L
 	}
 }
 
-void GridTree::removeListObjects(GridNode gridNode, List<BaseObject*> allObjects, List<BaseObject*>& objectsInCamera)
+void Grid::removeListObjects(GridNode gridNode, List<BaseObject*> allObjects, List<BaseObject*>& objectsInCamera)
 {
 	for (size_t j = 0; j < gridNode.listObjects.size(); j++)
 	{
@@ -96,7 +96,7 @@ void GridTree::removeListObjects(GridNode gridNode, List<BaseObject*> allObjects
 	}
 }
 
-void GridTree::resetLocationAndStateOfObjects(GridNode gridNode, List<BaseObject*> allObjects)
+void Grid::resetLocationAndStateOfObjects(GridNode gridNode, List<BaseObject*> allObjects)
 {
 	for (size_t j = 0; j < gridNode.listObjects.size(); j++)
 	{
@@ -108,7 +108,7 @@ void GridTree::resetLocationAndStateOfObjects(GridNode gridNode, List<BaseObject
 	}
 }
 
-void GridTree::resetListNodes()
+void Grid::resetListNodes()
 {
 	listNodes.clear();
 }

@@ -20,21 +20,14 @@ void Player::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 		preventMovementWhenCollision(collisionTime, nx, ny);
 		//setVx(0);
 	}
-	if (other->getCollisionType() == COLLISION_TYPE_LADDER)
-	{
-		setVx(0);
-		setPlayerState(PLAYER_STATE_CLIMB);
-		//setIsOnGround(true);
-		preventMovementWhenCollision(collisionTime, nx, ny);
-		
-	}
+	
 
-	//if (other->getCollisionType() == COLLISION_TYPE_GROUND && nx == -1)
-	//{
-	//	//setVy(0);
-	//	preventMovementWhenCollision(collisionTime, nx, ny);
-	//	setDx(0);
-	//}
+	if (other->getCollisionType() == COLLISION_TYPE_GROUND && nx == -1)
+	{
+		//setVy(0);
+		preventMovementWhenCollision(collisionTime, nx, ny);
+		setVx(0);
+	}
 
 	//if (other->getCollisionType() == COLLISION_TYPE_GROUND && nx == 1)
 	//{
@@ -70,7 +63,14 @@ void Player::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 		auto mapManager = MapManager::getInstance();
 		mapManager->setCurrentMap(mapManager->getCurrentMapIndex() + 1);
 	}
-	
+
+	if (other->getCollisionType() == COLLISION_TYPE_LADDER)
+	{
+		preventMovementWhenCollision(collisionTime, nx, ny);
+		setPlayerState(PLAYER_STATE_CLIMB);
+	}
+
+
 	
 }
 
@@ -85,6 +85,13 @@ void Player::onIntersect(MovableRect* other)
 		setIsOnGround(false);
 		ScoreBar::getInstance()->decreaseHealth(1);
 	}
+	if (other->getCollisionType() == COLLISION_TYPE_ENDLADDER && getAnimation() == PLAYER_ACTION_CLIMB)
+	{
+		setY(132);
+	
+		setAnimation(PLAYER_ACTION_STOP_CLIMB);
+	}
+
 }
 
 
@@ -99,6 +106,18 @@ void Player::update(float dt)
 	{
 		setPlayerState(PLAYER_STATE_DIE);
 	}
+
+	if (ScoreBar::getInstance()->getPlayerHealth() == 0)
+	{
+		setPlayerState(PLAYER_STATE_DIE);
+		/*Camera::getInstance()->set(
+			0,
+			GLOBALS_D("backbuffer_height"),
+			GLOBALS_D("backbuffer_width"),
+			GLOBALS_D("backbuffer_height"));*/
+	}
+		
+
 
 	switch (playerState)
 	{
@@ -129,8 +148,8 @@ void Player::update(float dt)
 			player->setVx(vx);
 			setPlayerState(PLAYER_STATE_RUN);
 		}
-		else if (key->isUpDown)
-			setPlayerState(PLAYER_STATE_CLIMB);
+		/*else if (key->isUpDown)
+			setPlayerState(PLAYER_STATE_CLIMB);*/
 		else if (key->isAttackDown)
 		{
 		
@@ -221,7 +240,33 @@ void Player::update(float dt)
 	}
 
 	case PLAYER_STATE_CLIMB:
-		setAnimation(PLAYER_ACTION_CLIMB);
+		setPhysicsEnable(false);
+		if (key->isUpDown)
+		{
+			setY(getY() + 2);
+			setAnimation(PLAYER_ACTION_CLIMB);
+		}
+		else if (key->isDownDown)
+		{
+			setY(getY() - 2);
+			setAnimation(PLAYER_ACTION_CLIMB);
+		}
+		else if (key->isJumpDown)
+		{
+			setVy(50);
+			setVx(-20);
+			setPhysicsEnable(true);
+			setPlayerState(PLAYER_STATE_ROLL);
+		}
+		else
+		{
+			setDx(0);
+			setDy(0);
+			setVx(0);
+			setVy(0);
+			setAnimation(PLAYER_ACTION_STOP_CLIMB);
+		}
+			
 		break;
 		//gần xong
 	case PLAYER_STATE_ATTACK: {
@@ -439,27 +484,31 @@ void Player::update(float dt)
 		auto mapManager = MapManager::getInstance();
 
 
-		
-	
+		//khởi tạo lại cho Player.
+		setAlive(true);
+		setIsRender(true);
+		setPlayerState(PLAYER_STATE_STAND);
+		ScoreBar::getInstance()->setPlayerHealth(16);
 
 		if (scoreBar->getPlayerLife() > 0)
 		{
 			// còn mạng thì quay về map HIỆN TẠI
-			scoreBar->setPlayerLife(scoreBar->getPlayerLife() - 1);
+			scoreBar->decreasePlayerLife();
 			mapManager->setCurrentMap(mapManager->getCurrentMapIndex());
 
+			setX(MapManager::getInstance()->getCurrentMap()->playerX);
+			setY(MapManager::getInstance()->getCurrentMap()->playerY);
+			
 		}
 		else
 			// hết mạng thì quay vào map ĐẦU TIÊN
 		{
 			scoreBar->resetScoreGame();
 			mapManager->setCurrentMap(0);
-		}
 
-		//khởi tạo lại cho Player.
-		setAlive(true);
-		setIsRender(true);
-		setPlayerState(PLAYER_STATE_STAND);
+			setX(MapManager::getInstance()->getCurrentMap()->playerX);
+			setY(MapManager::getInstance()->getCurrentMap()->playerY);
+		}
 		break;
 	}
 

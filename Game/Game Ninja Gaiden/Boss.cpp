@@ -38,10 +38,10 @@ void Boss::onCollision(MovableRect* other, float collisionTime, int nx, int ny)
 
 void Boss::onIntersect(MovableRect* other)
 {
-	if (other->getCollisionType() == COLLISION_TYPE_WEAPON)
+	if (other->getCollisionType() == COLLISION_TYPE_WEAPON && getIsLastFrameAnimationDone())
 	{
 		ScoreBar::getInstance()->decreaseBossHealth(1);
-
+		//setBossState(BOSS_STATE_INJURED);
 	}
 }
 
@@ -98,9 +98,20 @@ void Boss::update(float dt)
 		}
 		break;
 
+	case BOSS_STATE_INJURED:
+		//setPhysicsEnable(false);
+		setAnimation(BOSS_ACTION_INJURED);
+		if (getIsLastFrameAnimationDone())
+			count++;
+		if (count > 2)
+		{
+			setBossState(BOSS_STATE_JUMP);
+			count = 0;
+		}
+		break;
 
 	case BOSS_STATE_DEAD:
-		
+		setAnimation(BOSS_ACTION_STAND);
 		setVx(0);
 		setVy(0);
 
@@ -144,7 +155,6 @@ void Boss::update(float dt)
 Boss::Boss()
 {
 	setSprite(SPR(SPRITE_BOSS));
-	setCollisionType(COLLISION_TYPE_BOSS);
 }
 
 

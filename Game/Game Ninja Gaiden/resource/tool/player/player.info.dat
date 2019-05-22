@@ -2,7 +2,7 @@ Sprite 2
 R	G	B
 255	255	163	177
 Animation Count
-11
+12
 
 
 Name
@@ -124,4 +124,13 @@ FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
 0			0			17				32				0			0
 0			0			0				0				0			0			
 0			0			17				32				0			0		
-0			0			0				0				0			0			
+0			0			0				0				0			0		
+
+
+Name
+StopClimb
+Frame Count
+1
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+79			1			16				31				0			0

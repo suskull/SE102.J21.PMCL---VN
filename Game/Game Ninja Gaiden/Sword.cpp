@@ -1,7 +1,7 @@
 #include "Sword.h"
 #include "SpriteManager.h"
 #include"Player.h"
-
+#include"Bullet.h"
 
 Sword::Sword()
 {
@@ -82,5 +82,6 @@ void Sword::onIntersect(MovableRect* other)
 		auto explosionEffect = new ExplosionEffect();
 		explosionEffect->setLocation(other->getMidX(), other->getMidY());
 	}
+
 }
 

@@ -11,7 +11,7 @@
 #include"SittingMan.h"
 #include"ItemWindmillShuriken.h"
 #include"Boss.h"
-#include"GridTree.h"
+#include"Grid.h"
 #include "Sound.h"
 
 MapManager* MapManager::instance = 0;
@@ -57,8 +57,8 @@ void MapManager::InitMap()
 	string collisionPath = "resource/map/" + currentMap->ID + "/collision_type_collides.dat";
 	InitCollisionTypeCanCollide(collisionPath.c_str());
 
-	string gridTreePath = "resource/map/" + currentMap->ID + "/gridtree.dat";
-	GridTree::getInstance()->initGridTree(gridTreePath, currentTileMap->getWorldHeight());
+	string GridPath = "resource/map/" + currentMap->ID + "/grid.dat";
+	Grid::getInstance()->initGrid(GridPath, currentTileMap->getWorldHeight());
 	
 	//update sound
 	switch (getCurrentMapIndex())
@@ -219,7 +219,7 @@ void MapManager::update(float dt)
 	
 	
 	//thêm
-	GridTree::getInstance()->update(allObjects, objectsInCamera);
+	Grid::getInstance()->update(allObjects, objectsInCamera);
 
 	KEY::getInstance()->update();
 	Player* player = Player::getInstance();
@@ -270,9 +270,9 @@ void MapManager::update(float dt)
 			}
 			//xét va chạm giữa Weapon và Boss trong map
 			List<BaseObject*>* collection_Boss = objectCategories.at(COLLISION_TYPE_BOSS);
-			for (size_t j = 0; j < collection_Enemies->size(); j++)
+			for (size_t j = 0; j < collection_Boss->size(); j++)
 			{
-				Collision::CheckCollision(AdditionalObject::getListObject()->at(i), collection_Enemies->at(j));
+				Collision::CheckCollision(AdditionalObject::getListObject()->at(i), collection_Boss->at(j));
 			}
 
 			//xét va chạm giữa Weapon và BirdsHaveItem
@@ -351,7 +351,7 @@ void MapManager::resetValue()
 	listCollisionTypeCanCollide.Clear();
 	objectCategories.Clear();
 	objectsInCamera.Clear();
-	GridTree::getInstance()->resetListNodes();
+	Grid::getInstance()->resetListNodes();
 }
 
 MapManager::MapManager()
@@ -370,7 +370,7 @@ MapManager::MapManager()
 
 		listMap._Add(map);
 	}
-	setCurrentMap(2);
+	setCurrentMap(1);
 
 	//do mới khởi tạo
 	isChangeMap = false;

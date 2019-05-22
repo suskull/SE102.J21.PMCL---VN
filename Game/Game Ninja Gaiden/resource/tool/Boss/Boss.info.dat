@@ -2,11 +2,11 @@ Sprite boss
 R	G	B
 255	255	163	177
 Animation Count
-2
+3
 
 
 Name
-Animation
+Stand
 Frame Count
 1
 
@@ -15,7 +15,7 @@ FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
 
 
 Name
-Animation
+Jump
 Frame Count
 2
 
@@ -24,3 +24,11 @@ FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
 34			0			38				54				0			0
 
 
+Name
+Injured
+Frame Count
+2
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+34			0			38				54				0			0
+0			0			0				0				0			0

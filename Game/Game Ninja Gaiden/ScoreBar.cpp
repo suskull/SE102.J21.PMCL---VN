@@ -208,9 +208,14 @@ void ScoreBar::setPlayerLife(int playerLife)
 	this->playerLife = playerLife;
 }
 
-void ScoreBar::increasePlayerLife(int playerLife)
+//void ScoreBar::increasePlayerLife(int playerLife)
+//{
+//	setPlayerLife(this->playerLife + playerLife);
+//}
+
+void ScoreBar::decreasePlayerLife()
 {
-	setPlayerLife(this->playerLife + playerLife);
+	this->playerLife -= 1;
 }
 
 void ScoreBar::setSpiritualStrengh(int number)
