@@ -462,6 +462,7 @@ void Player::update(float dt)
 		break;
 	}
 	case PLAYER_STATE_INJURED:
+		setPhysicsEnable(true);
 		unstoppable = true;
 		setAnimation(PLAYER_ACTION_INJURED);
 		if (getIsOnGround())
