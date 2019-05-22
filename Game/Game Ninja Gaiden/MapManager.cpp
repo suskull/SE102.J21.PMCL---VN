@@ -323,7 +323,7 @@ void MapManager::update(float dt)
 	}
 
 	AdditionalObject::listObjectUpdate(dt);
-
+	ScoreBar::getInstance()->update();
 
 }
 

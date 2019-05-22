@@ -41,18 +41,22 @@ void Enemy::onIntersect(MovableRect* other)
 	if (other->getCollisionType() == COLLISION_TYPE_BARRIER_FOR_ENEMY)
 	{
 		//setAlive(false);
-		/*setVx(-getVx());
-		if (getDirection() == DIRECTION_LEFT)
+	/*	setVx(-getVx());*/
+	/*	if (getDirection() == DIRECTION_LEFT)
 		{
 			setX(getX() - abs(getWidthCurrentFrame() - getWidth()));
 			setWidth(getWidthCurrentFrame());
 		}
 		else
-			setX(getX() + 7);*/
-		//
-		
-		//else
-		//	setX(getX() - (getWidthCurrentFrame() - getWidth()));
+		{
+			setX(getX() + 7);
+		}*/
+			
+		/*else
+		{
+			setX(getX() - (getWidthCurrentFrame() - getWidth()));
+		}*/
+			
 	}
 }
 

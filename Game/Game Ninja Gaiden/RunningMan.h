@@ -19,6 +19,7 @@ class RunningMan :
 	RUNNINGMAN_STATE runningManState;
 public:
 	void setRunningManState(RUNNINGMAN_STATE runningManState);
+	void onIntersect(MovableRect* other) override;
 	void update(float dt) override;
 	RunningMan();
 	~RunningMan();

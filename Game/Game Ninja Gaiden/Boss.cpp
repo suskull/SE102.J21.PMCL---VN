@@ -99,7 +99,6 @@ void Boss::update(float dt)
 		break;
 
 	case BOSS_STATE_INJURED:
-		//setPhysicsEnable(false);
 		setAnimation(BOSS_ACTION_INJURED);
 		if (getIsLastFrameAnimationDone())
 			count++;
