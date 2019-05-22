@@ -38,10 +38,10 @@ void Boss::onCollision(MovableRect* other, float collisionTime, int nx, int ny)
 
 void Boss::onIntersect(MovableRect* other)
 {
-	if (other->getCollisionType() == COLLISION_TYPE_WEAPON && bossState!= BOSS_STATE_INJURED)
+	if (other->getCollisionType() == COLLISION_TYPE_WEAPON && getIsLastFrameAnimationDone())
 	{
 		ScoreBar::getInstance()->decreaseBossHealth(1);
-		setBossState(BOSS_STATE_INJURED);
+		//setBossState(BOSS_STATE_INJURED);
 	}
 }
 

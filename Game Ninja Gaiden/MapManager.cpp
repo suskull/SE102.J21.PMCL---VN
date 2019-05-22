@@ -370,7 +370,7 @@ MapManager::MapManager()
 
 		listMap._Add(map);
 	}
-	setCurrentMap(1);
+	setCurrentMap(2);
 
 	//do mới khởi tạo
 	isChangeMap = false;
