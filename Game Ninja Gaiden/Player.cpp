@@ -18,7 +18,6 @@ void Player::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 		setVy(0);
 		setIsOnGround(true);
 		preventMovementWhenCollision(collisionTime, nx, ny);
-		//setVx(0);
 	}
 	
 
@@ -69,6 +68,17 @@ void Player::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 		preventMovementWhenCollision(collisionTime, nx, ny);
 		setPlayerState(PLAYER_STATE_CLIMB);
 	}
+
+	/*if (other->getCollisionType() == COLLISION_TYPE_BARRIER_FOR_ENEMY)
+	{
+		if (playerState == PLAYER_STATE_CLIMB)
+		{
+			setAnimation(PLAYER_ACTION_STOP_CLIMB);
+			preventMovementWhenCollision(collisionTime, nx, ny);
+		}
+		
+	}*/
+		
 	
 }
 
@@ -231,20 +241,26 @@ void Player::update(float dt)
 	}
 
 	case PLAYER_STATE_CLIMB:
-		setPhysicsEnable(false);
+		setAy(0);
+		if (getY() > 132)
+		{
+			setAnimation(PLAYER_ACTION_STOP_CLIMB);
+			setY(132);
+		}
+			
 		if (key->isUpDown)
 		{
-			setY(getY() + 2);
+			setVy(60);
 			setAnimation(PLAYER_ACTION_CLIMB);
 		}
 		else if (key->isDownDown)
 		{
-			setY(getY() - 2);
+			setVy(-60);
 			setAnimation(PLAYER_ACTION_CLIMB);
 		}
 		else if (key->isJumpDown)
 		{
-			setVy(50);
+			setVy(70);
 			setVx(-20);
 			setPhysicsEnable(true);
 			setPlayerState(PLAYER_STATE_ROLL);
@@ -364,7 +380,7 @@ void Player::update(float dt)
 	//xong
 	case PLAYER_STATE_ROLL:
 	{
-		
+		setAy(GLOBALS_D("gravity_ay"));
 		setAnimation(PLAYER_ACTION_ROLL);
 	
 		setY(getY() - (getHeight() - getHeightCurrentFrame()));
@@ -463,6 +479,7 @@ void Player::update(float dt)
 	}
 	case PLAYER_STATE_INJURED:
 		setPhysicsEnable(true);
+		setAy(GLOBALS_D("gravity_ay"));
 		unstoppable = true;
 		setAnimation(PLAYER_ACTION_INJURED);
 		if (getIsOnGround())
