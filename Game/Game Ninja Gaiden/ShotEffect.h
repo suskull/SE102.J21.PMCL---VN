@@ -1,5 +1,7 @@
-#pragma once
+﻿#pragma once
 #include "AdditionalObject.h"
+
+// hiệu ứng nhỏ khi SittingMan bắn
 class ShotEffect :
 	public AdditionalObject
 {

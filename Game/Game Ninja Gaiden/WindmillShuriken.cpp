@@ -29,7 +29,11 @@ void WindmillShuriken::update(float dt)
 void WindmillShuriken::onIntersect(MovableRect* other)
 {
 	if (other->getCollisionType() == COLLISION_TYPE_PLAYER)
+	{
+		Sound::getInstance()->stop("shuriken1");
 		setAlive(false);
+	}
+		
 
 	if (other->getCollisionType() == COLLISION_TYPE_ENEMY && other->getAlive())
 	{
@@ -39,7 +43,7 @@ void WindmillShuriken::onIntersect(MovableRect* other)
 
 	}
 
-	if (other->getCollisionType() == COLLISION_TYPE_BOSS)
+	if (other->getCollisionType() == COLLISION_TYPE_BOSS && getIsLastFrameAnimationDone())
 	{
 		ScoreBar::getInstance()->decreaseBossHealth(1);
 	}

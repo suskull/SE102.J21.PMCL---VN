@@ -353,7 +353,7 @@ void MapManager::resetValue()
 	listCollisionTypeCanCollide.Clear();
 	objectCategories.Clear();
 	objectsInCamera.Clear();
-	Grid::getInstance()->resetListNodes();
+	Grid::getInstance()->resetlistCells();
 	AdditionalObject::getListObject()->Clear();
 }
 
@@ -373,7 +373,7 @@ MapManager::MapManager()
 
 		listMap._Add(map);
 	}
-	setCurrentMap(2);
+	setCurrentMap(0);
 
 	//do mới khởi tạo
 	isChangeMap = false;

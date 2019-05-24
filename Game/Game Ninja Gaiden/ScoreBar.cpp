@@ -1,5 +1,6 @@
 ﻿#include "ScoreBar.h"
 #include"Player.h"
+#include"Sound.h"
 
 #define NUMBER_WIDTH 8
 #define HEALTH_WIDTH 4
@@ -96,10 +97,14 @@ void ScoreBar::decreaseTime(int time)
 	auto player = Player::getInstance();
 	if (player->getMakeEnemyPause())
 	{
+		Sound::getInstance()->loadSound("resource/sound/clock.wav", "clock");
+		Sound::getInstance()->play("clock", false, 1);
 		pauseTime--;
+		
 		//hết thời gian pause thì cho chuyển động bt.
 		if (pauseTime == 0)
 		{
+			//Sound::getInstance()->stop("item_clock");
 			player->setMakeEnemyPause(false);
 		}
 	}

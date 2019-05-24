@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-class GridNode
+class Cell
 {
 public:
 	string Id;
@@ -15,7 +15,7 @@ public:
 	Rect rect;
 	bool isIntesected;
 public:
-	GridNode();
-	~GridNode();
+	Cell();
+	~Cell();
 };
 

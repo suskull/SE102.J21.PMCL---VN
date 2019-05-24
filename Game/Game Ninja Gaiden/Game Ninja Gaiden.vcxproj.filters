@@ -166,11 +166,9 @@
     <ClCompile Include="RunningMan.cpp">
       <Filter>Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="GridNode.cpp" />
     <ClCompile Include="Sound.cpp">
       <Filter>Sound</Filter>
     </ClCompile>
-    <ClCompile Include="GameLog.cpp" />
     <ClCompile Include="BossWeapon.cpp">
       <Filter>Weapon and Subweapon</Filter>
     </ClCompile>
@@ -179,6 +177,7 @@
     </ClCompile>
     <ClCompile Include="Ladder.cpp" />
     <ClCompile Include="Grid.cpp" />
+    <ClCompile Include="Cell.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -343,11 +342,9 @@
     <ClInclude Include="RunningMan.h">
       <Filter>Enemy</Filter>
     </ClInclude>
-    <ClInclude Include="GridNode.h" />
     <ClInclude Include="Sound.h">
       <Filter>Sound</Filter>
     </ClInclude>
-    <ClInclude Include="GameLog.h" />
     <ClInclude Include="BossWeapon.h">
       <Filter>Weapon and Subweapon</Filter>
     </ClInclude>
@@ -356,6 +353,7 @@
     </ClInclude>
     <ClInclude Include="Ladder.h" />
     <ClInclude Include="Grid.h" />
+    <ClInclude Include="Cell.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Animation">
