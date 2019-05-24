@@ -38,7 +38,7 @@ void Player::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 
 	if (other->getCollisionType() == COLLISION_TYPE_ENEMY && !unstoppable)
 	{
-		setVx(-nx * 50);
+		setVx(-nx * 80);
 		setVy(150);
 		setPlayerState(PLAYER_STATE_INJURED);
 		setIsOnGround(false);
@@ -50,7 +50,7 @@ void Player::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 
 	if (other->getCollisionType() == COLLISION_TYPE_BOSS && !unstoppable)
 	{
-		setVx(-nx * 50);
+		setVx(-nx * 80);
 		setVy(150);
 		setIsOnGround(false);
 		setPlayerState(PLAYER_STATE_INJURED);
@@ -73,9 +73,21 @@ void Player::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 
 void Player::onIntersect(MovableRect* other)
 {
-	if (other->getCollisionType() == COLLISION_TYPE_ENEMY && !unstoppable || other->getCollisionType() == COLLISION_TYPE_WEAPON_ENEMY && !unstoppable)
+	if ((other->getCollisionType() == COLLISION_TYPE_ENEMY && !unstoppable) || (other->getCollisionType() == COLLISION_TYPE_WEAPON_ENEMY && !unstoppable))
 	{
-		setVx(-getDirection() * 50);
+		setVx(-getDirection() * 80);
+		setAy(GLOBALS_D("gravity_ay"));
+		setVy(150);
+		setPlayerState(PLAYER_STATE_INJURED);
+		setIsOnGround(false);
+		Sound::getInstance()->loadSound("resource/sound/injured.wav", "injured");
+		Sound::getInstance()->play("injured", false, 1);
+		ScoreBar::getInstance()->decreaseHealth(2);
+	}
+
+	if (other->getCollisionType() == COLLISION_TYPE_WEAPON_ENEMY && !unstoppable)
+	{
+		setVx(-getDirection() * 80);
 		setAy(GLOBALS_D("gravity_ay"));
 		setVy(150);
 		setPlayerState(PLAYER_STATE_INJURED);
@@ -103,8 +115,14 @@ void Player::update(float dt)
 	{
 		setPlayerState(PLAYER_STATE_DIE);
 	}
+	
+	//số frame tối đa của state unstoppable.
+	if (numberofFrames > 8)
+	{
+		unstoppable = false;
+		numberofFrames = 0;
+	}
 		
-
 
 	switch (playerState)
 	{
@@ -119,7 +137,7 @@ void Player::update(float dt)
 		{
 			setAnimation(PLAYER_ACTION_STAND_UNSTOPPABLE);
 			if (getIsLastFrameAnimationDone())
-				unstoppable = false;
+				numberofFrames +=2;
 		}
 		else
 			setAnimation(PLAYER_ACTION_STAND);
@@ -211,9 +229,18 @@ void Player::update(float dt)
 		//xong
 	case PLAYER_STATE_RUN:
 	{
-		setAnimation(PLAYER_ACTION_RUN);
 		setY(getY() - (getHeight() - getHeightCurrentFrame()));
 		setHeight(getHeightCurrentFrame());
+
+		if (unstoppable)
+		{
+			setAnimation(PLAYER_ACTION_RUN_UNSTOPPABLE);
+			if (getIsLastFrameAnimationDone())
+				numberofFrames += 6;
+		}
+		else
+			setAnimation(PLAYER_ACTION_RUN);
+
 		if (!key->isLeftDown && !key->isRightDown)
 			setPlayerState(PLAYER_STATE_STAND);
 		else if (key->isAttackDown)

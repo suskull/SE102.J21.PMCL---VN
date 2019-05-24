@@ -17,7 +17,7 @@ void SwordMan::update(float dt)
 		}*/
 		break;
 	case SWORDMAN_STATE_RUN:
-		setVx(-50);
+		setVx(-40);
 		break;
 	}
 
