@@ -1,4 +1,4 @@
-#include "Throwman.h"
+﻿#include "Throwman.h"
 
 #include"Knife.h"
 
@@ -11,25 +11,21 @@ void Throwman::update(float dt)
 
 	switch (throwmanState) {
 	case THROWMAN_STATE_WAIT:
-		setAnimation(THROWMAN_ACTION_WAIT);
-		if (getX() - player->getX() < 50)
-		{
-			count = 0;
-			setVx(-10);
-			isGoingForward = true;
-			setThrowmanState(THROWMAN_STATE_RUN);
-		}
+		count = 0;
+		setVx(-GLOBALS_D("throw_man_vx"));
+		isGoingForward = true;
+		setThrowmanState(THROWMAN_STATE_RUN);
 		break;
 	case THROWMAN_STATE_RUN:
 		setAnimation(THROWMAN_ACTION_RUN);
 		isAttacking = false;
 		if (isGoingForward)
-			setVx(-10);
-		else setVx(10);
+			setVx(-GLOBALS_D("throw_man_vx"));
+		else setVx(GLOBALS_D("throw_man_vx"));
 		
 		if (getIsLastFrameAnimationDone())
 			count++;
-		if (count > 5)
+		if (count > GLOBALS_D("throw_man_time_prepare_attack"))
 		{
 			count = 0;
 			setThrowmanState(THROWMAN_STATE_ATTACK);
@@ -45,14 +41,16 @@ void Throwman::update(float dt)
 			kn->setY(getY() + 20);
 			kn->setDirection(getDirection());
 			kn->setVx(getDirection() * (rand()% 60 + 15));
-			kn->setAy(-300);
-			kn->setVy(70);
+			kn->setAy(-GLOBALS_D("throw_man_knife_ay"));
+			kn->setVy(GLOBALS_D("throw_man_knife_vy"));
 			isAttacking = true;
 			count++;
 		}
 		else
 			isAttacking = false;
-		if (count > 0)
+
+		//ném 1 cái r ngừng
+		if (count > (GLOBALS_D("throw_man_knife_count")-1))
 		{
 			count = 0;
 			setThrowmanState(THROWMAN_STATE_RUN);
@@ -89,7 +87,7 @@ void Throwman::onCollision(MovableRect * other, float collisionTime, int nx, int
 void Throwman::onIntersect(MovableRect* other)
 {
 	if (other->getCollisionType() == COLLISION_TYPE_WEAPON && getAlive())
-		ScoreBar::getInstance()->increaseScore(100);
+		ScoreBar::getInstance()->increaseScore(GLOBALS_D("throw_man_score"));
 	Enemy::onIntersect(other);
 }
 

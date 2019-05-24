@@ -223,6 +223,7 @@ void MapManager::update(float dt)
 
 	KEY::getInstance()->update();
 	Player* player = Player::getInstance();
+	
 
 
 	for (size_t i = 0; i < objectsInCamera.Count; i++)
@@ -352,6 +353,7 @@ void MapManager::resetValue()
 	objectCategories.Clear();
 	objectsInCamera.Clear();
 	Grid::getInstance()->resetListNodes();
+	AdditionalObject::getListObject()->Clear();
 }
 
 MapManager::MapManager()
@@ -370,7 +372,7 @@ MapManager::MapManager()
 
 		listMap._Add(map);
 	}
-	setCurrentMap(1);
+	setCurrentMap(0);
 
 	//do mới khởi tạo
 	isChangeMap = false;

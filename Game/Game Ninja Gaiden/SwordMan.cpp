@@ -17,7 +17,7 @@ void SwordMan::update(float dt)
 		}*/
 		break;
 	case SWORDMAN_STATE_RUN:
-		setVx(-50);
+		setVx(-GLOBALS_D("swordman_vx"));
 		break;
 	}
 
@@ -33,16 +33,12 @@ void SwordMan::onCollision(MovableRect * other, float collisionTime, int nx, int
 {
 	
 	Enemy::onCollision(other, collisionTime, nx, ny);
-
-
 }
 
 void SwordMan::onIntersect(MovableRect* other)
 {
 	if (other->getCollisionType() == COLLISION_TYPE_WEAPON && getAlive())
-		ScoreBar::getInstance()->increaseScore(100);
-
-
+		ScoreBar::getInstance()->increaseScore(GLOBALS_D("swordman_score"));
 	Enemy::onIntersect(other);
 }
 

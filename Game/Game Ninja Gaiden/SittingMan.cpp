@@ -1,5 +1,5 @@
 ﻿#include "SittingMan.h"
-
+#include"ScoreBar.h"
 
 
 void SittingMan::setSittingManState(SITTINGMAN_STATE sittingManState)
@@ -14,11 +14,11 @@ void SittingMan::update(float dt)
 	case SITTINGMAN_STATE_WAIT:
 		setAnimation(SITTINGMAN_ACTION_WAIT);
 		isAttacking = false;
-		if (getX() - Player::getInstance()->getX() < 50)
+		if (getX() - Player::getInstance()->getX() < GLOBALS_D("sittingman_player"))
 		{
 			if (getIsLastFrameAnimationDone())
 				count++;
-			if (count > 5)
+			if (count > GLOBALS_D("sitting_man_time_prepare_attack"))
 			{
 				count = 0;
 				setSittingManState(SITTINGMAN_STATE_ATTACK);
@@ -33,7 +33,7 @@ void SittingMan::update(float dt)
 			wp->setX(getX() + (getDirection() * 8));
 			wp->setY(getY() - 1);
 			wp->setDirection(getDirection());
-			wp->setVx(getDirection() * 60);
+			wp->setVx(getDirection() * GLOBALS_D("sitting_man_bullet_vx"));
 
 			ShotEffect* se = new ShotEffect();
 			se->setX(getX() + (getDirection() * 8));
@@ -46,7 +46,7 @@ void SittingMan::update(float dt)
 		else
 			isAttacking = false;
 		//bắn 1 viên thì quay lại Wait
-		if (count > 0)
+		if (count > (GLOBALS_D("sitting_man_bullet_count")-1))
 		{
 			count = 0;
 			setSittingManState(SITTINGMAN_STATE_WAIT);
@@ -54,6 +54,15 @@ void SittingMan::update(float dt)
 		break;
 	}
 	Enemy::update(dt);
+}
+
+void SittingMan::onIntersect(MovableRect* other)
+{
+
+	if (other->getCollisionType() == COLLISION_TYPE_WEAPON)
+	{
+		ScoreBar::getInstance()->increaseScore(GLOBALS_D("sitting_man_score"));
+	}
 }
 
 SittingMan::SittingMan()

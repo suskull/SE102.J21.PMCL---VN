@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "PhysicsObject.h"
 #include"KEY.h"
 #include"Shuriken.h"
@@ -19,6 +19,7 @@ enum PLAYER_ACTION {
 	PLAYER_ACTION_ROLLATTACK,
 	PLAYER_ACTION_INJURED,
 	PLAYER_ACTION_STAND_UNSTOPPABLE,
+	PLAYER_ACTION_RUN_UNSTOPPABLE,
 	PLAYER_ACTION_STOP_CLIMB
 };
 
@@ -57,6 +58,9 @@ class Player:
 	bool unstoppable;
 	int currentSubWeapon;
 	bool makeEnemyPause;
+
+	//số frame của state Unstoppable.
+	int numberofFrames;
 public:
 	static Player* getInstance();
 

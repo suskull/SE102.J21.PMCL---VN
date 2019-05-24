@@ -1,44 +1,33 @@
 #include "RunningMan.h"
 #include"Player.h"
+#include"ScoreBar.h"
 
 
-void RunningMan::setRunningManState(RUNNINGMAN_STATE runningManState)
+
+void RunningMan::update(float dt)
 {
-	this->runningManState = runningManState;
+	
+	setVx(-GLOBALS_D("running_man_vx"));
+	Enemy::update(dt);
 }
 
 void RunningMan::onIntersect(MovableRect* other)
 {
-	if (other->getCollisionType()== COLLISION_TYPE_BARRIER_FOR_ENEMY)
+	if (other->getCollisionType() == COLLISION_TYPE_BARRIER_FOR_ENEMY)
 	{
-			setVx(-100);
-			setVy(100);
+		setVx(-GLOBALS_D("running_man_vx"));
+		setVy(-GLOBALS_D("running_man_vy"));
+	}
+	if (other->getCollisionType() == COLLISION_TYPE_WEAPON)
+	{
+		ScoreBar::getInstance()->increaseScore(GLOBALS_D("running_man_score"));
 	}
 	Enemy::onIntersect(other);
 }
 
-void RunningMan::update(float dt)
-{
-	switch (runningManState)
-	{
-	case RUNNINGMAN_STATE_WAIT:
-		setAnimation(RUNNINGMAN_ACTION_WAIT);
-		if (getX() - Player::getInstance()->getX() < 100)
-		{
-			setVx(-100);
-			setRunningManState(RUNNINGMAN_STATE_RUN);
-		}
-		break;
-	case RUNNINGMAN_STATE_RUN:
-		setAnimation(RUNNINGMAN_ACTION_RUN);
-		break;
-	}
-	Enemy::update(dt);
-}
-
 RunningMan::RunningMan()
 {
-	setRunningManState(RUNNINGMAN_STATE_WAIT);
+	setAnimation(0);
 }
 
 

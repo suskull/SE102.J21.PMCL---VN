@@ -25,6 +25,7 @@ class SittingMan :
 public:
 	void setSittingManState(SITTINGMAN_STATE sittingManState);
 	void update(float dt) override;
+	void onIntersect(MovableRect* other) override;
 	SittingMan();
 	~SittingMan();
 };

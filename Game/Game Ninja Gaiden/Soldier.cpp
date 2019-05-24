@@ -17,7 +17,7 @@ void Soldier::update(float dt)
 
 		if (getX() - player->getX() < (GLOBALS_D("backbuffer_width") / 2))
 		{
-			setVx(-50);
+			setVx(GLOBALS_D("soldier_vx"));
 			count = 0;
 			setSoldierState(SOLDIER_STATE_RUN);
 		}
@@ -28,7 +28,7 @@ void Soldier::update(float dt)
 		runFollowPlayer();
 		if (getIsLastFrameAnimationDone())
 			count++;
-		if (count > 5)
+		if (count > GLOBALS_D("soldier_time_prepare_attack"))
 		{
 			count = 0;
 			setSoldierState(SOLDIER_STATE_ATTACK);
@@ -44,14 +44,14 @@ void Soldier::update(float dt)
 			bl->setX(getX() + (getDirection() * 20));
 			bl->setY(getY() - 9);
 			bl->setDirection(getDirection());
-			bl->setVx(getDirection() * 60);
+			bl->setVx(getDirection() * GLOBALS_D("soldier_bullet_vx"));
 			isAttacking = true;
 			count++;
 		}
 		else 
 			isAttacking = false;
 		//bắn đủ 3 viên thì quay lại Run
-		if (count > 2)
+		if (count > (GLOBALS_D("soldier_bullet_count")-1))
 		{
 			count = 0;
 			setSoldierState(SOLDIER_STATE_RUN);
@@ -76,7 +76,7 @@ void Soldier::onCollision(MovableRect * other, float collisionTime, int nx, int 
 void Soldier::onIntersect(MovableRect* other)
 {
 	if (other->getCollisionType() == COLLISION_TYPE_WEAPON && getAlive())
-		ScoreBar::getInstance()->increaseScore(100);
+		ScoreBar::getInstance()->increaseScore(GLOBALS_D("soldier_score"));
 	Enemy::onIntersect(other);
 }
 
@@ -86,12 +86,12 @@ void Soldier::runFollowPlayer()
 	if (getMidX() > player->getMidX())
 	{
 		setDirection(DIRECTION_LEFT);
-		setVx(-20);
+		setVx(-GLOBALS_D("soldier_vx"));
 	}
 	else
 	{
 		setDirection(DIRECTION_RIGHT);
-		setVx(20);
+		setVx(GLOBALS_D("soldier_vx"));
 	}
 }
 
