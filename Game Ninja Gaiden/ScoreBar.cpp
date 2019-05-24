@@ -289,5 +289,5 @@ void ScoreBar::resetScoreGame()
 	setPlayerHealth(playerHealthLocation.MaxLength);
 	setBossHealth(bossHealthLocation.MaxLength);
 	setSpiritualStrengh(0);
-	setPauseTime(5);
+	setPauseTime(GLOBALS_D("item_clock_time"));
 }

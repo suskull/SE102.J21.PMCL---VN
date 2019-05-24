@@ -1,5 +1,5 @@
 #include "WindmillShuriken.h"
-
+#include "Sound.h"
 
 
 WindmillShuriken::WindmillShuriken()
@@ -30,6 +30,35 @@ void WindmillShuriken::onIntersect(MovableRect* other)
 {
 	if (other->getCollisionType() == COLLISION_TYPE_PLAYER)
 		setAlive(false);
+
+	if (other->getCollisionType() == COLLISION_TYPE_ENEMY && other->getAlive())
+	{
+
+		auto explosionEffect = new ExplosionEffect();
+		explosionEffect->setLocation(other->getMidX(), other->getMidY());
+
+	}
+
+	if (other->getCollisionType() == COLLISION_TYPE_BOSS)
+	{
+		ScoreBar::getInstance()->decreaseBossHealth(1);
+	}
+
+
+	if (other->getCollisionType() == COLLISION_TYPE_WEAPON_ENEMY)
+	{
+		other->setAlive(false);
+
+		auto explosionEffect = new ExplosionEffect();
+		explosionEffect->setLocation(other->getMidX(), other->getMidY());
+		Sound::getInstance()->loadSound("resource/sound/destroyEnemies.wav", "de");
+		Sound::getInstance()->play("de", false, 1);
+	}
+	if (other->getCollisionType() == COLLISION_TYPE_BUTTERFLY && other->getAlive())
+	{
+		auto explosionEffect = new ExplosionEffect();
+		explosionEffect->setLocation(other->getMidX(), other->getMidY());
+	}
 }
 
 

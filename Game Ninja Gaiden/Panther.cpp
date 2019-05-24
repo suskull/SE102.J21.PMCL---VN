@@ -5,11 +5,12 @@
 
 void Panther::update(float dt)
 {
+	
 	auto player = Player::getInstance();
 
 	switch (pantherState) {
 	case PATHER_STATE_WAIT:
-			setVx(-100);
+			setVx(-vx);
 			setPantherState(PATHER_STATE_RUN);
 		break;
 	case PATHER_STATE_RUN:
@@ -32,7 +33,7 @@ void Panther::onIntersect(MovableRect* other)
 {
 	if (other->getCollisionType() == COLLISION_TYPE_WEAPON && getAlive())
 	{
-		ScoreBar::getInstance()->increaseScore(100);
+		ScoreBar::getInstance()->increaseScore(score);
 	}
 	Enemy::onIntersect(other);
 }

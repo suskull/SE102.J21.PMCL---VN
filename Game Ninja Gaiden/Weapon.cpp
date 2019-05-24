@@ -29,13 +29,6 @@ void Weapon::onIntersect(MovableRect* other)
 	if (other->getCollisionType() == COLLISION_TYPE_BOSS )
 	{
 		ScoreBar::getInstance()->decreaseBossHealth(1);
-		//setAlive(false);
-
-		auto bullet = new Bullet();
-		bullet->setX(getX());
-		bullet->setY(getY());
-		/*auto explosionEffect = new ExplosionEffect();
-		explosionEffect->setLocation(other->getMidX(), other->getMidY());*/
 	}
 
 

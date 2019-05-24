@@ -3,7 +3,7 @@
 #include"SpriteManager.h"
 #include"Player.h"
 class WindmillShuriken:
-	public AdditionalObject
+	public Weapon
 {
 public:
 	WindmillShuriken();

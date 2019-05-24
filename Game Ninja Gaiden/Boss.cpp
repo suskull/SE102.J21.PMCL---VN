@@ -40,7 +40,7 @@ void Boss::onIntersect(MovableRect* other)
 {
 	if (other->getCollisionType() == COLLISION_TYPE_WEAPON && getIsLastFrameAnimationDone())
 	{
-		ScoreBar::getInstance()->decreaseBossHealth(1);
+		ScoreBar::getInstance()->decreaseBossHealth(GLOBALS_D("boss_decrease_health_per_attack"));
 		//setBossState(BOSS_STATE_INJURED);
 	}
 }
@@ -65,10 +65,10 @@ void Boss::update(float dt)
 		setAnimation(BOSS_ACTION_STAND);
 		if (getIsLastFrameAnimationDone())
 			count++;
-		if (count > 5)
+		if (count > GLOBALS_D("boss_time_per_jump"))
 		{
-			setVy(300);
-			setVx(getDirection() * 120);
+			setVy(GLOBALS_D("boss_vy"));
+			setVx(getDirection() * GLOBALS_D("boss_vx"));
 			count = 0;
 			setBossState(BOSS_STATE_JUMP);
 			
@@ -88,10 +88,10 @@ void Boss::update(float dt)
 			if (getIsRender())
 			{
 				BossWeapon* bl = new BossWeapon();
-				bl->setX(getX() + (getDirection() * 30));
+				bl->setX(getX() + (getDirection() * 10));
 				bl->setY(getY() - 30);
 				bl->setDirection(getDirection());
-				bl->setVx(getDirection() * 80);
+				bl->setVx(getDirection() * GLOBALS_D("boss_weapon_vx"));
 			}
 
 
