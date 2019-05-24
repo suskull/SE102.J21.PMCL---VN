@@ -64,20 +64,20 @@ void MapManager::InitMap()
 	switch (getCurrentMapIndex())
 	{
 	case 0:
-		Sound::getInstance()->stop("map2");
-		Sound::getInstance()->stop("map3");
-		Sound::getInstance()->loadSound("resource/sound/map1.wav", "map1");
-		Sound::getInstance()->play("map1", true, 0);
+		Sound::getInstance()->stop("stage3-2");
+		Sound::getInstance()->stop("stage3-3");
+		Sound::getInstance()->loadSound("resource/sound/stage3-1.wav", "stage3-1");
+		Sound::getInstance()->play("stage3-1", true, 0);
 		break;
 	case 1:
-		Sound::getInstance()->stop("map1");
-		Sound::getInstance()->loadSound("resource/sound/map2.wav", "map2");
-		Sound::getInstance()->play("map2", true, 0);
+		Sound::getInstance()->stop("stage3-1");
+		Sound::getInstance()->loadSound("resource/sound/stage3-2.wav", "stage3-2");
+		Sound::getInstance()->play("stage3-2", true, 0);
 		break;
 	case 2:
-		Sound::getInstance()->stop("map2");
-		Sound::getInstance()->loadSound("resource/sound/map3.wav", "map3");
-		Sound::getInstance()->play("map3", true, 0);
+		Sound::getInstance()->stop("stage3-2");
+		Sound::getInstance()->loadSound("resource/sound/stage3-3.wav", "stage3-3");
+		Sound::getInstance()->play("stage3-3", true, 0);
 		break;
 	}
 }
@@ -224,7 +224,16 @@ void MapManager::update(float dt)
 	KEY::getInstance()->update();
 	Player* player = Player::getInstance();
 	
-
+	if (isChangeMap)
+	{
+		InitMap();
+		Camera::getInstance()->set(
+			0,
+			GLOBALS_D("backbuffer_height"),
+			GLOBALS_D("backbuffer_width"),
+			GLOBALS_D("backbuffer_height"));
+		isChangeMap = false;
+	}
 
 	for (size_t i = 0; i < objectsInCamera.Count; i++)
 	{
@@ -239,19 +248,13 @@ void MapManager::update(float dt)
 			Collision::CheckCollision(objectsInCamera[i], Player::getInstance());
 		}
 
-
+		if (ScoreBar::getInstance()->getIsPauseGame())
+		{
+			objectsInCamera[i]->setIsPause(true);
+		}
 	}
 
-	if (isChangeMap)
-	{
-		InitMap();
-		Camera::getInstance()->set(
-			0,
-			GLOBALS_D("backbuffer_height"),
-			GLOBALS_D("backbuffer_width"),
-			GLOBALS_D("backbuffer_height"));
-		isChangeMap = false;
-	}
+	
 
 	player->update(dt);
 	Camera::getInstance()->update();
@@ -373,7 +376,7 @@ MapManager::MapManager()
 
 		listMap._Add(map);
 	}
-	setCurrentMap(0);
+	setCurrentMap(1);
 
 	//do mới khởi tạo
 	isChangeMap = false;

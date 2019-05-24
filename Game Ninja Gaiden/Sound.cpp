@@ -1,5 +1,5 @@
 #include "Sound.h"
-#include "GameLog.h"
+//#include "GameLog.h"
 #include "WindowGame.h"
 
 Sound* Sound::instance = nullptr;
@@ -21,10 +21,10 @@ Sound::Sound(HWND hWnd)
 
 	result = DirectSoundCreate8(NULL, &pDevice, NULL);
 
-	if (FAILED(result))
+	/*if (FAILED(result))
 	{
 		GAMELOG("Can not create device");
-	}
+	}*/
 
 	result = pDevice->SetCooperativeLevel(hWnd, DSSCL_PRIORITY); // set the cooperative level.
 
@@ -37,10 +37,10 @@ Sound::Sound(HWND hWnd)
 
 	result = pDevice->CreateSoundBuffer(&bufferDesc, &primaryBuffer, NULL);
 
-	if (FAILED(result))
-	{
-		GAMELOG("Can not create primaryBuffer");
-	}
+	//if (FAILED(result))
+	//{
+	//	GAMELOG("Can not create primaryBuffer");
+	//}
 	volume = 100.0f;
 	isMute = false;
 }
@@ -94,20 +94,20 @@ void Sound::loadSound(const char* fileName, std::string name)
 	unsigned long bufferSize;
 
 	int error = fopen_s(&filePtr, fileName, "rb");
-	if (error != 0)
-	{
-		GAMELOG(" Can not load: %s", fileName);
-		return;
-	}
+	//if (error != 0)
+	//{
+	//	GAMELOG(" Can not load: %s", fileName);
+	//	return;
+	//}
 
 	fread(&waveHeaderStruct, sizeof(WaveHeaderStruct), 1, filePtr);
 	//fread(&waveFileHeader, sizeof(waveFileHeader), 1, filePtr);
 
-	if ((waveHeaderStruct.format[0] != 'W') || (waveHeaderStruct.format[1] != 'A') ||
+	/*if ((waveHeaderStruct.format[0] != 'W') || (waveHeaderStruct.format[1] != 'A') ||
 		(waveHeaderStruct.format[2] != 'V') || (waveHeaderStruct.format[3] != 'E'))
 	{
 		GAMELOG(" file format does not support: %s", fileName);
-	}
+	}*/
 
 	waveFormat.wFormatTag = WAVE_FORMAT_PCM;
 	waveFormat.nSamplesPerSec = waveHeaderStruct.sampleRate;
@@ -137,11 +137,11 @@ void Sound::loadSound(const char* fileName, std::string name)
 	tempBuffer->Release();
 	tempBuffer = 0;
 
-	if (FAILED(result))
+	/*if (FAILED(result))
 	{
 		GAMELOG(" Can not create secondaryBuffer ");
 		return;
-	}
+	}*/
 
 	//fseek(filePtr, sizeof(WaveHeaderStruct), SEEK_SET); // move the filePointer cursor to data section
 
@@ -155,10 +155,10 @@ void Sound::loadSound(const char* fileName, std::string name)
 	fread(wavData, waveHeaderStruct.dataSize, 1, filePtr);
 
 	error = fclose(filePtr);
-	if (error != 0)
+	/*if (error != 0)
 	{
 		GAMELOG(" Can not close file ");
-	}
+	}*/
 
 	result = (*pSecondaryBuffer)->Lock(0, waveHeaderStruct.dataSize, (void**)& bufferPtr, (DWORD*)& bufferSize, NULL, 0, 0);
 

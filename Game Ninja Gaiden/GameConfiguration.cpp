@@ -25,6 +25,7 @@ double GameConfiguration::GetConfiguration(const char * key)
 		globalsConfigurationDouble->insert(pair<const char*, double>("gravity_ay", -500));
 		globalsConfigurationDouble->insert(pair<const char*, double>("object_animation_time_default", 100));
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_health", 16));
+		globalsConfigurationDouble->insert(pair<const char*, double>("seconds_for_die", 4));
 		//Climb
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_climb_vy", 60));
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_climb_jump_vy", 70));

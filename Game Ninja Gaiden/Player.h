@@ -20,7 +20,8 @@ enum PLAYER_ACTION {
 	PLAYER_ACTION_INJURED,
 	PLAYER_ACTION_STAND_UNSTOPPABLE,
 	PLAYER_ACTION_RUN_UNSTOPPABLE,
-	PLAYER_ACTION_STOP_CLIMB
+	PLAYER_ACTION_STOP_CLIMB,
+	PLAYER_ACTION_DIE
 };
 
 enum PLAYER_STATE {
@@ -61,6 +62,7 @@ class Player:
 
 	//số frame của state Unstoppable.
 	int numberofFrames;
+	bool isReseting;
 public:
 	static Player* getInstance();
 

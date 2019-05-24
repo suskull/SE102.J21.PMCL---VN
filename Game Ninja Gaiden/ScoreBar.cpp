@@ -97,14 +97,20 @@ void ScoreBar::decreaseTime(int time)
 	auto player = Player::getInstance();
 	if (player->getMakeEnemyPause())
 	{
+		Sound::getInstance()->loadSound("resource/sound/clock.wav", "clock");
+		Sound::getInstance()->play("clock", false, 1);
 		pauseTime--;
+		
 		//hết thời gian pause thì cho chuyển động bt.
 		if (pauseTime == 0)
 		{
+			//Sound::getInstance()->stop("item_clock");
 			player->setMakeEnemyPause(false);
 		}
 	}
 
+	if (player->getPlayerState() == PLAYER_STATE_DIE)
+		dieTime--;
 }
 
 int ScoreBar::getTime()
@@ -115,6 +121,26 @@ int ScoreBar::getTime()
 void ScoreBar::setPauseTime(int pauseTime)
 {
 	this->pauseTime = pauseTime;
+}
+
+void ScoreBar::setDieTime(int dieTime)
+{
+	this->dieTime = dieTime;
+}
+
+int ScoreBar::getDieTime()
+{
+	return this->dieTime;
+}
+
+void ScoreBar::setIsPauseGame(bool isPauseGame)
+{
+	this->isPauseGame = isPauseGame;
+}
+
+bool ScoreBar::getIsPauseGame()
+{
+	return this->isPauseGame;
 }
 
 int ScoreBar::getPlayerHealth()
@@ -291,4 +317,5 @@ void ScoreBar::resetScoreGame()
 	setBossHealth(bossHealthLocation.MaxLength);
 	setSpiritualStrengh(0);
 	setPauseTime(GLOBALS_D("item_clock_time"));
+	setDieTime(GLOBALS_D("seconds_for_die"));
 }

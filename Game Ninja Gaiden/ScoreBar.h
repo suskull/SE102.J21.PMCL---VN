@@ -30,6 +30,8 @@ class ScoreBar
 
 	GameTime gameTime;
 	int pauseTime;
+	int dieTime;
+	bool isPauseGame;
 
 	int score;
 	int time;
@@ -58,6 +60,12 @@ public:
 	int getTime();
 
 	void setPauseTime(int pauseTime);
+
+	void setDieTime(int dieTime);
+	int getDieTime();
+
+	void setIsPauseGame(bool isPauseGame);
+	bool getIsPauseGame();
 
 	int getPlayerLife();
 	void setPlayerLife(int playerLife);

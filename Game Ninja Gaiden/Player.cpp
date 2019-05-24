@@ -36,7 +36,7 @@ void Player::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 
 	//}
 
-	if (other->getCollisionType() == COLLISION_TYPE_ENEMY && !unstoppable)
+	if (other->getCollisionType() == COLLISION_TYPE_ENEMY && !unstoppable && !isReseting)
 	{
 		setVx(-nx * GLOBALS_D("player_injured_vx"));
 		setVy(GLOBALS_D("player_injured_vy"));
@@ -48,7 +48,7 @@ void Player::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 		
 	}
 
-	if (other->getCollisionType() == COLLISION_TYPE_BOSS && !unstoppable)
+	if (other->getCollisionType() == COLLISION_TYPE_BOSS && !unstoppable && !isReseting)
 	{
 		setVx(-nx * GLOBALS_D("player_injured_vx"));
 		setVy(GLOBALS_D("player_injured_vy"));
@@ -73,7 +73,7 @@ void Player::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 
 void Player::onIntersect(MovableRect* other)
 {
-	if ((other->getCollisionType() == COLLISION_TYPE_ENEMY && !unstoppable) || (other->getCollisionType() == COLLISION_TYPE_WEAPON_ENEMY && !unstoppable))
+	if ((other->getCollisionType() == COLLISION_TYPE_ENEMY && !unstoppable && !isReseting) || (other->getCollisionType() == COLLISION_TYPE_WEAPON_ENEMY && !unstoppable && !isReseting))
 	{
 		setVx(-getDirection() * GLOBALS_D("player_injured_vx"));
 		setAy(GLOBALS_D("gravity_ay"));
@@ -85,7 +85,7 @@ void Player::onIntersect(MovableRect* other)
 		ScoreBar::getInstance()->decreaseHealth(GLOBALS_D("player_injured_enemy"));
 	}
 
-	if (other->getCollisionType() == COLLISION_TYPE_WEAPON_ENEMY && !unstoppable)
+	/*if (other->getCollisionType() == COLLISION_TYPE_WEAPON_ENEMY && !unstoppable && isReseting)
 	{
 		setVx(-getDirection() * GLOBALS_D("player_injured_vx"));
 		setAy(GLOBALS_D("gravity_ay"));
@@ -95,7 +95,7 @@ void Player::onIntersect(MovableRect* other)
 		Sound::getInstance()->loadSound("resource/sound/injured.wav", "injured");
 		Sound::getInstance()->play("injured", false, 1);
 		ScoreBar::getInstance()->decreaseHealth(GLOBALS_D("player_injured_enemy"));
-	}
+	}*/
 }
 
 
@@ -106,15 +106,20 @@ void Player::update(float dt)
 	float vroll = GLOBALS_D("player_roll");
 	auto key = KEY::getInstance();
 
-	if (!getAlive())
+
+	if ((!getAlive() || ScoreBar::getInstance()->getPlayerHealth() == 0) && !isReseting)
 	{
+
+		Sound::getInstance()->loadSound("resource/sound/player_die.wav", "player_die");
+		Sound::getInstance()->play("player_die", false, 1);
+
+		string idCurrentMap = MapManager::getInstance()->getCurrentMap()->ID;
+		Sound::getInstance()->stop(idCurrentMap);
+
 		setPlayerState(PLAYER_STATE_DIE);
+	
 	}
 
-	if (ScoreBar::getInstance()->getPlayerHealth() == 0)
-	{
-		setPlayerState(PLAYER_STATE_DIE);
-	}
 	
 	//số frame tối đa của state unstoppable.
 	if (numberofFrames > 8)
@@ -507,38 +512,51 @@ void Player::update(float dt)
 		break;
 	case PLAYER_STATE_DIE:
 	{
-		setDx(0);
-		setDy(0);
+		setAnimation(PLAYER_ACTION_DIE);
 		auto scoreBar = ScoreBar::getInstance();
 		auto mapManager = MapManager::getInstance();
+		scoreBar->setPlayerHealth(0);
+		scoreBar->setIsPauseGame(true);
+		setDx(0);
+		setDy(0);
+		isReseting = true;
+		
 
-
-		//khởi tạo lại cho Player.
-		setAlive(true);
-		setIsRender(true);
-		setPlayerState(PLAYER_STATE_STAND);
-		ScoreBar::getInstance()->setPlayerHealth(GLOBALS_D("player_health"));
-		ScoreBar::getInstance()->setBossHealth(GLOBALS_D("boss_health"));
-
-		if (scoreBar->getPlayerLife() > 0)
+		if (scoreBar->getDieTime() <= 0)
 		{
-			// còn mạng thì quay về map HIỆN TẠI
-			scoreBar->decreasePlayerLife();
-			mapManager->setCurrentMap(mapManager->getCurrentMapIndex());
+			//khởi tạo lại cho Player.
+			setAlive(true);
+			setIsRender(true);
+			setVy(0);
+			setVx(0);
+			setPlayerState(PLAYER_STATE_STAND);
+			ScoreBar::getInstance()->setPlayerHealth(GLOBALS_D("player_health"));
+			ScoreBar::getInstance()->setBossHealth(GLOBALS_D("boss_health"));
 
-			setX(MapManager::getInstance()->getCurrentMap()->playerX);
-			setY(MapManager::getInstance()->getCurrentMap()->playerY);
-			
-		}
-		else
-			// hết mạng thì quay vào map ĐẦU TIÊN
-		{
-			scoreBar->resetScoreGame();
-			mapManager->setCurrentMap(0);
+			if (scoreBar->getPlayerLife() > 0)
+			{
+				// còn mạng thì quay về map HIỆN TẠI
+				scoreBar->decreasePlayerLife();
+				mapManager->setCurrentMap(mapManager->getCurrentMapIndex());
 
-			setX(MapManager::getInstance()->getCurrentMap()->playerX);
-			setY(MapManager::getInstance()->getCurrentMap()->playerY);
+				setX(MapManager::getInstance()->getCurrentMap()->playerX);
+				setY(MapManager::getInstance()->getCurrentMap()->playerY);
+			}
+			else
+				// hết mạng thì quay vào map ĐẦU TIÊN
+			{
+				scoreBar->resetScoreGame();
+				mapManager->setCurrentMap(0);
+
+				setX(MapManager::getInstance()->getCurrentMap()->playerX);
+				setY(MapManager::getInstance()->getCurrentMap()->playerY);
+			}
+			isReseting = false;
+			scoreBar->setDieTime(GLOBALS_D("seconds_for_die"));
+			scoreBar->setIsPauseGame(false);
 		}
+
+		
 		break;
 	}
 
@@ -609,8 +627,11 @@ Player::Player()
 	setDirection(DIRECTION_RIGHT);
 	setPlayerState(PLAYER_STATE_STAND);
 	setCollisionType(COLLISION_TYPE_PLAYER);
+
 	setCurrentSubWeapon(SUBWEAPON_NULL);
 	//setCurrentSubWeapon(SUBWEAPON_SHURIKEN);
+	
+	
 }
 
 

@@ -169,7 +169,6 @@
     <ClCompile Include="Sound.cpp">
       <Filter>Sound</Filter>
     </ClCompile>
-    <ClCompile Include="GameLog.cpp" />
     <ClCompile Include="BossWeapon.cpp">
       <Filter>Weapon and Subweapon</Filter>
     </ClCompile>
@@ -346,7 +345,6 @@
     <ClInclude Include="Sound.h">
       <Filter>Sound</Filter>
     </ClInclude>
-    <ClInclude Include="GameLog.h" />
     <ClInclude Include="BossWeapon.h">
       <Filter>Weapon and Subweapon</Filter>
     </ClInclude>
