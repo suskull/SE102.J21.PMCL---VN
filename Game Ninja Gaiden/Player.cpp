@@ -175,7 +175,8 @@ void Player::update(float dt)
 			if (getCurrentSubWeapon() == SUBWEAPON_FIREWHEEL)
 			{
 				setPlayerState(PLAYER_STATE_FLAME1);
-				
+				Sound::getInstance()->loadSound("resource/sound/flame.wav", "flame");
+				Sound::getInstance()->play("flame", false, 1);
 				
 			}
 			
@@ -344,12 +345,15 @@ void Player::update(float dt)
 		setAnimation(PLAYER_ACTION_SHURIKEN);
 		if (getFrameAnimation() == 1 && !isAttacked)
 		{
-			WindmillShuriken* ws = new WindmillShuriken();
-			ws->setX(this->getX() + getWidthCurrentFrame() * getDirection());
-			this->setVx(0);
-			ws->setY(this->getY() - 5);
-			ws->setVx(GLOBALS_D("shuriken_vx")* getDirection());
-			isAttacked = true;
+			if (ScoreBar::getInstance()->decreaseSpiritualStrengh(GLOBALS_D("spriritual_strenght_per_windmillshuriken")))
+			{
+				WindmillShuriken* ws = new WindmillShuriken();
+				ws->setX(this->getX() + getWidthCurrentFrame() * getDirection());
+				this->setVx(0);
+				ws->setY(this->getY() - 5);
+				ws->setVx(GLOBALS_D("shuriken_vx")* getDirection());
+				isAttacked = true;
+			}
 		}
 		if (getIsLastFrameAnimationDone())
 			setPlayerState(PLAYER_STATE_STAND);
@@ -422,14 +426,17 @@ void Player::update(float dt)
 		setAnimation(PLAYER_ACTION_SHURIKEN);
 		if (getFrameAnimation() == 1 && !isAttacked)
 		{
-			Flame* fl = new Flame();
-			fl->setX(this->getX() + getWidthCurrentFrame() * getDirection());
-			this->setVx(0);
-			fl->setY(this->getY() + 25);
-			fl->setVx(GLOBALS_D("flame_vx") * getDirection());
-			fl->setVy(GLOBALS_D("flame_vy"));
+			if (ScoreBar::getInstance()->decreaseSpiritualStrengh(GLOBALS_D("spriritual_strenght_per_flame")))
+			{
+				Flame* fl = new Flame();
+				fl->setX(this->getX() + getWidthCurrentFrame() * getDirection());
+				this->setVx(0);
+				fl->setY(this->getY() + 25);
+				fl->setVx(GLOBALS_D("flame_vx")* getDirection());
+				fl->setVy(GLOBALS_D("flame_vy"));
 
-			isAttacked = true;
+				isAttacked = true;
+			}
 		}
 		if (getIsLastFrameAnimationDone())
 			setPlayerState(PLAYER_STATE_STAND);

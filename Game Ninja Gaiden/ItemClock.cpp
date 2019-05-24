@@ -1,5 +1,5 @@
 #include "ItemClock.h"
-
+#include"Sound.h"
 
 
 void ItemClock::onIntersect(MovableRect* other)
@@ -8,6 +8,8 @@ void ItemClock::onIntersect(MovableRect* other)
 	{
 	
 		Player::getInstance()->setMakeEnemyPause(true);
+		Sound::getInstance()->loadSound("resource/sound/clock.wav", "clock");
+		Sound::getInstance()->play("clock", false, 1);
 		
 	}
 	Item::onIntersect(other);

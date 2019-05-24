@@ -9,6 +9,5 @@ public:
 	Flame();
 	~Flame();
 	void update(float dt) override;
-	//void onIntersect(MovableRect* other) override;
 };
 

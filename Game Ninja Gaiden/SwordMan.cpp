@@ -39,6 +39,17 @@ void SwordMan::onIntersect(MovableRect* other)
 {
 	if (other->getCollisionType() == COLLISION_TYPE_WEAPON && getAlive())
 		ScoreBar::getInstance()->increaseScore(GLOBALS_D("swordman_score"));
+
+	if (other->getCollisionType() == COLLISION_TYPE_BARRIER_FOR_ENEMY)
+	{
+		if (getDx() < 0 && getIsLastFrameAnimationDone())
+		{
+			setVx(abs(getVx()));
+		}
+		if (getDx() > 0 && getIsLastFrameAnimationDone())
+			setVx(-abs(getVx()));
+	}
+
 	Enemy::onIntersect(other);
 }
 

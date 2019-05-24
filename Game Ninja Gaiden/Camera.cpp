@@ -56,13 +56,13 @@ void Camera::update()
 		player->setX(widthCurrentMap - player->getWidth());
 	
 	//ràng buộc camera k vẽ ngoài bên trái và phải map
-	if (getX() < -getDx() && getDx() < 0)
+	if (getX() + getDx() < 0  && getDx() < 0)
 	{
 		setX(0);
 		setDx(0);
 	}
 
-	if (getRight() > widthCurrentMap - getDx() && getDx() > 0)
+	if (getRight() + getDx() > widthCurrentMap && getDx() > 0)
 	{
 		setX(widthCurrentMap - getWidth());
 		setDx(0);

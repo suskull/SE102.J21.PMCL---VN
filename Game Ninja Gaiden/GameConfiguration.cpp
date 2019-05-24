@@ -34,12 +34,15 @@ double GameConfiguration::GetConfiguration(const char * key)
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_injured_vy", 150));
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_injured_boss", 2));
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_injured_enemy", 1));
-		//Shurien
+		//Shuriken
 		globalsConfigurationDouble->insert(pair<const char*, double>("shuriken_vx", 150));
 		globalsConfigurationDouble->insert(pair<const char*, double>("spriritual_strenght_per_shuriken", 3));
 		//Flame
 		globalsConfigurationDouble->insert(pair<const char*, double>("flame_vx", 70));
 		globalsConfigurationDouble->insert(pair<const char*, double>("flame_vy", 70));
+		globalsConfigurationDouble->insert(pair<const char*, double>("spriritual_strenght_per_flame", 4));
+		//Windmill Shuriken
+		globalsConfigurationDouble->insert(pair<const char*, double>("spriritual_strenght_per_windmillshuriken", 5));
 
 		//---------------------------------ENEMY-------------------------------------
 		//Panther

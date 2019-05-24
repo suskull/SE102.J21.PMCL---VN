@@ -22,6 +22,4 @@ void Flame::update(float dt)
 	BaseObject::update(dt);
 }
 
-//void Flame::onIntersect(MovableRect * other)
-//{
-//}
+

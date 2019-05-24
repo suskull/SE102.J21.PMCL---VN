@@ -1,5 +1,6 @@
 ﻿#include "ScoreBar.h"
 #include"Player.h"
+#include"Sound.h"
 
 #define NUMBER_WIDTH 8
 #define HEALTH_WIDTH 4

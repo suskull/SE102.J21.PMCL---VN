@@ -38,22 +38,15 @@ void Enemy::onIntersect(MovableRect* other)
 
 
 	//lấy từ onCollision
-	if (other->getCollisionType() == COLLISION_TYPE_BARRIER_FOR_ENEMY)
+	/*if (other->getCollisionType() == COLLISION_TYPE_BARRIER_FOR_ENEMY)
 	{
-		//setAlive(false);
-		/*setVx(-getVx());
-		if (getDirection() == DIRECTION_LEFT)
+		if (getDx() < 0)
 		{
-			setX(getX() - abs(getWidthCurrentFrame() - getWidth()));
-			setWidth(getWidthCurrentFrame());
+			setVx(abs(getVx()));
 		}
-		else
-			setX(getX() + 7);*/
-		//
-		
-		//else
-		//	setX(getX() - (getWidthCurrentFrame() - getWidth()));
-	}
+		if (getDx() > 0)
+			setVx(-abs(getVx()));
+	}*/
 }
 
 void Enemy::render(Camera* camera)
