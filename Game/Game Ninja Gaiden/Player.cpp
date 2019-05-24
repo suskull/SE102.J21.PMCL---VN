@@ -511,6 +511,7 @@ void Player::update(float dt)
 		setIsRender(true);
 		setPlayerState(PLAYER_STATE_STAND);
 		ScoreBar::getInstance()->setPlayerHealth(GLOBALS_D("player_health"));
+		ScoreBar::getInstance()->setBossHealth(GLOBALS_D("boss_health"));
 
 		if (scoreBar->getPlayerLife() > 0)
 		{

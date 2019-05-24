@@ -259,6 +259,7 @@ void MapManager::update(float dt)
 	for (size_t i = 0; i < AdditionalObject::getListObject()->Count; i++)
 	{
 		Collision::CheckCollision(player, AdditionalObject::getListObject()->at(i));
+		Collision::CheckCollision(AdditionalObject::getListObject()->at(i), player);
 
 		//xét va chạm giữa Weapon và ...
 		if (AdditionalObject::getListObject()->at(i)->getCollisionType() == COLLISION_TYPE_WEAPON)
@@ -372,7 +373,7 @@ MapManager::MapManager()
 
 		listMap._Add(map);
 	}
-	setCurrentMap(0);
+	setCurrentMap(2);
 
 	//do mới khởi tạo
 	isChangeMap = false;

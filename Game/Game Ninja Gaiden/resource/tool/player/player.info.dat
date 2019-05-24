@@ -118,7 +118,7 @@ Frame Count
 2
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-0			0			0				0				0			0			
+503			0			16				32				0			0			
 0			0			17				32				0			0
 
 
@@ -128,11 +128,11 @@ Frame Count
 6
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-0			0			0				0				0			0			
+503			0			16				31				0			0			
 17			1			20				31				0			0
-0			0			0				0				0			0			
+503			0			16				31				0			0			
 37			1			22				31				0			0
-0			0			0				0				0			0			
+503			0			16				31				0			0			
 59			1			20				31				0			0
 
 

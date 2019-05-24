@@ -63,6 +63,7 @@ void SittingMan::onIntersect(MovableRect* other)
 	{
 		ScoreBar::getInstance()->increaseScore(GLOBALS_D("sitting_man_score"));
 	}
+	Enemy::onIntersect(other);
 }
 
 SittingMan::SittingMan()

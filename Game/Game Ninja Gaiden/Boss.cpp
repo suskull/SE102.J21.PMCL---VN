@@ -52,8 +52,8 @@ void Boss::update(float dt)
 	{
 
 		setBossState(BOSS_STATE_DEAD);
-		Sound::getInstance()->loadSound("resource/sound/31.wav", "31");
-		Sound::getInstance()->play("31", true, 4);
+		Sound::getInstance()->loadSound("resource/sound/be.wav", "be");
+		Sound::getInstance()->play("be", true, 4);
 		
 	}
 
@@ -88,7 +88,7 @@ void Boss::update(float dt)
 			if (getIsRender())
 			{
 				BossWeapon* bl = new BossWeapon();
-				bl->setX(getX() + (getDirection() * 30));
+				bl->setX(getX() + (getDirection() * 10));
 				bl->setY(getY() - 30);
 				bl->setDirection(getDirection());
 				bl->setVx(getDirection() * GLOBALS_D("boss_weapon_vx"));
