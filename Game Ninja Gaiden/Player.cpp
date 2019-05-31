@@ -21,27 +21,24 @@ void Player::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 	}
 	
 
-	//if (other->getCollisionType() == COLLISION_TYPE_GROUND && nx == -1)
-	//{
-	//	//setVy(0);
-	//	preventMovementWhenCollision(collisionTime, nx, ny);
-	//	setVx(0);
-	//}
-
-	//if (other->getCollisionType() == COLLISION_TYPE_GROUND && nx == 1)
-	//{
-	//	setVy(0);
-	//	preventMovementWhenCollision(collisionTime, nx, ny);
-	//	//setX(getX() + nx);
-
-	//}
-
-	if (other->getCollisionType() == COLLISION_TYPE_ENEMY && !unstoppable && !isReseting)
+	if (other->getCollisionType() == COLLISION_TYPE_GROUND && nx == -1)
 	{
-		setVx(-nx * GLOBALS_D("player_injured_vx"));
+		setDx(0);
+		setVx(0);
+	}
+
+	/*if (other->getCollisionType() == COLLISION_TYPE_GROUND && nx == 1)
+	{
+		setDx(0);
+		setVx(0);
+	}*/
+
+	if ((other->getCollisionType() == COLLISION_TYPE_ENEMY && !unstoppable && !isReseting) || (other->getCollisionType() == COLLISION_TYPE_WEAPON_ENEMY && !unstoppable && !isReseting))
+	{
+		setVx(nx * GLOBALS_D("player_injured_vx"));
 		setVy(GLOBALS_D("player_injured_vy"));
-		setPlayerState(PLAYER_STATE_INJURED);
 		setIsOnGround(false);
+		setPlayerState(PLAYER_STATE_INJURED);
 		Sound::getInstance()->loadSound("resource/sound/injured.wav", "injured");
 		Sound::getInstance()->play("injured", false, 1);
 		ScoreBar::getInstance()->decreaseHealth(GLOBALS_D("player_injured_enemy"));
@@ -73,7 +70,7 @@ void Player::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 
 void Player::onIntersect(MovableRect* other)
 {
-	if ((other->getCollisionType() == COLLISION_TYPE_ENEMY && !unstoppable && !isReseting) || (other->getCollisionType() == COLLISION_TYPE_WEAPON_ENEMY && !unstoppable && !isReseting))
+	if ((other->getCollisionType() == COLLISION_TYPE_ENEMY && !unstoppable && !isReseting) ||(other->getCollisionType() == COLLISION_TYPE_WEAPON_ENEMY && !unstoppable && !isReseting))
 	{
 		setVx(-getDirection() * GLOBALS_D("player_injured_vx"));
 		setAy(GLOBALS_D("gravity_ay"));
@@ -85,17 +82,6 @@ void Player::onIntersect(MovableRect* other)
 		ScoreBar::getInstance()->decreaseHealth(GLOBALS_D("player_injured_enemy"));
 	}
 
-	/*if (other->getCollisionType() == COLLISION_TYPE_WEAPON_ENEMY && !unstoppable && isReseting)
-	{
-		setVx(-getDirection() * GLOBALS_D("player_injured_vx"));
-		setAy(GLOBALS_D("gravity_ay"));
-		setVy(GLOBALS_D("player_injured_vy"));
-		setPlayerState(PLAYER_STATE_INJURED);
-		setIsOnGround(false);
-		Sound::getInstance()->loadSound("resource/sound/injured.wav", "injured");
-		Sound::getInstance()->play("injured", false, 1);
-		ScoreBar::getInstance()->decreaseHealth(GLOBALS_D("player_injured_enemy"));
-	}*/
 }
 
 
@@ -447,7 +433,7 @@ void Player::update(float dt)
 			setPlayerState(PLAYER_STATE_STAND);
 		break;
 	}
-	case PLAYER_STATE_FLAME2: {
+	/*case PLAYER_STATE_FLAME2: {
 		setAnimation(PLAYER_ACTION_SHURIKEN);
 		if (getFrameAnimation() == 1 && !isAttacked)
 		{
@@ -501,7 +487,7 @@ void Player::update(float dt)
 		if (getIsLastFrameAnimationDone())
 			setPlayerState(PLAYER_STATE_STAND);
 		break;
-	}
+	}*/
 	case PLAYER_STATE_INJURED:
 		setPhysicsEnable(true);
 		setAy(GLOBALS_D("gravity_ay"));

@@ -175,7 +175,6 @@
     <ClCompile Include="BossEffect.cpp">
       <Filter>Effect</Filter>
     </ClCompile>
-    <ClCompile Include="Ladder.cpp" />
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="Cell.cpp" />
   </ItemGroup>
@@ -351,7 +350,6 @@
     <ClInclude Include="BossEffect.h">
       <Filter>Effect</Filter>
     </ClInclude>
-    <ClInclude Include="Ladder.h" />
     <ClInclude Include="Grid.h" />
     <ClInclude Include="Cell.h" />
   </ItemGroup>

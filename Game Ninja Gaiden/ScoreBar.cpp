@@ -102,7 +102,7 @@ void ScoreBar::decreaseTime(int time)
 		pauseTime--;
 		
 		//hết thời gian pause thì cho chuyển động bt.
-		if (pauseTime == 0)
+		if (pauseTime <= 0)
 		{
 			//Sound::getInstance()->stop("item_clock");
 			player->setMakeEnemyPause(false);

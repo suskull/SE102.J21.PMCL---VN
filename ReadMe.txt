@@ -1,1 +1,0 @@
-Create Game Ninja Gaiden C++

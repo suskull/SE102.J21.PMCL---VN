@@ -240,12 +240,12 @@ void MapManager::update(float dt)
 		objectsInCamera[i]->update(dt);
 		if (player->getAlive() && objectsInCamera[i]->getAlive())
 		{
-			Collision::CheckCollision(Player::getInstance(), objectsInCamera[i]);
+			Collision::CheckCollision(player, objectsInCamera[i]);
 			if (objectsInCamera[i]->getCollisionType() == COLLISION_TYPE_ENEMY)
 				if (player->getMakeEnemyPause())
 					objectsInCamera[i]->setIsPause(true);
 				else objectsInCamera[i]->setIsPause(false);
-			Collision::CheckCollision(objectsInCamera[i], Player::getInstance());
+			Collision::CheckCollision(objectsInCamera[i], player);
 		}
 
 		if (ScoreBar::getInstance()->getIsPauseGame())
