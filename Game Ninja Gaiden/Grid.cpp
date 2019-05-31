@@ -61,7 +61,7 @@ void Grid::update(List<BaseObject*> allObjects, List<BaseObject*> &objectsInCame
 		}
 		else if (listCells[i].isIntesected) 
 		{
-			resetLocationAndStateOfObjects(listCells[i], allObjects);
+			resetLocationOfObjects(listCells[i], allObjects);
 			removeListObjects(listCells[i], allObjects, objectsInCamera);
 			listCells[i].isIntesected = false;
 		}
@@ -96,7 +96,7 @@ void Grid::removeListObjects(Cell Cell, List<BaseObject*> allObjects, List<BaseO
 	}
 }
 
-void Grid::resetLocationAndStateOfObjects(Cell Cell, List<BaseObject*> allObjects)
+void Grid::resetLocationOfObjects(Cell Cell, List<BaseObject*> allObjects)
 {
 	for (size_t j = 0; j < Cell.listObjects.size(); j++)
 	{

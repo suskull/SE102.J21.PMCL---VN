@@ -128,7 +128,7 @@ void Player::update(float dt)
 		{
 			setAnimation(PLAYER_ACTION_STAND_UNSTOPPABLE);
 			if (getIsLastFrameAnimationDone())
-				numberofFrames +=2;
+				numberofFrames += 2;
 		}
 		else
 			setAnimation(PLAYER_ACTION_STAND);
@@ -148,10 +148,10 @@ void Player::update(float dt)
 			setPlayerState(PLAYER_STATE_CLIMB);*/
 		else if (key->isAttackDown)
 		{
-		
+
 			setPlayerState(PLAYER_STATE_ATTACK);
 		}
-			
+
 		else if (key->isSubWeaponDown)
 		{
 			if (getCurrentSubWeapon() == SUBWEAPON_NULL)
@@ -162,22 +162,22 @@ void Player::update(float dt)
 				Sound::getInstance()->loadSound("resource/sound/shuriken.wav", "shuriken");
 				Sound::getInstance()->play("shuriken", false, 1);
 			}
-				
+
 			if (getCurrentSubWeapon() == SUBWEAPON_FIREWHEEL)
 			{
 				setPlayerState(PLAYER_STATE_FLAME1);
 				Sound::getInstance()->loadSound("resource/sound/flame.wav", "flame");
 				Sound::getInstance()->play("flame", false, 1);
-				
+
 			}
-			
+
 			if (getCurrentSubWeapon() == SUBWEAPON_WINDMILLSHURIKEN)
 			{
 				setPlayerState(PLAYER_STATE_WINDMILLSHURIKEN);
 				Sound::getInstance()->loadSound("resource/sound/shuriken1.wav", "shuriken1");
 				Sound::getInstance()->play("shuriken1", false, 1);
 			}
-				
+
 		}
 
 		else if (key->isDownDown)
@@ -204,7 +204,7 @@ void Player::update(float dt)
 		else if (key->isFlameDown3)
 		{
 
-			
+
 			setPlayerState(PLAYER_STATE_FLAME3);
 			Sound::getInstance()->loadSound("resource/sound/flame.wav", "flame");
 			Sound::getInstance()->play("flame", false, 1);
@@ -252,7 +252,7 @@ void Player::update(float dt)
 			setAnimation(PLAYER_ACTION_STOP_CLIMB);
 			setY(132);
 		}
-			
+
 		if (key->isUpDown)
 		{
 			setVy(GLOBALS_D("player_climb_vy"));
@@ -278,7 +278,7 @@ void Player::update(float dt)
 			setVy(0);
 			setAnimation(PLAYER_ACTION_STOP_CLIMB);
 		}
-			
+
 		break;
 		//gần xong
 	case PLAYER_STATE_ATTACK: {
@@ -294,7 +294,7 @@ void Player::update(float dt)
 			isAttacked = true;
 			Sound::getInstance()->loadSound("resource/sound/attack.wav", "attack");
 			Sound::getInstance()->play("attack", false, 1);
-			
+
 		}
 		if (getIsLastFrameAnimationDone())
 		{
@@ -342,7 +342,7 @@ void Player::update(float dt)
 				ws->setX(this->getX() + getWidthCurrentFrame() * getDirection());
 				this->setVx(0);
 				ws->setY(this->getY() - 5);
-				ws->setVx(GLOBALS_D("shuriken_vx")* getDirection());
+				ws->setVx(GLOBALS_D("shuriken_vx") * getDirection());
 				isAttacked = true;
 			}
 		}
@@ -366,8 +366,8 @@ void Player::update(float dt)
 		//xong
 	case PLAYER_STATE_SITATTACK:
 	{
-		
-	
+
+
 		if (!isAttacked)
 		{
 			Sword* sword = new Sword();
@@ -376,7 +376,7 @@ void Player::update(float dt)
 			Sound::getInstance()->loadSound("resource/sound/attack.wav", "attack");
 			Sound::getInstance()->play("attack", false, 1);
 			isAttacked = true;
-			
+
 		}
 		if (getIsLastFrameAnimationDone())
 		{
@@ -390,10 +390,10 @@ void Player::update(float dt)
 	{
 		setAy(GLOBALS_D("gravity_ay"));
 		setAnimation(PLAYER_ACTION_ROLL);
-	
+
 		setY(getY() - (getHeight() - getHeightCurrentFrame()));
 		setHeight(getHeightCurrentFrame());
-		
+
 		if (key->isLeftDown)
 			setVx(-vx * 2 / 3);
 		if (key->isRightDown)
@@ -423,7 +423,7 @@ void Player::update(float dt)
 				fl->setX(this->getX() + getWidthCurrentFrame() * getDirection());
 				this->setVx(0);
 				fl->setY(this->getY() + 25);
-				fl->setVx(GLOBALS_D("flame_vx")* getDirection());
+				fl->setVx(GLOBALS_D("flame_vx") * getDirection());
 				fl->setVy(GLOBALS_D("flame_vy"));
 
 				isAttacked = true;
@@ -433,7 +433,7 @@ void Player::update(float dt)
 			setPlayerState(PLAYER_STATE_STAND);
 		break;
 	}
-	/*case PLAYER_STATE_FLAME2: {
+	case PLAYER_STATE_FLAME2: {
 		setAnimation(PLAYER_ACTION_SHURIKEN);
 		if (getFrameAnimation() == 1 && !isAttacked)
 		{
@@ -487,7 +487,7 @@ void Player::update(float dt)
 		if (getIsLastFrameAnimationDone())
 			setPlayerState(PLAYER_STATE_STAND);
 		break;
-	}*/
+	}
 	case PLAYER_STATE_INJURED:
 		setPhysicsEnable(true);
 		setAy(GLOBALS_D("gravity_ay"));
@@ -506,7 +506,7 @@ void Player::update(float dt)
 		setDx(0);
 		setDy(0);
 		isReseting = true;
-		
+
 
 		if (scoreBar->getDieTime() <= 0)
 		{
@@ -523,6 +523,7 @@ void Player::update(float dt)
 			{
 				// còn mạng thì quay về map HIỆN TẠI
 				scoreBar->decreasePlayerLife();
+				scoreBar->setTime(GLOBALS_D("time_per_stage"));
 				mapManager->setCurrentMap(mapManager->getCurrentMapIndex());
 
 				setX(MapManager::getInstance()->getCurrentMap()->playerX);
@@ -542,16 +543,11 @@ void Player::update(float dt)
 			scoreBar->setIsPauseGame(false);
 		}
 
-		
+
 		break;
 	}
-
 	}
-
-	
-
 	PhysicsObject::update(dt);
-
 }
 
 
@@ -616,7 +612,6 @@ Player::Player()
 
 	setCurrentSubWeapon(SUBWEAPON_NULL);
 	//setCurrentSubWeapon(SUBWEAPON_SHURIKEN);
-	
 	
 }
 

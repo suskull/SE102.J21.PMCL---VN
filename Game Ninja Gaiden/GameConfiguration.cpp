@@ -19,6 +19,10 @@ double GameConfiguration::GetConfiguration(const char * key)
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("fps", 70));
 
+		//---------------------------------SCOREBAR-------------------------------------
+		globalsConfigurationDouble->insert(pair<const char*, double>("time_per_stage", 150));
+		globalsConfigurationDouble->insert(pair<const char*, double>("maximun_player_life", 2));
+
 		//---------------------------------PLAYER-------------------------------------
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_vx", 100));
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_roll", 250));

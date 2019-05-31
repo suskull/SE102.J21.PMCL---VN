@@ -18,13 +18,13 @@ class ScoreBar
 	GameTexture* scoreBar;
 	Sprite* itemsInScoreBar;
 	static ScoreBar* instance;
-	SCORE_LOCATION scoreLocation; //
-	SCORE_LOCATION timeLocation; //
-	SCORE_LOCATION playerLifeLocation; //
+	SCORE_LOCATION scoreLocation; 
+	SCORE_LOCATION timeLocation; 
+	SCORE_LOCATION playerLifeLocation; 
 	SCORE_LOCATION spiritualStrenghLocation;
 
 	SCORE_LOCATION subWeaponLocation;
-	SCORE_LOCATION stageLocation; //
+	SCORE_LOCATION stageLocation; 
 	SCORE_LOCATION playerHealthLocation;
 	SCORE_LOCATION bossHealthLocation;
 

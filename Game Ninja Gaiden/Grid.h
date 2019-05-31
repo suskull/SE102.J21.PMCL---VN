@@ -18,7 +18,7 @@ public:
 	~Grid();
 	void addListObjects(Cell Cell, List<BaseObject*> allObjects, List<BaseObject*>& objectsInCamera);
 	void removeListObjects(Cell Cell, List<BaseObject*> allObjects, List<BaseObject*>& objectsInCamera);
-	void resetLocationAndStateOfObjects(Cell Cell, List<BaseObject*> allObjects);
+	void resetLocationOfObjects(Cell Cell, List<BaseObject*> allObjects);
 	void resetlistCells();
 };
 

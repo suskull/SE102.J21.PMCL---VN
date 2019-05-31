@@ -104,7 +104,6 @@ void ScoreBar::decreaseTime(int time)
 		//hết thời gian pause thì cho chuyển động bt.
 		if (pauseTime <= 0)
 		{
-			//Sound::getInstance()->stop("item_clock");
 			player->setMakeEnemyPause(false);
 		}
 	}
@@ -309,8 +308,8 @@ void ScoreBar::increaseScore(int score)
 void ScoreBar::resetScoreGame()
 {
 	setScore(0);
-	setTime(151);
-	setPlayerLife(2);
+	setTime(GLOBALS_D("time_per_stage"));
+	setPlayerLife(GLOBALS_D("maximun_player_life"));
 
 	setCurrentStageNumber(1);
 	setPlayerHealth(playerHealthLocation.MaxLength);

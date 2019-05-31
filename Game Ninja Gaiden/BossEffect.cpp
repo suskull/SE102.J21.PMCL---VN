@@ -32,7 +32,6 @@ BossEffect::BossEffect()
 {
 	setSprite(SPR(SPRITE_BOSS_EFFECT));
 	setPhysicsEnable(false);
-	//setCollisionType(COLLISION)
 }
 
 

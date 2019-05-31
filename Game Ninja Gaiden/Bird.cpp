@@ -16,8 +16,8 @@ void Bird::update(float dt)
 			setBirdState(BIRD_STATE_PREPARE);
 		break;
 	case BIRD_STATE_PREPARE:
-		setVy(player->getY() - getY() - 80);
-		setVx(player->getX() - getX() - 80);
+		setVy(player->getY() - getY() - 100);
+		setVx(player->getX() - getX() - 100);
 		if (player->getY() - getY() > 10 && player->getY() - getY() > 10)
 		{
 			setAx(80);
@@ -44,7 +44,7 @@ void Bird::update(float dt)
 		break;
 	case BIRD_STATE_SLOW_DOWN_RIGHT:
 		followPlayer();
-		if (getMidY() >= 55)
+		if (getMidY() >= 60)
 		{
 			setVy(-50);
 			setVx(50);
