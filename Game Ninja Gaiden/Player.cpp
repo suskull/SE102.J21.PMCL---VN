@@ -93,7 +93,7 @@ void Player::update(float dt)
 	auto key = KEY::getInstance();
 
 
-	if ((!getAlive() || ScoreBar::getInstance()->getPlayerHealth() == 0) && !isReseting)
+	if ((!getAlive() ) && !isReseting)
 	{
 
 		Sound::getInstance()->loadSound("resource/sound/player_die.wav", "player_die");
@@ -106,11 +106,23 @@ void Player::update(float dt)
 	
 	}
 
-	
+	if (unstoppable)
+	{
+		if (getIsRender())
+		{
+			setIsRender(false);
+			numberofFrames += 1;
+		}
+		else
+		{
+			setIsRender(true);
+		}
+	}
 	//số frame tối đa của state unstoppable.
-	if (numberofFrames > 8)
+	if (numberofFrames > 20)
 	{
 		unstoppable = false;
+		setIsRender(true);
 		numberofFrames = 0;
 	}
 		
@@ -123,15 +135,7 @@ void Player::update(float dt)
 		setHeight(getHeightCurrentFrame());
 		isAttacked = false;
 
-		//trường hợp vừa bị injured xong.
-		if (unstoppable)
-		{
-			setAnimation(PLAYER_ACTION_STAND_UNSTOPPABLE);
-			if (getIsLastFrameAnimationDone())
-				numberofFrames += 2;
-		}
-		else
-			setAnimation(PLAYER_ACTION_STAND);
+		setAnimation(PLAYER_ACTION_STAND);
 
 		if (key->isLeftDown) {
 			setDirection(DIRECTION_LEFT);
@@ -223,15 +227,7 @@ void Player::update(float dt)
 	{
 		setY(getY() - (getHeight() - getHeightCurrentFrame()));
 		setHeight(getHeightCurrentFrame());
-
-		if (unstoppable)
-		{
-			setAnimation(PLAYER_ACTION_RUN_UNSTOPPABLE);
-			if (getIsLastFrameAnimationDone())
-				numberofFrames += 6;
-		}
-		else
-			setAnimation(PLAYER_ACTION_RUN);
+		setAnimation(PLAYER_ACTION_RUN);
 
 		if (!key->isLeftDown && !key->isRightDown)
 			setPlayerState(PLAYER_STATE_STAND);
