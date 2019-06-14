@@ -376,7 +376,7 @@ MapManager::MapManager()
 
 		listMap._Add(map);
 	}
-	setCurrentMap(0);
+	setCurrentMap(1);
 
 	//do mới khởi tạo
 	isChangeMap = false;

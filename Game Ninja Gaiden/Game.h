@@ -22,15 +22,7 @@ class Game
 {
 	static Game* instance;
 
-	int currentIndex;
-
-	int currentAnimation;
-
 	GameTime timeDelay;
-	
-	Sprite sprite;
-
-	int x, y;
 
 public:
 	static Game* getInstance();
